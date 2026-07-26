@@ -23,3 +23,54 @@ body{
     padding:30px;
 
 }
+
+#topbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:30px;
+}
+
+button{
+
+    background:#3366ff;
+
+    color:white;
+
+    border:none;
+
+    border-radius:8px;
+
+    padding:12px 20px;
+
+    cursor:pointer;
+
+}
+
+button:hover{
+
+    opacity:.85;
+
+}
+
+#banner{
+
+    height:220px;
+
+    background:#222;
+
+    border-radius:12px;
+
+    margin-bottom:30px;
+
+}
+
+#summon{
+
+    display:flex;
+
+    gap:15px;
+
+    margin-bottom:40px;
+
+}
