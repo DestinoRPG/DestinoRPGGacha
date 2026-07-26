@@ -1,3 +1,5 @@
+console.log("main.js cargado");
+
 import { createUI } from "./ui.js";
 import { login, observeUser } from "./auth.js";
 
