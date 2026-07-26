@@ -1,44 +1,22 @@
 export function createUI(){
 
-    document.getElementById("app").innerHTML = `
+document.getElementById("app").innerHTML=`
 
-<header id="topbar">
+<header>
 
-    <h1>Destino RPG Gacha</h1>
+<h1>Destino RPG Gacha</h1>
 
-    <button id="loginButton">
-        Iniciar sesión
-    </button>
+<div id="userArea">
+
+<button id="loginButton">
+
+Iniciar sesión
+
+</button>
+
+</div>
 
 </header>
-
-<main>
-
-<section id="banner">
-
-</section>
-
-<section id="summon">
-
-    <button id="summon1">
-
-        Invocar x1
-
-    </button>
-
-    <button id="summon10">
-
-        Invocar x10
-
-    </button>
-
-</section>
-
-<section id="collection">
-
-</section>
-
-</main>
 
 `;
 
