@@ -1,27 +1,50 @@
 import { createUI } from "./ui.js";
 import { login, observeUser } from "./firebase/auth.js";
+import { createOrLoadUser } from "./services/userService.js";
 
-window.addEventListener("DOMContentLoaded",()=>{
+window.addEventListener("DOMContentLoaded", () => {
 
     createUI();
 
     document
         .getElementById("loginButton")
-        .addEventListener("click",login);
+        .addEventListener("click", async () => {
 
-    observeUser(user=>{
+            try {
+                await login();
+            } catch (error) {
+                console.error("Error al iniciar sesión:", error);
+            }
 
-        if(user){
+        });
 
-            document.getElementById("userArea").innerHTML=`
+    observeUser(async (user) => {
 
-<img src="${user.photoURL}" width="40">
+        if (!user) {
 
-<span>${user.displayName}</span>
+            document.getElementById("userArea").innerHTML = `
+                <button id="loginButton">
+                    Iniciar sesión
+                </button>
+            `;
 
-`;
+            document
+                .getElementById("loginButton")
+                .addEventListener("click", login);
 
+            return;
         }
+
+        // Crear el usuario si es la primera vez
+        const profile = await createOrLoadUser(user);
+
+        // Mostrar datos del perfil
+        document.getElementById("userArea").innerHTML = `
+            <img src="${profile.photoURL}" width="40" style="border-radius:50%;vertical-align:middle;">
+            <span>${profile.displayName}</span>
+            <span>💎 ${profile.gems}</span>
+            <span>🎫 ${profile.tickets}</span>
+        `;
 
     });
 
