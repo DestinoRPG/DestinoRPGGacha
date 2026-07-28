@@ -13,8 +13,6 @@ export function renderSummonResult(card) {
 
             <h2>${card.title}</h2>
 
-            <p>${card.rarity}</p>
-
         </div>
     `;
 
