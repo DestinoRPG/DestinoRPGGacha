@@ -1,9 +1,15 @@
 import { createUI } from "./ui.js";
+import { renderUser } from "./ui/layout.js";
+import { renderBanner } from "./ui/banner.js";
+import { renderSummonResult } from "./ui/summon.js";
+
 import { login, observeUser } from "./firebase/auth.js";
+
 import { createOrLoadUser } from "./services/userService.js";
-import { getEnabledEvents } from "./services/eventService.js";
-import { getAvailableCards } from "./services/gachaService.js";
 import { summon } from "./services/gachaService.js";
+import { getAvailableBannerCards } from "./services/bannerService.js";
+
+import { DEFAULT_BANNER } from "./config.js";
 
 window.addEventListener("DOMContentLoaded", () => {
 
@@ -38,44 +44,48 @@ window.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        // Crear el usuario si es la primera vez
+        // Crear o cargar usuario
         const profile = await createOrLoadUser(user);
-const availableCards = await getAvailableCards(
-    "hall_of_fame",
-    profile
-);
 
-document.getElementById("userArea").innerHTML += `
-    <br><br>
-    <button id="summonButton">
-        Invocar
-    </button>
-`;
+        // Mostrar perfil
+        document.getElementById("userArea").innerHTML = renderUser(profile);
 
-document.getElementById("summonButton").addEventListener("click", async () => {
+        // Obtener cartas disponibles
+        const availableCards = await getAvailableBannerCards(
+            DEFAULT_BANNER,
+            profile
+        );
 
-    const card = await summon("hall_of_fame", profile);
+        console.log("Cartas disponibles:", availableCards);
 
-    if (!card) {
-        alert("¡Ya has completado este banner!");
-        return;
-    }
+        // Mostrar banner
+        document.getElementById("bannerArea").innerHTML =
+            renderBanner(
+                "Hall of Fame",
+                availableCards
+            );
 
-    alert(`¡Has conseguido ${card.title}!`);
+        // Evento del botón
+        document
+            .getElementById("summonButton")
+            .addEventListener("click", async () => {
 
-    console.log(card);
+                const card = await summon(
+                    DEFAULT_BANNER,
+                    profile
+                );
 
-});
+                if (!card) {
+                    alert("¡Ya has completado este banner!");
+                    return;
+                }
 
-console.log("Cartas disponibles:", availableCards);
+                document.getElementById("resultArea").innerHTML =
+                    renderSummonResult(card);
 
-        // Mostrar datos del perfil
-        document.getElementById("userArea").innerHTML = `
-            <img src="${profile.photoURL}" width="40" style="border-radius:50%;vertical-align:middle;">
-            <span>${profile.displayName}</span>
-            <span>💎 ${profile.gems}</span>
-            <span>🎫 ${profile.tickets}</span>
-        `;
+                console.log(card);
+
+            });
 
     });
 

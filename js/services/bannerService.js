@@ -2,7 +2,7 @@ import { getEvent } from "./eventService.js";
 import { getAllCards } from "./cardService.js";
 
 /**
- * Devuelve todas las cartas que pertenecen a un banner.
+ * Devuelve todas las cartas de un banner.
  */
 export async function getBannerCards(eventId) {
 
@@ -17,4 +17,35 @@ export async function getBannerCards(eventId) {
     return cards.filter(card =>
         event.collections.includes(card.collection)
     );
+}
+
+/**
+ * Devuelve las cartas del banner que el usuario aún no posee.
+ */
+export async function getAvailableBannerCards(eventId, user) {
+
+    const bannerCards = await getBannerCards(eventId);
+
+    return bannerCards.filter(card =>
+        !user.ownedCards.includes(card.id)
+    );
+}
+
+/**
+ * Devuelve el progreso del usuario en un banner.
+ */
+export async function getBannerProgress(eventId, user) {
+
+    const bannerCards = await getBannerCards(eventId);
+
+    const owned = bannerCards.filter(card =>
+        user.ownedCards.includes(card.id)
+    );
+
+    return {
+        total: bannerCards.length,
+        owned: owned.length,
+        available: bannerCards.length - owned.length,
+        completed: owned.length === bannerCards.length
+    };
 }
