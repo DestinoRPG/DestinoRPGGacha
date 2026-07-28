@@ -1,48 +1,47 @@
+import { serverTimestamp } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
+
 import {
-    doc,
-    getDoc,
-    setDoc,
-    serverTimestamp
-} from "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
+    getDocument,
+    setDocument,
+    updateDocument
+} from "../firebase/firestore.js";
 
-import { db } from "../firebase/app.js";
+export async function createOrLoadUser(firebaseUser) {
 
-export async function createOrLoadUser(user) {
+    let user = await getDocument("users", firebaseUser.uid);
 
-    const ref = doc(db, "users", user.uid);
+    if (!user) {
 
-    const snap = await getDoc(ref);
+        user = {
+            uid: firebaseUser.uid,
+            displayName: firebaseUser.displayName,
+            email: firebaseUser.email,
+            photoURL: firebaseUser.photoURL,
 
-    if (snap.exists()) {
+            gems: 1000,
+            tickets: 10,
 
-        return snap.data();
+            ownedCards: [],
+
+            createdAt: serverTimestamp(),
+            lastLogin: serverTimestamp()
+        };
+
+        await setDocument("users", firebaseUser.uid, user);
+
+    } else {
+
+        await updateDocument("users", firebaseUser.uid, {
+            lastLogin: serverTimestamp()
+        });
+
+        user = await getDocument("users", firebaseUser.uid);
 
     }
 
-    const newUser = {
+    return user;
+}
 
-        uid: user.uid,
-
-        displayName: user.displayName,
-
-        email: user.email,
-
-        photoURL: user.photoURL,
-
-        gems: 1000,
-
-        tickets: 10,
-
-        ownedCards: [],
-
-        createdAt: serverTimestamp(),
-
-        lastLogin: serverTimestamp()
-
-    };
-
-    await setDoc(ref, newUser);
-
-    return newUser;
-
+export async function updateUser(uid, data) {
+    await updateDocument("users", uid, data);
 }
