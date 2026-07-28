@@ -2,7 +2,9 @@ import {
     doc,
     getDoc,
     setDoc,
-    updateDoc
+    updateDoc,
+    collection,
+    getDocs
 } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
 
 import { db } from "./app.js";
@@ -35,4 +37,19 @@ export async function setDocument(collection, id, data) {
 export async function updateDocument(collection, id, data) {
     const ref = doc(db, collection, id);
     await updateDoc(ref, data);
+}
+
+/**
+ * Obtiene todos los documentos de una colección.
+ */
+export async function getCollection(collectionName) {
+
+    const ref = collection(db, collectionName);
+
+    const snapshot = await getDocs(ref);
+
+    return snapshot.docs.map(doc => ({
+        id: doc.id,
+        ...doc.data()
+    }));
 }

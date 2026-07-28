@@ -3,16 +3,22 @@
         "id": "ff7",
         "title": "Final Fantasy VII",
         "collection": "hall_of_fame",
-        "rarity": "SSR",
+        "rarity": "SR",
         "image": "ff7.webp",
+        "series": "Final Fantasy",
+        "developer": "Square",
+        "releaseYear": 1997,
         "enabled": true
     },
     {
         "id": "chrono",
         "title": "Chrono Trigger",
         "collection": "hall_of_fame",
-        "rarity": "SSR",
+        "rarity": "SR",
         "image": "chrono.webp",
+        "series": "Chrono",
+        "developer": "Square",
+        "releaseYear": 1995,
         "enabled": true
     },
     {
@@ -21,6 +27,9 @@
         "collection": "hall_of_fame",
         "rarity": "SR",
         "image": "persona5.webp",
+        "series": "Persona",
+        "developer": "Atlus",
+        "releaseYear": 2016,
         "enabled": true
     }
 ]
