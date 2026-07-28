@@ -3,6 +3,7 @@ import { login, observeUser } from "./firebase/auth.js";
 import { createOrLoadUser } from "./services/userService.js";
 import { getEnabledEvents } from "./services/eventService.js";
 import { getAvailableCards } from "./services/gachaService.js";
+import { summon } from "./services/gachaService.js";
 
 window.addEventListener("DOMContentLoaded", () => {
 
@@ -41,8 +42,30 @@ window.addEventListener("DOMContentLoaded", () => {
         const profile = await createOrLoadUser(user);
 const availableCards = await getAvailableCards(
     "hall_of_fame",
-    profile.ownedCards
+    profile
 );
+
+document.getElementById("userArea").innerHTML += `
+    <br><br>
+    <button id="summonButton">
+        Invocar
+    </button>
+`;
+
+document.getElementById("summonButton").addEventListener("click", async () => {
+
+    const card = await summon("hall_of_fame", profile);
+
+    if (!card) {
+        alert("¡Ya has completado este banner!");
+        return;
+    }
+
+    alert(`¡Has conseguido ${card.title}!`);
+
+    console.log(card);
+
+});
 
 console.log("Cartas disponibles:", availableCards);
 
