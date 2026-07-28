@@ -45,3 +45,20 @@ export async function createOrLoadUser(firebaseUser) {
 export async function updateUser(uid, data) {
     await updateDocument("users", uid, data);
 }
+
+export async function addCardToUser(user, cardId) {
+
+    if (user.ownedCards.includes(cardId)) {
+        return user;
+    }
+
+    const updatedCards = [...user.ownedCards, cardId];
+
+    await updateUser(user.uid, {
+        ownedCards: updatedCards
+    });
+
+    user.ownedCards = updatedCards;
+
+    return user;
+}
