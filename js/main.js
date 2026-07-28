@@ -2,6 +2,7 @@ import { createUI } from "./ui.js";
 import { login, observeUser } from "./firebase/auth.js";
 import { createOrLoadUser } from "./services/userService.js";
 import { getEnabledEvents } from "./services/eventService.js";
+import { getAvailableCards } from "./services/gachaService.js";
 
 window.addEventListener("DOMContentLoaded", () => {
 
@@ -38,10 +39,12 @@ window.addEventListener("DOMContentLoaded", () => {
 
         // Crear el usuario si es la primera vez
         const profile = await createOrLoadUser(user);
-        const events = await getEnabledEvents();
+const availableCards = await getAvailableCards(
+    "hall_of_fame",
+    profile.ownedCards
+);
 
-console.log("Usuario:", profile);
-console.log("Eventos:", events);
+console.log("Cartas disponibles:", availableCards);
 
         // Mostrar datos del perfil
         document.getElementById("userArea").innerHTML = `
