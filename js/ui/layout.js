@@ -27,6 +27,10 @@ export function renderUser(user) {
         <div id="bannerArea"></div>
 
         <div id="resultArea"></div>
+
+        <hr>
+
+        <div id="collectionArea"></div>
     `;
 }
 

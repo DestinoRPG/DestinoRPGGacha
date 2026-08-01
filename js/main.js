@@ -8,6 +8,8 @@ import { login, observeUser } from "./firebase/auth.js";
 import { createOrLoadUser } from "./services/userService.js";
 import { summon } from "./services/gachaService.js";
 import { getAvailableBannerCards } from "./services/bannerService.js";
+import { getAllCards } from "./services/cardService.js";
+import { renderCollection } from "./ui/collection.js";
 
 import { DEFAULT_BANNER } from "./config.js";
 
@@ -65,6 +67,14 @@ window.addEventListener("DOMContentLoaded", () => {
                 availableCards
             );
 
+           const allCards = await getAllCards();
+
+document.getElementById("collectionArea").innerHTML =
+    renderCollection(
+        allCards,
+        profile
+    ); 
+
         // Evento del botón
         document
             .getElementById("summonButton")
@@ -84,6 +94,14 @@ window.addEventListener("DOMContentLoaded", () => {
                     renderSummonResult(card);
 
                 console.log(card);
+
+                const updatedCards = await getAllCards();
+
+document.getElementById("collectionArea").innerHTML =
+    renderCollection(
+        updatedCards,
+        profile
+    );
 
             });
 
