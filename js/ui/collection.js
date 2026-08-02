@@ -1,3 +1,5 @@
+import { renderCard } from "./card.js";
+
 export function renderCollection(cards, user) {
 
     let html = `
@@ -8,21 +10,10 @@ export function renderCollection(cards, user) {
 
     for (const card of cards) {
 
-        const owned = user.ownedCards.includes(card.id);
-
-        html += `
-            <div class="collection-card">
-
-                <img
-    src="${card.image}"
-    alt="${card.title}"
-    class="${owned ? "" : "locked-card"}"
->
-
-                <h3>${card.title}</h3>
-
-            </div>
-        `;
+        html += renderCard(
+            card,
+            user.ownedCards.includes(card.id)
+        );
 
     }
 

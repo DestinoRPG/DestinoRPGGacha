@@ -75,6 +75,8 @@ document.getElementById("collectionArea").innerHTML =
         profile
     ); 
 
+    setupCollectionEvents(allCards);
+
         // Evento del botón
         document
             .getElementById("summonButton")

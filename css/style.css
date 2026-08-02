@@ -101,34 +101,52 @@ margin-top:20px;
 
 }
 
-.collection-card{
+.card{
 
-border:1px solid #ccc;
-padding:10px;
-border-radius:8px;
-background:white;
-text-align:center;
+    background:#fff;
 
-}
+    border-radius:10px;
 
-.collection-card img{
+    overflow:hidden;
 
-width:100%;
-height:auto;
-display:block;
-border-radius:6px;
+    cursor:pointer;
+
+    transition:.2s;
+
+    box-shadow:0 2px 8px rgba(0,0,0,.15);
 
 }
 
-.collection-card h3{
+.card:hover{
 
-font-size:16px;
-margin-top:10px;
+    transform:translateY(-4px);
 
 }
 
-.locked-card{
+.card img{
 
-filter: grayscale(100%) brightness(35%);
+    width:100%;
+
+    display:block;
+
+    aspect-ratio:2/1;
+
+    object-fit:cover;
+
+}
+
+.card-title{
+
+    padding:10px;
+
+    font-weight:bold;
+
+    text-align:center;
+
+}
+
+.locked-card img{
+
+    filter:grayscale(100%) brightness(.35);
 
 }

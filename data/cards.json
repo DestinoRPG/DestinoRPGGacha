@@ -7,6 +7,7 @@
         "series": "Final Fantasy",
         "developer": "Square",
         "releaseYear": 1997,
+        "description": "",
         "enabled": true
     },
     {
@@ -17,6 +18,7 @@
         "series": "Chrono",
         "developer": "Square",
         "releaseYear": 1995,
+        "description": "",
         "enabled": true
     },
     {
@@ -27,6 +29,7 @@
         "series": "Persona",
         "developer": "Atlus",
         "releaseYear": 2016,
+        "description": "",
         "enabled": true
     }
 ]

@@ -31,6 +31,8 @@ export function renderUser(user) {
         <hr>
 
         <div id="collectionArea"></div>
+
+        <div id="modalArea"></div>
     `;
 }
 
