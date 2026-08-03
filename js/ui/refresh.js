@@ -36,7 +36,7 @@ document.getElementById("profileArea").innerHTML =
     );
 
 document.getElementById("bannerArea").innerHTML =
-    renderBanner();
+    renderBanner(profile);
 
     document.getElementById("collectionArea").innerHTML =
         renderCollection(

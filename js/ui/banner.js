@@ -1,6 +1,23 @@
-export function renderBanner() {
+import { COLLECTIONS } from "../data/collections.js";
+
+export function renderBanner(user) {
+
+    const collections = COLLECTIONS
+        .filter(collection => collection.enabled)
+        .map(collection => `
+
+            <div class="banner-collection">
+
+                ${collection.icon}
+                <span>${collection.name}</span>
+
+            </div>
+
+        `)
+        .join("");
 
     return `
+
         <div class="banner">
 
             <div class="banner-image">
@@ -28,35 +45,24 @@ export function renderBanner() {
 
                 <div class="banner-collections">
 
-                    <div class="banner-collection">
-
-                        ⭐ Salón de la Fama
-
-                    </div>
-
-                    <div class="banner-collection">
-
-                        👥 Administradores
-
-                    </div>
-
-                    <div class="banner-collection">
-
-                        ✍️ Colaboradores
-
-                    </div>
+                    ${collections}
 
                 </div>
 
-                <button id="summonButton">
+                <button
+                    id="summonButton"
+                    ${user.tickets <= 0 ? "disabled" : ""}
 
-                    Invocar
+                >
+
+                    🎫 Invocar (${user.tickets})
 
                 </button>
 
             </div>
 
         </div>
+
     `;
 
 }
