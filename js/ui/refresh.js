@@ -1,17 +1,17 @@
 import { renderBanner } from "./banner.js";
 import { renderCollection } from "./collection.js";
-import { renderCollectionProgress } from "./profile.js";
-
-import { initializeCardEvents } from "./events.js";
-import { DEFAULT_BANNER } from "../config.js";
-
-import { getAllCards } from "../services/cardService.js";
-import { getAvailableBannerCards } from "../services/bannerService.js";
 
 import {
     renderProfile,
     renderCollectionProgress
 } from "./profile.js";
+
+import { initializeCardEvents } from "./events.js";
+
+import { DEFAULT_BANNER } from "../config.js";
+
+import { getAllCards } from "../services/cardService.js";
+import { getAvailableBannerCards } from "../services/bannerService.js";
 
 export async function refreshUI(profile) {
 
