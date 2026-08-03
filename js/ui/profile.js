@@ -20,13 +20,7 @@ export function renderProfile(user, progressHtml = "") {
 
                 <div class="currency">
 
-                    💎 ${user.gems}
-
-                </div>
-
-                <div class="currency">
-
-                    🎫 ${user.tickets}
+                    🎫 ${user.tickets} ticket${user.tickets === 1 ? "" : "s"}
 
                 </div>
 

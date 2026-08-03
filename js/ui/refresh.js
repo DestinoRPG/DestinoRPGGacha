@@ -35,10 +35,8 @@ document.getElementById("profileArea").innerHTML =
         progress
     );
 
-    document.getElementById("bannerArea").innerHTML =
-        renderBanner(
-            availableCards
-        );
+document.getElementById("bannerArea").innerHTML =
+    renderBanner();
 
     document.getElementById("collectionArea").innerHTML =
         renderCollection(

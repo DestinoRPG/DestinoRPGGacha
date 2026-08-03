@@ -18,7 +18,6 @@ export async function createOrLoadUser(firebaseUser) {
             email: firebaseUser.email,
             photoURL: firebaseUser.photoURL,
 
-            gems: 1000,
             tickets: 10,
 
             ownedCards: [],
@@ -48,20 +47,16 @@ export async function updateUser(uid, data) {
 
 export async function addCardToUser(user, cardId) {
 
-    // Si ya posee la carta, no hacemos nada.
     if (user.ownedCards.includes(cardId)) {
         return user;
     }
 
-    // Añadir la carta y mantener el array ordenado.
     const updatedCards = [...user.ownedCards, cardId].sort();
 
-    // Guardar en Firestore.
     await updateUser(user.uid, {
         ownedCards: updatedCards
     });
 
-    // Actualizar también el objeto local.
     user.ownedCards = [...updatedCards];
 
     return user;

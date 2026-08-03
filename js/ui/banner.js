@@ -1,4 +1,4 @@
-export function renderBanner(availableCards) {
+export function renderBanner() {
 
     return `
         <div class="banner">
@@ -22,17 +22,27 @@ export function renderBanner(availableCards) {
 
                 <p>
 
-                    Contiene cartas de todas las colecciones disponibles.
+                    Contiene cartas de todas las colecciones permanentes.
 
                 </p>
 
-                <div class="banner-info">
+                <div class="banner-collections">
 
-                    <div>
+                    <div class="banner-collection">
 
-                        <strong>${availableCards.length}</strong>
+                        ⭐ Salón de la Fama
 
-                        cartas por descubrir
+                    </div>
+
+                    <div class="banner-collection">
+
+                        👥 Administradores
+
+                    </div>
+
+                    <div class="banner-collection">
+
+                        ✍️ Colaboradores
 
                     </div>
 
