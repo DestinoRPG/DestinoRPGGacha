@@ -57,31 +57,54 @@ window.addEventListener("DOMContentLoaded", () => {
         // Invocar
         // =========================
 
-        document
-            .getElementById("summonButton")
-            .addEventListener("click", async () => {
+document
+    .getElementById("summonButton")
+    .addEventListener("click", async () => {
 
-                const card = await summon(
-                    DEFAULT_BANNER,
-                    profile
-                );
 
-                if (!card) {
+        const result = await summon(
+            DEFAULT_BANNER,
+            profile
+        );
 
-                    document.getElementById("resultArea").innerHTML = `
-                        <h2>¡Colección completada!</h2>
-                    `;
 
-                    return;
+        if (!result.success) {
 
-                }
 
-                document.getElementById("resultArea").innerHTML =
-                    renderSummonResult(card);
+            if (result.reason === "NO_TICKETS") {
 
-                await refreshUI(profile);
+                document.getElementById("resultArea").innerHTML = `
+                    <h2>No tienes tickets disponibles</h2>
+                    <p>Vuelve mañana para conseguir más.</p>
+                `;
 
-            });
+            }
+
+
+            if (result.reason === "COLLECTION_COMPLETE") {
+
+                document.getElementById("resultArea").innerHTML = `
+                    <h2>¡Colección completada!</h2>
+                `;
+
+            }
+
+
+            return;
+
+        }
+
+
+        document.getElementById("resultArea").innerHTML =
+            renderSummonResult(
+                result.card
+            );
+
+
+        await refreshUI(profile);
+
+
+    });
 
     });
 

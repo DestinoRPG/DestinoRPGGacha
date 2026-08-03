@@ -143,6 +143,16 @@ header{
 
 }
 
+.profile-member{
+
+    margin:6px 0 14px;
+
+    color:#777;
+
+    font-size:.9rem;
+
+}
+
 .profile-currency{
 
     display:flex;

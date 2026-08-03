@@ -1,3 +1,21 @@
+function formatJoinDate(timestamp) {
+
+    if (!timestamp) {
+        return "";
+    }
+
+    const date = timestamp.toDate();
+
+    return date.toLocaleDateString(
+        "es-ES",
+        {
+            month: "long",
+            year: "numeric"
+        }
+    );
+
+}
+
 export function renderProfile(user, progressHtml = "") {
 
     return `
@@ -15,6 +33,12 @@ export function renderProfile(user, progressHtml = "") {
                 ${user.displayName}
 
             </h2>
+
+            <p class="profile-member">
+
+    Coleccionista desde ${formatJoinDate(user.createdAt)}
+
+</p>
 
             <div class="profile-currency">
 
