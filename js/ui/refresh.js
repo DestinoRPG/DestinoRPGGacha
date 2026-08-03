@@ -1,5 +1,4 @@
 import { renderBanner } from "./banner.js";
-import { renderCollection } from "./collection.js";
 
 import {
     renderProfile,
