@@ -1,0 +1,1 @@
+export const DEFAULT_BANNER = "hall_of_fame";
