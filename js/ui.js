@@ -1,27 +1,27 @@
-export function createUI(){
+export function createUI() {
 
-document.getElementById("app").innerHTML=`
+    document.getElementById("app").innerHTML = `
 
-<header>
+        <header>
 
-<img
-    src="images/logo-gacha.webp"
-    id="mainLogo"
-    alt="Destino RPG Gacha"
->
+            <img
+                id="mainLogo"
+                src="images/logo-gacha.webp"
+                alt="Destino RPG Gacha"
+            >
 
-<div id="userArea">
+        </header>
 
-<button id="loginButton">
+        <div id="userArea">
 
-Iniciar sesión
+            <button id="loginButton">
 
-</button>
+                Iniciar sesión
 
-</div>
+            </button>
 
-</header>
+        </div>
 
-`;
+    `;
 
 }
