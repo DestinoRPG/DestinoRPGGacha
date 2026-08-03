@@ -44,6 +44,9 @@ document.getElementById("bannerArea").innerHTML =
             profile
         );
 
-    initializeCardEvents(allCards);
+    initializeCardEvents(
+    allCards,
+    profile
+);
 
 }

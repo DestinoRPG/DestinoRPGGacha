@@ -1,6 +1,6 @@
 import { renderModal } from "./modal.js";
 
-export function initializeCardEvents(cards) {
+export function initializeCardEvents(cards, profile) {
 
     document.querySelectorAll(".card").forEach(cardElement => {
 
@@ -10,8 +10,10 @@ export function initializeCardEvents(cards) {
                 c.id === cardElement.dataset.card
             );
 
+            const owned = profile.ownedCards.includes(card.id);
+
             document.getElementById("modalArea").innerHTML =
-                renderModal(card);
+                renderModal(card, owned);
 
             document
                 .getElementById("closeModal")
