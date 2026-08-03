@@ -16,11 +16,23 @@ body{
 
 #app{
 
-    max-width:1100px;
+    max-width:700px;
 
-    margin:40px auto;
+    margin:0 auto;
 
     padding:20px;
+
+    box-sizing:border-box;
+
+}
+
+hr{
+
+    margin:35px 0;
+
+    border:none;
+
+    border-top:1px solid #ddd;
 
 }
 
@@ -46,6 +58,8 @@ header h1{
 
     font-size:2rem;
 
+    color:#2c4a67;
+
 }
 
 /* ========================= */
@@ -54,33 +68,129 @@ header h1{
 
 #profile{
 
-    display:flex;
-
-    align-items:center;
-
-    justify-content:space-between;
-
     background:white;
 
     border-radius:14px;
 
-    padding:18px 22px;
+    padding:20px;
 
-    margin-bottom:30px;
+    margin-bottom:20px;
 
     box-shadow:0 3px 12px rgba(0,0,0,.08);
 
 }
 
-#profile img{
+.profile-header{
 
-    vertical-align:middle;
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
 
 }
 
-#profile strong{
+.profile-avatar{
 
-    font-size:1.1rem;
+    width:72px;
+
+    height:72px;
+
+    border-radius:50%;
+
+    flex-shrink:0;
+
+}
+
+.profile-data{
+
+    flex:1;
+
+}
+
+.profile-data h2{
+
+    margin:0 0 12px;
+
+    font-size:1.4rem;
+
+}
+
+.profile-currency{
+
+    display:flex;
+
+    gap:12px;
+
+}
+
+.currency{
+
+    background:#f4f4f4;
+
+    border-radius:8px;
+
+    padding:8px 14px;
+
+    font-weight:bold;
+
+}
+
+/* ========================= */
+/* PROGRESO */
+/* ========================= */
+
+.collection-progress{
+
+    margin-bottom:30px;
+
+}
+
+.progress-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    font-weight:bold;
+
+    margin-bottom:8px;
+
+}
+
+.progress-bar{
+
+    width:100%;
+
+    height:10px;
+
+    background:#ddd;
+
+    border-radius:999px;
+
+    overflow:hidden;
+
+}
+
+.progress-fill{
+
+    height:100%;
+
+    background:#007efc;
+
+    transition:.4s;
+
+}
+
+.progress-percentage{
+
+    margin-top:8px;
+
+    text-align:right;
+
+    color:#666;
+
+    font-size:.9rem;
 
 }
 
@@ -100,6 +210,8 @@ header h1{
 
     box-shadow:0 3px 12px rgba(0,0,0,.08);
 
+    text-align:center;
+
 }
 
 .banner h2{
@@ -110,7 +222,7 @@ header h1{
 
 .banner button{
 
-    padding:10px 22px;
+    padding:12px 26px;
 
     border:none;
 
@@ -124,6 +236,8 @@ header h1{
 
     font-weight:bold;
 
+    transition:.2s;
+
 }
 
 .banner button:hover{
@@ -136,16 +250,6 @@ header h1{
 /* COLECCIÓN */
 /* ========================= */
 
-.collection-grid{
-
-    display:grid;
-
-    grid-template-columns:repeat(auto-fill,minmax(160px,1fr));
-
-    gap:18px;
-
-}
-
 .collection-title{
 
     margin:40px 0 18px;
@@ -157,6 +261,16 @@ header h1{
     border-bottom:3px solid #007efc;
 
     padding-bottom:8px;
+
+}
+
+.collection-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fill,minmax(160px,1fr));
+
+    gap:18px;
 
 }
 
@@ -177,14 +291,14 @@ header h1{
     background:#000;
 
     transition:.25s;
-    
-    box-shadow: 0 3px 8px rgba(0,0,0,.12);
+
+    box-shadow:0 3px 8px rgba(0,0,0,.12);
 
 }
 
 .card:hover{
 
-    transform:translateY(-2px);
+    transform:translateY(-4px);
 
     box-shadow:0 12px 24px rgba(0,0,0,.22);
 
@@ -210,18 +324,6 @@ header h1{
 
 }
 
-.card-title{
-
-    color:white;
-
-    font-size:15px;
-
-    font-weight:bold;
-
-    text-shadow:0 2px 4px rgba(0,0,0,.9);
-
-}
-
 .card-overlay{
 
     position:absolute;
@@ -238,6 +340,18 @@ header h1{
         rgba(0,0,0,0),
         rgba(0,0,0,.88)
     );
+
+}
+
+.card-title{
+
+    color:white;
+
+    font-size:15px;
+
+    font-weight:bold;
+
+    text-shadow:0 2px 4px rgba(0,0,0,.9);
 
 }
 
@@ -265,51 +379,13 @@ header h1{
 
 }
 
-.article-list{
-
-    display:flex;
-
-    flex-direction:column;
-
-    gap:10px;
-
-    margin-top:15px;
-
-}
-
-.article-link{
-
-    display:block;
-
-    padding:12px;
-
-    background:#f3f3f3;
-
-    border-radius:8px;
-
-    text-decoration:none;
-
-    color:#222;
-
-    transition:.2s;
-
-}
-
-.article-link:hover{
-
-    background:#007efc;
-
-    color:white;
-
-}
-
 /* ========================= */
 /* RESULTADO */
 /* ========================= */
 
 #resultArea{
 
-    margin:25px 0;
+    margin:30px 0;
 
 }
 
@@ -323,7 +399,7 @@ header h1{
 
     inset:0;
 
-    background:rgba(0,0,0,.75);
+    background:rgba(0,0,0,.78);
 
     display:flex;
 
@@ -331,31 +407,37 @@ header h1{
 
     align-items:center;
 
+    padding:20px;
+
     z-index:9999;
 
 }
 
 .modal{
 
-    width:min(900px,90vw);
+    position:relative;
+
+    width:min(650px,100%);
 
     max-height:90vh;
 
     overflow:auto;
 
-    background:#fafafa;
+    background:white;
 
-    border-radius:14px;
+    border-radius:16px;
 
-    padding:25px;
+    padding:24px;
 
-    position:relative;
+    box-sizing:border-box;
 
 }
 
 .modal img{
 
     width:100%;
+
+    display:block;
 
     border-radius:10px;
 
@@ -365,7 +447,7 @@ header h1{
 
 .modal h2{
 
-    margin-top:0;
+    margin:0 0 18px;
 
 }
 
@@ -385,47 +467,79 @@ header h1{
 
     position:absolute;
 
-    top:12px;
+    top:15px;
 
-    right:12px;
+    right:15px;
 
-    width:38px;
+    width:40px;
 
-    height:38px;
+    height:40px;
 
     border:none;
 
     border-radius:50%;
 
-    background:#ddd;
+    background:white;
+
+    color:#222;
+
+    font-size:24px;
+
+    font-weight:bold;
 
     cursor:pointer;
 
-    font-size:18px;
+    box-shadow:0 3px 10px rgba(0,0,0,.25);
+
+    transition:.2s;
+
+    z-index:20;
 
 }
 
 #closeModal:hover{
 
-    background:#bbb;
-
-}
-
-.modal button{
-
-    margin-top:20px;
-
-    padding:10px 20px;
-
-    border:none;
-
-    border-radius:8px;
-
     background:#007efc;
 
     color:white;
 
-    font-weight:bold;
+}
+
+.article-list{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:10px;
+
+    margin-top:18px;
+
+}
+
+.article-link{
+
+    display:block;
+
+    padding:12px;
+
+    border-radius:8px;
+
+    background:#f4f4f4;
+
+    color:#222;
+
+    text-decoration:none;
+
+    transition:.2s;
+
+}
+
+.article-link:hover{
+
+    background:#007efc;
+
+    color:white;
 
 }
 
@@ -439,22 +553,36 @@ header h1{
 
         flex-direction:column;
 
+        align-items:flex-start;
+
         gap:20px;
+
+    }
+
+    .profile-header{
+
+        flex-direction:column;
 
         align-items:flex-start;
 
     }
 
-.collection-grid{
+    .profile-currency{
 
-    display:grid;
+        flex-wrap:wrap;
 
-    grid-template-columns:repeat(auto-fill,minmax(160px,1fr));
+    }
 
-    gap:22px;
+    .collection-grid{
 
-    margin-top:20px;
+        grid-template-columns:repeat(2,1fr);
 
-}
+    }
+
+    .card-info{
+
+        grid-template-columns:1fr;
+
+    }
 
 }

@@ -27,7 +27,11 @@ export function renderModal(card) {
                     alt="${card.title}"
                 >
 
-                <h2>${card.number.toString().padStart(3, "0")} · ${card.title}</h2>
+                <h2>
+
+    ${String(card.number).padStart(3, "0")} · ${card.title}
+
+</h2>
 
                 <div class="card-info">
 

@@ -6,6 +6,7 @@ export function renderCollectionProgress(title, owned, total) {
             : Math.round((owned / total) * 100);
 
     return `
+
         <div class="collection-progress">
 
             <div class="progress-header">
@@ -25,7 +26,14 @@ export function renderCollectionProgress(title, owned, total) {
 
             </div>
 
+            <div class="progress-percentage">
+
+                ${percentage}% completado
+
+            </div>
+
         </div>
+
     `;
 
 }

@@ -3,26 +3,29 @@ export function renderUser(user) {
     return `
         <div id="profile">
 
-            <div class="profile-user">
+            <div class="profile-header">
 
                 <img
+                    class="profile-avatar"
                     src="${user.photoURL}"
-                    width="64"
-                    height="64"
-                    style="border-radius:50%;"
+                    alt="${user.displayName}"
                 >
 
-                <div>
+                <div class="profile-data">
 
                     <h2>${user.displayName}</h2>
 
                     <div class="profile-currency">
 
-                        💎 ${user.gems}
+                        <div class="currency">
+                            💎
+                            <strong>${user.gems}</strong>
+                        </div>
 
-                        &nbsp;&nbsp;&nbsp;
-
-                        🎫 ${user.tickets}
+                        <div class="currency">
+                            🎫
+                            <strong>${user.tickets}</strong>
+                        </div>
 
                     </div>
 
@@ -45,7 +48,6 @@ export function renderUser(user) {
         <div id="collectionArea"></div>
 
         <div id="modalArea"></div>
-
     `;
 
 }
