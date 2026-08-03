@@ -43,6 +43,24 @@
     ],
         "enabled": true
     },
+            {
+        "id": "baldursgate3",
+        "number": 3,
+        "title": "Baldur's Gate III",
+        "collection": "hall_of_fame",
+        "image": "images/cards/bgiii.webp",
+        "series": "Baldur's Gate",
+        "developer": "Larian",
+        "releaseYear": 2023,
+        "description": "",
+        "articles": [
+                {
+            "title": "Análisis del Acceso Anticipado",
+            "url": "https://www.destinorpg.es/2020/10/early-access-baldurs-gate-iii.html"
+        }
+    ],
+        "enabled": true
+    },
     {
         "id": "chrono",
         "number": 6,
