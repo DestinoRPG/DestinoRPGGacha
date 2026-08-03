@@ -21,14 +21,14 @@ export async function refreshUI(profile) {
 
     document.getElementById("profileProgress").innerHTML =
         renderCollectionProgress(
-            "Hall of Fame",
+            "Salón de la Fama",
             profile.ownedCards.length,
             allCards.length
         );
 
     document.getElementById("bannerArea").innerHTML =
         renderBanner(
-            "Hall of Fame",
+            "Salón de la Fama",
             availableCards
         );
 
