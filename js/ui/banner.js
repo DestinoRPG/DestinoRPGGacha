@@ -1,18 +1,50 @@
-export function renderBanner(eventTitle, availableCards) {
+export function renderBanner(availableCards) {
 
     return `
         <div class="banner">
 
-            <h2>${eventTitle}</h2>
+            <div class="banner-image">
 
-            <p>
-                Cartas disponibles:
-                <strong>${availableCards.length}</strong>
-            </p>
+                <img
+                    src="images/banners/standard.webp"
+                    alt="Invocación estándar"
+                >
 
-            <button id="summonButton">
-                Invocar
-            </button>
+            </div>
+
+            <div class="banner-content">
+
+                <h2>
+
+                    Invocación estándar
+
+                </h2>
+
+                <p>
+
+                    Contiene cartas de todas las colecciones disponibles.
+
+                </p>
+
+                <div class="banner-info">
+
+                    <div>
+
+                        <strong>${availableCards.length}</strong>
+
+                        cartas por descubrir
+
+                    </div>
+
+                </div>
+
+                <button id="summonButton">
+
+                    Invocar
+
+                </button>
+
+            </div>
 
         </div>
     `;

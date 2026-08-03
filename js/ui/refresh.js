@@ -37,7 +37,6 @@ document.getElementById("profileArea").innerHTML =
 
     document.getElementById("bannerArea").innerHTML =
         renderBanner(
-            "Salón de la Fama",
             availableCards
         );
 
