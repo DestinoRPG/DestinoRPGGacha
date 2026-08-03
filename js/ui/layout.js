@@ -3,24 +3,36 @@ export function renderUser(user) {
     return `
         <div id="profile">
 
-            <img
-                src="${user.photoURL}"
-                width="48"
-                height="48"
-                style="border-radius:50%;vertical-align:middle;"
-            >
+            <div class="profile-user">
 
-            <strong style="margin-left:10px;">
-                ${user.displayName}
-            </strong>
+                <img
+                    src="${user.photoURL}"
+                    width="64"
+                    height="64"
+                    style="border-radius:50%;"
+                >
 
-            <div style="margin-top:8px;">
-                💎 ${user.gems}
-                &nbsp;&nbsp;
-                🎫 ${user.tickets}
+                <div>
+
+                    <h2>${user.displayName}</h2>
+
+                    <div class="profile-currency">
+
+                        💎 ${user.gems}
+
+                        &nbsp;&nbsp;&nbsp;
+
+                        🎫 ${user.tickets}
+
+                    </div>
+
+                </div>
+
             </div>
 
         </div>
+
+        <div id="profileProgress"></div>
 
         <hr>
 
@@ -33,20 +45,7 @@ export function renderUser(user) {
         <div id="collectionArea"></div>
 
         <div id="modalArea"></div>
-    `;
-}
 
-export function renderProgress(user, availableCards, totalCards) {
-
-    const ownedInBanner = totalCards - availableCards;
-
-    return `
-        <div class="banner-progress">
-
-            Colección:
-            <strong>${ownedInBanner} / ${totalCards}</strong>
-
-        </div>
     `;
 
 }

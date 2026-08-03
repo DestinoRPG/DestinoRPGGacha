@@ -1,20 +1,16 @@
 import { createUI } from "./ui.js";
 
 import { renderUser } from "./ui/layout.js";
-import { renderBanner } from "./ui/banner.js";
 import { renderSummonResult } from "./ui/summon.js";
-import { renderCollection } from "./ui/collection.js";
 
 import { login, observeUser } from "./firebase/auth.js";
 
 import { createOrLoadUser } from "./services/userService.js";
 import { summon } from "./services/gachaService.js";
-import { getAvailableBannerCards } from "./services/bannerService.js";
-import { getAllCards } from "./services/cardService.js";
 
 import { DEFAULT_BANNER } from "./config.js";
 
-import { initializeCardEvents } from "./ui/events.js";
+import { refreshUI } from "./ui/refresh.js";
 
 window.addEventListener("DOMContentLoaded", () => {
 
@@ -22,15 +18,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
     document
         .getElementById("loginButton")
-        .addEventListener("click", async () => {
-
-            try {
-                await login();
-            } catch (error) {
-                console.error(error);
-            }
-
-        });
+        .addEventListener("click", login);
 
     observeUser(async (user) => {
 
@@ -50,48 +38,24 @@ window.addEventListener("DOMContentLoaded", () => {
 
         }
 
-        // -------------------------
+        // =========================
         // Cargar usuario
-        // -------------------------
+        // =========================
 
         const profile = await createOrLoadUser(user);
+
+        // =========================
+        // Dibujar interfaz
+        // =========================
 
         document.getElementById("userArea").innerHTML =
             renderUser(profile);
 
-        // -------------------------
-        // Banner
-        // -------------------------
+        await refreshUI(profile);
 
-        const availableCards =
-            await getAvailableBannerCards(
-                DEFAULT_BANNER,
-                profile
-            );
-
-        document.getElementById("bannerArea").innerHTML =
-            renderBanner(
-                "Hall of Fame",
-                availableCards
-            );
-
-        // -------------------------
-        // Colección
-        // -------------------------
-
-        let allCards = await getAllCards();
-
-        document.getElementById("collectionArea").innerHTML =
-            renderCollection(
-                allCards,
-                profile
-            );
-
-        initializeCardEvents(allCards);
-
-        // -------------------------
+        // =========================
         // Invocar
-        // -------------------------
+        // =========================
 
         document
             .getElementById("summonButton")
@@ -115,15 +79,7 @@ window.addEventListener("DOMContentLoaded", () => {
                 document.getElementById("resultArea").innerHTML =
                     renderSummonResult(card);
 
-                allCards = await getAllCards();
-
-                document.getElementById("collectionArea").innerHTML =
-                    renderCollection(
-                        allCards,
-                        profile
-                    );
-
-                initializeCardEvents(allCards);
+                await refreshUI(profile);
 
             });
 
