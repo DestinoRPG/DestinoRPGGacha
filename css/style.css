@@ -278,21 +278,31 @@ header h1{
 /* CARTAS */
 /* ========================= */
 
+.collection-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:18px;
+
+}
+
 .card{
 
-    position:relative;
+    background:white;
 
-    overflow:hidden;
+    border:1px solid #d8d8d8;
 
     border-radius:12px;
 
-    cursor:pointer;
+    overflow:hidden;
 
-    background:#000;
+    cursor:pointer;
 
     transition:.25s;
 
-    box-shadow:0 3px 8px rgba(0,0,0,.12);
+    box-shadow:0 3px 8px rgba(0,0,0,.10);
 
 }
 
@@ -300,84 +310,95 @@ header h1{
 
     transform:translateY(-4px);
 
-    box-shadow:0 12px 24px rgba(0,0,0,.22);
+    box-shadow:0 12px 24px rgba(0,0,0,.18);
 
 }
 
-.card img{
+.card-header{
 
-    width:100%;
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:8px 10px;
+
+    border-bottom:1px solid #ececec;
+
+    background:#fafafa;
+
+}
+
+.card-logo{
+
+    height:18px;
+
+    width:auto;
 
     display:block;
+
+}
+
+.card-number{
+
+    font-size:12px;
+
+    font-weight:bold;
+
+    color:#666;
+
+}
+
+.card-image{
+
+    width:100%;
 
     aspect-ratio:2/1;
 
     object-fit:cover;
 
-    transition:transform .35s;
+    display:block;
 
 }
 
-.card:hover img{
+.card-footer{
 
-    transform:scale(1.08);
+    padding:10px;
 
-}
-
-.card-overlay{
-
-    position:absolute;
-
-    left:0;
-
-    right:0;
-
-    bottom:0;
-
-    padding:18px 12px 12px;
-
-    background:linear-gradient(
-        rgba(0,0,0,0),
-        rgba(0,0,0,.88)
-    );
+    text-align:center;
 
 }
 
 .card-title{
 
-    color:white;
-
-    font-size:15px;
+    font-size:13px;
 
     font-weight:bold;
 
-    text-shadow:0 2px 4px rgba(0,0,0,.9);
+    color:#222;
+
+    line-height:1.3;
+
+    min-height:34px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
 
 }
 
-.locked-card img{
 
-    filter:grayscale(100%) brightness(.28);
 
-}
+.locked-card{
 
-.card-lock{
-
-    position:absolute;
-
-    top:50%;
-
-    left:50%;
-
-    transform:translate(-50%,-50%);
-
-    font-size:42px;
-
-    text-shadow:0 3px 10px black;
-
-    pointer-events:none;
+    opacity:.92;
 
 }
+
+
 
 /* ========================= */
 /* RESULTADO */

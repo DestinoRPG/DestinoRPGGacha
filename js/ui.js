@@ -4,7 +4,11 @@ document.getElementById("app").innerHTML=`
 
 <header>
 
-<h1>Destino RPG Gacha</h1>
+<img
+    src="images/logo-gacha.webp"
+    id="mainLogo"
+    alt="Destino RPG Gacha"
+>
 
 <div id="userArea">
 
