@@ -1,5 +1,6 @@
 import { getAvailableBannerCards } from "./bannerService.js";
-import { addCardToUser, updateUser } from "./userService.js";
+import { addCardToUser } from "./userService.js";
+import { spendTickets } from "./rewardService.js";
 
 /**
  * Realiza una invocación.
@@ -16,12 +17,10 @@ export async function summon(eventId, user) {
 
     }
 
-
     const availableCards = await getAvailableBannerCards(
         eventId,
         user
     );
-
 
     // No quedan cartas disponibles
     if (availableCards.length === 0) {
@@ -33,42 +32,29 @@ export async function summon(eventId, user) {
 
     }
 
-
-    const randomIndex =
-        Math.floor(Math.random() * availableCards.length);
-
+    const randomIndex = Math.floor(
+        Math.random() * availableCards.length
+    );
 
     const card = availableCards[randomIndex];
 
+    // Gastar un ticket
+    const spent = await spendTickets(user);
 
-    // Gastar ticket
-    const remainingTickets = user.tickets - 1;
+    if (!spent) {
 
+        return {
+            success: false,
+            reason: "NO_TICKETS"
+        };
 
-console.log("UID:", user.uid);
-console.log("Tickets actuales:", user.tickets);
-console.log("Tickets a guardar:", remainingTickets);
-
-await updateUser(
-    user.uid,
-    {
-        tickets: remainingTickets
     }
-);
 
-console.log("Actualización enviada");
-
-
-    // Actualizar usuario local
-    user.tickets = remainingTickets;
-
-
-    // Añadir carta a colección
+    // Añadir carta a la colección
     await addCardToUser(
         user,
         card.id
     );
-
 
     return {
         success: true,

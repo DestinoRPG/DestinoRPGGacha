@@ -12,19 +12,21 @@ export async function createOrLoadUser(firebaseUser) {
 
     if (!user) {
 
-        user = {
-            uid: firebaseUser.uid,
-            displayName: firebaseUser.displayName,
-            email: firebaseUser.email,
-            photoURL: firebaseUser.photoURL,
+user = {
+    uid: firebaseUser.uid,
+    displayName: firebaseUser.displayName,
+    email: firebaseUser.email,
+    photoURL: firebaseUser.photoURL,
 
-            tickets: 10,
+    tickets: 10,
 
-            ownedCards: [],
+    ownedCards: [],
 
-            createdAt: serverTimestamp(),
-            lastLogin: serverTimestamp()
-        };
+    claimedRewards: {},
+
+    createdAt: serverTimestamp(),
+    lastLogin: serverTimestamp()
+};
 
         await setDocument("users", firebaseUser.uid, user);
 
