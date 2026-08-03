@@ -3,7 +3,7 @@ import { renderCard } from "./card.js";
 export function renderCollection(cards, user) {
 
     let html = `
-        <h2>Hall of Fame</h2>
+        <h2>Salón de la Fama</h2>
 
         <div class="collection-grid">
     `;

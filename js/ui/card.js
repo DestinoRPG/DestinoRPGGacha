@@ -4,18 +4,15 @@ export function renderCard(card, owned = true) {
         ? card.image
         : "images/card-back.webp";
 
-const number = owned
-    ? String(card.number).padStart(3, "0")
-    : "???";
+    const number = owned
+        ? String(card.number).padStart(3, "0")
+        : "???";
 
     const title = owned
         ? card.title
-        : "Sin descubrir";
-
-
+        : "????????????";
 
     return `
-
         <div
             class="card ${owned ? "" : "locked-card"}"
             data-card="${card.id}"
@@ -26,14 +23,12 @@ const number = owned
                 <img
                     class="card-logo"
                     src="images/card-logo.webp"
-                    alt="Destino RPG"
+                    alt=""
                 >
 
-                <div class="card-number">
-
+                <span class="card-number">
                     ${number}
-
-                </div>
+                </span>
 
             </div>
 
@@ -47,17 +42,12 @@ const number = owned
             <div class="card-footer">
 
                 <div class="card-title">
-
                     ${title}
-
                 </div>
-
-
 
             </div>
 
         </div>
-
     `;
 
 }
