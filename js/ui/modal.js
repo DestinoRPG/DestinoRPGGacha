@@ -1,5 +1,18 @@
 export function renderModal(card) {
 
+    const articles = (card.articles ?? [])
+        .map(article => `
+            <a
+                class="article-link"
+                href="${article.url}"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                ${article.title}
+            </a>
+        `)
+        .join("");
+
     return `
         <div class="modal-overlay">
 
@@ -14,7 +27,7 @@ export function renderModal(card) {
                     alt="${card.title}"
                 >
 
-                <h2>${card.title}</h2>
+                <h2>${card.number.toString().padStart(3, "0")} · ${card.title}</h2>
 
                 <div class="card-info">
 
@@ -35,13 +48,27 @@ export function renderModal(card) {
 
                 </div>
 
-                <p>
-                    ${card.description ?? ""}
-                </p>
+                ${
+                    card.description
+                        ? `
+                        <p class="card-description">
+                            ${card.description}
+                        </p>
+                        `
+                        : ""
+                }
 
-                <button disabled>
-                    Leer en Destino RPG
-                </button>
+                ${
+                    card.articles?.length
+                        ? `
+                        <h3>Artículos relacionados</h3>
+
+                        <div class="article-list">
+                            ${articles}
+                        </div>
+                        `
+                        : ""
+                }
 
             </div>
 

@@ -265,6 +265,44 @@ header h1{
 
 }
 
+.article-list{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:10px;
+
+    margin-top:15px;
+
+}
+
+.article-link{
+
+    display:block;
+
+    padding:12px;
+
+    background:#f3f3f3;
+
+    border-radius:8px;
+
+    text-decoration:none;
+
+    color:#222;
+
+    transition:.2s;
+
+}
+
+.article-link:hover{
+
+    background:#007efc;
+
+    color:white;
+
+}
+
 /* ========================= */
 /* RESULTADO */
 /* ========================= */
