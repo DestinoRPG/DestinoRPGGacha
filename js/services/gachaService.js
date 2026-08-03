@@ -1,6 +1,7 @@
 import { getAvailableBannerCards } from "./bannerService.js";
 import { addCardToUser } from "./userService.js";
 import { spendTickets } from "./rewardService.js";
+import { SUMMON_COST } from "../config.js";
 
 /**
  * Realiza una invocación.
@@ -39,7 +40,10 @@ export async function summon(eventId, user) {
     const card = availableCards[randomIndex];
 
     // Gastar un ticket
-    const spent = await spendTickets(user);
+    const spent = await spendTickets(
+    user,
+    SUMMON_COST
+);
 
     if (!spent) {
 

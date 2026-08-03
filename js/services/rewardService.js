@@ -101,4 +101,13 @@ return {
     tickets: 1
 };
 
+/**
+ * Comprueba si el usuario tiene suficientes tickets.
+ */
+export function canSummon(user, cost = 1) {
+
+    return user.tickets >= cost;
+
+}
+
 }

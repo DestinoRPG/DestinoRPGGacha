@@ -1,4 +1,5 @@
 import { COLLECTIONS } from "../data/collections.js";
+import { canSummon } from "../services/rewardService.js";
 
 export function renderBanner(user) {
 
@@ -51,7 +52,7 @@ export function renderBanner(user) {
 
                 <button
                     id="summonButton"
-                    ${user.tickets <= 0 ? "disabled" : ""}
+                    ${!canSummon(user) ? "disabled" : ""}
 
                 >
 
