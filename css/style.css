@@ -109,49 +109,37 @@ header{
 
     background:white;
 
-    border-radius:14px;
+    border-radius:18px;
 
-    padding:20px;
+    padding:28px;
 
-    margin-bottom:20px;
+    box-shadow:0 4px 14px rgba(0,0,0,.08);
 
-    box-shadow:0 3px 12px rgba(0,0,0,.08);
+    text-align:center;
 
-}
-
-.profile-header{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:18px;
+    margin-bottom:30px;
 
 }
 
 .profile-avatar{
 
-    width:72px;
+    width:90px;
 
-    height:72px;
+    height:90px;
 
     border-radius:50%;
 
-    flex-shrink:0;
+    display:block;
+
+    margin:0 auto 18px;
 
 }
 
-.profile-data{
+.profile-name{
 
-    flex:1;
+    margin:0 0 20px;
 
-}
-
-.profile-data h2{
-
-    margin:0 0 12px;
-
-    font-size:1.4rem;
+    font-size:1.45rem;
 
 }
 
@@ -159,7 +147,11 @@ header{
 
     display:flex;
 
-    gap:12px;
+    justify-content:center;
+
+    gap:15px;
+
+    margin-bottom:25px;
 
 }
 
@@ -167,69 +159,13 @@ header{
 
     background:#f4f4f4;
 
-    border-radius:8px;
+    border-radius:10px;
 
-    padding:8px 14px;
-
-    font-weight:bold;
-
-}
-
-/* ========================= */
-/* PROGRESO */
-/* ========================= */
-
-.collection-progress{
-
-    margin-bottom:30px;
-
-}
-
-.progress-header{
-
-    display:flex;
-
-    justify-content:space-between;
+    padding:10px 18px;
 
     font-weight:bold;
 
-    margin-bottom:8px;
-
-}
-
-.progress-bar{
-
-    width:100%;
-
-    height:10px;
-
-    background:#ddd;
-
-    border-radius:999px;
-
-    overflow:hidden;
-
-}
-
-.progress-fill{
-
-    height:100%;
-
-    background:#007efc;
-
-    transition:.4s;
-
-}
-
-.progress-percentage{
-
-    margin-top:8px;
-
-    text-align:right;
-
-    color:#666;
-
-    font-size:.9rem;
+    min-width:110px;
 
 }
 

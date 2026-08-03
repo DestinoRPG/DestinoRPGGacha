@@ -49,7 +49,7 @@ window.addEventListener("DOMContentLoaded", () => {
         // =========================
 
         document.getElementById("userArea").innerHTML =
-            renderUser(profile);
+        renderUser();
 
         await refreshUI(profile);
 
