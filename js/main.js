@@ -1,7 +1,9 @@
 import { createUI } from "./ui.js";
+
 import { renderUser } from "./ui/layout.js";
 import { renderBanner } from "./ui/banner.js";
 import { renderSummonResult } from "./ui/summon.js";
+import { renderCollection } from "./ui/collection.js";
 
 import { login, observeUser } from "./firebase/auth.js";
 
@@ -9,9 +11,10 @@ import { createOrLoadUser } from "./services/userService.js";
 import { summon } from "./services/gachaService.js";
 import { getAvailableBannerCards } from "./services/bannerService.js";
 import { getAllCards } from "./services/cardService.js";
-import { renderCollection } from "./ui/collection.js";
 
 import { DEFAULT_BANNER } from "./config.js";
+
+import { initializeCardEvents } from "./ui/events.js";
 
 window.addEventListener("DOMContentLoaded", () => {
 
@@ -24,7 +27,7 @@ window.addEventListener("DOMContentLoaded", () => {
             try {
                 await login();
             } catch (error) {
-                console.error("Error al iniciar sesión:", error);
+                console.error(error);
             }
 
         });
@@ -44,40 +47,52 @@ window.addEventListener("DOMContentLoaded", () => {
                 .addEventListener("click", login);
 
             return;
+
         }
 
-        // Crear o cargar usuario
+        // -------------------------
+        // Cargar usuario
+        // -------------------------
+
         const profile = await createOrLoadUser(user);
 
-        // Mostrar perfil
-        document.getElementById("userArea").innerHTML = renderUser(profile);
+        document.getElementById("userArea").innerHTML =
+            renderUser(profile);
 
-        // Obtener cartas disponibles
-        const availableCards = await getAvailableBannerCards(
-            DEFAULT_BANNER,
-            profile
-        );
+        // -------------------------
+        // Banner
+        // -------------------------
 
-        console.log("Cartas disponibles:", availableCards);
+        const availableCards =
+            await getAvailableBannerCards(
+                DEFAULT_BANNER,
+                profile
+            );
 
-        // Mostrar banner
         document.getElementById("bannerArea").innerHTML =
             renderBanner(
                 "Hall of Fame",
                 availableCards
             );
 
-           const allCards = await getAllCards();
+        // -------------------------
+        // Colección
+        // -------------------------
 
-document.getElementById("collectionArea").innerHTML =
-    renderCollection(
-        allCards,
-        profile
-    ); 
+        let allCards = await getAllCards();
 
-    setupCollectionEvents(allCards);
+        document.getElementById("collectionArea").innerHTML =
+            renderCollection(
+                allCards,
+                profile
+            );
 
-        // Evento del botón
+        initializeCardEvents(allCards);
+
+        // -------------------------
+        // Invocar
+        // -------------------------
+
         document
             .getElementById("summonButton")
             .addEventListener("click", async () => {
@@ -88,22 +103,27 @@ document.getElementById("collectionArea").innerHTML =
                 );
 
                 if (!card) {
-                    alert("¡Ya has completado este banner!");
+
+                    document.getElementById("resultArea").innerHTML = `
+                        <h2>¡Colección completada!</h2>
+                    `;
+
                     return;
+
                 }
 
                 document.getElementById("resultArea").innerHTML =
                     renderSummonResult(card);
 
-                console.log(card);
+                allCards = await getAllCards();
 
-                const updatedCards = await getAllCards();
+                document.getElementById("collectionArea").innerHTML =
+                    renderCollection(
+                        allCards,
+                        profile
+                    );
 
-document.getElementById("collectionArea").innerHTML =
-    renderCollection(
-        updatedCards,
-        profile
-    );
+                initializeCardEvents(allCards);
 
             });
 

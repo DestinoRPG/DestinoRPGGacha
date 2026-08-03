@@ -9,10 +9,21 @@ export function renderCard(card, owned = true) {
             <img
                 src="${card.image}"
                 alt="${card.title}"
+                loading="lazy"
             >
 
-            <div class="card-title">
-                ${card.title}
+            ${
+                owned
+                    ? ""
+                    : `<div class="card-lock">🔒</div>`
+            }
+
+            <div class="card-overlay">
+
+                <div class="card-title">
+                    ${card.title}
+                </div>
+
             </div>
 
         </div>

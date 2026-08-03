@@ -1,17 +1,33 @@
 [
-    {
-        "id": "ff7",
-        "title": "Final Fantasy VII",
+        {
+        "id": "baldursgate",
+        "number": 1,
+        "title": "Baldur's Gate",
         "collection": "hall_of_fame",
-        "image": "images/cards/ff7.webp",
-        "series": "Final Fantasy",
-        "developer": "Square",
-        "releaseYear": 1997,
+        "image": "images/cards/baldursgate.webp",
+        "series": "Baldur's Gate",
+        "developer": "Bioware",
+        "releaseYear": 1988,
         "description": "",
+        "articles": [
+        {
+            "title": "Análisis",
+            "url": "http://www.destinorpg.es/2013/01/jugando-baldurs-gate-enhanced-edition.html"
+        },
+        {
+            "title": "Vamos a Jugar (Incompleto)",
+            "url": "https://www.destinorpg.es/2015/02/vaj-baldurs-gate-enhanced-edition-pc.html"
+        },
+                {
+            "title": "Consejos para empezar",
+            "url": "https://www.destinorpg.es/2017/03/consejos-para-empezar-baldurs-gate.html"
+        }
+    ],
         "enabled": true
     },
     {
         "id": "chrono",
+        "number": 6,
         "title": "Chrono Trigger",
         "collection": "hall_of_fame",
         "image": "images/cards/chrono.webp",
@@ -19,17 +35,38 @@
         "developer": "Square",
         "releaseYear": 1995,
         "description": "",
+        "articles": [
+                {
+            "title": "Leyendo: Más Allá del Tiempo",
+            "url": "https://www.destinorpg.es/2016/05/leyendo-mas-alla-del-tiempo-chrono.html"
+        }
+    ],
         "enabled": true
     },
     {
-        "id": "persona5",
-        "title": "Persona 5",
+        "id": "ff7",
+        "number": 23,
+        "title": "Final Fantasy VII",
         "collection": "hall_of_fame",
-        "image": "images/cards/persona5.webp",
-        "series": "Persona",
-        "developer": "Atlus",
-        "releaseYear": 2016,
+        "image": "images/cards/ff7.webp",
+        "series": "Final Fantasy",
+        "developer": "Square",
+        "releaseYear": 1997,
         "description": "",
+        "articles": [
+        {
+            "title": "Experiencias Roleras",
+            "url": "https://www.destinorpg.es/2014/12/experiencias-roleras-adell-sparda-nos.html"
+        },
+        {
+            "title": "Final Fantasy VII cumple 20 años en Europa",
+            "url": "https://www.destinorpg.es/2017/11/final-fantasy-vii-cumple-20-anos-en.html"
+        },
+                {
+            "title": "Charlas Discordantes",
+            "url": "https://www.destinorpg.es/2018/05/charlas-discordantes-final-fantasy-vii.html"
+        }
+    ],
         "enabled": true
     }
 ]

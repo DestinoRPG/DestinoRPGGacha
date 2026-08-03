@@ -1,14 +1,25 @@
-export function setupCollectionEvents(cards){
+import { renderModal } from "./modal.js";
 
-    document.querySelectorAll(".card").forEach(cardDiv=>{
+export function initializeCardEvents(cards) {
 
-        cardDiv.addEventListener("click",()=>{
+    document.querySelectorAll(".card").forEach(cardElement => {
 
-            const id=cardDiv.dataset.card;
+        cardElement.addEventListener("click", () => {
 
-            const card=cards.find(c=>c.id===id);
+            const card = cards.find(c =>
+                c.id === cardElement.dataset.card
+            );
 
-            console.log(card);
+            document.getElementById("modalArea").innerHTML =
+                renderModal(card);
+
+            document
+                .getElementById("closeModal")
+                .addEventListener("click", () => {
+
+                    document.getElementById("modalArea").innerHTML = "";
+
+                });
 
         });
 
