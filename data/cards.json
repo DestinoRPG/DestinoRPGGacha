@@ -25,6 +25,24 @@
     ],
         "enabled": true
     },
+            {
+        "id": "baldursgate2",
+        "number": 2,
+        "title": "Baldur's Gate II",
+        "collection": "hall_of_fame",
+        "image": "images/cards/bg2.webp",
+        "series": "Baldur's Gate",
+        "developer": "Bioware",
+        "releaseYear": 2000,
+        "description": "",
+        "articles": [
+                {
+            "title": "Consejos para empezar",
+            "url": "https://www.destinorpg.es/2017/03/consejos-para-empezar-baldurs-gate.html"
+        }
+    ],
+        "enabled": true
+    },
     {
         "id": "chrono",
         "number": 6,
