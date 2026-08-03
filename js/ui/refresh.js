@@ -3,6 +3,7 @@ import { renderCollection } from "./collection.js";
 import { renderCollectionProgress } from "./profile.js";
 
 import { initializeCardEvents } from "./events.js";
+import { DEFAULT_BANNER } from "../config.js";
 
 import { getAllCards } from "../services/cardService.js";
 import { getAvailableBannerCards } from "../services/bannerService.js";
