@@ -8,6 +8,8 @@ import { login, observeUser } from "./firebase/auth.js";
 import { createOrLoadUser } from "./services/userService.js";
 import { summon } from "./services/gachaService.js";
 
+import { DEFAULT_BANNER } from "./config.js";
+
 import { refreshUI } from "./ui/refresh.js";
 
 window.addEventListener("DOMContentLoaded", () => {
