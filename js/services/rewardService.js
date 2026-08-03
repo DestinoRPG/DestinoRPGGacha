@@ -96,10 +96,14 @@ export async function claimCardReward(user, cardId) {
     user.tickets = tickets;
     user.claimedRewards = claimedRewards;
 
-return {
-    success: true,
-    tickets: 1
-};
+    return {
+
+        success: true,
+        tickets: 1
+
+    };
+
+}
 
 /**
  * Comprueba si el usuario tiene suficientes tickets.
@@ -107,7 +111,5 @@ return {
 export function canSummon(user, cost = 1) {
 
     return user.tickets >= cost;
-
-}
 
 }
