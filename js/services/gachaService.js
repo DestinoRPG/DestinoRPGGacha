@@ -45,12 +45,18 @@ export async function summon(eventId, user) {
     const remainingTickets = user.tickets - 1;
 
 
-    await updateUser(
-        user.uid,
-        {
-            tickets: remainingTickets
-        }
-    );
+console.log("UID:", user.uid);
+console.log("Tickets actuales:", user.tickets);
+console.log("Tickets a guardar:", remainingTickets);
+
+await updateUser(
+    user.uid,
+    {
+        tickets: remainingTickets
+    }
+);
+
+console.log("Actualización enviada");
 
 
     // Actualizar usuario local
