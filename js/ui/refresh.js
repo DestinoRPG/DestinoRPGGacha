@@ -7,8 +7,6 @@ import { initializeCardEvents } from "./events.js";
 import { getAllCards } from "../services/cardService.js";
 import { getAvailableBannerCards } from "../services/bannerService.js";
 
-import { DEFAULT_BANNER } from "../config.js";
-
 export async function refreshUI(profile) {
 
     const allCards = await getAllCards();
