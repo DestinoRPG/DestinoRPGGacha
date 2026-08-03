@@ -8,60 +8,61 @@ export function renderModal(card, owned = true) {
 
     if (!owned) {
 
-        return `
+return `
 
-            <div class="modal-overlay">
+    <div class="modal-overlay">
 
-                <div class="modal">
+        <div class="modal locked-modal">
 
-                    <button id="closeModal">
+            <button id="closeModal">
 
-                        ✕
+                ✕
 
-                    </button>
+            </button>
 
-                    <img
-                        src="images/card-back.webp"
-                        alt="Carta sin descubrir"
-                    >
+            <img
+                class="locked-image"
+                src="images/card-back.webp"
+                alt="Carta sin descubrir"
+            >
 
-                    <h2>
+            <div class="locked-icon">
 
-                        #${String(card.number).padStart(3, "0")}
-
-                    </h2>
-
-                    <div class="card-info">
-
-                        <p>
-
-                            <strong>Colección:</strong>
-
-                            ${collection
-                                ? `${collection.icon} ${collection.name}`
-                                : card.collection}
-
-                        </p>
-
-                    </div>
-
-                    <p class="card-description">
-
-                        🔒 Esta carta aún no ha sido descubierta.
-
-                    </p>
-
-                    <p>
-
-                        Consíguela mediante invocaciones para revelar toda su información.
-
-                    </p>
-
-                </div>
+                🔒
 
             </div>
 
-        `;
+            <h2 class="locked-title">
+
+                Carta sin descubrir
+
+            </h2>
+
+            <div class="locked-number">
+
+                #${String(card.number).padStart(3, "0")}
+
+            </div>
+
+            <div class="locked-collection">
+
+                ${collection
+                    ? `${collection.icon} ${collection.name}`
+                    : card.collection}
+
+            </div>
+
+            <p class="locked-description">
+
+                Consíguela mediante invocaciones para revelar toda su información.
+
+            </p>
+
+        </div>
+
+    </div>
+
+`;
 
     }
 

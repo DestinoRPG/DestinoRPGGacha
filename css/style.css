@@ -633,3 +633,72 @@ header{
     }
 
 }
+/* ========================= */
+/* CARTA BLOQUEADA */
+/* ========================= */
+
+.locked-modal{
+
+    text-align:center;
+
+}
+
+.locked-image{
+
+    width:100%;
+
+    border-radius:10px;
+
+    margin-bottom:18px;
+
+}
+
+.locked-icon{
+
+    font-size:44px;
+
+    margin-bottom:10px;
+
+}
+
+.locked-title{
+
+    margin:0;
+
+    font-size:1.8rem;
+
+}
+
+.locked-number{
+
+    margin-top:14px;
+
+    font-size:1.2rem;
+
+    font-weight:bold;
+
+    color:#666;
+
+}
+
+.locked-collection{
+
+    margin-top:18px;
+
+    font-size:1.1rem;
+
+    font-weight:bold;
+
+    color:#2c4a67;
+
+}
+
+.locked-description{
+
+    margin-top:24px;
+
+    color:#555;
+
+    line-height:1.6;
+
+}
