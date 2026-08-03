@@ -1,4 +1,10 @@
+import { COLLECTIONS } from "../data/collections.js";
+
 export function renderModal(card, owned = true) {
+
+    const collection = COLLECTIONS.find(
+        c => c.id === card.collection
+    );
 
     if (!owned) {
 
@@ -21,7 +27,7 @@ export function renderModal(card, owned = true) {
 
                     <h2>
 
-                        #${String(card.number).padStart(3,"0")}
+                        #${String(card.number).padStart(3, "0")}
 
                     </h2>
 
@@ -31,7 +37,9 @@ export function renderModal(card, owned = true) {
 
                             <strong>Colección:</strong>
 
-                            ${card.collection}
+                            ${collection
+                                ? `${collection.icon} ${collection.name}`
+                                : card.collection}
 
                         </p>
 
@@ -89,7 +97,7 @@ export function renderModal(card, owned = true) {
 
                 <h2>
 
-                    ${String(card.number).padStart(3,"0")} · ${card.title}
+                    ${String(card.number).padStart(3, "0")} · ${card.title}
 
                 </h2>
 
