@@ -1,52 +1,97 @@
-import { renderBanner } from "./banner.js";
-import { renderCollection } from "./collection.js";
-
-import {
-    renderProfile,
-    renderCollectionProgress
-} from "./profile.js";
-
 import { initializeCardEvents } from "./events.js";
 
-import { DEFAULT_BANNER } from "../config.js";
+import {
+    renderHome,
+    initializeHome
+} from "./views/home.js";
 
-import { getAllCards } from "../services/cardService.js";
-import { getAvailableBannerCards } from "../services/bannerService.js";
+import {
+    renderCollectionView
+} from "./views/collection.js";
+
+import {
+    getAllCards
+} from "../services/cardService.js";
+
+
+let currentView = "home";
+
+
+export function setView(view) {
+
+    currentView = view;
+
+}
+
 
 export async function refreshUI(profile) {
 
-    const allCards = await getAllCards();
+    const allCards =
+        await getAllCards();
 
-    const availableCards =
-        await getAvailableBannerCards(
-            DEFAULT_BANNER,
-            profile
+
+    profile.totalCards =
+        allCards.length;
+
+
+    const viewArea =
+        document.getElementById(
+            "viewArea"
         );
 
-const progress = renderCollectionProgress(
-    "Salón de la Fama",
-    profile.ownedCards.length,
-    allCards.length
-);
 
-document.getElementById("profileArea").innerHTML =
-    renderProfile(
-        profile,
-        progress
-    );
+    if (!viewArea) {
 
-document.getElementById("bannerArea").innerHTML =
-    renderBanner(profile);
+        return;
 
-    document.getElementById("collectionArea").innerHTML =
-        renderCollection(
+    }
+
+
+
+    if (currentView === "home") {
+
+
+        viewArea.innerHTML =
+            renderHome(profile);
+
+
+        const resultArea =
+            document.getElementById("resultArea");
+
+
+        if (resultArea) {
+
+            resultArea.innerHTML = "";
+
+        }
+
+
+        initializeHome(profile);
+
+
+        return;
+
+    }
+
+
+
+    if (currentView === "collection") {
+
+
+        viewArea.innerHTML =
+            renderCollectionView(
+                allCards,
+                profile
+            );
+
+
+        initializeCardEvents(
             allCards,
             profile
         );
 
-    initializeCardEvents(
-    allCards,
-    profile
-);
+
+    }
+
 
 }

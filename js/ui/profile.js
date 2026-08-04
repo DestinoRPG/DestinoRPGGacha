@@ -1,103 +1,241 @@
 function formatJoinDate(timestamp) {
 
+
     if (!timestamp) {
+
         return "";
+
     }
 
-    const date = timestamp.toDate();
+
+
+    let date;
+
+
+
+    if (
+        typeof timestamp.toDate ===
+        "function"
+    ) {
+
+        date =
+            timestamp.toDate();
+
+    }
+
+    else {
+
+        date =
+            new Date(timestamp);
+
+    }
+
+
 
     return date.toLocaleDateString(
         "es-ES",
         {
-            month: "long",
-            year: "numeric"
+            month:"long",
+            year:"numeric"
         }
     );
 
+
 }
 
-export function renderProfile(user, progressHtml = "") {
+
+
+
+export function renderProfile(
+    user,
+    progressHtml = ""
+) {
+
 
     return `
+
 
         <div id="profile">
 
+
+
             <img
+
                 class="profile-avatar"
-                src="${user.photoURL}"
-                alt="${user.displayName}"
+
+                src="${
+                    user.photoURL ||
+                    "images/default-avatar.webp"
+                }"
+
+                alt="${
+                    user.displayName ||
+                    "Usuario"
+                }"
+
             >
 
-            <h2 class="profile-name">
 
-                ${user.displayName}
 
-            </h2>
 
-            <p class="profile-member">
 
-    Coleccionista desde ${formatJoinDate(user.createdAt)}
+            <div class="profile-info">
 
-</p>
 
-            <div class="profile-currency">
+                <h2 class="profile-name">
 
-                <div class="currency">
+                    ${
+                        user.displayName ||
+                        "Coleccionista"
+                    }
 
-                    🎫 ${user.tickets} ticket${user.tickets === 1 ? "" : "s"}
+                </h2>
+
+
+
+                <p class="profile-member">
+
+                    Coleccionista desde
+                    ${formatJoinDate(
+                        user.createdAt
+                    )}
+
+                </p>
+
+
+
+                <div id="profileProgress">
+
+                    ${progressHtml}
 
                 </div>
 
-            </div>
-
-            <div id="profileProgress">
-
-                ${progressHtml}
 
             </div>
+
+
+
+
+
+            <div class="profile-currency">
+
+
+                <div class="currency">
+
+                    🎫
+                    ${user.tickets ?? 0}
+
+                    ticket${
+                        user.tickets === 1
+                            ? ""
+                            : "s"
+                    }
+
+
+                </div>
+
+
+            </div>
+
+
 
         </div>
 
+
     `;
+
 
 }
 
-export function renderCollectionProgress(name, owned, total){
+
+
+
+
+export function renderCollectionProgress(
+    name,
+    owned,
+    total
+){
 
     const percent =
         total === 0
+
             ? 0
-            : Math.round(owned / total * 100);
+
+            :
+
+            Math.round(
+                owned /
+                total *
+                100
+            );
+
+
 
     return `
 
+
         <div class="collection-progress">
+
 
             <div class="progress-header">
 
-                <span>${name}</span>
 
-                <span>${owned} / ${total}</span>
+                <span>
+
+                    ${name}
+
+                </span>
+
+
+
+                <span>
+
+                    ${owned}
+                    /
+                    ${total}
+
+                </span>
+
+
 
             </div>
+
+
+
 
             <div class="progress-bar">
 
+
                 <div
+
                     class="progress-fill"
-                    style="width:${percent}%"
+
+                    style="
+                        width:${percent}%
+                    "
+
                 ></div>
 
+
             </div>
+
+
+
 
             <div class="progress-percentage">
 
-                ${percent}% completado
+                ${percent}%
+                completado
 
             </div>
 
+
+
         </div>
 
+
     `;
+
 
 }

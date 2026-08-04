@@ -1,25 +1,39 @@
 import { COLLECTIONS } from "../data/collections.js";
 import { canSummon } from "../services/rewardService.js";
 
+
 export function renderBanner(user) {
 
-    const collections = COLLECTIONS
-        .filter(collection => collection.enabled)
-        .map(collection => `
 
-            <div class="banner-collection">
+    const collections =
+        COLLECTIONS
 
-                ${collection.icon}
-                <span>${collection.name}</span>
+            .filter(collection => collection.enabled)
 
-            </div>
+            .map(collection => `
 
-        `)
-        .join("");
+                <div class="banner-collection">
+
+                    <span>
+                        ${collection.icon}
+                    </span>
+
+                    <span>
+                        ${collection.name}
+                    </span>
+
+                </div>
+
+            `)
+
+            .join("");
+
+
 
     return `
 
-        <div class="banner">
+        <section class="banner">
+
 
             <div class="banner-image">
 
@@ -30,7 +44,10 @@ export function renderBanner(user) {
 
             </div>
 
+
+
             <div class="banner-content">
+
 
                 <h2>
 
@@ -38,11 +55,15 @@ export function renderBanner(user) {
 
                 </h2>
 
+
+
                 <p>
 
                     Contiene cartas de todas las colecciones permanentes.
 
                 </p>
+
+
 
                 <div class="banner-collections">
 
@@ -50,8 +71,12 @@ export function renderBanner(user) {
 
                 </div>
 
+
+
                 <button
+
                     id="summonButton"
+
                     ${!canSummon(user) ? "disabled" : ""}
 
                 >
@@ -60,9 +85,12 @@ export function renderBanner(user) {
 
                 </button>
 
+
+
             </div>
 
-        </div>
+
+        </section>
 
     `;
 

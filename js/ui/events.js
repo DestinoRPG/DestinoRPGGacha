@@ -1,30 +1,96 @@
 import { renderModal } from "./modal.js";
 
+
 export function initializeCardEvents(cards, profile) {
 
-    document.querySelectorAll(".card").forEach(cardElement => {
 
-        cardElement.addEventListener("click", () => {
+    const modalArea =
+        document.getElementById(
+            "modalArea"
+        );
 
-            const card = cards.find(c =>
-                c.id === cardElement.dataset.card
-            );
 
-            const owned = profile.ownedCards.includes(card.id);
+    if (!modalArea) {
 
-            document.getElementById("modalArea").innerHTML =
-                renderModal(card, owned);
+        console.warn(
+            "No existe modalArea"
+        );
 
-            document
-                .getElementById("closeModal")
-                .addEventListener("click", () => {
+        return;
 
-                    document.getElementById("modalArea").innerHTML = "";
+    }
 
-                });
+
+
+    document
+        .querySelectorAll(".card")
+        .forEach(cardElement => {
+
+
+
+            cardElement.onclick =
+                () => {
+
+
+
+                    const card =
+                        cards.find(
+                            c =>
+                            c.id ===
+                            cardElement.dataset.card
+                        );
+
+
+
+                    if (!card) {
+
+                        return;
+
+                    }
+
+
+
+                    const owned =
+                        profile.ownedCards.includes(
+                            card.id
+                        );
+
+
+
+                    modalArea.innerHTML =
+                        renderModal(
+                            card,
+                            owned
+                        );
+
+
+
+                    const closeButton =
+                        document.getElementById(
+                            "closeModal"
+                        );
+
+
+
+                    if (closeButton) {
+
+
+                        closeButton.onclick =
+                            () => {
+
+                                modalArea.innerHTML =
+                                    "";
+
+                            };
+
+
+                    }
+
+
+                };
+
 
         });
 
-    });
 
 }

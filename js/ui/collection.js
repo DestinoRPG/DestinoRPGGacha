@@ -1,26 +1,106 @@
-import { renderCard } from "./card.js";
+import { renderCard } from "../card.js";
 
-export function renderCollection(cards, user) {
+
+export function renderCollectionView(cards, user) {
+
+
+    const owned =
+        user.ownedCards.length;
+
+
+    const total =
+        cards.length;
+
+
+
+    const percentage =
+        total === 0
+            ? 0
+            : Math.round(
+                owned / total * 100
+            );
+
+
 
     let html = `
-        <h2>Salón de la Fama</h2>
 
-        <div class="collection-grid">
+        <section class="collection-view">
+
+
+            <div class="collection-header">
+
+
+                <div>
+
+                    <h2 class="collection-title">
+
+                        Salón de la Fama
+
+                    </h2>
+
+
+                    <p class="collection-subtitle">
+
+                        ${owned}
+                        de
+                        ${total}
+                        cartas descubiertas
+
+                    </p>
+
+
+                </div>
+
+
+
+                <div class="collection-counter">
+
+                    ${percentage}%
+
+                </div>
+
+
+
+            </div>
+
+
+
+            <div class="collection-grid">
+
     `;
+
+
 
     for (const card of cards) {
 
+
         html += renderCard(
+
             card,
-            user.ownedCards.includes(card.id)
+
+            user.ownedCards.includes(
+                card.id
+            )
+
         );
+
 
     }
 
+
+
     html += `
-        </div>
+
+            </div>
+
+
+        </section>
+
     `;
 
+
+
     return html;
+
 
 }

@@ -1,89 +1,220 @@
 import { COLLECTIONS } from "../data/collections.js";
 
-export function renderModal(card, owned = true) {
 
-    const collection = COLLECTIONS.find(
-        c => c.id === card.collection
-    );
+export function renderModal(
+    card,
+    owned = true
+) {
+
+
+    const collection =
+        COLLECTIONS.find(
+            c =>
+            c.id === card.collection
+        );
+
+
+
+    const collectionName =
+        collection
+
+            ? `${collection.icon} ${collection.name}`
+
+            :
+
+            card.collection ||
+            "Colección desconocida";
+
+
+
+
+
+    /*
+        CARTA BLOQUEADA
+    */
+
 
     if (!owned) {
 
-return `
 
-    <div class="modal-overlay">
+        return `
 
-        <div class="modal locked-modal">
 
-            <button id="closeModal">
+            <div class="modal-overlay">
 
-                ✕
 
-            </button>
+                <div class="modal locked-modal">
 
-            <img
-                class="locked-image"
-                src="images/card-back.webp"
-                alt="Carta sin descubrir"
-            >
 
-            <div class="locked-icon">
+                    <button id="closeModal">
 
-                🔒
+                        ✕
+
+                    </button>
+
+
+
+
+
+                    <img
+
+                        class="locked-image"
+
+                        src="images/card-back.webp"
+
+                        alt="Carta sin descubrir"
+
+                    >
+
+
+
+
+
+                    <div class="locked-icon">
+
+                        🔒
+
+                    </div>
+
+
+
+
+
+                    <h2 class="locked-title">
+
+                        Carta desconocida
+
+                    </h2>
+
+
+
+
+
+                    <div class="locked-number">
+
+                        Nº ${
+                            String(card.number)
+                            .padStart(3,"0")
+                        }
+
+                    </div>
+
+
+
+
+
+                    <div class="locked-collection">
+
+                        ${collectionName}
+
+                    </div>
+
+
+
+
+
+                    <p class="locked-description">
+
+
+                        Todavía no has conseguido
+                        esta carta.
+
+                        Invoca en los banners para
+                        descubrir su ilustración,
+                        historia y artículos
+                        relacionados.
+
+
+                    </p>
+
+
+
+
+
+                    <div class="locked-hint">
+
+                        💡 Sigue ampliando tu colección
+                        para desbloquearla.
+
+                    </div>
+
+
+
+
+                </div>
+
 
             </div>
 
-            <h2 class="locked-title">
 
-                Carta sin descubrir
+        `;
 
-            </h2>
-
-            <div class="locked-number">
-
-                #${String(card.number).padStart(3, "0")}
-
-            </div>
-
-            <div class="locked-collection">
-
-                ${collection
-                    ? `${collection.icon} ${collection.name}`
-                    : card.collection}
-
-            </div>
-
-            <p class="locked-description">
-
-                Consíguela mediante invocaciones para revelar toda su información.
-
-            </p>
-
-        </div>
-
-    </div>
-
-`;
 
     }
 
-    const articles = (card.articles ?? [])
+
+
+
+
+
+    /*
+        CARTA DESBLOQUEADA
+    */
+
+
+    const articles =
+        (card.articles ?? [])
+
         .map(article => `
+
+
             <a
+
                 class="article-link"
+
                 href="${article.url}"
+
                 target="_blank"
+
                 rel="noopener noreferrer"
+
             >
-                ${article.title}
+
+                <span>
+
+                    ${article.title}
+
+                </span>
+
+
             </a>
+
+
         `)
+
         .join("");
+
+
+
+
+
+
 
     return `
 
+
+
         <div class="modal-overlay">
 
+
+
+
+
             <div class="modal">
+
+
+
+
 
                 <button id="closeModal">
 
@@ -91,77 +222,210 @@ return `
 
                 </button>
 
+
+
+
+
+
+
                 <img
+
                     src="${card.image}"
+
                     alt="${card.title}"
+
                 >
+
+
+
+
+
+
 
                 <h2>
 
-                    ${String(card.number).padStart(3, "0")} · ${card.title}
+                    ${card.title}
 
                 </h2>
 
+
+
+
+
+
+
                 <div class="card-info">
 
-                    <p>
 
-                        <strong>Saga:</strong>
+
+                    <strong>
+
+                        Número
+
+                    </strong>
+
+                    <span>
+
+                        Nº ${
+                            String(card.number)
+                            .padStart(3,"0")
+                        }
+
+                    </span>
+
+
+
+
+
+                    <strong>
+
+                        Colección
+
+                    </strong>
+
+
+                    <span>
+
+                        ${collectionName}
+
+                    </span>
+
+
+
+
+
+                    <strong>
+
+                        Saga
+
+                    </strong>
+
+
+                    <span>
 
                         ${card.series}
 
-                    </p>
+                    </span>
 
-                    <p>
 
-                        <strong>Desarrolladora:</strong>
+
+
+
+                    <strong>
+
+                        Desarrolladora
+
+                    </strong>
+
+
+                    <span>
 
                         ${card.developer}
 
-                    </p>
+                    </span>
 
-                    <p>
 
-                        <strong>Lanzamiento:</strong>
+
+
+
+                    <strong>
+
+                        Lanzamiento
+
+                    </strong>
+
+
+                    <span>
 
                         ${card.releaseYear}
 
-                    </p>
+                    </span>
+
+
 
                 </div>
 
+
+
+
+
+
+
                 ${
                     card.description
-                        ? `
-                        <p class="card-description">
-                            ${card.description}
-                        </p>
-                        `
-                        : ""
+
+                    ?
+
+                    `
+
+                    <p class="card-description">
+
+                        ${card.description}
+
+                    </p>
+
+                    `
+
+                    :
+
+                    ""
+
                 }
+
+
+
+
+
+
+
 
                 ${
                     card.articles?.length
-                        ? `
-                        <h3>
 
-                            Artículos relacionados
+                    ?
 
-                        </h3>
+                    `
 
-                        <div class="article-list">
+                    <h3>
 
-                            ${articles}
+                        Artículos relacionados
 
-                        </div>
-                        `
-                        : ""
+                    </h3>
+
+
+
+                    <div class="article-list">
+
+                        ${articles}
+
+                    </div>
+
+
+                    `
+
+                    :
+
+                    ""
+
                 }
+
+
+
+
+
+
 
             </div>
 
+
+
+
+
         </div>
 
+
+
     `;
+
 
 }
