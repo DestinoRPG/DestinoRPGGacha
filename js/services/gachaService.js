@@ -41,9 +41,9 @@ export async function summon(eventId, user) {
 
     // Gastar un ticket
     const spent = await spendTickets(
-    user,
-    SUMMON_COST
-);
+        user,
+        SUMMON_COST
+    );
 
     if (!spent) {
 

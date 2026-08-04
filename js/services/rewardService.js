@@ -44,16 +44,21 @@ export async function spendTickets(user, amount = 1) {
 
     }
 
-    const total = user.tickets - amount;
+    const tickets = user.tickets - amount;
+
+    const totalSummons =
+        (user.totalSummons ?? 0) + 1;
 
     await updateUser(
         user.uid,
         {
-            tickets: total
+            tickets,
+            totalSummons
         }
     );
 
-    user.tickets = total;
+    user.tickets = tickets;
+    user.totalSummons = totalSummons;
 
     return true;
 
@@ -117,16 +122,21 @@ export async function claimCardReward(user, cardId) {
 
     const tickets = user.tickets + 1;
 
+    const articleRewardsClaimed =
+        (user.articleRewardsClaimed ?? 0) + 1;
+
     await updateUser(
         user.uid,
         {
             tickets,
-            claimedRewards
+            claimedRewards,
+            articleRewardsClaimed
         }
     );
 
     user.tickets = tickets;
     user.claimedRewards = claimedRewards;
+    user.articleRewardsClaimed = articleRewardsClaimed;
 
     return {
 
@@ -158,16 +168,21 @@ export async function claimDailyReward(user) {
 
     const tickets = user.tickets + 1;
 
+    const dailyRewardsClaimed =
+        (user.dailyRewardsClaimed ?? 0) + 1;
+
     await updateUser(
         user.uid,
         {
             tickets,
-            lastDailyReward: today
+            lastDailyReward: today,
+            dailyRewardsClaimed
         }
     );
 
     user.tickets = tickets;
     user.lastDailyReward = today;
+    user.dailyRewardsClaimed = dailyRewardsClaimed;
 
     return {
 

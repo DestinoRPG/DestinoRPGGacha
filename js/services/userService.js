@@ -27,6 +27,11 @@ export async function createOrLoadUser(firebaseUser) {
 
             lastDailyReward: null,
 
+            totalSummons: 0,
+            cardsObtained: 0,
+            dailyRewardsClaimed: 0,
+            articleRewardsClaimed: 0,
+
             createdAt: serverTimestamp(),
             lastLogin: serverTimestamp()
 
@@ -60,6 +65,11 @@ export async function createOrLoadUser(firebaseUser) {
         user.ownedCards ??= [];
         user.tickets ??= 0;
 
+        user.totalSummons ??= 0;
+        user.cardsObtained ??= 0;
+        user.dailyRewardsClaimed ??= 0;
+        user.articleRewardsClaimed ??= 0;
+
     }
 
     return user;
@@ -89,14 +99,19 @@ export async function addCardToUser(user, cardId) {
         cardId
     ].sort();
 
+    const cardsObtained =
+        (user.cardsObtained ?? 0) + 1;
+
     await updateUser(
         user.uid,
         {
-            ownedCards: updatedCards
+            ownedCards: updatedCards,
+            cardsObtained
         }
     );
 
     user.ownedCards = [...updatedCards];
+    user.cardsObtained = cardsObtained;
 
     return user;
 
