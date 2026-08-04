@@ -2,6 +2,15 @@ import { updateUser } from "./userService.js";
 import { getCard } from "./cardService.js";
 
 /**
+ * Devuelve la fecha actual en formato YYYY-MM-DD.
+ */
+function getToday() {
+
+    return new Date().toISOString().split("T")[0];
+
+}
+
+/**
  * Añade tickets a un usuario.
  */
 export async function giveTickets(user, amount) {
@@ -121,6 +130,46 @@ export async function claimCardReward(user, cardId) {
         success: true,
         tickets: 1,
         card
+
+    };
+
+}
+
+/**
+ * Reclama el ticket diario.
+ */
+export async function claimDailyReward(user) {
+
+    const today = getToday();
+
+    if ((user.lastDailyReward ?? null) === today) {
+
+        return {
+
+            success: false,
+            reason: "ALREADY_CLAIMED"
+
+        };
+
+    }
+
+    const tickets = user.tickets + 1;
+
+    await updateUser(
+        user.uid,
+        {
+            tickets,
+            lastDailyReward: today
+        }
+    );
+
+    user.tickets = tickets;
+    user.lastDailyReward = today;
+
+    return {
+
+        success: true,
+        tickets: 1
 
     };
 

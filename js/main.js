@@ -12,7 +12,10 @@ import { DEFAULT_BANNER } from "./config.js";
 
 import { refreshUI } from "./ui/refresh.js";
 
-import { claimCardReward } from "./services/rewardService.js";
+import {
+    claimCardReward,
+    claimDailyReward
+} from "./services/rewardService.js";
 
 import {
     getUrlParams,
@@ -50,88 +53,144 @@ window.addEventListener("DOMContentLoaded", () => {
         // Cargar usuario
         // =========================
 
-const profile = await createOrLoadUser(user);
+        const profile = await createOrLoadUser(user);
 
-// =========================
-// Recompensas pendientes
-// =========================
+        // =========================
+        // Dibujar interfaz
+        // =========================
 
-if (hasPendingReward()) {
+        document.getElementById("userArea").innerHTML =
+            renderUser();
 
-    const { card } = getUrlParams();
+        await refreshUI(profile);
 
-    const result = await claimCardReward(
-        profile,
-        card
-    );
+        // =========================
+        // Recompensas pendientes
+        // =========================
 
-    console.log(result);
+        const params = getUrlParams();
 
-    clearUrlParams();
+        if (params.reward === "daily") {
 
-}
+            const result =
+                await claimDailyReward(profile);
 
-// =========================
-// Dibujar interfaz
-// =========================
+            if (result.success) {
 
-document.getElementById("userArea").innerHTML =
-    renderUser();
+                document.getElementById("resultArea").innerHTML = `
+                    <h2>🎁 ¡Ticket diario conseguido!</h2>
+                    <p>Has recibido <strong>1 ticket</strong>.</p>
+                `;
 
-await refreshUI(profile);
+            } else {
+
+                document.getElementById("resultArea").innerHTML = `
+                    <h2>📅 Ticket diario</h2>
+                    <p>Ya has reclamado el ticket de hoy.</p>
+                `;
+
+            }
+
+            await refreshUI(profile);
+
+            clearUrlParams();
+
+        }
+
+        else if (hasPendingReward()) {
+
+            const result =
+                await claimCardReward(
+                    profile,
+                    params.card
+                );
+
+            if (result.success) {
+
+                document.getElementById("resultArea").innerHTML = `
+                    <h2>🎁 ¡Recompensa conseguida!</h2>
+                    <p>Has recibido <strong>1 ticket</strong>.</p>
+                `;
+
+            }
+
+            else if (result.reason === "ALREADY_CLAIMED") {
+
+                document.getElementById("resultArea").innerHTML = `
+                    <h2>ℹ️ Recompensa</h2>
+                    <p>Ya habías reclamado esta recompensa.</p>
+                `;
+
+            }
+
+            else if (result.reason === "CARD_NOT_OWNED") {
+
+                document.getElementById("resultArea").innerHTML = `
+                    <h2>🔒 Carta no obtenida</h2>
+                    <p>Necesitas conseguir esta carta antes de reclamar su recompensa.</p>
+                `;
+
+            }
+
+            else {
+
+                document.getElementById("resultArea").innerHTML = `
+                    <h2>❌ Error</h2>
+                    <p>No ha sido posible reclamar la recompensa.</p>
+                `;
+
+            }
+
+            await refreshUI(profile);
+
+            clearUrlParams();
+
+        }
 
         // =========================
         // Invocar
         // =========================
 
-document
-    .getElementById("summonButton")
-    .addEventListener("click", async () => {
+        document
+            .getElementById("summonButton")
+            .addEventListener("click", async () => {
 
+                const result = await summon(
+                    DEFAULT_BANNER,
+                    profile
+                );
 
-        const result = await summon(
-            DEFAULT_BANNER,
-            profile
-        );
+                if (!result.success) {
 
+                    if (result.reason === "NO_TICKETS") {
 
-        if (!result.success) {
+                        document.getElementById("resultArea").innerHTML = `
+                            <h2>No tienes tickets disponibles</h2>
+                            <p>Vuelve mañana para conseguir más.</p>
+                        `;
 
+                    }
 
-            if (result.reason === "NO_TICKETS") {
+                    if (result.reason === "COLLECTION_COMPLETE") {
 
-                document.getElementById("resultArea").innerHTML = `
-                    <h2>No tienes tickets disponibles</h2>
-                    <p>Vuelve mañana para conseguir más.</p>
-                `;
+                        document.getElementById("resultArea").innerHTML = `
+                            <h2>¡Colección completada!</h2>
+                        `;
 
-            }
+                    }
 
+                    return;
 
-            if (result.reason === "COLLECTION_COMPLETE") {
+                }
 
-                document.getElementById("resultArea").innerHTML = `
-                    <h2>¡Colección completada!</h2>
-                `;
+                document.getElementById("resultArea").innerHTML =
+                    renderSummonResult(
+                        result.card
+                    );
 
-            }
+                await refreshUI(profile);
 
-
-            return;
-
-        }
-
-
-        document.getElementById("resultArea").innerHTML =
-            renderSummonResult(
-                result.card
-            );
-
-
-        await refreshUI(profile);
-
-
-    });
+            });
 
     });
 

@@ -18,11 +18,13 @@ user = {
     email: firebaseUser.email,
     photoURL: firebaseUser.photoURL,
 
-    tickets: 10,
+tickets: 10,
 
-    ownedCards: [],
+ownedCards: [],
 
-    claimedRewards: {},
+claimedRewards: {},
+
+lastDailyReward: null,
 
     createdAt: serverTimestamp(),
     lastLogin: serverTimestamp()
