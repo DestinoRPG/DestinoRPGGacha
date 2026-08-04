@@ -498,23 +498,39 @@ hr{
 
 .banner{
 
-    overflow:hidden;
-
-    border-radius:24px;
-
-    background:var(--panel);
-
-    border:2px solid var(--border);
-
-    box-shadow:var(--shadow);
-
-    margin-bottom:34px;
-
-    transition:all var(--transition);
+    margin-bottom:24px;
 
 }
 
-.banner:hover{
+.banner-button{
+
+    display:block;
+
+    width:100%;
+
+    padding:0;
+
+    border:none;
+
+    border-radius:24px;
+
+    overflow:hidden;
+
+    cursor:pointer;
+
+    background:none;
+
+    box-shadow:var(--shadow);
+
+    transition:
+
+        transform .25s,
+
+        box-shadow .25s;
+
+}
+
+.banner-button:hover:not(:disabled){
 
     transform:translateY(-4px);
 
@@ -522,19 +538,13 @@ hr{
 
 }
 
-.banner-image{
+.banner-button img{
 
-    position:relative;
-
-    overflow:hidden;
-
-}
-
-.banner-image img{
+    display:block;
 
     width:100%;
 
-    aspect-ratio:16 / 6;
+    aspect-ratio:16 / 5;
 
     object-fit:cover;
 
@@ -542,473 +552,23 @@ hr{
 
 }
 
-.banner:hover .banner-image img{
+.banner-button:hover img{
 
-    transform:scale(1.03);
-
-}
-
-.banner-overlay{
-
-    position:absolute;
-
-    inset:0;
-
-    display:flex;
-
-    flex-direction:column;
-
-    justify-content:flex-end;
-
-    align-items:flex-start;
-
-    padding:36px;
-
-    background:
-
-        linear-gradient(
-
-            to top,
-
-            rgba(0,0,0,.72),
-
-            rgba(0,0,0,.18) 55%,
-
-            transparent
-
-        );
+    transform:scale(1.025);
 
 }
 
-.banner-type{
-
-    display:inline-block;
-
-    margin-bottom:14px;
-
-    padding:6px 14px;
-
-    border-radius:999px;
-
-    background:rgba(255,255,255,.92);
-
-    color:#24528f;
-
-    font-size:.78rem;
-
-    font-weight:700;
-
-    letter-spacing:1px;
-
-}
-
-.banner-overlay h2{
-
-    margin:0;
-
-    color:white;
-
-    font-size:2.2rem;
-
-    text-shadow:
-
-        0 2px 8px rgba(0,0,0,.35);
-
-}
-
-.banner-overlay p{
-
-    margin:10px 0 0;
-
-    color:white;
-
-    max-width:560px;
-
-    line-height:1.5;
-
-    opacity:.95;
-
-}
-
-.banner-footer{
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    gap:20px;
-
-    padding:24px 28px;
-
-}
-
-.banner-collections{
-
-    display:flex;
-
-    flex-wrap:wrap;
-
-    gap:10px;
-
-}
-
-.banner-tag{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:8px;
-
-    padding:9px 15px;
-
-    border-radius:999px;
-
-    background:#f4ead3;
-
-    border:1px solid var(--border);
-
-    font-size:.9rem;
-
-    font-weight:600;
-
-    color:#5d4d38;
-
-}
-
-.banner-actions{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:16px;
-
-}
-
-.ticket-counter{
-
-    padding:12px 18px;
-
-    border-radius:14px;
-
-    background:
-
-        linear-gradient(
-
-            180deg,
-
-            #ffe18a,
-
-            #ffc72d
-
-        );
-
-    color:#5d4200;
-
-    font-weight:700;
-
-    white-space:nowrap;
-
-}
-
-.banner button{
-
-    min-width:180px;
-
-    padding:15px 30px;
-
-    border:none;
-
-    border-radius:16px;
-
-    background:
-
-        linear-gradient(
-
-            180deg,
-
-            #1ea2ff,
-
-            #007efc
-
-        );
-
-    color:white;
-
-    font-size:1rem;
-
-    font-weight:700;
-
-    cursor:pointer;
-
-    transition:all var(--transition);
-
-    box-shadow:
-
-        0 10px 22px rgba(0,126,252,.30);
-
-}
-
-.banner button:hover:not(:disabled){
-
-    transform:translateY(-2px);
-
-    background:
-
-        linear-gradient(
-
-            180deg,
-
-            #38b0ff,
-
-            #0b6ed6
-
-        );
-
-}
-
-.banner button:disabled{
-
-    opacity:.45;
-
-    cursor:default;
-
-    box-shadow:none;
-
-}
-
-/* =======================================================
-   BANNER
-======================================================= */
-
-.banner{
-
-    overflow:hidden;
-
-    border-radius:24px;
-
-    background:var(--panel);
-
-    border:2px solid var(--border);
-
-    box-shadow:var(--shadow);
-
-    transition:.25s;
-
-    margin-bottom:34px;
-
-}
-
-.banner:hover{
-
-    transform:translateY(-4px);
-
-    box-shadow:
-        0 18px 38px rgba(0,0,0,.18);
-
-}
-
-.banner-image{
-
-    position:relative;
-
-    overflow:hidden;
-
-}
-
-.banner-image img{
-
-    width:100%;
-
-    aspect-ratio:16/6;
-
-    object-fit:cover;
-
-    transition:.35s;
-
-}
-
-.banner:hover .banner-image img{
-
-    transform:scale(1.03);
-
-}
-
-.banner-content{
-
-    padding:30px;
-
-    text-align:center;
-
-}
-
-.banner-content h2{
-
-    margin:0;
-
-    font-size:2rem;
-
-    color:#1d2f48;
-
-}
-
-.banner-content p{
-
-    margin:14px auto 28px;
-
-    max-width:650px;
-
-    line-height:1.6;
-
-    color:var(--textSoft);
-
-}
-
-/* ---------- Colecciones ---------- */
-
-.banner-collections{
-
-    display:flex;
-
-    flex-wrap:wrap;
-
-    justify-content:center;
-
-    gap:12px;
-
-    margin-bottom:28px;
-
-}
-
-.banner-collection{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:8px;
-
-    padding:10px 16px;
-
-    border-radius:999px;
-
-    background:#efe3c4;
-
-    border:1px solid var(--border);
-
-    font-size:.95rem;
-
-    font-weight:600;
-
-    transition:.2s;
-
-}
-
-.banner-collection:hover{
-
-    transform:translateY(-2px);
-
-    background:#f7edd7;
-
-}
-
-/* ---------- Botones ---------- */
-
-.banner-actions{
-
-    display:flex;
-
-    justify-content:center;
-
-    gap:16px;
-
-    flex-wrap:wrap;
-
-}
-
-.banner button{
-
-    min-width:220px;
-
-    padding:18px 30px;
-
-    border:none;
-
-    border-radius:18px;
-
-    font-size:1.05rem;
-
-    font-weight:700;
-
-    cursor:pointer;
-
-    transition:.25s;
-
-}
-
-/* Botón principal */
-
-#summonButton{
-
-    background:
-        linear-gradient(
-            180deg,
-            #1fa0ff,
-            #007efc
-        );
-
-    color:white;
-
-    box-shadow:
-        0 10px 22px rgba(0,126,252,.28);
-
-}
-
-#summonButton:hover{
-
-    transform:
-        translateY(-3px)
-        scale(1.02);
-
-    box-shadow:
-        0 16px 34px rgba(0,126,252,.35);
-
-}
-
-#summonButton:disabled{
+.banner-button:disabled{
 
     opacity:.45;
 
     cursor:not-allowed;
 
+}
+
+.banner-button:disabled img{
+
     transform:none;
-
-    box-shadow:none;
-
-}
-
-/* Botón colección */
-
-#goCollectionButton{
-
-    background:#f7f0df;
-
-    border:2px solid var(--border);
-
-    color:var(--text);
-
-}
-
-#goCollectionButton:hover{
-
-    background:#fff7e8;
-
-    transform:translateY(-3px);
-
-    border-color:var(--blue);
 
 }
 

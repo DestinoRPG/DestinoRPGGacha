@@ -1,94 +1,30 @@
-import { COLLECTIONS } from "../data/collections.js";
 import { canSummon } from "../services/rewardService.js";
 
-
 export function renderBanner(user) {
-
-
-    const collections =
-        COLLECTIONS
-
-            .filter(collection => collection.enabled)
-
-            .map(collection => `
-
-                <div class="banner-collection">
-
-                    <span>
-                        ${collection.icon}
-                    </span>
-
-                    <span>
-                        ${collection.name}
-                    </span>
-
-                </div>
-
-            `)
-
-            .join("");
-
-
 
     return `
 
         <section class="banner">
 
+            <button
 
-            <div class="banner-image">
+                id="summonButton"
+
+                class="banner-button"
+
+                ${!canSummon(user) ? "disabled" : ""}
+
+            >
 
                 <img
+
                     src="images/banners/standard.webp"
+
                     alt="Invocación estándar"
-                >
-
-            </div>
-
-
-
-            <div class="banner-content">
-
-
-                <h2>
-
-                    Invocación estándar
-
-                </h2>
-
-
-
-                <p>
-
-                    Contiene cartas de todas las colecciones permanentes.
-
-                </p>
-
-
-
-                <div class="banner-collections">
-
-                    ${collections}
-
-                </div>
-
-
-
-                <button
-
-                    id="summonButton"
-
-                    ${!canSummon(user) ? "disabled" : ""}
 
                 >
 
-                    🎫 Invocar (${user.tickets})
-
-                </button>
-
-
-
-            </div>
-
+            </button>
 
         </section>
 
