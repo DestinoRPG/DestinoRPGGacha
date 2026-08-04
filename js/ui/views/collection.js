@@ -1,4 +1,4 @@
-import { renderCollection } from "../collection.js";
+import { renderCollection } from "../ui/collection.js";
 
 export function renderCollectionView(
     cards,
