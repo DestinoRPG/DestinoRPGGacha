@@ -164,15 +164,23 @@ hr{
 
     gap:28px;
 
-    margin-bottom:24px;
+    max-width:1200px;
+
+    margin:0 auto 24px;
 
 }
 
 #mainLogo{
 
-    width:min(100%,620px);
+    display:block;
 
-    margin:0;
+    width:100%;
+
+    max-width:1200px;
+
+    margin:0 auto;
+
+    height:auto;
 
 }
 
