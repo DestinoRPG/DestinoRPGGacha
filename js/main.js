@@ -12,6 +12,12 @@ import { DEFAULT_BANNER } from "./config.js";
 
 import { refreshUI } from "./ui/refresh.js";
 
+import {
+    getUrlParams,
+    hasPendingReward,
+    clearUrlParams
+} from "./services/urlService.js";
+
 window.addEventListener("DOMContentLoaded", () => {
 
     createUI();
@@ -42,16 +48,33 @@ window.addEventListener("DOMContentLoaded", () => {
         // Cargar usuario
         // =========================
 
-        const profile = await createOrLoadUser(user);
+const profile = await createOrLoadUser(user);
 
-        // =========================
-        // Dibujar interfaz
-        // =========================
+// =========================
+// Recompensas pendientes
+// =========================
 
-        document.getElementById("userArea").innerHTML =
-        renderUser();
+if (hasPendingReward()) {
 
-        await refreshUI(profile);
+    const { card } = getUrlParams();
+
+    console.log(
+        "Recompensa pendiente para:",
+        card
+    );
+
+    clearUrlParams();
+
+}
+
+// =========================
+// Dibujar interfaz
+// =========================
+
+document.getElementById("userArea").innerHTML =
+    renderUser();
+
+await refreshUI(profile);
 
         // =========================
         // Invocar
