@@ -12,6 +12,8 @@ import { DEFAULT_BANNER } from "./config.js";
 
 import { refreshUI } from "./ui/refresh.js";
 
+import { claimCardReward } from "./services/rewardService.js";
+
 import {
     getUrlParams,
     hasPendingReward,
@@ -58,10 +60,12 @@ if (hasPendingReward()) {
 
     const { card } = getUrlParams();
 
-    console.log(
-        "Recompensa pendiente para:",
+    const result = await claimCardReward(
+        profile,
         card
     );
+
+    console.log(result);
 
     clearUrlParams();
 

@@ -1,4 +1,5 @@
 import { updateUser } from "./userService.js";
+import { getCard } from "./cardService.js";
 
 /**
  * Añade tickets a un usuario.
@@ -62,6 +63,28 @@ export function hasClaimedReward(user, cardId) {
  */
 export async function claimCardReward(user, cardId) {
 
+    // La carta debe existir
+    const card = await getCard(cardId);
+
+    if (!card) {
+
+        return {
+            success: false,
+            reason: "CARD_NOT_FOUND"
+        };
+
+    }
+
+    // El usuario debe poseer la carta
+    if (!user.ownedCards.includes(cardId)) {
+
+        return {
+            success: false,
+            reason: "CARD_NOT_OWNED"
+        };
+
+    }
+
     // Ya estaba reclamada
     if (hasClaimedReward(user, cardId)) {
 
@@ -72,7 +95,6 @@ export async function claimCardReward(user, cardId) {
 
     }
 
-    // Copiamos las recompensas actuales
     const claimedRewards = {
 
         ...(user.claimedRewards ?? {}),
@@ -81,7 +103,6 @@ export async function claimCardReward(user, cardId) {
 
     };
 
-    // Guardamos tickets y recompensa en una sola escritura
     const tickets = user.tickets + 1;
 
     await updateUser(
@@ -92,14 +113,14 @@ export async function claimCardReward(user, cardId) {
         }
     );
 
-    // Actualizamos el usuario local
     user.tickets = tickets;
     user.claimedRewards = claimedRewards;
 
     return {
 
         success: true,
-        tickets: 1
+        tickets: 1,
+        card
 
     };
 
