@@ -12,56 +12,92 @@ export async function createOrLoadUser(firebaseUser) {
 
     if (!user) {
 
-user = {
-    uid: firebaseUser.uid,
-    displayName: firebaseUser.displayName,
-    email: firebaseUser.email,
-    photoURL: firebaseUser.photoURL,
+        user = {
 
-tickets: 10,
+            uid: firebaseUser.uid,
+            displayName: firebaseUser.displayName,
+            email: firebaseUser.email,
+            photoURL: firebaseUser.photoURL,
 
-ownedCards: [],
+            tickets: 10,
 
-claimedRewards: {},
+            ownedCards: [],
 
-lastDailyReward: null,
+            claimedRewards: {},
 
-    createdAt: serverTimestamp(),
-    lastLogin: serverTimestamp()
-};
+            lastDailyReward: null,
 
-        await setDocument("users", firebaseUser.uid, user);
+            createdAt: serverTimestamp(),
+            lastLogin: serverTimestamp()
+
+        };
+
+        await setDocument(
+            "users",
+            firebaseUser.uid,
+            user
+        );
 
     } else {
 
-        await updateDocument("users", firebaseUser.uid, {
-            lastLogin: serverTimestamp()
-        });
+        await updateDocument(
+            "users",
+            firebaseUser.uid,
+            {
+                lastLogin: serverTimestamp()
+            }
+        );
 
-        user = await getDocument("users", firebaseUser.uid);
+        user = await getDocument(
+            "users",
+            firebaseUser.uid
+        );
+
+        // Compatibilidad con usuarios creados
+        // antes de añadir estos campos.
+        user.claimedRewards ??= {};
+        user.lastDailyReward ??= null;
+        user.ownedCards ??= [];
+        user.tickets ??= 0;
 
     }
 
     return user;
+
 }
 
 export async function updateUser(uid, data) {
-    await updateDocument("users", uid, data);
+
+    await updateDocument(
+        "users",
+        uid,
+        data
+    );
+
 }
 
 export async function addCardToUser(user, cardId) {
 
     if (user.ownedCards.includes(cardId)) {
+
         return user;
+
     }
 
-    const updatedCards = [...user.ownedCards, cardId].sort();
+    const updatedCards = [
+        ...user.ownedCards,
+        cardId
+    ].sort();
 
-    await updateUser(user.uid, {
-        ownedCards: updatedCards
-    });
+    await updateUser(
+        user.uid,
+        {
+            ownedCards: updatedCards
+        }
+    );
 
     user.ownedCards = [...updatedCards];
 
     return user;
+
 }

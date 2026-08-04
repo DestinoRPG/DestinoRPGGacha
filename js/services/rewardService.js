@@ -2,11 +2,14 @@ import { updateUser } from "./userService.js";
 import { getCard } from "./cardService.js";
 
 /**
- * Devuelve la fecha actual en formato YYYY-MM-DD.
+ * Devuelve la fecha actual en formato YYYY-MM-DD
+ * usando la hora local del usuario.
  */
 function getToday() {
 
-    return new Date().toISOString().split("T")[0];
+    return new Date().toLocaleDateString(
+        "sv-SE"
+    );
 
 }
 
