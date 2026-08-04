@@ -16,8 +16,8 @@ export function createUI() {
         <nav id="navigation">
 
             <button
-                id="homeButton"
-                class="nav-button active"
+        id="homeButton"
+        class="nav-button"
             >
 
                 🏠 Inicio

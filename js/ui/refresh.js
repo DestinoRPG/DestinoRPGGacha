@@ -21,6 +21,28 @@ export function setView(view) {
 
     currentView = view;
 
+
+    document
+        .querySelectorAll(".nav-button")
+        .forEach(button => {
+
+            button.classList.remove("active");
+
+        });
+
+
+    const activeButton =
+        view === "home"
+            ? document.getElementById("homeButton")
+            : document.getElementById("collectionButton");
+
+
+    if (activeButton) {
+
+        activeButton.classList.add("active");
+
+    }
+
 }
 
 
