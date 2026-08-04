@@ -28,17 +28,13 @@ window.addEventListener(
         createUI();
 
 
-        document
-            .getElementById("loginButton")
-            .addEventListener(
-                "click",
-                login
-            );
-
-
         observeUser(
             async (user) => {
 
+
+                // =========================
+                // USUARIO NO LOGUEADO
+                // =========================
 
                 if (!user) {
 
@@ -70,8 +66,20 @@ window.addEventListener(
 
 
 
+                // =========================
+                // USUARIO LOGUEADO
+                // =========================
+
                 const profile =
                     await createOrLoadUser(user);
+
+
+
+                // Ocultar login si existía
+                document
+                    .getElementById("userArea")
+                    .innerHTML = "";
+
 
 
                 setView("home");
@@ -81,9 +89,9 @@ window.addEventListener(
 
 
 
-                /*
-                    NAVEGACIÓN
-                */
+                // =========================
+                // NAVEGACIÓN
+                // =========================
 
 
                 document
@@ -113,9 +121,6 @@ window.addEventListener(
 
                         }
                     );
-
-
-
 
 
                 /*

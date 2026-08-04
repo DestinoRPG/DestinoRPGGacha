@@ -37,15 +37,9 @@ export function createUI() {
         </nav>
 
 
-        <div id="userArea">
+<div id="userArea">
 
-            <button id="loginButton">
-
-                Iniciar sesión
-
-            </button>
-
-        </div>
+</div>
 
 
         <main id="viewArea">
