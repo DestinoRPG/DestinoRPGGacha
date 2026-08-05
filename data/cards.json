@@ -109,7 +109,7 @@
         "id": "Adell",
         "number": 1,
         "title": "Adell Sparda",
-        "collection": "Admins",
+        "collection": "admins",
         "image": "images/cards/adell.webp",
         "description": "El creador, administrador y editor jefe de Destino RPG. ¿Sabías que su nick proviene de la mezcla del protagonista de Disgaea 2 y el apellido del protagonista de Devil May Cry?",
         "articles": [
@@ -132,7 +132,7 @@
         "id": "Drive",
         "number": 2,
         "title": "Drive",
-        "collection": "Admins",
+        "collection": "admins",
         "image": "images/cards/drive.webp",
         "description": "AKA Abe",
         "articles": [
@@ -155,7 +155,7 @@
         "id": "Memele",
         "number": 3,
         "title": "Memele",
-        "collection": "Admins",
+        "collection": "admins",
         "image": "images/cards/mml.webp",
         "description": "Es Darkfire",
         "articles": [
