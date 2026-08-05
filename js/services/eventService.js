@@ -1,3 +1,8 @@
+import { getCollection } from "../firebase/firestore.js";
+
+/**
+ * Devuelve todos los eventos habilitados.
+ */
 export async function getEnabledEvents() {
 
     const events = await getCollection("events");
@@ -8,6 +13,9 @@ export async function getEnabledEvents() {
 }
 
 
+/**
+ * Devuelve un evento por su ID.
+ */
 export async function getEvent(id) {
 
     const events = await getCollection("events");
