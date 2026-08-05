@@ -1,4 +1,4 @@
-import { renderCard } from "../card.js";
+import { renderCard } from "./card.js";
 
 export function renderSummonResult(card) {
 
