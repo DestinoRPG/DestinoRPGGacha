@@ -1,4 +1,5 @@
-import { getCollection, getDocument } from "../firebase/firestore.js";
+import { getCollection, getDocumentByPath } from "../firebase/firestore.js";
+
 
 /**
  * Devuelve todos los eventos habilitados.
@@ -24,20 +25,33 @@ export async function getEvent(id) {
         return null;
     }
 
-    // Si el evento ya tiene colecciones definidas, las usamos
+
+    // Si ya tiene colecciones configuradas, no hace falta buscarlas.
     if (event.collections) {
         return event;
     }
 
-    // Cargar la lista general de colecciones
-    const collectionsDoc = await getDocument(
-        "events",
-        "Colecciones"
+
+    // Busca las colecciones asociadas al evento.
+    const collectionsDoc = await getDocumentByPath(
+        `events/${id}/collections/Colecciones`
     );
+
+
+    if (!collectionsDoc || !collectionsDoc.lista_colecciones) {
+
+        return {
+            ...event,
+            enabled: true,
+            collections: []
+        };
+    }
+
 
     const collections = collectionsDoc.lista_colecciones.map(collection =>
         Object.keys(collection)[0]
     );
+
 
     return {
         ...event,

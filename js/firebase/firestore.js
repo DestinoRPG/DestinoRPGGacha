@@ -9,11 +9,13 @@ import {
 
 import { db } from "./app.js";
 
+
 /**
  * Obtiene un documento.
  */
-export async function getDocument(collection, id) {
-    const ref = doc(db, collection, id);
+export async function getDocument(collectionName, id) {
+
+    const ref = doc(db, collectionName, id);
     const snapshot = await getDoc(ref);
 
     if (!snapshot.exists()) {
@@ -23,21 +25,46 @@ export async function getDocument(collection, id) {
     return snapshot.data();
 }
 
+
+/**
+ * Obtiene un documento mediante una ruta completa.
+ * Ejemplo:
+ * events/hall_of_fame/collections/Colecciones
+ */
+export async function getDocumentByPath(path) {
+
+    const ref = doc(db, ...path.split("/"));
+    const snapshot = await getDoc(ref);
+
+    if (!snapshot.exists()) {
+        return null;
+    }
+
+    return snapshot.data();
+}
+
+
 /**
  * Crea o reemplaza un documento.
  */
-export async function setDocument(collection, id, data) {
-    const ref = doc(db, collection, id);
+export async function setDocument(collectionName, id, data) {
+
+    const ref = doc(db, collectionName, id);
+
     await setDoc(ref, data);
 }
+
 
 /**
  * Actualiza un documento existente.
  */
-export async function updateDocument(collection, id, data) {
-    const ref = doc(db, collection, id);
+export async function updateDocument(collectionName, id, data) {
+
+    const ref = doc(db, collectionName, id);
+
     await updateDoc(ref, data);
 }
+
 
 /**
  * Obtiene todos los documentos de una colección.
