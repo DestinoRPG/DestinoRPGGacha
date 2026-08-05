@@ -1,8 +1,13 @@
 import { createUI } from "./ui.js";
 
-import { login, observeUser } from "./firebase/auth.js";
+import {
+    login,
+    observeUser
+} from "./firebase/auth.js";
 
-import { createOrLoadUser } from "./services/userService.js";
+import {
+    createOrLoadUser
+} from "./services/userService.js";
 
 import {
     refreshUI,
@@ -20,15 +25,31 @@ import {
     clearUrlParams
 } from "./services/urlService.js";
 
+import {
+    summon
+} from "./services/gachaService.js";
+
+import {
+    renderSummonResult
+} from "./ui/summon.js";
+
+import {
+    DEFAULT_BANNER
+} from "./config.js";
+
+
 
 window.addEventListener(
+
     "DOMContentLoaded",
+
     () => {
 
         createUI();
 
 
         observeUser(
+
             async (user) => {
 
 
@@ -74,73 +95,177 @@ window.addEventListener(
                     await createOrLoadUser(user);
 
 
-
-                // Ocultar login si existía
                 document
                     .getElementById("userArea")
                     .innerHTML = "";
 
 
+                async function drawCurrentView() {
+
+                    await refreshUI(profile);
+
+
+                    // -------------------------
+                    // Botón Inicio
+                    // -------------------------
+
+                    document
+                        .getElementById("homeButton")
+                        ?.addEventListener(
+                            "click",
+                            async () => {
+
+                                setView("home");
+
+                                await drawCurrentView();
+
+                            }
+                        );
+
+
+                    // -------------------------
+                    // Botón Colección
+                    // -------------------------
+
+                    document
+                        .getElementById("collectionButton")
+                        ?.addEventListener(
+                            "click",
+                            async () => {
+
+                                setView("collection");
+
+                                await drawCurrentView();
+
+                            }
+                        );
+
+
+                    // -------------------------
+                    // Banner de invocación
+                    // -------------------------
+
+                    const summonButton =
+                        document.getElementById(
+                            "summonButton"
+                        );
+
+
+                    if (summonButton) {
+
+
+                        summonButton.onclick =
+                            async () => {
+
+
+                                const result =
+                                    await summon(
+
+                                        DEFAULT_BANNER,
+
+                                        profile
+
+                                    );
+
+
+                                if (!result.success) {
+
+
+                                    if (
+                                        result.reason ===
+                                        "NO_TICKETS"
+                                    ) {
+
+
+                                        document
+                                            .getElementById("resultArea")
+                                            .innerHTML = `
+
+                                                <h2>
+
+                                                    No tienes tickets disponibles
+
+                                                </h2>
+
+                                                <p>
+
+                                                    Vuelve mañana para conseguir más.
+
+                                                </p>
+
+                                            `;
+
+
+                                        return;
+
+                                    }
+
+
+
+                                    if (
+                                        result.reason ===
+                                        "COLLECTION_COMPLETE"
+                                    ) {
+
+
+                                        document
+                                            .getElementById("resultArea")
+                                            .innerHTML = `
+
+                                                <h2>
+
+                                                    ¡Colección completada!
+
+                                                </h2>
+
+                                            `;
+
+
+                                        return;
+
+                                    }
+
+                                }
+
+
+
+                                document
+                                    .getElementById("resultArea")
+                                    .innerHTML =
+                                        renderSummonResult(
+                                            result.card
+                                        );
+
+
+                                await drawCurrentView();
+
+                            };
+
+                    }
+
+                }
+
 
                 setView("home");
 
-
-                await refreshUI(profile);
-
-
-
-                // =========================
-                // NAVEGACIÓN
-                // =========================
-
-
-                document
-                    .getElementById("homeButton")
-                    .addEventListener(
-                        "click",
-                        async () => {
-
-                            setView("home");
-
-                            await refreshUI(profile);
-
-                        }
-                    );
-
-
-
-                document
-                    .getElementById("collectionButton")
-                    .addEventListener(
-                        "click",
-                        async () => {
-
-                            setView("collection");
-
-                            await refreshUI(profile);
-
-                        }
-                    );
+                await drawCurrentView();
 
 
                 /*
                     RECOMPENSA DIARIA
                 */
 
-
                 const params =
                     getUrlParams();
-
-
-
-                if (
+                                    if (
                     params.reward === "daily"
                 ) {
 
 
                     const result =
-                        await claimDailyReward(profile);
-
+                        await claimDailyReward(
+                            profile
+                        );
 
 
                     document
@@ -150,12 +275,16 @@ window.addEventListener(
                             ? `
 
                                 <h2>
+
                                     🎁 ¡Ticket diario conseguido!
+
                                 </h2>
 
                                 <p>
+
                                     Has recibido
                                     <strong>1 ticket</strong>.
+
                                 </p>
 
                             `
@@ -163,32 +292,28 @@ window.addEventListener(
                             : `
 
                                 <h2>
+
                                     📅 Ticket diario
+
                                 </h2>
 
                                 <p>
+
                                     Ya has reclamado
                                     el ticket de hoy.
+
                                 </p>
 
                             `;
 
 
-
-                    await refreshUI(profile);
+                    await drawCurrentView();
 
 
                     clearUrlParams();
 
                 }
 
-
-
-
-
-                /*
-                    RECOMPENSAS EXTERNAS
-                */
 
 
                 else if (
@@ -198,10 +323,12 @@ window.addEventListener(
 
                     const result =
                         await claimCardReward(
-                            profile,
-                            params.card
-                        );
 
+                            profile,
+
+                            params.card
+
+                        );
 
 
                     if (
@@ -214,16 +341,19 @@ window.addEventListener(
                             .innerHTML = `
 
                                 <h2>
+
                                     🎁 ¡Recompensa conseguida!
+
                                 </h2>
 
                                 <p>
+
                                     Has recibido
                                     <strong>1 ticket</strong>.
+
                                 </p>
 
                             `;
-
 
                     }
 
@@ -239,16 +369,19 @@ window.addEventListener(
                             .innerHTML = `
 
                                 <h2>
+
                                     ℹ️ Recompensa
+
                                 </h2>
 
                                 <p>
+
                                     Ya habías reclamado
                                     esta recompensa.
+
                                 </p>
 
                             `;
-
 
                     }
 
@@ -264,16 +397,19 @@ window.addEventListener(
                             .innerHTML = `
 
                                 <h2>
+
                                     🔒 Carta no obtenida
+
                                 </h2>
 
                                 <p>
+
                                     Necesitas conseguir
                                     esta carta antes.
+
                                 </p>
 
                             `;
-
 
                     }
 
@@ -286,32 +422,35 @@ window.addEventListener(
                             .innerHTML = `
 
                                 <h2>
+
                                     ❌ Error
+
                                 </h2>
 
                                 <p>
+
                                     No se pudo reclamar
                                     la recompensa.
+
                                 </p>
 
                             `;
 
-
                     }
 
 
-
-                    await refreshUI(profile);
+                    await drawCurrentView();
 
 
                     clearUrlParams();
-
 
                 }
 
 
             }
+
         );
 
     }
+
 );
