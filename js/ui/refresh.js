@@ -73,9 +73,8 @@ export async function refreshUI(profile) {
     if (currentView === "home") {
 
 
-        viewArea.innerHTML =
-            renderHome(profile);
-
+viewArea.innerHTML =
+    await renderHome(profile);
 
         const resultArea =
             document.getElementById("resultArea");
