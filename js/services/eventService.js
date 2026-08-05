@@ -1,4 +1,4 @@
-import { getCollection } from "../firebase/firestore.js";
+import { getCollection, getDocument } from "../firebase/firestore.js";
 
 /**
  * Devuelve todos los eventos habilitados.
@@ -6,8 +6,6 @@ import { getCollection } from "../firebase/firestore.js";
 export async function getEnabledEvents() {
 
     const events = await getCollection("events");
-
-    console.log("EVENTOS LEIDOS:", events);
 
     return events.filter(event => event.enabled);
 }
@@ -20,8 +18,30 @@ export async function getEvent(id) {
 
     const events = await getCollection("events");
 
-    console.log("BUSCANDO EVENTO:", id);
-    console.log("EVENTOS DISPONIBLES:", events);
+    const event = events.find(event => event.id === id);
 
-    return events.find(event => event.id === id) || null;
+    if (!event) {
+        return null;
+    }
+
+    // Si ya tiene colecciones, usamos esas
+    if (event.collections) {
+        return event;
+    }
+
+    // Si no, usamos la colección general
+    const collectionsDoc = await getDocument(
+        "events/Colecciones",
+        "lista_colecciones"
+    );
+
+    return {
+        ...event,
+        enabled: true,
+        collections: collectionsDoc.lista_colecciones
+            ? collectionsDoc.lista_colecciones.map(collection =>
+                Object.keys(collection)[0]
+            )
+            : []
+    };
 }
