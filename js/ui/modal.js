@@ -115,7 +115,6 @@ export function renderModal(
 
                     <p class="locked-description">
 
-
                         Todavía no has conseguido
                         esta carta.
 
@@ -123,7 +122,6 @@ export function renderModal(
                         descubrir su ilustración,
                         historia y artículos
                         relacionados.
-
 
                     </p>
 
@@ -193,8 +191,6 @@ export function renderModal(
         `)
 
         .join("");
-
-
 
 
 
@@ -294,52 +290,97 @@ export function renderModal(
 
 
 
-                    <strong>
+                    ${
+                        card.series
 
-                        Saga
+                        ?
 
-                    </strong>
+                        `
 
+                        <strong>
 
-                    <span>
+                            Saga
 
-                        ${card.series}
-
-                    </span>
-
-
+                        </strong>
 
 
+                        <span>
 
-                    <strong>
+                            ${card.series}
 
-                        Desarrolladora
+                        </span>
 
-                    </strong>
+                        `
 
+                        :
 
-                    <span>
+                        ""
 
-                        ${card.developer}
-
-                    </span>
+                    }
 
 
 
 
 
-                    <strong>
+                    ${
+                        card.developer
 
-                        Lanzamiento
+                        ?
 
-                    </strong>
+                        `
+
+                        <strong>
+
+                            Desarrolladora
+
+                        </strong>
 
 
-                    <span>
+                        <span>
 
-                        ${card.releaseYear}
+                            ${card.developer}
 
-                    </span>
+                        </span>
+
+                        `
+
+                        :
+
+                        ""
+
+                    }
+
+
+
+
+
+                    ${
+                        card.releaseYear
+
+                        ?
+
+                        `
+
+                        <strong>
+
+                            Lanzamiento
+
+                        </strong>
+
+
+                        <span>
+
+                            ${card.releaseYear}
+
+                        </span>
+
+                        `
+
+                        :
+
+                        ""
+
+                    }
 
 
 
