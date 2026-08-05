@@ -1,46 +1,53 @@
 import { renderCard } from "../card.js";
-
+import { COLLECTIONS } from "../../data/collections.js";
 
 export function renderCollectionView(
     cards,
     profile
 ) {
 
-
-    const owned =
-        profile.ownedCards.length;
-
-
-    const total =
-        cards.length;
-
-
-
-    const percentage =
-        total === 0
-            ? 0
-            : Math.round(
-                owned / total * 100
-            );
-
-
-
     let html = `
 
         <section class="collection-view">
 
+    `;
+
+    for (const collection of COLLECTIONS.filter(c => c.enabled)) {
+
+        const collectionCards =
+            cards.filter(
+                card =>
+                    card.collection === collection.id
+            );
+
+        const owned =
+            collectionCards.filter(
+                card =>
+                    profile.ownedCards.includes(card.id)
+            ).length;
+
+        const total =
+            collectionCards.length;
+
+        const percentage =
+            total === 0
+                ? 0
+                : Math.round(
+                    owned / total * 100
+                );
+
+        html += `
 
             <div class="collection-header">
-
 
                 <div>
 
                     <h2 class="collection-title">
 
-                        Salón de la Fama
+                        ${collection.icon}
+                        ${collection.name}
 
                     </h2>
-
 
                     <p class="collection-subtitle">
 
@@ -51,10 +58,7 @@ export function renderCollectionView(
 
                     </p>
 
-
                 </div>
-
-
 
                 <div class="collection-counter">
 
@@ -62,48 +66,40 @@ export function renderCollectionView(
 
                 </div>
 
-
-
             </div>
-
-
 
             <div class="collection-grid">
 
-    `;
+        `;
 
+        for (const card of collectionCards) {
 
+            html += renderCard(
 
-    for (const card of cards) {
+                card,
 
+                profile.ownedCards.includes(
+                    card.id
+                )
 
-        html += renderCard(
+            );
 
-            card,
+        }
 
-            profile.ownedCards.includes(
-                card.id
-            )
-
-        );
-
-
-    }
-
-
-
-    html += `
+        html += `
 
             </div>
 
+        `;
+
+    }
+
+    html += `
 
         </section>
 
     `;
 
-
-
     return html;
-
 
 }
