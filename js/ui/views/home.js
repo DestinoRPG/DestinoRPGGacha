@@ -7,41 +7,15 @@ import {
 import { COLLECTIONS } from "../../data/collections.js";
 import { getCardsByCollection } from "../../services/cardService.js";
 
+console.log(profile);
 export async function renderHome(profile) {
-
-    console.log("PROFILE:", profile);
-    console.log("OWNED:", profile.ownedCards);
 
     let progress = "";
 
     for (const collection of COLLECTIONS.filter(c => c.enabled)) {
 
-        console.log("Colección:", collection.id);
-
-        let cards = [];
-
-        try {
-
-            cards =
-                await getCardsByCollection(
-                    collection.id
-                );
-
-            console.log(
-                "Cartas:",
-                cards
-            );
-
-        }
-        catch (error) {
-
-            console.error(
-                "ERROR cargando colección",
-                collection.id,
-                error
-            );
-
-        }
+        const cards =
+            await getCardsByCollection(collection.id);
 
         const owned =
             cards.filter(card =>
@@ -55,9 +29,7 @@ export async function renderHome(profile) {
         );
 
     }
-
-    console.log("Render terminado");
-
+console.log(profile.ownedCards);
     return `
 
         <section class="home-view">
@@ -76,5 +48,10 @@ export async function renderHome(profile) {
         </section>
 
     `;
+
+}
+
+
+export function initializeHome() {
 
 }
