@@ -69,12 +69,11 @@ export async function refreshUI(profile) {
     }
 
 
-
     if (currentView === "home") {
 
 
         viewArea.innerHTML =
-            renderHome(profile);
+            await renderHome(profile);
 
 
         const resultArea =
@@ -96,7 +95,6 @@ export async function refreshUI(profile) {
     }
 
 
-
     if (currentView === "collection") {
 
 
@@ -112,8 +110,6 @@ export async function refreshUI(profile) {
             profile
         );
 
-
     }
-
 
 }
