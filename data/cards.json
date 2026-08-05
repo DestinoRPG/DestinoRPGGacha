@@ -104,5 +104,74 @@
         }
     ],
         "enabled": true
+    },
+        {
+        "id": "Adell",
+        "number": 1,
+        "title": "Adell Sparda",
+        "collection": "Admins",
+        "image": "images/cards/adell.webp",
+        "description": "El creador, administrador y editor jefe de Destino RPG. ¿Sabías que su nick proviene de la mezcla del protagonista de Disgaea 2 y el apellido del protagonista de Devil May Cry?",
+        "articles": [
+        {
+            "title": "El primer éxito original",
+            "url": "https://www.destinorpg.es/2012/09/los-peores-rpgs-de-la-historia.html"
+        },
+        {
+            "title": "Su artículo con más visitas",
+            "url": "https://www.destinorpg.es/2013/12/guia-de-bravely-default-en-construccion.html"
+        },
+                {
+            "title": "Un artículo reciente que me guste",
+            "url": "https://www.destinorpg.es/2026/04/square-enix-y-la-perdida-del-talento.html"
+        }
+    ],
+        "enabled": true
+    },
+            {
+        "id": "Drive",
+        "number": 2,
+        "title": "Drive",
+        "collection": "Admins",
+        "image": "images/cards/drive.webp",
+        "description": "AKA Abe",
+        "articles": [
+        {
+            "title": "Su primer artículo",
+            "url": "https://www.destinorpg.es/2014/09/la-opcion-como-gancho-personalizacion-y.html"
+        },
+        {
+            "title": "Su artículo con más visitas",
+            "url": "https://www.destinorpg.es/2025/05/clair-obscur-expedition-33-guia-de.html"
+        },
+                {
+            "title": "Un artículo reciente que me guste",
+            "url": "https://www.destinorpg.es/2026/03/un-recorrido-por-el-mago-azul-en-final.html"
+        }
+    ],
+        "enabled": true
+    },
+            {
+        "id": "Memele",
+        "number": 3,
+        "title": "Memele",
+        "collection": "Admins",
+        "image": "images/cards/mml.webp",
+        "description": "Es Darkfire",
+        "articles": [
+        {
+            "title": "Su primer artículo",
+            "url": "http://destino-rpg.blogspot.com.es/2014/03/vaj-pokemon-edicion-azul-gb-capitulo-4.html"
+        },
+        {
+            "title": "Su artículo con más visitas",
+            "url": "https://www.destinorpg.es/2015/05/tales-of-que-es-y-por-donde-empezar.html"
+        },
+                {
+            "title": "Un artículo reciente que me guste",
+            "url": "https://www.destinorpg.es/2026/07/analisis-escape-from-ever-after.html"
+        }
+    ],
+        "enabled": true
     }
 ]
