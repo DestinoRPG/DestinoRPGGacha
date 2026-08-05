@@ -105,40 +105,45 @@ window.addEventListener(
                     await refreshUI(profile);
 
 
-                    // -------------------------
-                    // Botón Inicio
-                    // -------------------------
+// -------------------------
+// Botón Inicio / Colección
+// -------------------------
 
-                    document
-                        .getElementById("homeButton")
-                        ?.addEventListener(
-                            "click",
-                            async () => {
+const homeButton =
+    document.getElementById(
+        "homeButton"
+    );
 
-                                setView("home");
+const collectionButton =
+    document.getElementById(
+        "collectionButton"
+    );
 
-                                await drawCurrentView();
+if (homeButton) {
 
-                            }
-                        );
+    homeButton.onclick =
+        async () => {
 
+            setView("home");
 
-                    // -------------------------
-                    // Botón Colección
-                    // -------------------------
+            await drawCurrentView();
 
-                    document
-                        .getElementById("collectionButton")
-                        ?.addEventListener(
-                            "click",
-                            async () => {
+        };
 
-                                setView("collection");
+}
 
-                                await drawCurrentView();
+if (collectionButton) {
 
-                            }
-                        );
+    collectionButton.onclick =
+        async () => {
+
+            setView("collection");
+
+            await drawCurrentView();
+
+        };
+
+}
 
 
                     // -------------------------
@@ -229,15 +234,16 @@ window.addEventListener(
 
 
 
-                                document
-                                    .getElementById("resultArea")
-                                    .innerHTML =
-                                        renderSummonResult(
-                                            result.card
-                                        );
+await drawCurrentView();
 
+await drawCurrentView();
 
-                                await drawCurrentView();
+document
+    .getElementById("resultArea")
+    .innerHTML =
+    renderSummonResult(
+        result.card
+    );
 
                             };
 
