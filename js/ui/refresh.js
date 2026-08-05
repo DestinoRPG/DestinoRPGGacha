@@ -1,8 +1,7 @@
 import { initializeCardEvents } from "./events.js";
 
 import {
-    renderHome,
-    initializeHome
+    renderHome
 } from "./views/home.js";
 
 import {
@@ -21,7 +20,6 @@ export function setView(view) {
 
     currentView = view;
 
-
     document
         .querySelectorAll(".nav-button")
         .forEach(button => {
@@ -30,12 +28,10 @@ export function setView(view) {
 
         });
 
-
     const activeButton =
         view === "home"
             ? document.getElementById("homeButton")
             : document.getElementById("collectionButton");
-
 
     if (activeButton) {
 
@@ -51,16 +47,11 @@ export async function refreshUI(profile) {
     const allCards =
         await getAllCards();
 
-
     profile.totalCards =
         allCards.length;
 
-
     const viewArea =
-        document.getElementById(
-            "viewArea"
-        );
-
+        document.getElementById("viewArea");
 
     if (!viewArea) {
 
@@ -71,24 +62,17 @@ export async function refreshUI(profile) {
 
     if (currentView === "home") {
 
-
         viewArea.innerHTML =
             await renderHome(profile);
 
-
         const resultArea =
             document.getElementById("resultArea");
-
 
         if (resultArea) {
 
             resultArea.innerHTML = "";
 
         }
-
-
-        initializeHome(profile);
-
 
         return;
 
@@ -97,13 +81,11 @@ export async function refreshUI(profile) {
 
     if (currentView === "collection") {
 
-
         viewArea.innerHTML =
             renderCollectionView(
                 allCards,
                 profile
             );
-
 
         initializeCardEvents(
             allCards,
