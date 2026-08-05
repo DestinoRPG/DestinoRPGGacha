@@ -14,10 +14,16 @@ export async function getBannerCards(eventId) {
 
     const cards = await getAllCards();
 
+    const collections = Array.isArray(event.collections)
+        ? event.collections
+        : [event.collection];
+
+
     return cards.filter(card =>
-        event.collections.includes(card.collection)
+        collections.includes(card.collection)
     );
 }
+
 
 /**
  * Devuelve las cartas del banner que el usuario aún no posee.
@@ -30,6 +36,7 @@ export async function getAvailableBannerCards(eventId, user) {
         !user.ownedCards.includes(card.id)
     );
 }
+
 
 /**
  * Devuelve el progreso del usuario en un banner.
