@@ -24,7 +24,7 @@ export async function getEvent(id) {
     if (!event) {
         return null;
     }
-
+console.log("ID EVENTO:", id);
 
     // Si ya tiene colecciones configuradas, no hace falta buscarlas.
     if (event.collections) {
@@ -33,9 +33,13 @@ export async function getEvent(id) {
 
 
     // Busca las colecciones asociadas al evento.
-    const collectionsDoc = await getDocumentByPath(
-        `events/${id}/collections/Colecciones`
-    );
+const path = `events/${id}/collections/Colecciones`;
+
+console.log("BUSCANDO:", path);
+
+const collectionsDoc = await getDocumentByPath(path);
+
+console.log("RESULTADO COLECCIONES:", collectionsDoc);
 
 
     if (!collectionsDoc || !collectionsDoc.lista_colecciones) {
