@@ -101,11 +101,13 @@ window.addEventListener(
                     .getElementById("userArea")
                     .innerHTML = "";
 
+                    console.log("ANTES drawCurrentView");
 
                 async function drawCurrentView() {
 
                     await refreshUI(profile);
 
+                    console.log("DESPUÉS drawCurrentView");
 
 // -------------------------
 // Botón Inicio / Colección

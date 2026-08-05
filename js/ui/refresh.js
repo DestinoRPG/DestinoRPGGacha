@@ -41,8 +41,9 @@ export function setView(view) {
 
 }
 
-
 export async function refreshUI(profile) {
+
+        console.log("REFRESH");
 
     const allCards =
         await getAllCards();
