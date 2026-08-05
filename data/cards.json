@@ -61,6 +61,44 @@
     ],
         "enabled": true
     },
+                {
+        "id": "bloodborne",
+        "number": 4,
+        "title": "Bloodborne",
+        "collection": "hall_of_fame",
+        "image": "images/cards/bloodborne.webp",
+        "developer": "From Software",
+        "releaseYear": 2015,
+        "description": "",
+        "articles": [
+                {
+            "title": "Análisis",
+            "url": "https://www.destinorpg.es/2015/08/no-apto-para-todos-los-publicos-decima.html"
+        }
+    ],
+        "enabled": true
+    },
+                    {
+        "id": "chained",
+        "number": 5,
+        "title": "Chained Echoes",
+        "collection": "hall_of_fame",
+        "image": "images/cards/chained.webp",
+        "developer": "Umami Tiger",
+        "releaseYear": 2022,
+        "description": "",
+        "articles": [
+                    {
+            "title": "Indie a seguir",
+            "url": "https://www.destinorpg.es/2019/08/indie-seguir-chained-echoes.html"
+        },
+                {
+            "title": "Análisis",
+            "url": "https://www.destinorpg.es/2022/12/analisis-chained-echoes.html"
+        }
+    ],
+        "enabled": true
+    },
     {
         "id": "chrono",
         "number": 6,
@@ -73,6 +111,28 @@
         "description": "",
         "articles": [
                 {
+            "title": "Leyendo: Más Allá del Tiempo",
+            "url": "https://www.destinorpg.es/2016/05/leyendo-mas-alla-del-tiempo-chrono.html"
+        }
+    ],
+        "enabled": true
+    },
+        {
+        "id": "chronocross",
+        "number": 7,
+        "title": "Chrono Cross",
+        "collection": "hall_of_fame",
+        "image": "images/cards/chronocross.webp",
+        "series": "Chrono",
+        "developer": "Square",
+        "releaseYear": 1998,
+        "description": "",
+        "articles": [
+                 {
+            "title": "¿Sabías que la serie Chrono tiene un juego intermedio?",
+            "url": "https://www.destinorpg.es/2013/02/sabias-que-la-serie-chrono-tiene-un.html"
+        },
+                {           
             "title": "Leyendo: Más Allá del Tiempo",
             "url": "https://www.destinorpg.es/2016/05/leyendo-mas-alla-del-tiempo-chrono.html"
         }
