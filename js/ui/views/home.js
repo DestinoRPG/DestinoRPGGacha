@@ -7,7 +7,7 @@ import {
 import { COLLECTIONS } from "../../data/collections.js";
 import { getCardsByCollection } from "../../services/cardService.js";
 
-
+console.log(profile);
 export async function renderHome(profile) {
 
     let progress = "";
@@ -29,7 +29,7 @@ export async function renderHome(profile) {
         );
 
     }
-
+console.log(profile.ownedCards);
     return `
 
         <section class="home-view">
