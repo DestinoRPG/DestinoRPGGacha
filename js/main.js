@@ -37,6 +37,10 @@ import {
     DEFAULT_BANNER
 } from "./config.js";
 
+import {
+    initializeCardEvents
+} from "./ui/events.js";
+
 
 
 window.addEventListener(
@@ -146,115 +150,122 @@ if (collectionButton) {
 }
 
 
-                    // -------------------------
+                   // -------------------------
                     // Banner de invocación
                     // -------------------------
 
-                    const summonButton =
-                        document.getElementById(
-                            "summonButton"
-                        );
-
-
-                    if (summonButton) {
-
-
-                        summonButton.onclick =
-                            async () => {
-
-
-                                const result =
-                                    await summon(
-
-                                        DEFAULT_BANNER,
-
-                                        profile
-
-                                    );
-
-
-                                if (!result.success) {
-
-
-                                    if (
-                                        result.reason ===
-                                        "NO_TICKETS"
-                                    ) {
-
-
-                                        document
-                                            .getElementById("resultArea")
-                                            .innerHTML = `
-
-                                                <h2>
-
-                                                    No tienes tickets disponibles
-
-                                                </h2>
-
-                                                <p>
-
-                                                    Vuelve mañana para conseguir más.
-
-                                                </p>
-
-                                            `;
-
-
-                                        return;
-
-                                    }
-
-
-
-                                    if (
-                                        result.reason ===
-                                        "COLLECTION_COMPLETE"
-                                    ) {
-
-
-                                        document
-                                            .getElementById("resultArea")
-                                            .innerHTML = `
-
-                                                <h2>
-
-                                                    ¡Colección completada!
-
-                                                </h2>
-
-                                            `;
-
-
-                                        return;
-
-                                    }
-
-                                }
-
-
-
-await drawCurrentView();
-
-await drawCurrentView();
-
-document
-    .getElementById("resultArea")
-    .innerHTML =
-    renderSummonResult(
-        result.card
+const summonButton =
+    document.getElementById(
+        "summonButton"
     );
 
-                            };
 
-                    }
+if (summonButton) {
+
+
+    summonButton.onclick =
+        async () => {
+
+
+            const result =
+                await summon(
+
+                    DEFAULT_BANNER,
+
+                    profile
+
+                );
+
+
+
+            if (!result.success) {
+
+
+                if (
+                    result.reason ===
+                    "NO_TICKETS"
+                ) {
+
+
+                    document
+                        .getElementById("resultArea")
+                        .innerHTML = `
+
+                            <h2>
+
+                                No tienes tickets disponibles
+
+                            </h2>
+
+                            <p>
+
+                                Vuelve mañana para conseguir más.
+
+                            </p>
+
+                        `;
+
+
+                    return;
 
                 }
 
 
-                setView("home");
 
-                await drawCurrentView();
+                if (
+                    result.reason ===
+                    "COLLECTION_COMPLETE"
+                ) {
+
+
+                    document
+                        .getElementById("resultArea")
+                        .innerHTML = `
+
+                            <h2>
+
+                                ¡Colección completada!
+
+                            </h2>
+
+                        `;
+
+
+                    return;
+
+                }
+
+
+                return;
+
+            }
+
+
+
+            await drawCurrentView();
+
+
+
+            document
+                .getElementById("resultArea")
+                .innerHTML =
+                renderSummonResult(
+                    result.card
+                );
+
+
+
+            // Activar clic para abrir el detalle
+            // de la carta recién obtenida
+            initializeCardEvents(
+                [result.card],
+                profile
+            );
+
+
+        };
+
+    }}
 
 
                 /*
