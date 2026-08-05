@@ -173,5 +173,77 @@
         }
     ],
         "enabled": true
+    },
+                {
+        "id": "afrael",
+        "number": 1,
+        "title": "Afrael",
+        "collection": "contributors",
+        "image": "images/cards/afrael.webp",
+        "articles": [
+        {
+            "title": "Su primer artículo",
+            "url": "http://destino-rpg.blogspot.com.es/2015/08/experiencias-roleras-afrael-habla-sobre.html"
+        },
+        {
+            "title": "Su artículo con más visitas",
+            "url": "https://www.destinorpg.es/2019/02/analisis-kingdom-hearts-iii.html"
+        },
+                {
+            "title": "Su último artículo (hasta la fecha)",
+            "url": "https://www.destinorpg.es/2024/02/analisis-final-fantasy-xvi.html"
+        }
+    ],
+        "enabled": true
+    },
+                {
+        "id": "albel",
+        "number": 2,
+        "title": "Albel",
+        "collection": "contributors",
+        "image": "images/cards/albel.webp",
+        "articles": [
+        {
+            "title": "Su primer artículo (con este nick, ha escrito más usando otro)",
+            "url": "https://www.destinorpg.es/2018/09/analisis-world-of-warcraft-battle-for_13.html"
+        }
+    ],
+        "enabled": true
+    },
+                {
+        "id": "astara",
+        "number": 3,
+        "title": "Astara",
+        "collection": "contributors",
+        "image": "images/cards/astara.webp",
+        "articles": [
+        {
+            "title": "Su primer artículo",
+            "url": "https://www.destinorpg.es/2015/07/experiencias-roleras-astara-nos-escribe.html"
+        },
+        {
+            "title": "Su artículo con más visitas",
+            "url": "https://www.destinorpg.es/2015/07/la-trilogia-de-final-fantasy-xiii.html"
+        },
+                {
+            "title": "Su último artículo (hasta la fecha)",
+            "url": "https://www.destinorpg.es/2017/11/analisis-hackgu-last-recode.html"
+        }
+    ],
+        "enabled": true
+    },
+                {
+        "id": "aurant",
+        "number": 4,
+        "title": "Aurant",
+        "collection": "contributors",
+        "image": "images/cards/aurant.webp",
+        "articles": [
+        {
+            "title": "Su primer artículo",
+            "url": "http://destino-rpg.blogspot.com.es/2014/04/vaj-pokemon-edicion-azul-gb-capitulo-8.html"
+        }
+    ],
+        "enabled": true
     }
 ]
