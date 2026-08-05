@@ -49,7 +49,7 @@ window.addEventListener(
 
         createUI();
 
-
+console.log("ANTES observeUser");
         observeUser(
 
             async (user) => {
