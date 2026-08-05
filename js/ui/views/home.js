@@ -7,8 +7,10 @@ import {
 import { COLLECTIONS } from "../../data/collections.js";
 import { getCardsByCollection } from "../../services/cardService.js";
 
-console.log(profile);
 export async function renderHome(profile) {
+
+    console.log(profile);
+    console.log(profile.ownedCards);
 
     let progress = "";
 
@@ -29,7 +31,7 @@ export async function renderHome(profile) {
         );
 
     }
-console.log(profile.ownedCards);
+
     return `
 
         <section class="home-view">
@@ -48,10 +50,5 @@ console.log(profile.ownedCards);
         </section>
 
     `;
-
-}
-
-
-export function initializeHome() {
 
 }
