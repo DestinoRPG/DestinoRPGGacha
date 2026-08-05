@@ -103,11 +103,21 @@ window.addEventListener(
 
                     console.log("ANTES drawCurrentView");
 
-                async function drawCurrentView() {
+async function drawCurrentView() {
 
-                    await refreshUI(profile);
+    try {
 
-                    console.log("DESPUÉS drawCurrentView");
+        await refreshUI(profile);
+
+        console.log("DESPUÉS drawCurrentView");
+
+    }
+
+    catch (error) {
+
+        console.error("ERROR EN refreshUI:", error);
+
+    }
 
 // -------------------------
 // Botón Inicio / Colección
