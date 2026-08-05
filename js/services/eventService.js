@@ -24,24 +24,24 @@ export async function getEvent(id) {
         return null;
     }
 
-    // Si ya tiene colecciones, usamos esas
+    // Si el evento ya tiene colecciones definidas, las usamos
     if (event.collections) {
         return event;
     }
 
-    // Si no, usamos la colección general
+    // Cargar la lista general de colecciones
     const collectionsDoc = await getDocument(
-        "events/Colecciones",
-        "lista_colecciones"
+        "events",
+        "Colecciones"
+    );
+
+    const collections = collectionsDoc.lista_colecciones.map(collection =>
+        Object.keys(collection)[0]
     );
 
     return {
         ...event,
         enabled: true,
-        collections: collectionsDoc.lista_colecciones
-            ? collectionsDoc.lista_colecciones.map(collection =>
-                Object.keys(collection)[0]
-            )
-            : []
+        collections
     };
 }
