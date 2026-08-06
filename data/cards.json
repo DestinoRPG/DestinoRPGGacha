@@ -139,6 +139,159 @@
     ],
         "enabled": true
     },
+            {
+        "id": "darkestdungeon",
+        "number": 8,
+        "title": "Darkest Dungeon",
+        "collection": "hall_of_fame",
+        "image": "images/cards/darkestdungeon.webp",
+        "series": "Darkest Dungeon",
+        "developer": "Red Hook Studios",
+        "releaseYear": 2016,
+        "description": "",
+        "articles": [
+                {           
+            "title": "¿Qué es Darkest Dungeon?",
+            "url": "https://www.destinorpg.es/2016/01/que-es-darkest-dungeon.html"
+        }
+    ],
+        "enabled": true
+    },
+                {
+        "id": "darksouls",
+        "number": 9,
+        "title": "Dark Souls",
+        "collection": "hall_of_fame",
+        "image": "images/cards/ds.webp",
+        "series": "Dark Souls",
+        "developer": "From Software",
+        "releaseYear": 2011,
+        "description": "",
+        "articles": [
+                {           
+            "title": "Traducción de la entrevista a Miyazaki",
+            "url": "https://www.destinorpg.es/2012/02/entrevista-con-hidetaka-miyazaki.html"
+        },
+                        {           
+            "title": "Experiencias Roleras",
+            "url": "https://www.destinorpg.es/2015/08/experiencias-roleras-afrael-habla-sobre.html"
+        }
+    ],
+        "enabled": true
+    },
+                    {
+        "id": "darksouls3",
+        "number": 10,
+        "title": "Dark Souls III",
+        "collection": "hall_of_fame",
+        "image": "images/cards/ds3.webp",
+        "series": "Dark Souls",
+        "developer": "From Software",
+        "releaseYear": 2016,
+        "description": "",
+        "articles": [
+                        {           
+            "title": "Experiencias Roleras",
+            "url": "https://www.destinorpg.es/2016/05/experiencias-roleras-cid-nos-escribe.html"
+        }
+    ],
+        "enabled": true
+    },
+                        {
+        "id": "diabloii",
+        "number": 11,
+        "title": "Diablo II",
+        "collection": "hall_of_fame",
+        "image": "images/cards/diabloii.webp",
+        "series": "Diablo",
+        "developer": "Blizzard",
+        "releaseYear": 2000,
+        "description": "",
+        "enabled": true
+    },
+                        {
+        "id": "disco",
+        "number": 12,
+        "title": "Disco Elysium",
+        "collection": "hall_of_fame",
+        "image": "images/cards/disco.webp",
+        "developer": "ZA/UM",
+        "releaseYear": 2019,
+        "description": "",
+        "articles": [
+                        {           
+            "title": "Análisis",
+            "url": "https://www.destinorpg.es/2020/01/analisis-disco-elysium.html"
+        }
+    ],
+        "enabled": true
+    },
+                            {
+        "id": "divinity2",
+        "number": 13,
+        "title": "Divinity: Original Sin II",
+        "collection": "hall_of_fame",
+        "image": "images/cards/dos2.webp",
+        "series": "Divinity",
+        "developer": "Larian",
+        "releaseYear": 2017,
+        "description": "",
+        "enabled": true
+    },
+                                {
+        "id": "dragonage",
+        "number": 14,
+        "title": "Dragon Age: Origins",
+        "collection": "hall_of_fame",
+        "image": "images/cards/dao.webp",
+        "series": "Dragon Age",
+        "developer": "Bioware",
+        "releaseYear": 2009,
+        "description": "",
+        "enabled": true
+    },
+                                    {
+        "id": "dqviii",
+        "number": 15,
+        "title": "Dragon Quest VIII",
+        "collection": "hall_of_fame",
+        "image": "images/cards/dqviii.webp",
+        "series": "Dragon Quest",
+        "developer": "Level-5/Square Enix",
+        "releaseYear": 2004,
+        "description": "",
+        "enabled": true
+    },
+                                        {
+        "id": "dqix",
+        "number": 16,
+        "title": "Dragon Quest IX",
+        "collection": "hall_of_fame",
+        "image": "images/cards/dqix.webp",
+        "series": "Dragon Quest",
+        "developer": "Level-5/Square Enix",
+        "releaseYear": 2009,
+        "description": "",
+        "articles": [
+                        {           
+            "title": "Análisis",
+            "url": "https://www.destinorpg.es/2018/09/analisis-dragon-quest-xi-ecos-de-un.html"
+        }
+    ],
+        "enabled": true
+    },
+                                            {
+        "id": "dqxi",
+        "number": 17,
+        "title": "Dragon Quest XI",
+        "collection": "hall_of_fame",
+        "image": "images/cards/dqxi.webp",
+        "series": "Dragon Quest",
+        "developer": "Square Enix",
+        "releaseYear": 2017,
+        "description": "",
+        "enabled": true
+    },
     {
         "id": "ff7",
         "number": 23,
