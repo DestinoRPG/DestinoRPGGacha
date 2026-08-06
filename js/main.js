@@ -242,12 +242,32 @@ await drawCurrentView();
 
 await drawCurrentView();
 
-document
-    .getElementById("resultArea")
-    .innerHTML =
-    renderSummonResult(
-        result.card
-    );
+await drawCurrentView();
+
+const resultArea =
+    document.getElementById("resultArea");
+
+resultArea.scrollIntoView({
+
+    behavior:"smooth",
+    block:"center"
+
+});
+
+resultArea.innerHTML =
+    renderSummonLoading();
+
+await new Promise(resolve =>
+    setTimeout(resolve, 1800)
+);
+
+resultArea.innerHTML =
+    renderSummonResult(result.card);
+
+initializeCardEvents(
+    [result.card],
+    profile
+);
     initializeCardEvents(
     [result.card],
     profile

@@ -29,3 +29,23 @@ export function renderSummonResult(card) {
     `;
 
 }
+
+export function renderSummonLoading() {
+
+    return `
+
+        <div class="summon-loading">
+
+            <div class="summon-circle"></div>
+
+            <h2>
+
+                INVOCANDO...
+
+            </h2>
+
+        </div>
+
+    `;
+
+}
