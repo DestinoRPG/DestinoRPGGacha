@@ -10,7 +10,70 @@ export function renderCollectionView(
 
         <section class="collection-view">
 
+            <div class="collection-index">
+
     `;
+
+    // =========================
+    // Índice de colecciones
+    // =========================
+
+    for (const collection of COLLECTIONS) {
+
+        if (!collection.enabled) {
+            continue;
+        }
+
+        const collectionCards =
+            cards.filter(card =>
+                card.collection === collection.id
+            );
+
+        const owned =
+            collectionCards.filter(card =>
+                profile.ownedCards.includes(card.id)
+            ).length;
+
+        html += `
+
+            <button
+
+                class="collection-jump"
+
+                data-target="${collection.id}"
+
+            >
+
+                <span>
+
+                    ${collection.icon}
+                    ${collection.name}
+
+                </span>
+
+                <small>
+
+                    ${owned}
+                    /
+                    ${collectionCards.length}
+
+                </small>
+
+            </button>
+
+        `;
+
+    }
+
+    html += `
+
+            </div>
+
+    `;
+
+    // =========================
+    // Colecciones
+    // =========================
 
     for (const collection of COLLECTIONS) {
 
@@ -42,37 +105,45 @@ export function renderCollectionView(
 
         html += `
 
-            <div class="collection-header">
+            <section
 
-                <div>
+                id="${collection.id}"
 
-                    <h2 class="collection-title">
+                class="collection-section"
 
-                        ${collection.icon}
-                        ${collection.name}
+            >
 
-                    </h2>
+                <div class="collection-header">
 
-                    <p class="collection-subtitle">
+                    <div>
 
-                        ${owned}
-                        de
-                        ${total}
-                        cartas descubiertas
+                        <h2 class="collection-title">
 
-                    </p>
+                            ${collection.icon}
+                            ${collection.name}
+
+                        </h2>
+
+                        <p class="collection-subtitle">
+
+                            ${owned}
+                            de
+                            ${total}
+                            cartas descubiertas
+
+                        </p>
+
+                    </div>
+
+                    <div class="collection-counter">
+
+                        ${percentage}%
+
+                    </div>
 
                 </div>
 
-                <div class="collection-counter">
-
-                    ${percentage}%
-
-                </div>
-
-            </div>
-
-            <div class="collection-grid">
+                <div class="collection-grid">
 
         `;
 
@@ -92,7 +163,9 @@ export function renderCollectionView(
 
         html += `
 
-            </div>
+                </div>
+
+            </section>
 
         `;
 

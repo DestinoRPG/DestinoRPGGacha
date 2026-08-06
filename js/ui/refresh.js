@@ -21,7 +21,6 @@ export function setView(view) {
 
     currentView = view;
 
-
     document
         .querySelectorAll(".nav-button")
         .forEach(button => {
@@ -30,12 +29,10 @@ export function setView(view) {
 
         });
 
-
     const activeButton =
         view === "home"
             ? document.getElementById("homeButton")
             : document.getElementById("collectionButton");
-
 
     if (activeButton) {
 
@@ -51,16 +48,13 @@ export async function refreshUI(profile) {
     const allCards =
         await getAllCards();
 
-
     profile.totalCards =
         allCards.length;
-
 
     const viewArea =
         document.getElementById(
             "viewArea"
         );
-
 
     if (!viewArea) {
 
@@ -69,16 +63,13 @@ export async function refreshUI(profile) {
     }
 
 
-
     if (currentView === "home") {
 
-
-viewArea.innerHTML =
-    await renderHome(profile);
+        viewArea.innerHTML =
+            await renderHome(profile);
 
         const resultArea =
             document.getElementById("resultArea");
-
 
         if (resultArea) {
 
@@ -86,18 +77,14 @@ viewArea.innerHTML =
 
         }
 
-
         initializeHome(profile);
-
 
         return;
 
     }
 
 
-
     if (currentView === "collection") {
-
 
         viewArea.innerHTML =
             renderCollectionView(
@@ -105,14 +92,127 @@ viewArea.innerHTML =
                 profile
             );
 
-
         initializeCardEvents(
             allCards,
             profile
         );
 
+        // =========================
+        // Botones del índice
+        // =========================
+
+        document
+            .querySelectorAll(
+                ".collection-jump"
+            )
+            .forEach(button => {
+
+                button.onclick = () => {
+
+                    const target =
+                        document.getElementById(
+                            button.dataset.target
+                        );
+
+                    if (!target) {
+
+                        return;
+
+                    }
+
+                    target.scrollIntoView({
+
+                        behavior: "smooth",
+                        block: "start"
+
+                    });
+
+                    target.classList.add(
+                        "collection-highlight"
+                    );
+
+                    setTimeout(() => {
+
+                        target.classList.remove(
+                            "collection-highlight"
+                        );
+
+                    }, 800);
+
+                };
+
+            });
+
+        // =========================
+        // Botón subir arriba
+        // =========================
+
+        let backToTop =
+            document.getElementById(
+                "backToTop"
+            );
+
+        if (!backToTop) {
+
+            document.body.insertAdjacentHTML(
+
+                "beforeend",
+
+                `
+
+                <button
+
+                    id="backToTop"
+
+                    title="Volver arriba"
+
+                >
+
+                    ▲
+
+                </button>
+
+                `
+
+            );
+
+            backToTop =
+                document.getElementById(
+                    "backToTop"
+                );
+
+            window.addEventListener(
+
+                "scroll",
+
+                () => {
+
+                    backToTop.classList.toggle(
+
+                        "visible",
+
+                        window.scrollY > 400
+
+                    );
+
+                }
+
+            );
+
+            backToTop.onclick = () => {
+
+                window.scrollTo({
+
+                    top: 0,
+
+                    behavior: "smooth"
+
+                });
+
+            };
+
+        }
 
     }
-
 
 }
