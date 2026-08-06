@@ -1678,3 +1678,129 @@ hr{
     }
 
 }
+
+/*=========================
+    SUMMON
+=========================*/
+
+.summon-animation{
+
+    display:flex;
+
+    justify-content:center;
+
+    margin-top:30px;
+
+    perspective:1400px;
+
+}
+
+.summon-flip{
+
+    position:relative;
+
+    width:280px;
+
+    transform-style:preserve-3d;
+
+    transition:transform .8s ease;
+
+}
+
+.summon-flip.opened{
+
+    transform:rotateY(180deg);
+
+}
+
+.summon-face{
+
+    position:absolute;
+
+    width:100%;
+
+    backface-visibility:hidden;
+
+}
+
+.summon-back{
+
+    animation:
+
+        summonAppear .35s ease,
+
+        summonShake .7s ease .35s;
+
+}
+
+.summon-back img{
+
+    width:100%;
+
+    display:block;
+
+}
+
+.summon-front{
+
+    transform:rotateY(180deg);
+
+}
+
+@keyframes summonAppear{
+
+    from{
+
+        opacity:0;
+        transform:scale(.8);
+
+    }
+
+    to{
+
+        opacity:1;
+        transform:scale(1);
+
+    }
+
+}
+
+@keyframes summonShake{
+
+    0%{
+
+        transform:translateX(0);
+
+    }
+
+    20%{
+
+        transform:translateX(-8px);
+
+    }
+
+    40%{
+
+        transform:translateX(8px);
+
+    }
+
+    60%{
+
+        transform:translateX(-6px);
+
+    }
+
+    80%{
+
+        transform:translateX(6px);
+
+    }
+
+    100%{
+
+        transform:translateX(0);
+
+    }
+
+}

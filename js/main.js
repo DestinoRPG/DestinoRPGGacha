@@ -264,14 +264,31 @@ await new Promise(resolve =>
 resultArea.innerHTML =
     renderSummonResult(result.card);
 
-initializeCardEvents(
-    [result.card],
-    profile
-);
+document
+    .getElementById("resultArea")
+    .scrollIntoView({
+
+        behavior: "smooth",
+        block: "center"
+
+    });
+
+setTimeout(() => {
+
+    document
+        .getElementById("summonFlip")
+        ?.classList.add("opened");
+
+}, 1200);    
+
+setTimeout(() => {
+
     initializeCardEvents(
-    [result.card],
-    profile
-);
+        [result.card],
+        profile
+    );
+
+}, 1900);
 
                             };
 

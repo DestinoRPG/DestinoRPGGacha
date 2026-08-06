@@ -14,13 +14,33 @@ export function renderSummonResult(card) {
 
             <div class="summon-subtitle">
 
-                Pulsa sobre la carta para verla en detalle
+                Descubriendo carta...
 
             </div>
 
-            <div class="summon-card">
+            <div class="summon-animation">
 
-                ${renderCard(card, true)}
+                <div
+                    id="summonFlip"
+                    class="summon-flip"
+                >
+
+                    <div class="summon-face summon-back">
+
+                        <img
+                            src="images/card-back.webp"
+                            alt=""
+                        >
+
+                    </div>
+
+                    <div class="summon-face summon-front">
+
+                        ${renderCard(card, true)}
+
+                    </div>
+
+                </div>
 
             </div>
 
