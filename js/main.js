@@ -165,7 +165,12 @@ if (collectionButton) {
 
                         summonButton.onclick =
                             async () => {
+                                
+                                summonButton.disabled = true;
 
+                                summonButton.classList.add(
+                                "summoning"
+                                );
 
                                 const result =
                                     await summon(
@@ -177,101 +182,91 @@ if (collectionButton) {
                                     );
 
 
-                                if (!result.success) {
+if (!result.success) {
+
+    summonButton.disabled = false;
+
+    summonButton.classList.remove(
+        "summoning"
+    );
+
+    if (
+        result.reason ===
+        "NO_TICKETS"
+    ) {
+
+        document
+            .getElementById("resultArea")
+            .innerHTML = `
+
+                <h2>
+
+                    No tienes tickets disponibles
+
+                </h2>
+
+                <p>
+
+                    Vuelve mañana para conseguir más.
+
+                </p>
+
+            `;
+
+        return;
+
+    }
+
+    if (
+        result.reason ===
+        "COLLECTION_COMPLETE"
+    ) {
+
+        document
+            .getElementById("resultArea")
+            .innerHTML = `
+
+                <h2>
+
+                    ¡Colección completada!
+
+                </h2>
+
+            `;
+
+        return;
+
+    }
+
+}
 
 
-                                    if (
-                                        result.reason ===
-                                        "NO_TICKETS"
-                                    ) {
-
-
-                                        document
-                                            .getElementById("resultArea")
-                                            .innerHTML = `
-
-                                                <h2>
-
-                                                    No tienes tickets disponibles
-
-                                                </h2>
-
-                                                <p>
-
-                                                    Vuelve mañana para conseguir más.
-
-                                                </p>
-
-                                            `;
-
-
-                                        return;
-
-                                    }
-
-
-
-                                    if (
-                                        result.reason ===
-                                        "COLLECTION_COMPLETE"
-                                    ) {
-
-
-                                        document
-                                            .getElementById("resultArea")
-                                            .innerHTML = `
-
-                                                <h2>
-
-                                                    ¡Colección completada!
-
-                                                </h2>
-
-                                            `;
-
-
-                                        return;
-
-                                    }
-
-                                }
-
-
-
-await drawCurrentView();
-
-await drawCurrentView();
 
 await drawCurrentView();
 
 const resultArea =
-    document.getElementById("resultArea");
-
-resultArea.scrollIntoView({
-
-    behavior:"smooth",
-    block:"center"
-
-});
+    document.getElementById(
+        "resultArea"
+    );
 
 resultArea.innerHTML =
     renderSummonLoading();
 
+resultArea.scrollIntoView({
+
+    behavior: "smooth",
+    block: "center"
+
+});
+
 await new Promise(resolve =>
-    setTimeout(resolve, 1800)
+    setTimeout(resolve, 1200)
 );
 
 resultArea.innerHTML =
-    renderSummonResult(result.card);
-
-document
-    .getElementById("resultArea")
-    .scrollIntoView({
-
-        behavior: "smooth",
-        block: "center"
-
-    });
+    renderSummonResult(
+        result.card
+    );
 
 setTimeout(() => {
 
@@ -279,13 +274,24 @@ setTimeout(() => {
         .getElementById("summonFlip")
         ?.classList.add("opened");
 
-}, 1200);    
+    document
+        .getElementById("summonSubtitle")
+        .textContent =
+        "¡Pulsa la carta para verla!";
+
+}, 300);
 
 setTimeout(() => {
 
     initializeCardEvents(
         [result.card],
         profile
+    );
+
+    summonButton.disabled = false;
+
+    summonButton.classList.remove(
+        "summoning"
     );
 
 }, 1900);
