@@ -10,6 +10,11 @@ export function renderSummonResult(card) {
 
             <div class="summon-particles"></div>
 
+            <div
+                id="summonFlash"
+                class="summon-flash"
+            ></div>
+
             <div class="summon-title">
 
                 ✨ ¡NUEVA CARTA! ✨
@@ -21,16 +26,11 @@ export function renderSummonResult(card) {
                 class="summon-subtitle"
             >
 
-                Una presencia aparece...
+                Descubriendo carta...
 
             </div>
 
             <div class="summon-animation">
-
-                <div
-                    id="summonFlash"
-                    class="summon-flash"
-                ></div>
 
                 <div
                     id="summonFlip"
@@ -40,22 +40,23 @@ export function renderSummonResult(card) {
                     <div class="summon-face summon-back">
 
                         <img
-
                             src="images/card-back.webp"
-
                             alt=""
-
                         >
 
                     </div>
 
                     <div class="summon-face summon-front">
 
-                        ${renderCard(
-                            card,
-                            true,
-                            "summon"
-                        )}
+                        <div class="card-glow"></div>
+
+                        <div class="summon-card">
+
+                            ${renderCard(card, true)}
+
+                            <div class="card-shine"></div>
+
+                        </div>
 
                     </div>
 
