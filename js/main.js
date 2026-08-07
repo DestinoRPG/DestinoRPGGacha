@@ -260,7 +260,7 @@ resultArea.scrollIntoView({
 });
 
 await new Promise(resolve =>
-    setTimeout(resolve, 1200)
+    setTimeout(resolve, 1000)
 );
 
 resultArea.innerHTML =
@@ -268,25 +268,88 @@ resultArea.innerHTML =
         result.card
     );
 
+const flip =
+    document.getElementById(
+        "summonFlip"
+    );
+
+const subtitle =
+    document.getElementById(
+        "summonSubtitle"
+    );
+
+const flash =
+    document.getElementById(
+        "summonFlash"
+    );
+
+subtitle.textContent =
+    "La energía comienza a concentrarse...";
+
 setTimeout(() => {
 
-    document
-        .getElementById("summonFlip")
-        ?.classList.add("opened");
+    flash?.classList.add("active");
 
-    document
-        .getElementById("summonSubtitle")
-        .textContent =
-        "¡Pulsa la carta para verla!";
+    flip?.classList.add("shake");
 
 }, 300);
 
 setTimeout(() => {
 
+    flash?.classList.remove("active");
+
+    flip?.classList.remove("shake");
+
+    flip?.classList.add("opened");
+
+    subtitle.textContent =
+        "✨ ¡Pulsa la carta para verla!";
+
     initializeCardEvents(
         [result.card],
         profile
     );
+
+    const summonCard =
+        flip?.querySelector(".summon-card");
+
+    if (summonCard) {
+
+        summonCard.addEventListener(
+            "mousemove",
+            event => {
+
+                const rect =
+                    summonCard.getBoundingClientRect();
+
+                const x =
+                    event.clientX - rect.left;
+
+                const y =
+                    event.clientY - rect.top;
+
+                const rx =
+                    (y / rect.height - .5) * -18;
+
+                const ry =
+                    (x / rect.width - .5) * 18;
+
+                summonCard.style.transform =
+                    `rotateX(${rx}deg) rotateY(${ry}deg) scale(1.05)`;
+
+            }
+        );
+
+        summonCard.addEventListener(
+            "mouseleave",
+            () => {
+
+                summonCard.style.transform = "";
+
+            }
+        );
+
+    }
 
     summonButton.disabled = false;
 
@@ -294,7 +357,7 @@ setTimeout(() => {
         "summoning"
     );
 
-}, 1900);
+}, 1200);
 
                             };
 

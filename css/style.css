@@ -531,10 +531,9 @@ hr{
     box-shadow:var(--shadow);
 
     transition:
-
         transform .25s,
-
-        box-shadow .25s;
+        box-shadow .25s,
+        opacity .25s;
 
 }
 
@@ -552,7 +551,7 @@ hr{
 
     width:100%;
 
-    aspect-ratio:16 / 5;
+    aspect-ratio:16/5;
 
     object-fit:cover;
 
@@ -560,7 +559,7 @@ hr{
 
 }
 
-.banner-button:hover img{
+.banner-button:hover:not(:disabled) img{
 
     transform:scale(1.025);
 
@@ -577,6 +576,18 @@ hr{
 .banner-button:disabled img{
 
     transform:none;
+
+}
+
+.banner-content{
+
+    padding:22px;
+
+}
+
+.banner-content h2{
+
+    font-size:1.6rem;
 
 }
 
@@ -846,9 +857,9 @@ hr{
     cursor:pointer;
 
     transition:
-        transform .22s,
-        box-shadow .22s,
-        border-color .22s;
+        transform .25s,
+        box-shadow .25s,
+        border-color .25s;
 
     box-shadow:
         0 8px 18px rgba(0,0,0,.12);
@@ -868,7 +879,14 @@ hr{
 
 }
 
-/* Brillo */
+.card:hover .card-image{
+
+    transform:scale(1.04);
+
+}
+
+
+/* ---------------- Brillo ---------------- */
 
 .card::before{
 
@@ -904,6 +922,7 @@ hr{
 
 }
 
+
 /* ---------------- Header ---------------- */
 
 .card-header{
@@ -936,7 +955,7 @@ hr{
 
 .card-number{
 
-    font-size:12px;
+    font-size:11px;
 
     font-weight:700;
 
@@ -945,6 +964,7 @@ hr{
     letter-spacing:1px;
 
 }
+
 
 /* ---------------- Imagen ---------------- */
 
@@ -956,7 +976,11 @@ hr{
 
     object-fit:cover;
 
+    transition:
+        transform .35s;
+
 }
+
 
 /* ---------------- Footer ---------------- */
 
@@ -978,7 +1002,7 @@ hr{
 
     text-align:center;
 
-    font-size:.92rem;
+    font-size:.8rem;
 
     font-weight:700;
 
@@ -987,6 +1011,7 @@ hr{
     color:#2d2b28;
 
 }
+
 
 /* =======================================================
    CARTAS BLOQUEADAS
@@ -1009,11 +1034,18 @@ hr{
 
 }
 
+.locked-card:hover .card-image{
+
+    transform:none;
+
+}
+
 .locked-card::before{
 
     display:none;
 
 }
+
 
 /* =======================================================
    RESULTADO
@@ -1026,6 +1058,10 @@ hr{
     display:flex;
 
     justify-content:center;
+
+    align-items:center;
+
+    min-height:420px;
 
 }
 
@@ -1080,6 +1116,8 @@ hr{
         0 25px 60px rgba(0,0,0,.35);
 
     animation:modalIn .25s;
+
+    isolation:isolate;
 
 }
 
@@ -1480,7 +1518,7 @@ hr{
 
     border-radius:16px;
 
-    background:white;
+    background:#fffdf8;
 
     border:2px dashed var(--border);
 
@@ -1568,47 +1606,6 @@ hr{
 
 
     /* =========================
-       BANNER
-    ========================= */
-
-    .banner-content{
-
-        padding:22px;
-
-    }
-
-
-    .banner-content h2{
-
-        font-size:1.6rem;
-
-    }
-
-
-    .banner button{
-
-        width:100%;
-
-        min-width:0;
-
-    }
-
-
-    .banner-collections{
-
-        flex-direction:column;
-
-    }
-
-
-    .banner-collection{
-
-        justify-content:center;
-
-    }
-
-
-    /* =========================
        COLECCIÓN
     ========================= */
 
@@ -1628,23 +1625,6 @@ hr{
     }
 
 
-    /* =========================
-       CARTAS
-    ========================= */
-
-    .card-title{
-
-        font-size:.8rem;
-
-    }
-
-
-    .card-number{
-
-        font-size:11px;
-
-    }
-
 
     /* =========================
        MODAL
@@ -1662,6 +1642,8 @@ hr{
         padding:20px;
 
         border-radius:20px;
+
+        isolation:isolate;
 
     }
 
@@ -1710,19 +1692,125 @@ hr{
 
     }
 
-/* =========================
+/* =======================================================
    INVOCACIÓN
-========================= */
+======================================================= */
 
 .summon-result{
+
+    position:relative;
+
+    overflow:hidden;
 
     text-align:center;
 
     margin-top:40px;
 
+    padding:40px 20px 70px;
+
     animation:fadeIn .5s;
 
 }
+
+/* Fondo mágico */
+
+.summon-background{
+
+    position:absolute;
+
+    inset:0;
+
+    pointer-events:none;
+
+    background:
+
+        radial-gradient(
+
+            circle,
+
+            rgba(255,215,90,.22) 0%,
+
+            rgba(255,215,90,.08) 35%,
+
+            transparent 70%
+
+        );
+
+    animation:
+
+        summonPulse 3s ease-in-out infinite;
+
+}
+
+/* Partículas */
+
+.summon-particles{
+
+    position:absolute;
+
+    inset:0;
+
+    pointer-events:none;
+
+    opacity:.65;
+
+    background-image:
+
+        radial-gradient(circle,#ffffff 2px,transparent 3px),
+
+        radial-gradient(circle,#ffd75a 2px,transparent 3px),
+
+        radial-gradient(circle,#ffffff 1px,transparent 2px);
+
+    background-size:
+
+        180px 180px,
+
+        240px 240px,
+
+        120px 120px;
+
+    animation:
+
+        summonParticles 12s linear infinite;
+
+}
+
+.summon-title{
+
+    position:relative;
+
+    z-index:5;
+
+    font-size:2.1rem;
+
+    font-weight:800;
+
+    color:#ffe38b;
+
+    text-shadow:
+
+        0 0 12px rgba(255,220,120,.8);
+
+}
+
+.summon-subtitle{
+
+    position:relative;
+
+    z-index:5;
+
+    margin-top:12px;
+
+    color:#ece8d8;
+
+    font-size:1.05rem;
+
+    transition:.35s;
+
+}
+
+/* Pantalla de carga */
 
 .summon-loading{
 
@@ -1734,18 +1822,20 @@ hr{
 
     gap:20px;
 
-    padding:60px 0;
+    padding:70px 0;
 
 }
 
 .summon-circle{
 
     width:90px;
+
     height:90px;
 
     border-radius:50%;
 
     border:6px solid rgba(255,255,255,.15);
+
     border-top-color:#ffd54f;
 
     animation:spin 1s linear infinite;
@@ -1754,55 +1844,21 @@ hr{
 
 .summon-loading h2{
 
-    color:#fff;
+    color:white;
 
     font-size:2rem;
 
-    letter-spacing:3px;
+    letter-spacing:4px;
 
 }
 
-.summon-card{
-
-    animation:
-        summonAppear .8s ease;
-
-}
+/* Animaciones */
 
 @keyframes spin{
 
     to{
 
         transform:rotate(360deg);
-
-    }
-
-}
-
-@keyframes summonAppear{
-
-    0%{
-
-        opacity:0;
-        transform:
-            scale(.4)
-            translateY(80px);
-
-    }
-
-    60%{
-
-        transform:
-            scale(1.08);
-
-    }
-
-    100%{
-
-        opacity:1;
-        transform:
-            scale(1)
-            translateY(0);
 
     }
 
@@ -1824,39 +1880,143 @@ hr{
 
 }
 
-/*=========================
-    SUMMON
-=========================*/
+@keyframes summonPulse{
+
+    0%,100%{
+
+        transform:scale(1);
+
+        opacity:.5;
+
+    }
+
+    50%{
+
+        transform:scale(1.08);
+
+        opacity:1;
+
+    }
+
+}
+
+@keyframes summonParticles{
+
+    from{
+
+        background-position:
+
+            0 0,
+
+            0 0,
+
+            0 0;
+
+    }
+
+    to{
+
+        background-position:
+
+            0 -240px,
+
+            0 -320px,
+
+            0 -180px;
+
+    }
+
+}
 
 .summon-animation{
+
+    position:relative;
 
     display:flex;
 
     justify-content:center;
 
-    margin-top:30px;
+    align-items:center;
 
-    perspective:1400px;
+    margin-top:45px;
+
+    perspective:1800px;
 
 }
+
+/* Destello */
+
+.summon-flash{
+
+    position:absolute;
+
+    width:650px;
+
+    height:650px;
+
+    border-radius:50%;
+
+    pointer-events:none;
+
+    background:
+
+        radial-gradient(
+
+            circle,
+
+            rgba(255,255,255,.95),
+
+            rgba(255,235,160,.45),
+
+            transparent 72%
+
+        );
+
+    opacity:0;
+
+    transform:scale(.2);
+
+    z-index:3;
+
+}
+
+.summon-flash.active{
+
+    animation:
+
+        summonFlash .55s ease;
+
+}
+
+/* Carta */
 
 .summon-flip{
 
     position:relative;
 
-    width:280px;
-    height:420px;
+    width:320px;
+
+    height:470px;
 
     transform-style:preserve-3d;
 
     transition:
-        transform .8s ease;
+
+        transform .9s cubic-bezier(.22,.9,.18,1);
+
+    z-index:10;
 
 }
 
 .summon-flip.opened{
 
     transform:rotateY(180deg);
+
+}
+
+.summon-flip.shake{
+
+    animation:summonShake .55s;
 
 }
 
@@ -1867,46 +2027,34 @@ hr{
     inset:0;
 
     width:100%;
+
     height:100%;
 
     backface-visibility:hidden;
 
 }
 
-.summon-front{
-
-    transform:rotateY(180deg);
-
-    width:100%;
-    height:100%;
-
-}
-
-.summon-front .card{
-
-    width:100%;
-    height:100%;
-
-}
-
 .summon-back{
 
-    animation:
+    display:flex;
 
-        summonShakeAppear .35s ease,
+    justify-content:center;
 
-        summonShake .7s ease .35s;
+    align-items:center;
 
 }
 
 .summon-back img{
 
     width:100%;
+
     height:100%;
 
     object-fit:contain;
 
-    display:block;
+    filter:
+
+        drop-shadow(0 0 35px rgba(255,220,90,.55));
 
 }
 
@@ -1916,19 +2064,201 @@ hr{
 
 }
 
-@keyframes summonShakeAppear{
+.summon-front .summon-card{
 
-    from{
+    position:relative;
+
+    width:100%;
+
+    height:100%;
+
+    transform-style:preserve-3d;
+
+    transition:
+
+        transform .18s ease;
+
+    animation:
+
+        summonReveal .8s ease,
+
+        summonFloat 3.5s ease-in-out infinite;
+
+}
+
+/* Halo */
+
+.card-glow{
+
+    position:absolute;
+
+    inset:-30px;
+
+    border-radius:40px;
+
+    pointer-events:none;
+
+    background:
+
+        radial-gradient(
+
+            circle,
+
+            rgba(255,230,120,.5),
+
+            transparent 72%
+
+        );
+
+    filter:blur(18px);
+
+    opacity:.85;
+
+    z-index:-1;
+
+}
+
+/* Brillo */
+
+.card-shine{
+
+    position:absolute;
+
+    inset:0;
+
+    overflow:hidden;
+
+    border-radius:20px;
+
+    pointer-events:none;
+
+}
+
+.card-shine::after{
+
+    content:"";
+
+    position:absolute;
+
+    top:-25%;
+
+    left:-60%;
+
+    width:55%;
+
+    height:160%;
+
+    background:
+
+        linear-gradient(
+
+            110deg,
+
+            transparent,
+
+            rgba(255,255,255,.65),
+
+            transparent
+
+        );
+
+    transform:rotate(10deg);
+
+    animation:
+
+        summonShine 3.5s ease-in-out infinite;
+
+}
+
+@keyframes summonReveal{
+
+    0%{
 
         opacity:0;
-        transform:scale(.8);
+        transform:
+            scale(.65)
+            rotateY(180deg);
 
     }
 
-    to{
+    60%{
+
+        transform:
+            scale(1.08)
+            rotateY(180deg);
+
+    }
+
+    100%{
 
         opacity:1;
-        transform:scale(1);
+        transform:
+            scale(1)
+            rotateY(180deg);
+
+    }
+
+}
+
+@keyframes summonFloat{
+
+    0%,100%{
+
+        transform:
+            translateY(0);
+
+    }
+
+    50%{
+
+        transform:
+            translateY(-12px);
+
+    }
+
+}
+
+@keyframes summonFlash{
+
+    0%{
+
+        opacity:0;
+        transform:scale(.2);
+
+    }
+
+    30%{
+
+        opacity:1;
+
+    }
+
+    100%{
+
+        opacity:0;
+        transform:scale(1.6);
+
+    }
+
+}
+
+@keyframes summonShine{
+
+    0%{
+
+        left:-70%;
+
+    }
+
+    35%{
+
+        left:140%;
+
+    }
+
+    100%{
+
+        left:140%;
 
     }
 
@@ -1942,27 +2272,33 @@ hr{
 
     }
 
-    20%{
+    15%{
 
-        transform:translateX(-8px);
+        transform:translateX(-12px);
 
     }
 
-    40%{
+    30%{
 
-        transform:translateX(8px);
+        transform:translateX(12px);
+
+    }
+
+    45%{
+
+        transform:translateX(-10px);
 
     }
 
     60%{
 
-        transform:translateX(-6px);
+        transform:translateX(10px);
 
     }
 
-    80%{
+    75%{
 
-        transform:translateX(6px);
+        transform:translateX(-6px);
 
     }
 
