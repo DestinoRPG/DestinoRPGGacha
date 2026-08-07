@@ -30,7 +30,8 @@ import {
 } from "./services/gachaService.js";
 
 import {
-    renderSummonResult
+    renderSummonResult,
+    renderSummonLoading
 } from "./ui/summon.js";
 
 import {
