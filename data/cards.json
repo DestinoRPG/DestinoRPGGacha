@@ -309,9 +309,60 @@
     ],
         "enabled": true
     },
+                                                {
+        "id": "fallout3",
+        "number": 19,
+        "title": "Fallout 3",
+        "collection": "hall_of_fame",
+        "image": "images/cards/fallout3.webp",
+        "series": "Fallout",
+        "developer": "Bethesda",
+        "releaseYear": 2008,
+        "description": "",
+        "enabled": true
+    },
+                                                {
+        "id": "falloutnv",
+        "number": 20,
+        "title": "Fallout New Vegas",
+        "collection": "hall_of_fame",
+        "image": "images/cards/fnv.webp",
+        "developer": "Obsidian",
+        "releaseYear": 2010,
+        "description": "",
+        "articles": [
+                        {           
+            "title": "Reto al Salón de la Fama",
+            "url": "https://www.destinorpg.es/2018/06/reto-al-salon-de-la-fama-fallout-new.html"
+        }
+    ],
+        "enabled": true
+    },
+        {
+        "id": "ff6",
+        "number": 21,
+        "title": "Final Fantasy VI",
+        "collection": "hall_of_fame",
+        "image": "images/cards/ffvi.webp",
+        "series": "Final Fantasy",
+        "developer": "Square",
+        "releaseYear": 1994,
+        "description": "",
+        "articles": [
+        {
+            "title": "¿Sabías que Tetsuya Nomura ideó dos personajes de FFVI?",
+            "url": "https://www.destinorpg.es/2015/07/sabias-que-tetsuya-nomura-ideo-dos.html"
+        },
+                {
+            "title": "Charlas Discordantes",
+            "url": "https://www.destinorpg.es/2018/03/charlas-discordantes-final-fantasy-vi.html"
+        }
+    ],
+        "enabled": true
+    },
     {
         "id": "ff7",
-        "number": 23,
+        "number": 22,
         "title": "Final Fantasy VII",
         "collection": "hall_of_fame",
         "image": "images/cards/ff7.webp",
@@ -331,6 +382,202 @@
                 {
             "title": "Charlas Discordantes",
             "url": "https://www.destinorpg.es/2018/05/charlas-discordantes-final-fantasy-vii.html"
+        },
+                        {
+            "title": "La figura de Cait Sith",
+            "url": "https://www.destinorpg.es/2019/05/la-figura-de-cait-sith-en-final-fantasy.html"
+        }
+    ],
+        "enabled": true
+    },
+        {
+        "id": "ff7r",
+        "number": 23,
+        "title": "Final Fantasy VII Remake",
+        "collection": "hall_of_fame",
+        "image": "images/cards/ffiir.webp",
+        "series": "Final Fantasy",
+        "developer": "Square Enix",
+        "releaseYear": 2020,
+        "description": "",
+        "articles": [
+        {
+            "title": "El debate",
+            "url": "https://www.destinorpg.es/2015/12/final-fantasy-vii-remake-el-debate.html"
+        },
+        {
+            "title": "Cómo actualizar Final Fantasy VII",
+            "url": "https://www.destinorpg.es/2015/09/opinion-mejorando-el-rpg-perfecto-o.html"
+        },
+                {
+            "title": "La demo",
+            "url": "https://www.destinorpg.es/2020/03/final-fantasy-vii-remake-impresiones-de.html"
+        },
+                {
+            "title": "Análisis",
+            "url": "https://www.destinorpg.es/2020/05/analisis-final-fantasy-vii-remake.html"
+        }
+    ],
+        "enabled": true
+    },
+            {
+        "id": "ff8",
+        "number": 24,
+        "title": "Final Fantasy VIII",
+        "collection": "hall_of_fame",
+        "image": "images/cards/ffviii.webp",
+        "series": "Final Fantasy",
+        "developer": "Square",
+        "releaseYear": 1999,
+        "description": "",
+        "articles": [
+                {
+            "title": "FFVIII: el experimento",
+            "url": "https://www.destinorpg.es/2016/08/final-fantasy-viii-el-experimento.html"
+        }
+    ],
+        "enabled": true
+    },
+            {
+        "id": "ff9",
+        "number": 25,
+        "title": "Final Fantasy IX",
+        "collection": "hall_of_fame",
+        "image": "images/cards/ffix.webp",
+        "series": "Final Fantasy",
+        "developer": "Square",
+        "releaseYear": 2000,
+        "description": "",
+        "articles": [
+        {
+            "title": "Experiencias roleras",
+            "url": "https://www.destinorpg.es/2015/07/experiencias-roleras-basch-gt-nos.html"
+        },
+                {
+            "title": "La oda de Sakaguchi",
+            "url": "https://www.destinorpg.es/2015/09/final-fantasy-ix-la-oda-de-sakaguchi.html"
+        }
+    ],
+        "enabled": true
+    },
+                {
+        "id": "ff10",
+        "number": 26,
+        "title": "Final Fantasy X",
+        "collection": "hall_of_fame",
+        "image": "images/cards/ffx.webp",
+        "series": "Final Fantasy",
+        "developer": "Square",
+        "releaseYear": 2001,
+        "description": "",
+        "articles": [
+                {
+            "title": "Podcast: Sentimiento",
+            "url": "https://www.destinorpg.es/2017/06/podcast-hablando-de-final-fantasy-x.html"
+        }
+    ],
+        "enabled": true
+    },
+                {
+        "id": "ff14",
+        "number": 27,
+        "title": "Final Fantasy XIV",
+        "collection": "hall_of_fame",
+        "image": "images/cards/ffxiv.webp",
+        "series": "Final Fantasy",
+        "developer": "Square Enix",
+        "releaseYear": 2013,
+        "description": "",
+        "articles": [
+        {
+            "title": "La esencia Final Fantasy hecha MMORPG",
+            "url": "http://www.destinorpg.es/2015/07/final-fantasy-xiv-la-esencia-de-final.html"
+        },
+                {
+            "title": "Experiencias roleras",
+            "url": "http://www.destinorpg.es/2016/03/experiencias-roleras-final-fantasy-xiv.html"
+        },
+                {
+            "title": "La cara oscura",
+            "url": "https://www.destinorpg.es/2015/11/la-cara-oscura-de-final-fantasy-xiv.html"
+        },
+                {
+            "title": "Guía para principiantes",
+            "url": "https://www.destinorpg.es/2016/05/guia-para-principiantes-en-final.html"
+        },
+                {
+            "title": "Experiencias Roleras (Stormblood)",
+            "url": "https://www.destinorpg.es/2017/07/experiencias-roleras-final-fantasy-xiv.html"
+        }
+    ],
+        "enabled": true
+    },
+                    {
+        "id": "fft",
+        "number": 28,
+        "title": "Final Fantasy Tactics",
+        "collection": "hall_of_fame",
+        "image": "images/cards/fft.webp",
+        "series": "Final Fantasy",
+        "developer": "Square",
+        "releaseYear": 1997,
+        "description": "",
+        "articles": [
+        {
+            "title": "Experiencias roleras",
+            "url": "https://www.destinorpg.es/2015/05/experiencias-roleras-adell-nos-escribe.html"
+        },
+                {
+            "title": "¿20 años de reinado?",
+            "url": "https://www.destinorpg.es/2017/07/final-fantasy-tactics-20-anos-de-reinado.html"
+        },
+                {
+            "title": "Consejos para empezar",
+            "url": "https://www.destinorpg.es/2018/03/consejos-para-empezar-final-fantasy.html"
+        }
+    ],
+        "enabled": true
+    },
+                        {
+        "id": "ffta",
+        "number": 29,
+        "title": "Final Fantasy Tactics Advance",
+        "collection": "hall_of_fame",
+        "image": "images/cards/ffta.webp",
+        "series": "Final Fantasy",
+        "developer": "Square",
+        "releaseYear": 2003,
+        "description": "",
+        "articles": [
+        {
+            "title": "¿Sabías que el juego tiene versión Ranido Novela?",
+            "url": "https://www.destinorpg.es/2013/06/sabias-que-final-fantasy-tactics.html"
+        },
+                {
+            "title": "Vamos a Jugar",
+            "url": "https://www.destinorpg.es/2015/03/destino-rpg-jugara-conjuntamente-final.html"
+        },
+                {
+            "title": "Candidato al Salón de la Fama",
+            "url": "https://www.destinorpg.es/2020/07/candidato-al-salon-de-la-fama-final.html"
+        }
+    ],
+        "enabled": true
+    },
+                    {
+        "id": "fea",
+        "number": 30,
+        "title": "Fire Emblem Awakening",
+        "collection": "hall_of_fame",
+        "image": "images/cards/fea.webp",
+        "series": "Fire Emblem",
+        "developer": "Intelligent Systems/Nintendo",
+        "releaseYear": 2011,
+        "description": "",
+        "articles": [
+                {
+            "title": "Análisis",
+            "url": "https://www.destinorpg.es/2013/05/analisis-fire-emblem-awakening.html"
         }
     ],
         "enabled": true
