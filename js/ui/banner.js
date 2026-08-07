@@ -18,9 +18,6 @@ export function renderBanner(user) {
 
             <div class="banner-info">
 
-                <h2>
-                    Invocación estándar
-                </h2>
 
                 <button
                     id="summonButton"
