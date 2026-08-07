@@ -17,7 +17,7 @@ export function renderSummonResult(card) {
 
             <div class="summon-title">
 
-                ✨ ¡NUEVA CARTA! ✨
+                ✨ ¡Nueva carta conseguida! Haz clic para verla. ✨
 
             </div>
 

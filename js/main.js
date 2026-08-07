@@ -303,9 +303,6 @@ setTimeout(() => {
 
     flip?.classList.add("opened");
 
-    subtitle.textContent =
-        "✨ ¡Pulsa la carta para verla!";
-
     initializeCardEvents(
         [result.card],
         profile
