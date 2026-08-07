@@ -199,7 +199,9 @@ hr{
 
     gap:12px;
 
-    padding:8px;
+    height:350px;
+
+    padding:24px;
 
     background:var(--panel);
 
@@ -242,7 +244,6 @@ hr{
     cursor:pointer;
 
     transition:all var(--transition);
-
 }
 
 .nav-button:hover{
@@ -255,13 +256,12 @@ hr{
 
 .nav-button.active{
 
-    background:var(--blue);
+    background:#091727;
 
     color:white;
 
     box-shadow:
-        0 6px 16px rgba(0,126,252,.35);
-
+        0 6px 16px rgba(9,23,39,.45);
 }
 
 
