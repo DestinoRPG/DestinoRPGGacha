@@ -35,6 +35,11 @@ export function createUI() {
         </div>
 
 
+        <div id="userArea">
+
+        </div>
+
+
         <main id="viewArea">
 
         </main>
