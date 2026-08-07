@@ -158,16 +158,13 @@ hr{
 
     display:flex;
 
-    justify-content:space-between;
-
-    align-items:center;
+    align-items:stretch;
 
     gap:28px;
 
     max-width:1200px;
 
     margin:0 auto 24px;
-
 }
 
 #mainLogo{
@@ -199,8 +196,6 @@ hr{
 
     gap:12px;
 
-    height:350px;
-
     padding:24px;
 
     background:var(--panel);
@@ -212,7 +207,6 @@ hr{
     box-shadow:var(--shadow);
 
     flex-shrink:0;
-
 }
 
 .nav-button{
