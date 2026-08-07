@@ -274,18 +274,11 @@ const flip =
         "summonFlip"
     );
 
-const subtitle =
-    document.getElementById(
-        "summonSubtitle"
-    );
 
 const flash =
     document.getElementById(
         "summonFlash"
     );
-
-subtitle.textContent =
-    "La energía comienza a concentrarse...";
 
 setTimeout(() => {
 
