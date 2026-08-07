@@ -292,6 +292,23 @@
         "description": "",
         "enabled": true
     },
+                                            {
+        "id": "eldenring",
+        "number": 18,
+        "title": "Elden Ring",
+        "collection": "hall_of_fame",
+        "image": "images/cards/elden.webp",
+        "developer": "From Software",
+        "releaseYear": 2022,
+        "description": "",
+        "articles": [
+                        {           
+            "title": "Análisis",
+            "url": "https://www.destinorpg.es/2023/01/analisis-elden-ring.html"
+        }
+    ],
+        "enabled": true
+    },
     {
         "id": "ff7",
         "number": 23,
