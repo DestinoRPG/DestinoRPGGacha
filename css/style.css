@@ -345,7 +345,7 @@ hr{
 
     padding:18px;
 
-    margin-bottom:22px;
+    margin-bottom:0;
 
     box-shadow:var(--shadow);
 
@@ -526,8 +526,6 @@ hr{
 .banner{
 
     height:100%;
-
-    min-height:100%;
 
     display:flex;
 
