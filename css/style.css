@@ -520,69 +520,170 @@ hr{
 
 
 /* =======================================================
-   BANNER
+   BANNER / INVOCACIÓN
 ======================================================= */
 
 .banner{
 
-    margin-bottom:24px;
+    height:100%;
 
-}
+    min-height:100%;
 
-.banner-button{
+    display:flex;
 
-    display:block;
+    flex-direction:column;
 
-    width:100%;
+    padding:18px;
 
-    padding:0;
+    background:var(--panel);
 
-    border:none;
+    border:2px solid var(--border);
 
-    border-radius:24px;
-
-    overflow:hidden;
-
-    cursor:pointer;
-
-    background:none;
+    border-radius:22px;
 
     box-shadow:var(--shadow);
 
-    transition:
-        transform .25s,
-        box-shadow .25s,
-        opacity .25s;
+}
+
+
+/* =======================================================
+   IMAGEN DEL BANNER
+======================================================= */
+
+.banner-image{
+
+    flex:1;
+
+    min-height:0;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    overflow:hidden;
+
+    border-radius:18px;
 
 }
 
-.banner-button:hover:not(:disabled){
 
-    transform:translateY(-4px);
-
-    box-shadow:var(--shadowHover);
-
-}
-
-.banner-button img{
+.banner-image img{
 
     display:block;
 
     width:100%;
 
-    aspect-ratio:16/5;
+    height:100%;
 
-    object-fit:cover;
+    object-fit:contain;
 
     transition:transform .35s;
 
 }
 
-.banner-button:hover:not(:disabled) img{
 
-    transform:scale(1.025);
+.banner:hover .banner-image img{
+
+    transform:scale(1.015);
 
 }
+
+
+/* =======================================================
+   INFORMACIÓN DE INVOCACIÓN
+======================================================= */
+
+.banner-info{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:14px;
+
+    padding:20px 8px 4px;
+
+}
+
+
+.banner-info h2{
+
+    margin:0;
+
+    font-size:1.5rem;
+
+    text-align:center;
+
+    color:var(--text);
+
+}
+
+
+/* =======================================================
+   BOTÓN DE INVOCACIÓN
+======================================================= */
+
+.banner-button{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    width:100%;
+
+    padding:14px 22px;
+
+    border:2px solid var(--gold);
+
+    border-radius:16px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #d8b24a,
+            #a67f18
+        );
+
+    color:white;
+
+    font-size:1rem;
+
+    font-weight:800;
+
+    cursor:pointer;
+
+    box-shadow:
+        0 8px 18px rgba(0,0,0,.18);
+
+    transition:
+        transform .25s,
+        box-shadow .25s,
+        opacity .25s;
+}
+
+
+.banner-button:hover:not(:disabled){
+
+    transform:translateY(-3px);
+
+    box-shadow:
+        0 12px 24px rgba(0,0,0,.24);
+
+}
+
+
+.banner-button:active:not(:disabled){
+
+    transform:translateY(0);
+
+}
+
 
 .banner-button:disabled{
 
@@ -590,25 +691,12 @@ hr{
 
     cursor:not-allowed;
 
-}
-
-.banner-button:disabled img{
-
     transform:none;
 
-}
-
-.banner-content{
-
-    padding:22px;
+    box-shadow:none;
 
 }
 
-.banner-content h2{
-
-    font-size:1.6rem;
-
-}
 
 /* =======================================================
    COLECCIÓN
@@ -1630,6 +1718,11 @@ hr{
 
 }
 
+@media (max-width:768px){ 
+    .banner{ min-height:0; } 
+    .banner-image{ flex:none; } 
+    .banner-image img{ width:100%; height:auto; aspect-ratio:16/5; object-fit:cover; } 
+}
 
     /* =========================
        COLECCIÓN

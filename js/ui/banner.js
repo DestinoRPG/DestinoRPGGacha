@@ -6,25 +6,33 @@ export function renderBanner(user) {
 
         <section class="banner">
 
-            <button
-
-                id="summonButton"
-
-                class="banner-button"
-
-                ${!canSummon(user) ? "disabled" : ""}
-
-            >
+            <div class="banner-image">
 
                 <img
-
                     src="images/banners/standard.webp"
-
                     alt="Invocación estándar"
-
                 >
 
-            </button>
+            </div>
+
+
+            <div class="banner-info">
+
+                <h2>
+                    Invocación estándar
+                </h2>
+
+                <button
+                    id="summonButton"
+                    class="banner-button"
+                    ${!canSummon(user) ? "disabled" : ""}
+                >
+
+                    🎟️ Invocar · 1 ticket
+
+                </button>
+
+            </div>
 
         </section>
 
