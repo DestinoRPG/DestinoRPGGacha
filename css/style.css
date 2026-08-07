@@ -1778,21 +1778,44 @@ hr{
 
 .summon-title{
 
-    position:relative;
+    display:inline-flex;
 
-    z-index:5;
+    justify-content:center;
 
-    font-size:2.1rem;
+    align-items:center;
+
+    margin:0 auto 35px;
+
+    padding:16px 34px;
+
+    border-radius:999px;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(40,32,18,.92),
+            rgba(18,14,8,.92)
+        );
+
+    border:2px solid #d9b85b;
+
+    color:#fff;
+
+    font-size:1.15rem;
 
     font-weight:800;
 
-    color:#ffffff;
+    letter-spacing:.4px;
 
-    text-shadow:
+    text-shadow:none;
 
-        0 0 12px rgba(255,220,120,.8),
+    box-shadow:
+        0 12px 30px rgba(0,0,0,.35),
+        0 0 20px rgba(255,215,90,.18);
 
-        0 3px 8px rgba(0,0,0,.65);
+    position:relative;
+
+    z-index:20;
 
 }
 

@@ -21,15 +21,6 @@ export function renderSummonResult(card) {
 
             </div>
 
-            <div
-                id="summonSubtitle"
-                class="summon-subtitle"
-            >
-
-                Descubriendo carta...
-
-            </div>
-
             <div class="summon-animation">
 
                 <div
