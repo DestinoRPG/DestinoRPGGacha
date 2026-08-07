@@ -41,20 +41,32 @@ export async function renderHome(profile) {
 
     return `
 
-        <section class="home-view">
+    <section class="home-view">
 
-            ${renderProfile(
-                profile,
-                progress
-            )}
+        <div class="home-main">
 
-            ${renderBanner(profile)}
+            <section class="home-profile">
 
-            <div id="resultArea"></div>
+                ${renderProfile(
+                    profile,
+                    progress
+                )}
 
-        </section>
+            </section>
 
-    `;
+            <section class="home-summon">
+
+                ${renderBanner(profile)}
+
+            </section>
+
+        </div>
+
+        <div id="resultArea"></div>
+
+    </section>
+
+`;
 
 }
 
