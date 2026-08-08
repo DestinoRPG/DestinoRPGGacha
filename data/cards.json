@@ -582,6 +582,89 @@
     ],
         "enabled": true
     },
+                        {
+        "id": "gs",
+        "number": 31,
+        "title": "Golden Sun",
+        "collection": "hall_of_fame",
+        "image": "images/cards/gs.webp",
+        "series": "Golden Sun",
+        "developer": "Camelot Software/Nintendo",
+        "releaseYear": 2001,
+        "description": "",
+        "articles": [
+                {
+            "title": "Experiencias Roleras",
+            "url": "https://www.destinorpg.es/2014/10/experiencias-roleras-cid-nos-escribe.html"
+        }
+    ],
+        "enabled": true
+    },
+                            {
+        "id": "gs2",
+        "number": 32,
+        "title": "Golden Sun: La Edad Perdida",
+        "collection": "hall_of_fame",
+        "image": "images/cards/gs2.webp",
+        "series": "Golden Sun",
+        "developer": "Camelot Software/Nintendo",
+        "releaseYear": 2002,
+        "description": "",
+        "articles": [
+                {
+            "title": "Experiencias Roleras",
+            "url": "https://www.destinorpg.es/2014/10/experiencias-roleras-cid-nos-escribe.html"
+        }
+    ],
+        "enabled": true
+    },
+                                {
+        "id": "hades",
+        "number": 33,
+        "title": "Hades",
+        "collection": "hall_of_fame",
+        "image": "images/cards/hades.webp",
+        "series": "Hades",
+        "developer": "SuperGiantGames",
+        "releaseYear": 2020,
+        "description": "",
+        "enabled": true
+    },
+                                {
+        "id": "kh",
+        "number": 34,
+        "title": "Kingdom Hearts",
+        "collection": "hall_of_fame",
+        "image": "images/cards/kh.webp",
+        "series": "Kingdom Hearts",
+        "developer": "Square Enix",
+        "releaseYear": 2002,
+        "description": "",
+        "articles": [
+                {
+            "title": "Experiencias Roleras",
+            "url": "https://www.destinorpg.es/2015/03/experiencias-roleras-cid-nos-escribe.html"
+        }
+    ],
+        "enabled": true
+    },
+                                    {
+        "id": "lostodyssey",
+        "number": 35,
+        "title": "Lost Odyssey",
+        "collection": "hall_of_fame",
+        "image": "images/cards/lostoddysey.webp",
+        "developer": "Mistwalker",
+        "releaseYear": 2007,
+        "description": "",
+        "articles": [
+                {
+            "title": "Análisis",
+            "url": "https://www.destinorpg.es/2016/12/analisis-lost-odyssey.html"
+        }
+    ],
+        "enabled": true
+    },
         {
         "id": "Adell",
         "number": 1,
