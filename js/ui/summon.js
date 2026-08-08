@@ -15,12 +15,6 @@ export function renderSummonResult(card) {
                 class="summon-flash"
             ></div>
 
-            <div class="summon-title">
-
-                ✨ ¡Nueva carta conseguida! Haz clic para verla. ✨
-
-            </div>
-
             <div class="summon-animation">
 
                 <div
