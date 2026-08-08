@@ -42,7 +42,10 @@ import {
     initializeCardEvents
 } from "./ui/events.js";
 
-import { addCardNews } from "./ui/news.js";
+import {
+    addCardNews,
+    revealCardNews
+} from "./ui/news.js";
 
 import { COLLECTIONS } from "./data/collections.js";
 
@@ -315,6 +318,8 @@ setTimeout(() => {
     flip?.classList.remove("shake");
 
     flip?.classList.add("opened");
+
+    revealCardNews();
 
     initializeCardEvents(
         [result.card],
