@@ -479,13 +479,17 @@ hr{
 }
 
 
+/* =======================================================
+   FLECHAS DE NOTICIAS
+======================================================= */
+
 .news-arrow{
 
     flex-shrink:0;
 
-    width:42px;
+    width:46px;
 
-    height:42px;
+    height:72px;
 
     display:flex;
 
@@ -495,21 +499,37 @@ hr{
 
     border:2px solid var(--border);
 
-    border-radius:50%;
+    border-radius:14px;
 
-    background:var(--panelDark);
+    background:
+        linear-gradient(
+            180deg,
+            #f4ead4,
+            #e5d5b5
+        );
 
-    color:var(--goldDark);
+    color:#80601d;
 
-    font-size:1.8rem;
+    font-size:2.4rem;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
 
     line-height:1;
 
     cursor:pointer;
 
+    box-shadow:
+        0 5px 12px
+        rgba(0,0,0,.10);
+
     transition:
         transform var(--transition),
         background var(--transition),
+        color var(--transition),
+        border-color var(--transition),
         box-shadow var(--transition);
 
 }
@@ -517,12 +537,31 @@ hr{
 
 .news-arrow:hover{
 
-    transform:scale(1.08);
+    transform:translateY(-2px);
 
-    background:#e8dcc2;
+    background:
+        linear-gradient(
+            180deg,
+            #e9d09a,
+            #c9a34d
+        );
+
+    color:#fff;
+
+    border-color:#a67f18;
 
     box-shadow:
-        0 5px 12px rgba(0,0,0,.12);
+        0 8px 18px
+        rgba(0,0,0,.18);
+
+}
+
+
+.news-arrow:active{
+
+    transform:
+        translateY(0)
+        scale(.96);
 
 }
 

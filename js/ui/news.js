@@ -1,13 +1,13 @@
 let newsItems = [
 
     {
-        type: "welcome",
+        type: "info",
 
         title:
-            "Bienvenido a Destino RPG Gacha",
+            "Nueva colección: Eventos",
 
         text:
-            "¡Consigue cartas, completa colecciones y descubre todas las recompensas!"
+            "Una nueva colección se incorpora al Gacha. ¡Consigue sus cartas y aumenta tu porcentaje de colección!"
     },
 
 
@@ -15,10 +15,32 @@ let newsItems = [
         type: "info",
 
         title:
-            "Completa tus colecciones",
+            "Los duplicados no tienen cabida",
 
         text:
-            "Consigue todas las cartas disponibles para completar cada colección."
+            "Las cartas que ya posees no volverán a aparecer en tus invocaciones. ¡Cada tirada te acerca a completar tus colecciones!"
+    },
+
+
+    {
+        type: "info",
+
+        title:
+            "Colecciona tus RPG favoritos",
+
+        text:
+            "Cada colección reúne cartas con información sobre el juego, su desarrollador y su año de lanzamiento."
+    },
+
+
+    {
+        type: "info",
+
+        title:
+            "Nuevas colecciones en camino",
+
+        text:
+            "El catálogo de Destino RPG Gacha seguirá creciendo con nuevas colecciones y cartas."
     }
 
 ];
@@ -39,17 +61,19 @@ export function renderNews() {
 
     return `
 
-    <div
-        id="newsArea"
-        class="news-panel"
-        data-news-index="${currentNews}"
-    >
+        <div
+            id="newsArea"
+            class="news-panel"
+            data-news-index="${currentNews}"
+        >
 
             <button
                 class="news-arrow news-prev"
                 aria-label="Noticia anterior"
             >
+
                 ‹
+
             </button>
 
 
@@ -82,6 +106,7 @@ export function renderNews() {
                 class="news-arrow news-next"
                 aria-label="Siguiente noticia"
             >
+
                 ›
 
             </button>
@@ -175,5 +200,100 @@ export function revealCardNews() {
 export function getCurrentNews() {
 
     return newsItems[currentNews];
+
+}
+
+
+/* =======================================================
+   EVENTOS DE LAS FLECHAS
+======================================================= */
+
+export function initializeNews() {
+
+    const newsArea =
+        document.getElementById("newsArea");
+
+    if (!newsArea) {
+        return;
+    }
+
+
+    const previous =
+        newsArea.querySelector(".news-prev");
+
+    const next =
+        newsArea.querySelector(".news-next");
+
+
+    if (previous) {
+
+        previous.onclick = () => {
+
+            currentNews--;
+
+            if (currentNews < 0) {
+
+                currentNews =
+                    newsItems.length - 1;
+
+            }
+
+
+            updateNews();
+
+        };
+
+    }
+
+
+    if (next) {
+
+        next.onclick = () => {
+
+            currentNews++;
+
+            if (
+                currentNews >=
+                newsItems.length
+            ) {
+
+                currentNews = 0;
+
+            }
+
+
+            updateNews();
+
+        };
+
+    }
+
+}
+
+
+/* =======================================================
+   ACTUALIZAR NOTICIA
+======================================================= */
+
+function updateNews() {
+
+    const newsArea =
+        document.getElementById("newsArea");
+
+
+    if (!newsArea) {
+        return;
+    }
+
+
+    const newNews =
+        renderNews();
+
+
+    newsArea.outerHTML =
+        newNews;
+
+
+    initializeNews();
 
 }

@@ -11,7 +11,10 @@ import {
     getCardsByCollection
 } from "../../services/cardService.js";
 
-import { renderNews } from "../news.js";
+import {
+    renderNews,
+    initializeNews
+} from "../news.js";
 
 
 export async function renderHome(profile) {
@@ -119,5 +122,7 @@ export async function renderHome(profile) {
 
 
 export function initializeHome() {
+
+    initializeNews();
 
 }
