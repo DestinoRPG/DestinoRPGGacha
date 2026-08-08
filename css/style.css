@@ -301,7 +301,16 @@ hr{
     flex:1;
 
     min-height:0;
+}
 
+.home-profile,
+.home-summon{
+
+    min-width:0;
+
+    min-height:0;
+
+    height:100%;
 }
 
 /* =======================================================
@@ -762,7 +771,6 @@ hr{
     border-radius:22px;
 
     box-shadow:var(--shadow);
-
 }
 
 
