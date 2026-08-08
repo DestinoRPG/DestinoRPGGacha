@@ -44,19 +44,15 @@ export function renderNews() {
             data-news-index="${currentNews}"
         >
 
-
             <button
                 class="news-arrow news-prev"
                 aria-label="Noticia anterior"
             >
-
                 ‹
-
             </button>
 
 
             <div class="news-content">
-
 
                 <div class="news-label">
 
@@ -78,7 +74,6 @@ export function renderNews() {
 
                 </p>
 
-
             </div>
 
 
@@ -86,11 +81,9 @@ export function renderNews() {
                 class="news-arrow news-next"
                 aria-label="Siguiente noticia"
             >
-
                 ›
 
             </button>
-
 
         </div>
 
@@ -126,8 +119,6 @@ export function addCardNews(
             `
             Has obtenido una nueva carta
             de <strong>${collectionName}</strong>.
-            <br>
-            Haz clic en la carta para descubrirla.
             `
 
     });
@@ -139,7 +130,7 @@ export function addCardNews(
 
 
 /* =======================================================
-   REVELAR CARTA EN LA NOTICIA
+   REVELAR CARTA
 ======================================================= */
 
 export function revealCardNews() {
