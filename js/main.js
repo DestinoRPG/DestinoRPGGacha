@@ -42,6 +42,10 @@ import {
     initializeCardEvents
 } from "./ui/events.js";
 
+import { addCardNews } from "./ui/news.js";
+
+import { COLLECTIONS } from "./data/collections.js";
+
 
 
 window.addEventListener(
@@ -238,6 +242,22 @@ if (!result.success) {
         return;
 
     }
+
+}
+
+const collection =
+    COLLECTIONS.find(
+        item =>
+            item.id ===
+            result.card.collection
+    );
+
+if (collection) {
+
+    addCardNews(
+        result.card,
+        collection.name
+    );
 
 }
 
