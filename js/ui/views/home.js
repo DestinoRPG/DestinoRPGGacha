@@ -11,6 +11,8 @@ import {
     getCardsByCollection
 } from "../../services/cardService.js";
 
+import { renderNews } from "../news.js";
+
 
 export async function renderHome(profile) {
 
@@ -101,42 +103,7 @@ export async function renderHome(profile) {
 
                 <section class="home-news">
 
-                    <div class="news-panel">
-
-                        <button
-                            class="news-arrow news-prev"
-                            aria-label="Noticia anterior"
-                        >
-                            ‹
-                        </button>
-
-
-                        <div class="news-content">
-
-                            <div class="news-label">
-                                NOTICIAS
-                            </div>
-
-                            <h2>
-                                Bienvenido a Destino RPG Gacha
-                            </h2>
-
-                            <p>
-                                ¡Consigue cartas, completa colecciones
-                                y descubre todas las recompensas!
-                            </p>
-
-                        </div>
-
-
-                        <button
-                            class="news-arrow news-next"
-                            aria-label="Siguiente noticia"
-                        >
-                            ›
-                        </button>
-
-                    </div>
+                    ${renderNews()}
 
                 </section>
 
@@ -147,6 +114,7 @@ export async function renderHome(profile) {
         </section>
 
     `;
+
 }
 
 
