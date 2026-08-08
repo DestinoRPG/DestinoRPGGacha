@@ -114,6 +114,7 @@ export function renderProfile(
 
 }
 
+
 export function renderCollectionProgress(
     name,
     owned,
@@ -132,45 +133,64 @@ export function renderCollectionProgress(
                 100
             );
 
+
+    const completed =
+        total > 0 &&
+        owned >= total;
+
+
     return `
 
-        <div class="collection-progress">
+        <div
+            class="
+                collection-progress
+                ${completed ? "completed" : ""}
+            "
+        >
 
             <div class="progress-header">
 
-                <span>
+                <span class="progress-name">
 
                     ${name}
 
                 </span>
 
-                <span>
+
+                <span class="progress-count">
 
                     ${owned}
                     /
                     ${total}
 
+                    ${
+                        completed
+                            ? `<span class="completion-mark">✦</span>`
+                            : ""
+                    }
+
                 </span>
 
             </div>
 
+
             <div class="progress-bar">
 
                 <div
-
                     class="progress-fill"
-
-                    style="
-                        width:${percent}%
-                    "
-
+                    style="width:${percent}%"
                 ></div>
 
             </div>
 
+
             <div class="progress-footer">
 
-                ${percent}% completado
+                ${
+                    completed
+                        ? "✦ Colección completada"
+                        : `${percent}% completado`
+                }
 
             </div>
 

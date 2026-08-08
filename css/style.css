@@ -741,16 +741,30 @@ hr{
 
 
 /* =======================================================
-PROGRESO
+   PROGRESO
 ======================================================= */
 
 .collection-progress{
 
     width:100%;
 
-    min-width:0;
+    padding:7px 10px;
+
+    border:1px solid transparent;
+
+    border-radius:12px;
+
+    transition:
+        background var(--transition),
+        border-color var(--transition),
+        box-shadow var(--transition);
 
 }
+
+
+/* =======================================================
+   CABECERA DE PROGRESO
+======================================================= */
 
 .progress-header{
 
@@ -760,19 +774,44 @@ PROGRESO
 
     align-items:center;
 
-    gap:10px;
+    gap:20px;
 
     margin-bottom:6px;
 
     font-weight:700;
 
-    font-size:.85rem;
+    font-size:.88rem;
 
 }
 
+
+.progress-name{
+
+    min-width:0;
+
+    overflow:hidden;
+
+    text-overflow:ellipsis;
+
+    white-space:nowrap;
+
+}
+
+
+.progress-count{
+
+    flex-shrink:0;
+
+}
+
+
+/* =======================================================
+   BARRA
+======================================================= */
+
 .progress-bar{
 
-    height:8px;
+    height:9px;
 
     overflow:hidden;
 
@@ -781,6 +820,7 @@ PROGRESO
     background:#ddd1b7;
 
 }
+
 
 .progress-fill{
 
@@ -799,6 +839,11 @@ PROGRESO
 
 }
 
+
+/* =======================================================
+   TEXTO INFERIOR
+======================================================= */
+
 .progress-footer{
 
     margin-top:5px;
@@ -807,10 +852,90 @@ PROGRESO
 
     color:var(--textSoft);
 
-    font-size:.75rem;
+    font-size:.78rem;
 
 }
 
+
+/* =======================================================
+   COLECCIÓN COMPLETADA
+======================================================= */
+
+.collection-progress.completed{
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(216,178,74,.13),
+            rgba(216,178,74,.04)
+        );
+
+    border-color:
+        rgba(166,127,24,.55);
+
+    box-shadow:
+        inset 0 0 0 1px
+        rgba(255,255,255,.35);
+
+}
+
+
+.collection-progress.completed
+.progress-fill{
+
+    background:
+        linear-gradient(
+            90deg,
+            #b88920,
+            #f0cc67,
+            #b88920
+        );
+
+}
+
+
+.collection-progress.completed
+.progress-footer{
+
+    color:#8b6415;
+
+    font-weight:800;
+
+}
+
+
+.completion-mark{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    width:18px;
+
+    height:18px;
+
+    margin-left:5px;
+
+    border-radius:50%;
+
+    background:
+        linear-gradient(
+            145deg,
+            #f1d47b,
+            #a67f18
+        );
+
+    color:white;
+
+    font-size:.65rem;
+
+    box-shadow:
+        0 2px 5px
+        rgba(0,0,0,.15);
+
+}
 
 /* =======================================================
    BANNER / INVOCACIÓN
