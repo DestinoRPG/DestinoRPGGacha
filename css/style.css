@@ -2423,30 +2423,26 @@ hr{
 
     position:relative;
 
-    width:min(760px,95vw);
+    width:min(600px,85vw);
 
     aspect-ratio:2/1;
 
     transform-style:preserve-3d;
 
     transition:
-
         transform .9s cubic-bezier(.22,.9,.18,1);
 
     z-index:10;
-
 }
 
 .summon-flip.opened{
 
     transform:rotateY(180deg);
-
 }
 
 .summon-flip.shake{
 
     animation:summonShake .55s;
-
 }
 
 .summon-face{
