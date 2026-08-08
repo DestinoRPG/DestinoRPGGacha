@@ -6,9 +6,22 @@ import {
     updateDocument
 } from "../firebase/firestore.js";
 
+import {
+    getCard,
+    getCardsByCollection
+} from "./cardService.js";
+
+import { COLLECTIONS } from "../data/collections.js";
+
+
 export async function createOrLoadUser(firebaseUser) {
 
-    let user = await getDocument("users", firebaseUser.uid);
+    let user =
+        await getDocument(
+            "users",
+            firebaseUser.uid
+        );
+
 
     if (!user) {
 
@@ -37,13 +50,16 @@ export async function createOrLoadUser(firebaseUser) {
 
         };
 
+
         await setDocument(
             "users",
             firebaseUser.uid,
             user
         );
 
-    } else {
+    }
+
+    else {
 
         await updateDocument(
             "users",
@@ -53,13 +69,17 @@ export async function createOrLoadUser(firebaseUser) {
             }
         );
 
-        user = await getDocument(
-            "users",
-            firebaseUser.uid
-        );
+
+        user =
+            await getDocument(
+                "users",
+                firebaseUser.uid
+            );
+
 
         // Compatibilidad con usuarios creados
         // antes de añadir estos campos.
+
         user.claimedRewards ??= {};
         user.lastDailyReward ??= null;
         user.ownedCards ??= [];
@@ -72,11 +92,24 @@ export async function createOrLoadUser(firebaseUser) {
 
     }
 
+
+    // Comprueba recompensas de colecciones
+    // incluso para cartas conseguidas anteriormente.
+
+    await checkCollectionCompletionRewards(
+        user
+    );
+
+
     return user;
 
 }
 
-export async function updateUser(uid, data) {
+
+export async function updateUser(
+    uid,
+    data
+) {
 
     await updateDocument(
         "users",
@@ -86,38 +119,255 @@ export async function updateUser(uid, data) {
 
 }
 
-export async function addCardToUser(user, cardId) {
 
-    if (user.ownedCards.includes(cardId)) {
+/**
+ * Comprueba todas las colecciones que tienen
+ * una recompensa por completarlas.
+ *
+ * Si una colección está completa y su carta
+ * especial todavía no pertenece al usuario,
+ * se añade automáticamente.
+ */
+export async function checkCollectionCompletionRewards(
+    user
+) {
 
-        return user;
+    const newRewards = [];
+
+
+    for (
+        const collection
+        of COLLECTIONS
+    ) {
+
+        if (
+            !collection.enabled ||
+            !collection.completionReward
+        ) {
+
+            continue;
+
+        }
+
+
+        const collectionCards =
+            await getCardsByCollection(
+                collection.id
+            );
+
+
+        // No podemos completar una colección
+        // que no tenga cartas.
+
+        if (
+            collectionCards.length === 0
+        ) {
+
+            continue;
+
+        }
+
+
+        const completed =
+            collectionCards.every(
+                card =>
+                    user.ownedCards.includes(
+                        card.id
+                    )
+            );
+
+
+        if (!completed) {
+
+            continue;
+
+        }
+
+
+        const rewardId =
+            collection.completionReward;
+
+
+        // Ya tiene la recompensa.
+
+        if (
+            user.ownedCards.includes(
+                rewardId
+            )
+        ) {
+
+            continue;
+
+        }
+
+
+        const rewardCard =
+            await getCard(
+                rewardId
+            );
+
+
+        if (!rewardCard) {
+
+            console.warn(
+                "No se encontró la carta recompensa:",
+                rewardId
+            );
+
+            continue;
+
+        }
+
+
+        // Añadir recompensa.
+
+        user.ownedCards.push(
+            rewardId
+        );
+
+
+        user.cardsObtained =
+            (user.cardsObtained ?? 0) + 1;
+
+
+        newRewards.push(
+            rewardCard
+        );
 
     }
 
+
+    // No hubo recompensas nuevas.
+
+    if (
+        newRewards.length === 0
+    ) {
+
+        return [];
+
+    }
+
+
+    user.ownedCards.sort();
+
+
+    await updateUser(
+
+        user.uid,
+
+        {
+
+            ownedCards:
+                [...user.ownedCards],
+
+            cardsObtained:
+                user.cardsObtained
+
+        }
+
+    );
+
+
+    return newRewards;
+
+}
+
+
+export async function addCardToUser(
+    user,
+    cardId
+) {
+
+    // =========================
+    // Evitar duplicados
+    // =========================
+
+    if (
+        user.ownedCards.includes(
+            cardId
+        )
+    ) {
+
+        return {
+
+            user,
+
+            card: null,
+
+            completionRewards: []
+
+        };
+
+    }
+
+
+    // =========================
+    // Añadir carta
+    // =========================
+
     const updatedCards = [
+
         ...user.ownedCards,
+
         cardId
+
     ].sort();
+
 
     const cardsObtained =
         (user.cardsObtained ?? 0) + 1;
 
+
+    user.ownedCards =
+        [...updatedCards];
+
+    user.cardsObtained =
+        cardsObtained;
+
+
     await updateUser(
+
         user.uid,
+
         {
-            ownedCards: updatedCards,
+
+            ownedCards:
+                updatedCards,
+
             cardsObtained
+
         }
+
     );
 
-    user.ownedCards = [...updatedCards];
-    user.cardsObtained = cardsObtained;
 
-    return user;
+    // =========================
+    // Comprobar recompensas
+    // =========================
+
+    const completionRewards =
+        await checkCollectionCompletionRewards(
+            user
+        );
+
+
+    return {
+
+        user,
+
+        card:
+            await getCard(cardId),
+
+        completionRewards
+
+    };
 
 }
 
-export async function claimAnniversaryReward(user) {
+
+export async function claimAnniversaryReward(
+    user
+) {
 
     const rewardId =
         "anniversary_14";
@@ -131,15 +381,21 @@ export async function claimAnniversaryReward(user) {
     ) {
 
         return {
+
             success: false,
-            reason: "ALREADY_CLAIMED"
+
+            reason:
+                "ALREADY_CLAIMED"
+
         };
 
     }
 
 
     const alreadyOwned =
-        user.ownedCards.includes(cardId);
+        user.ownedCards.includes(
+            cardId
+        );
 
 
     const updatedCards =
@@ -176,7 +432,8 @@ export async function claimAnniversaryReward(user) {
 
         {
 
-            ownedCards: updatedCards,
+            ownedCards:
+                updatedCards,
 
             tickets:
                 (user.tickets ?? 0) + 1,

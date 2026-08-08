@@ -17,7 +17,8 @@ export const COLLECTIONS = [
         image: "admins.webp",
         description: "El equipo de Destino RPG.",
         color: "#3f88ff",
-        enabled: true
+        enabled: true,
+        completionReward: "admins_complete"
     },
 
     {
