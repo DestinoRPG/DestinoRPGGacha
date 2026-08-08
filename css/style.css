@@ -286,10 +286,6 @@ hr{
 
     align-items:stretch;
 
-    flex:1;
-
-    min-height:0;
-
 }
 
 /* =======================================================
@@ -483,7 +479,8 @@ hr{
 
     background:#e8dcc2;
 
-    box-shadow:0 5px 12px rgba(0,0,0,.12);
+    box-shadow:
+        0 5px 12px rgba(0,0,0,.12);
 
 }
 
