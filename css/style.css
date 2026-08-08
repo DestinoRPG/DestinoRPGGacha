@@ -665,6 +665,20 @@ hr{
 
 }
 
+#profileProgress{
+
+    display:grid;
+
+    grid-template-columns:
+        minmax(0,1fr)
+        minmax(0,1fr);
+
+    gap:14px 20px;
+
+    margin-top:16px;
+
+}
+
 .ticket-icon{
 
     font-size:1.3rem;
@@ -681,12 +695,14 @@ hr{
 
 
 /* =======================================================
-   PROGRESO
+PROGRESO
 ======================================================= */
 
 .collection-progress{
 
     width:100%;
+
+    min-width:0;
 
 }
 
@@ -698,19 +714,19 @@ hr{
 
     align-items:center;
 
-    gap:20px;
+    gap:10px;
 
-    margin-bottom:8px;
+    margin-bottom:6px;
 
     font-weight:700;
 
-    font-size:.92rem;
+    font-size:.85rem;
 
 }
 
 .progress-bar{
 
-    height:10px;
+    height:8px;
 
     overflow:hidden;
 
@@ -739,13 +755,13 @@ hr{
 
 .progress-footer{
 
-    margin-top:8px;
+    margin-top:5px;
 
     text-align:right;
 
     color:var(--textSoft);
 
-    font-size:.85rem;
+    font-size:.75rem;
 
 }
 
