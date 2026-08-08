@@ -2418,12 +2418,11 @@ hr{
 }
 
 /* Carta */
-
 .summon-flip{
 
     position:relative;
 
-    width:min(520px,85vw);
+    width:min(480px,85vw);
 
     aspect-ratio:2/1;
 
