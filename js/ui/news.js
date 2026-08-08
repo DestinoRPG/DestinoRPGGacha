@@ -39,10 +39,11 @@ export function renderNews() {
 
     return `
 
-        <div
-            class="news-panel"
-            data-news-index="${currentNews}"
-        >
+    <div
+        id="newsArea"
+        class="news-panel"
+        data-news-index="${currentNews}"
+    >
 
             <button
                 class="news-arrow news-prev"

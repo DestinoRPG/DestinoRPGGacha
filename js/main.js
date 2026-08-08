@@ -44,7 +44,8 @@ import {
 
 import {
     addCardNews,
-    revealCardNews
+    revealCardNews,
+    renderNews
 } from "./ui/news.js";
 
 import { COLLECTIONS } from "./data/collections.js";
@@ -320,6 +321,16 @@ setTimeout(() => {
     flip?.classList.add("opened");
 
     revealCardNews();
+
+    const newsArea =
+    document.getElementById("newsArea");
+
+if (newsArea) {
+
+    newsArea.outerHTML =
+        renderNews();
+
+}
 
     initializeCardEvents(
         [result.card],
