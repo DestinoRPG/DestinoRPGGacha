@@ -847,9 +847,9 @@ PROGRESO
 
     align-items:center;
 
-    gap:14px;
+    gap:10px;
 
-    padding:20px 8px 4px;
+    padding:12px 8px 2px;
 
 }
 
@@ -881,7 +881,7 @@ PROGRESO
 
     width:100%;
 
-    padding:14px 22px;
+    padding:11px 20px;
 
     border:2px solid var(--gold);
 
@@ -909,6 +909,7 @@ PROGRESO
         transform .25s,
         box-shadow .25s,
         opacity .25s;
+
 }
 
 
