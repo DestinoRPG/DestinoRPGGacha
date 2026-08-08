@@ -14,6 +14,7 @@ export function renderCollectionView(
 
     `;
 
+
     // =========================
     // Índice de colecciones
     // =========================
@@ -24,21 +25,36 @@ export function renderCollectionView(
             continue;
         }
 
+
         const collectionCards =
             cards.filter(card =>
                 card.collection === collection.id
             );
+
 
         const owned =
             collectionCards.filter(card =>
                 profile.ownedCards.includes(card.id)
             ).length;
 
+
+        const total =
+            collectionCards.length;
+
+
+        const completed =
+            total > 0 &&
+            owned >= total;
+
+
         html += `
 
             <button
 
-                class="collection-jump"
+                class="
+                    collection-jump
+                    ${completed ? "completed" : ""}
+                "
 
                 data-target="${collection.id}"
 
@@ -49,13 +65,19 @@ export function renderCollectionView(
                     ${collection.icon}
                     ${collection.name}
 
+                    ${
+                        completed
+                            ? `<span class="jump-complete">✦</span>`
+                            : ""
+                    }
+
                 </span>
 
                 <small>
 
                     ${owned}
                     /
-                    ${collectionCards.length}
+                    ${total}
 
                 </small>
 
@@ -65,11 +87,13 @@ export function renderCollectionView(
 
     }
 
+
     html += `
 
             </div>
 
     `;
+
 
     // =========================
     // Colecciones
@@ -81,18 +105,22 @@ export function renderCollectionView(
             continue;
         }
 
+
         const collectionCards =
             cards.filter(card =>
                 card.collection === collection.id
             );
+
 
         const owned =
             collectionCards.filter(card =>
                 profile.ownedCards.includes(card.id)
             ).length;
 
+
         const total =
             collectionCards.length;
+
 
         const percentage =
             total === 0
@@ -103,13 +131,22 @@ export function renderCollectionView(
                     100
                 );
 
+
+        const completed =
+            total > 0 &&
+            owned >= total;
+
+
         html += `
 
             <section
 
                 id="${collection.id}"
 
-                class="collection-section"
+                class="
+                    collection-section
+                    ${completed ? "completed" : ""}
+                "
 
             >
 
@@ -126,6 +163,12 @@ export function renderCollectionView(
 
                         <p class="collection-subtitle">
 
+                            ${
+                                completed
+                                    ? "✦ Colección completada · "
+                                    : ""
+                            }
+
                             ${owned}
                             de
                             ${total}
@@ -135,17 +178,24 @@ export function renderCollectionView(
 
                     </div>
 
+
                     <div class="collection-counter">
 
-                        ${percentage}%
+                        ${
+                            completed
+                                ? "✦"
+                                : `${percentage}%`
+                        }
 
                     </div>
 
                 </div>
 
+
                 <div class="collection-grid">
 
         `;
+
 
         for (const card of collectionCards) {
 
@@ -161,6 +211,7 @@ export function renderCollectionView(
 
         }
 
+
         html += `
 
                 </div>
@@ -171,12 +222,13 @@ export function renderCollectionView(
 
     }
 
+
     html += `
 
         </section>
 
     `;
 
-    return html;
 
+    return html;
 }
