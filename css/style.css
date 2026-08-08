@@ -307,8 +307,6 @@ hr{
     min-width:0;
 
     min-height:0;
-
-    height:100%;
 }
 
 /* =======================================================
@@ -771,6 +769,8 @@ PROGRESO
 .banner{
 
     height:100%;
+
+    min-height:0;
 
     display:flex;
 
