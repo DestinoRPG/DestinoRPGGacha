@@ -1530,6 +1530,10 @@ hr{
 
     position:relative;
 
+    min-width:0;
+
+    width:100%;
+
     overflow:hidden;
 
     background:
@@ -2360,13 +2364,18 @@ hr{
        COLECCIÓN
     ========================= */
 
-    .collection-grid{
+.collection-grid{
 
-        grid-template-columns:repeat(2,1fr);
+    display:grid;
 
-        gap:14px;
+    grid-template-columns:
+        repeat(5, minmax(0,1fr));
 
-    }
+    gap:18px;
+
+    width:100%;
+
+}
 
 
     .collection-title{
