@@ -6,7 +6,7 @@
         "collection": "hall_of_fame",
         "image": "images/cards/baldursgate.webp",
         "series": "Baldur's Gate",
-        "developer": "Bioware",
+        "developer": "BioWare",
         "releaseYear": 1988,
         "description": "",
         "articles": [
@@ -32,7 +32,7 @@
         "collection": "hall_of_fame",
         "image": "images/cards/bg2.webp",
         "series": "Baldur's Gate",
-        "developer": "Bioware",
+        "developer": "BioWare",
         "releaseYear": 2000,
         "description": "",
         "articles": [
@@ -245,7 +245,7 @@
         "collection": "hall_of_fame",
         "image": "images/cards/dao.webp",
         "series": "Dragon Age",
-        "developer": "Bioware",
+        "developer": "BioWare",
         "releaseYear": 2009,
         "description": "",
         "enabled": true
@@ -272,12 +272,6 @@
         "developer": "Level-5/Square Enix",
         "releaseYear": 2009,
         "description": "",
-        "articles": [
-                        {           
-            "title": "Análisis",
-            "url": "https://www.destinorpg.es/2018/09/analisis-dragon-quest-xi-ecos-de-un.html"
-        }
-    ],
         "enabled": true
     },
                                             {
@@ -290,6 +284,12 @@
         "developer": "Square Enix",
         "releaseYear": 2017,
         "description": "",
+                "articles": [
+                        {           
+            "title": "Análisis",
+            "url": "https://www.destinorpg.es/2018/09/analisis-dragon-quest-xi-ecos-de-un.html"
+        }
+    ],
         "enabled": true
     },
                                             {
@@ -661,6 +661,100 @@
                 {
             "title": "Análisis",
             "url": "https://www.destinorpg.es/2016/12/analisis-lost-odyssey.html"
+        }
+    ],
+        "enabled": true
+    },
+                                        {
+        "id": "masseffect",
+        "number": 36,
+        "title": "Mass Effect",
+        "collection": "hall_of_fame",
+        "image": "images/cards/me.webp",
+        "series": "Mass Effect",
+        "developer": "BioWare",
+        "releaseYear": 2007,
+        "description": "",
+        "articles": [
+                {
+            "title": "Experiencias Roleras",
+            "url": "https://www.destinorpg.es/2015/08/experiencias-roleras-wander-nos-escribe.html"
+        }
+    ],
+        "enabled": true
+    },
+                                            {
+        "id": "masseffect2",
+        "number": 37,
+        "title": "Mass Effect 2",
+        "collection": "hall_of_fame",
+        "image": "images/cards/me2.webp",
+        "series": "Mass Effect",
+        "developer": "BioWare",
+        "releaseYear": 2010,
+        "description": "",
+        "enabled": true
+    },
+                                                {
+        "id": "masseffect3",
+        "number": 38,
+        "title": "Mass Effect 3",
+        "collection": "hall_of_fame",
+        "image": "images/cards/me3.webp",
+        "series": "Mass Effect",
+        "developer": "BioWare",
+        "releaseYear": 2012,
+        "description": "",
+        "enabled": true
+    },
+                                            {
+        "id": "mother",
+        "number": 39,
+        "title": "Mother",
+        "collection": "hall_of_fame",
+        "image": "images/cards/mother.webp",
+        "series": "Mother",
+        "developer": "Ape/Nintendo",
+        "releaseYear": 1989,
+        "description": "",
+        "articles": [
+                {
+            "title": "Experiencias Roleras",
+            "url": "https://www.destinorpg.es/2015/06/experiencias-roleras-saifogeo-nos.html"
+        }
+    ],
+        "enabled": true
+    },
+                                                {
+        "id": "nierautomata",
+        "number": 40,
+        "title": "NieR: Automata",
+        "collection": "hall_of_fame",
+        "image": "images/cards/nierautomata.webp",
+        "series": "NieR",
+        "developer": "PlatinumGames/Square Enix",
+        "releaseYear": 2017,
+        "description": "",
+        "articles": [
+                           {
+            "title": "Análisis de la demo",
+            "url": "https://www.destinorpg.es/2016/12/analizando-la-demo-de-nierautomata-que.html"
+        }, 
+                {
+            "title": "Análisis",
+            "url": "https://www.destinorpg.es/2017/03/analisis-nier-automata.html"
+        },
+                        {
+            "title": "Por qué es importante para la industria",
+            "url": "https://www.destinorpg.es/2017/03/sobre-por-que-nier-automata-es.html"
+        },
+                        {
+            "title": "Charlas Destinadas",
+            "url": "https://www.destinorpg.es/2017/04/charlas-destinadas-proposito-de.html"
+        },
+                                {
+            "title": "Candidata al Salón de la Fama",
+            "url": "https://www.destinorpg.es/2020/02/candidato-al-salon-de-la-fama-nier.html"
         }
     ],
         "enabled": true
