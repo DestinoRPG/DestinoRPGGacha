@@ -50,6 +50,10 @@ import {
 
 import { COLLECTIONS } from "./data/collections.js";
 
+import {
+    claimAnniversaryReward
+} from "./services/userService.js";
+
 
 
 window.addEventListener(
@@ -461,6 +465,108 @@ if (newsArea) {
 
                 }
 
+                                else if (
+                    params.reward ===
+                    "anniversary14"
+                ) {
+
+
+                    const result =
+                        await claimAnniversaryReward(
+                            profile
+                        );
+
+
+                    if (
+                        result.success
+                    ) {
+
+
+                        document
+                            .getElementById("resultArea")
+                            .innerHTML = `
+
+                                <h2>
+
+                                    🎉 ¡Recompensa del
+                                    14.º aniversario!
+
+                                </h2>
+
+                                <p>
+
+                                    Has recibido una
+                                    <strong>carta especial</strong>
+                                    y
+                                    <strong>1 ticket</strong>.
+
+                                </p>
+
+                            `;
+
+                    }
+
+
+                    else if (
+                        result.reason ===
+                        "ALREADY_CLAIMED"
+                    ) {
+
+
+                        document
+                            .getElementById("resultArea")
+                            .innerHTML = `
+
+                                <h2>
+
+                                    ℹ️ Recompensa del
+                                    14.º aniversario
+
+                                </h2>
+
+                                <p>
+
+                                    Ya habías reclamado
+                                    esta recompensa.
+
+                                </p>
+
+                            `;
+
+                    }
+
+
+                    else {
+
+
+                        document
+                            .getElementById("resultArea")
+                            .innerHTML = `
+
+                                <h2>
+
+                                    ❌ Error
+
+                                </h2>
+
+                                <p>
+
+                                    No se pudo reclamar
+                                    la recompensa.
+
+                                </p>
+
+                            `;
+
+                    }
+
+
+                    await drawCurrentView();
+
+
+                    clearUrlParams();
+
+                }
 
 
                 else if (

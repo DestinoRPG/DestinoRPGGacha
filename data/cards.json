@@ -899,5 +899,19 @@
         }
     ],
         "enabled": true
+    },
+                {
+        "id": "14aniversario",
+        "number": 2,
+        "title": "14 Aniversario",
+        "collection": "eventos",
+        "image": "images/cards/drpg14.webp",
+        "articles": [
+        {
+            "title": "Celebración",
+            "url": "https://www.destinorpg.es/2025/10/destino-rpg-celebra-su-decimocuarto.html"
+        }
+    ],
+        "enabled": true
     }
 ]

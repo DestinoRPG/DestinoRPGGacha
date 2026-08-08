@@ -1,33 +1,54 @@
-/**
- * Devuelve los parámetros de la URL.
- */
 export function getUrlParams() {
 
-    const params = new URLSearchParams(
-        window.location.search
-    );
+    const params =
+        new URLSearchParams(
+            window.location.search
+        );
+
 
     return {
 
-        reward: params.get("reward"),
+        reward:
+            params.get("reward"),
 
-        card: params.get("card")
+        card:
+            params.get("card")
 
     };
 
 }
 
+
 /**
- * Indica si la página se abrió para reclamar una recompensa.
+ * Indica si la página se abrió
+ * para reclamar una recompensa.
  */
 export function hasPendingReward() {
 
-    const { reward, card } = getUrlParams();
+    const {
+        reward,
+        card
+    } = getUrlParams();
 
-    return reward === "article"
-        && card !== null;
+
+    return (
+
+        (
+            reward === "article" &&
+            card !== null
+        )
+
+        ||
+
+        (
+            reward === "anniversary14" &&
+            card !== null
+        )
+
+    );
 
 }
+
 
 /**
  * Elimina los parámetros de la URL
