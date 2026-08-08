@@ -28,6 +28,16 @@ export const COLLECTIONS = [
         description: "Quienes hacen posible el proyecto.",
         color: "#3fa85f",
         enabled: true
+    },
+
+    {
+    id: "eventos",
+    name: "Eventos",
+    icon: "📅",
+    image: "events.webp",
+    description: "Efemérides especiales.",
+    color: "#e67e22",
+    enabled: true
     }
 
 ];
