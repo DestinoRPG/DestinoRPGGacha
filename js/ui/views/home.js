@@ -1,15 +1,21 @@
 import { renderBanner } from "../banner.js";
+
 import {
     renderProfile,
     renderCollectionProgress
 } from "../profile.js";
 
 import { COLLECTIONS } from "../../data/collections.js";
-import { getCardsByCollection } from "../../services/cardService.js";
+
+import {
+    getCardsByCollection
+} from "../../services/cardService.js";
+
 
 export async function renderHome(profile) {
 
     let progress = "";
+
 
     for (const collection of COLLECTIONS) {
 
@@ -17,58 +23,132 @@ export async function renderHome(profile) {
             continue;
         }
 
+
         const cards =
             await getCardsByCollection(
                 collection.id
             );
+
 
         const owned =
             cards.filter(card =>
                 profile.ownedCards.includes(card.id)
             ).length;
 
-        progress += renderCollectionProgress(
 
-            collection.name,
+        progress +=
+            renderCollectionProgress(
 
-            owned,
+                collection.name,
 
-            cards.length
+                owned,
 
-        );
+                cards.length
+
+            );
 
     }
 
+
     return `
 
-    <section class="home-view">
+        <section class="home-view">
 
-        <div class="home-main">
 
-            <section class="home-profile">
+            <!-- =========================
+                 FILA SUPERIOR
+            ========================== -->
 
-                ${renderProfile(
-                    profile,
-                    progress
-                )}
+            <div class="home-main">
 
-            </section>
 
-            <section class="home-summon">
+                <section class="home-profile">
 
-                ${renderBanner(profile)}
+                    ${renderProfile(
+                        profile,
+                        progress
+                    )}
 
-            </section>
+                </section>
 
-        </div>
 
-        <div id="resultArea"></div>
+                <section class="home-summon">
 
-    </section>
+                    ${renderBanner(
+                        profile
+                    )}
 
-`;
+                </section>
 
+
+            </div>
+
+
+
+            <!-- =========================
+                 FILA INFERIOR
+            ========================== -->
+
+            <div class="home-bottom">
+
+
+                <section class="home-result">
+
+                    <div id="resultArea"></div>
+
+                </section>
+
+
+                <section class="home-news">
+
+                    <div class="news-panel">
+
+                        <button
+                            class="news-arrow news-prev"
+                            aria-label="Noticia anterior"
+                        >
+                            ‹
+                        </button>
+
+
+                        <div class="news-content">
+
+                            <div class="news-label">
+                                NOTICIAS
+                            </div>
+
+                            <h2>
+                                Bienvenido a Destino RPG Gacha
+                            </h2>
+
+                            <p>
+                                ¡Consigue cartas, completa colecciones
+                                y descubre todas las recompensas!
+                            </p>
+
+                        </div>
+
+
+                        <button
+                            class="news-arrow news-next"
+                            aria-label="Siguiente noticia"
+                        >
+                            ›
+                        </button>
+
+                    </div>
+
+                </section>
+
+
+            </div>
+
+
+        </section>
+
+    `;
 }
+
 
 export function initializeHome() {
 

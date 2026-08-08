@@ -286,6 +286,205 @@ hr{
 
     align-items:stretch;
 
+    flex:1;
+
+    min-height:0;
+
+}
+
+/* =======================================================
+   VISTA PRINCIPAL
+======================================================= */
+
+.home-view{
+
+    display:flex;
+
+    flex-direction:column;
+
+    min-height:calc(100vh - 24px);
+
+}
+
+
+/* =======================================================
+   FILA INFERIOR
+======================================================= */
+
+.home-bottom{
+
+    display:grid;
+
+    grid-template-columns:
+        minmax(0,1fr)
+        minmax(0,1fr);
+
+    gap:24px;
+
+    flex:1;
+
+    min-height:0;
+
+    margin-top:24px;
+
+}
+
+
+/* =======================================================
+   RESULTADO DE INVOCACIÓN
+======================================================= */
+
+.home-result{
+
+    min-width:0;
+
+    min-height:0;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    overflow:hidden;
+
+}
+
+
+/* =======================================================
+   NOTICIAS
+======================================================= */
+
+.home-news{
+
+    min-width:0;
+
+    min-height:0;
+
+    display:flex;
+
+    align-items:stretch;
+
+}
+
+
+.news-panel{
+
+    width:100%;
+
+    height:100%;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+    padding:24px;
+
+    background:var(--panel);
+
+    border:2px solid var(--border);
+
+    border-radius:22px;
+
+    box-shadow:var(--shadow);
+
+}
+
+
+.news-content{
+
+    flex:1;
+
+    min-width:0;
+
+    text-align:center;
+
+}
+
+
+.news-label{
+
+    margin-bottom:10px;
+
+    font-size:.8rem;
+
+    font-weight:800;
+
+    letter-spacing:2px;
+
+    color:var(--goldDark);
+
+}
+
+
+.news-content h2{
+
+    margin:0 0 12px;
+
+    font-size:1.4rem;
+
+    color:var(--text);
+
+}
+
+
+.news-content p{
+
+    margin:0;
+
+    line-height:1.6;
+
+    color:var(--textSoft);
+
+}
+
+
+.news-arrow{
+
+    flex-shrink:0;
+
+    width:42px;
+
+    height:42px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border:2px solid var(--border);
+
+    border-radius:50%;
+
+    background:var(--panelDark);
+
+    color:var(--goldDark);
+
+    font-size:1.8rem;
+
+    line-height:1;
+
+    cursor:pointer;
+
+    transition:
+        transform var(--transition),
+        background var(--transition),
+        box-shadow var(--transition);
+
+}
+
+
+.news-arrow:hover{
+
+    transform:scale(1.08);
+
+    background:#e8dcc2;
+
+    box-shadow:0 5px 12px rgba(0,0,0,.12);
+
 }
 
 
@@ -1158,15 +1357,19 @@ hr{
 
 #resultArea{
 
-    margin:34px 0;
+    width:100%;
+
+    height:100%;
+
+    min-height:0;
+
+    margin:0;
 
     display:flex;
 
     justify-content:center;
 
     align-items:center;
-
-    min-height:420px;
 
 }
 
@@ -1649,6 +1852,52 @@ hr{
 
     }
 
+    
+@media (max-width:768px){
+
+    .home-view{
+
+        min-height:0;
+
+    }
+
+
+    .home-main,
+    .home-bottom{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+    .home-main{
+
+        flex:none;
+
+    }
+
+
+    .home-bottom{
+
+        flex:none;
+
+    }
+
+
+    .home-result{
+
+        min-height:420px;
+
+    }
+
+
+    .home-news{
+
+        min-height:260px;
+
+    }
+
+}
 
     /* =========================
        NAVEGACIÓN
