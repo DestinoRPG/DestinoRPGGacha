@@ -289,7 +289,7 @@ hr{
 }
 
 /* =======================================================
-   VISTA PRINCIPAL
+   VISTA HOME
 ======================================================= */
 
 .home-view{
@@ -297,8 +297,6 @@ hr{
     display:flex;
 
     flex-direction:column;
-
-    min-height:calc(100vh - 24px);
 
 }
 
@@ -317,17 +315,12 @@ hr{
 
     gap:24px;
 
-    flex:1;
-
-    min-height:0;
-
     margin-top:24px;
 
 }
 
-
 /* =======================================================
-   RESULTADO DE INVOCACIÓN
+   PANEL DE RESULTADO / INVOCACIÓN
 ======================================================= */
 
 .home-result{
@@ -343,6 +336,16 @@ hr{
     justify-content:center;
 
     overflow:hidden;
+
+    padding:18px;
+
+    background:var(--panel);
+
+    border:2px solid var(--border);
+
+    border-radius:22px;
+
+    box-shadow:var(--shadow);
 
 }
 
