@@ -828,7 +828,7 @@
     ],
         "enabled": true
     },
-    {
+{
     "id": "admins_complete",
     "number": 4,
     "title": "Los Administradores",
@@ -836,7 +836,7 @@
     "image": "images/cards/admins_complete.webp",
     "description": "Los tres administradores de Destino RPG.",
     "enabled": true,
-    "special": true
+    "completionReward": true
 },
                 {
         "id": "afrael",
