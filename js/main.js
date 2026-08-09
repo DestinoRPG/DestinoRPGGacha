@@ -269,17 +269,15 @@ if (collection) {
 
 }
 
-
-
 await drawCurrentView();
 
 const resultArea =
-    document.getElementById(
-        "resultArea"
-    );
+document.getElementById(
+    "resultArea"
+);
 
 resultArea.innerHTML =
-    renderSummonLoading();
+renderSummonLoading();
 
 resultArea.scrollIntoView({
 
@@ -293,20 +291,20 @@ await new Promise(resolve =>
 );
 
 resultArea.innerHTML =
-    renderSummonResult(
-        result.card
-    );
+renderSummonResult(
+    result.card,
+    result.completionRewards?.length > 0
+);
 
 const flip =
-    document.getElementById(
-        "summonFlip"
-    );
-
+document.getElementById(
+    "summonFlip"
+);
 
 const flash =
-    document.getElementById(
-        "summonFlash"
-    );
+document.getElementById(
+    "summonFlash"
+);
 
 setTimeout(() => {
 
@@ -327,14 +325,14 @@ setTimeout(() => {
     revealCardNews();
 
     const newsArea =
-    document.getElementById("newsArea");
+        document.getElementById("newsArea");
 
-if (newsArea) {
+    if (newsArea) {
 
-    newsArea.outerHTML =
-        renderNews();
+        newsArea.outerHTML =
+            renderNews();
 
-}
+    }
 
     initializeCardEvents(
         [result.card],
@@ -342,7 +340,9 @@ if (newsArea) {
     );
 
     const summonCard =
-        flip?.querySelector(".summon-card");
+        flip?.querySelector(
+            ".summon-card"
+        );
 
     if (summonCard) {
 
@@ -354,16 +354,20 @@ if (newsArea) {
                     summonCard.getBoundingClientRect();
 
                 const x =
-                    event.clientX - rect.left;
+                    event.clientX -
+                    rect.left;
 
                 const y =
-                    event.clientY - rect.top;
+                    event.clientY -
+                    rect.top;
 
                 const rx =
-                    (y / rect.height - .5) * -18;
+                    (y / rect.height - .5) *
+                    -18;
 
                 const ry =
-                    (x / rect.width - .5) * 18;
+                    (x / rect.width - .5) *
+                    18;
 
                 summonCard.style.transform =
                     `rotateX(${rx}deg) rotateY(${ry}deg) scale(1.05)`;
@@ -375,14 +379,16 @@ if (newsArea) {
             "mouseleave",
             () => {
 
-                summonCard.style.transform = "";
+                summonCard.style.transform =
+                    "";
 
             }
         );
 
     }
 
-    summonButton.disabled = false;
+    summonButton.disabled =
+        false;
 
     summonButton.classList.remove(
         "summoning"
@@ -390,16 +396,17 @@ if (newsArea) {
 
 }, 1200);
 
-                            };
-
-                    }
+                        };
 
                 }
 
+            }
 
-                setView("home");
 
-                await drawCurrentView();
+            setView("home");
+
+            await drawCurrentView();
+
 
 
                 /*

@@ -1,21 +1,34 @@
 import { renderCard } from "./card.js";
 
-export function renderSummonResult(card) {
+export function renderSummonResult(
+    card,
+    completionReward = false
+) {
 
-    return `
+return `
 
-        <div class="summon-result">
+    <div class="summon-result">
 
-            <div class="summon-background"></div>
+        <div class="summon-background"></div>
 
-            <div class="summon-particles"></div>
+        <div class="summon-particles"></div>
 
-            <div
-                id="summonFlash"
-                class="summon-flash"
-            ></div>
+        <div
+            id="summonFlash"
+            class="summon-flash"
+        ></div>
 
-            <div class="summon-animation">
+        ${
+            completionReward
+                ? `
+                    <div class="completion-reward-title">
+                        ✦ COLECCIÓN COMPLETADA ✦
+                    </div>
+                `
+                : ""
+        }
+
+        <div class="summon-animation">
 
                 <div
                     id="summonFlip"
