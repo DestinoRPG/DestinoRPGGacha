@@ -26,7 +26,7 @@ export async function summon(
     // No puede invocar sin tickets
 
     if (
-        user.tickets <= 0
+        (user.tickets < SUMMON_COST)
     ) {
 
         return {
