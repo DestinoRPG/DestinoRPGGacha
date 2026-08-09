@@ -54,8 +54,6 @@ import {
     claimAnniversaryReward
 } from "./services/userService.js";
 
-import { renderCard } from "./card.js";
-
 
 
 window.addEventListener(
