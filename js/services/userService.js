@@ -150,10 +150,15 @@ export async function checkCollectionCompletionRewards(
         }
 
 
-        const collectionCards =
-            await getCardsByCollection(
-                collection.id
-            );
+const collectionCards =
+    (
+        await getCardsByCollection(
+            collection.id
+        )
+    ).filter(
+        card =>
+            !card.completionReward
+    );
 
 
         // No podemos completar una colección
