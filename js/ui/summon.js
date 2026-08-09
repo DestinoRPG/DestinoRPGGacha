@@ -1,9 +1,6 @@
 import { renderCard } from "./card.js";
 
-export function renderSummonResult(
-    card,
-    completionReward = null
-) {
+export function renderSummonResult(card) {
 
     return `
 
@@ -17,24 +14,6 @@ export function renderSummonResult(
                 id="summonFlash"
                 class="summon-flash"
             ></div>
-
-            ${
-                completionReward
-                    ? `
-                        <div class="completion-reward-title">
-
-                            ✦ COLECCIÓN COMPLETADA ✦
-
-                        </div>
-
-                        <div class="completion-reward-subtitle">
-
-                            ¡Has desbloqueado una carta especial!
-
-                        </div>
-                    `
-                    : ""
-            }
 
             <div class="summon-animation">
 

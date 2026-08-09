@@ -304,11 +304,9 @@ await new Promise(resolve =>
 const completionReward =
     result.completionRewards?.[0] ?? null;
 
-
 resultArea.innerHTML =
     renderSummonResult(
-        result.card,
-        completionReward
+        result.card
     );
 
 
@@ -461,7 +459,6 @@ if (!completionReward) {
 
 }
 
-
 // =========================================================
 // Hay recompensa de colección
 // =========================================================
@@ -471,12 +468,24 @@ if (!completionReward) {
 
 setTimeout(() => {
 
-    // Quitamos la carta anterior.
+    // -----------------------------------------------------
+    // ELIMINAR EXPLÍCITAMENTE LA PANTALLA DE MEMELE
+    // -----------------------------------------------------
 
-    resultArea.innerHTML = "";
+    const summonResult =
+        resultArea.querySelector(
+            ".summon-result"
+        );
 
+    if (summonResult) {
 
-    // Mostramos la recompensa especial.
+        summonResult.remove();
+
+    }
+
+// -----------------------------------------------------
+    // Mostrar recompensa
+    // -----------------------------------------------------
 
     resultArea.innerHTML = `
 
@@ -508,7 +517,9 @@ setTimeout(() => {
     `;
 
 
-    // Activamos los eventos de la carta especial.
+    // -----------------------------------------------------
+    // Eventos de la carta recompensa
+    // -----------------------------------------------------
 
     initializeCardEvents(
         [completionReward],
@@ -516,8 +527,9 @@ setTimeout(() => {
     );
 
 
-    // Dejamos la recompensa visible.
-    // NO hacemos drawCurrentView() aquí.
+    // -----------------------------------------------------
+    // Ya hemos terminado la invocación
+    // -----------------------------------------------------
 
     summonButton.disabled =
         false;
