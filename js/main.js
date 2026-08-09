@@ -54,6 +54,8 @@ import {
     claimAnniversaryReward
 } from "./services/userService.js";
 
+import { renderCard } from "./card.js";
+
 
 
 window.addEventListener(
@@ -269,15 +271,16 @@ if (collection) {
 
 }
 
+
 await drawCurrentView();
 
 const resultArea =
-document.getElementById(
-    "resultArea"
-);
+    document.getElementById(
+        "resultArea"
+    );
 
 resultArea.innerHTML =
-renderSummonLoading();
+    renderSummonLoading();
 
 resultArea.scrollIntoView({
 
@@ -286,46 +289,86 @@ resultArea.scrollIntoView({
 
 });
 
+
+// =========================================================
+// Esperar a que termine la invocación
+// =========================================================
+
 await new Promise(resolve =>
     setTimeout(resolve, 1000)
 );
 
+
+// =========================================================
+// Mostrar carta obtenida
+// =========================================================
+
+const completionReward =
+    result.completionRewards?.[0] ?? null;
+
+
 resultArea.innerHTML =
-renderSummonResult(
-    result.card,
-    result.completionRewards?.length > 0
-);
+    renderSummonResult(
+        result.card,
+        completionReward
+    );
+
 
 const flip =
-document.getElementById(
-    "summonFlip"
-);
+    document.getElementById(
+        "summonFlip"
+    );
 
 const flash =
-document.getElementById(
-    "summonFlash"
-);
+    document.getElementById(
+        "summonFlash"
+    );
+
+
+// =========================================================
+// Animación de aparición
+// =========================================================
 
 setTimeout(() => {
 
-    flash?.classList.add("active");
+    flash?.classList.add(
+        "active"
+    );
 
-    flip?.classList.add("shake");
+    flip?.classList.add(
+        "shake"
+    );
 
 }, 300);
 
+
+// =========================================================
+// Revelar carta normal
+// =========================================================
+
 setTimeout(() => {
 
-    flash?.classList.remove("active");
+    flash?.classList.remove(
+        "active"
+    );
 
-    flip?.classList.remove("shake");
+    flip?.classList.remove(
+        "shake"
+    );
 
-    flip?.classList.add("opened");
+    flip?.classList.add(
+        "opened"
+    );
+
 
     revealCardNews();
 
+
     const newsArea =
-        document.getElementById("newsArea");
+        document.getElementById(
+            "newsArea"
+        );
+
 
     if (newsArea) {
 
@@ -334,15 +377,18 @@ setTimeout(() => {
 
     }
 
+
     initializeCardEvents(
         [result.card],
         profile
     );
 
+
     const summonCard =
         flip?.querySelector(
             ".summon-card"
         );
+
 
     if (summonCard) {
 
@@ -353,27 +399,39 @@ setTimeout(() => {
                 const rect =
                     summonCard.getBoundingClientRect();
 
+
                 const x =
                     event.clientX -
                     rect.left;
+
 
                 const y =
                     event.clientY -
                     rect.top;
 
+
                 const rx =
-                    (y / rect.height - .5) *
-                    -18;
+                    (
+                        y /
+                        rect.height -
+                        .5
+                    ) * -18;
+
 
                 const ry =
-                    (x / rect.width - .5) *
-                    18;
+                    (
+                        x /
+                        rect.width -
+                        .5
+                    ) * 18;
+
 
                 summonCard.style.transform =
                     `rotateX(${rx}deg) rotateY(${ry}deg) scale(1.05)`;
 
             }
         );
+
 
         summonCard.addEventListener(
             "mouseleave",
@@ -387,12 +445,86 @@ setTimeout(() => {
 
     }
 
-    summonButton.disabled =
-        false;
 
-    summonButton.classList.remove(
-        "summoning"
-    );
+// =========================================================
+// Si NO hay recompensa de colección,
+// terminamos aquí.
+// =========================================================
+
+    if (!completionReward) {
+
+        summonButton.disabled =
+            false;
+
+        summonButton.classList.remove(
+            "summoning"
+        );
+
+        return;
+
+    }
+
+
+// =========================================================
+// Hay recompensa de colección
+// =========================================================
+
+// Esperamos un poco para que el usuario
+// vea primero la carta que completó la colección.
+
+    setTimeout(() => {
+
+        resultArea.innerHTML = `
+
+            <div class="completion-reward-reveal">
+
+                <div class="completion-reward-title">
+
+                    ✦ COLECCIÓN COMPLETADA ✦
+
+                </div>
+
+                <div class="completion-reward-subtitle">
+
+                    Has desbloqueado una carta especial
+
+                </div>
+
+                <div class="completion-reward-card">
+
+                    ${renderCard(
+                        completionReward,
+                        true
+                    )}
+
+                </div>
+
+            </div>
+
+        `;
+
+
+        initializeCardEvents(
+            [completionReward],
+            profile
+        );
+
+
+        // Actualizamos la interfaz para que
+        // la carta aparezca como conseguida.
+
+        drawCurrentView();
+
+
+        summonButton.disabled =
+            false;
+
+        summonButton.classList.remove(
+            "summoning"
+        );
+
+    }, 1800);
+
 
 }, 1200);
 

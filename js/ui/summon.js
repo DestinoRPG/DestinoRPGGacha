@@ -2,33 +2,41 @@ import { renderCard } from "./card.js";
 
 export function renderSummonResult(
     card,
-    completionReward = false
+    completionReward = null
 ) {
 
-return `
+    return `
 
-    <div class="summon-result">
+        <div class="summon-result">
 
-        <div class="summon-background"></div>
+            <div class="summon-background"></div>
 
-        <div class="summon-particles"></div>
+            <div class="summon-particles"></div>
 
-        <div
-            id="summonFlash"
-            class="summon-flash"
-        ></div>
+            <div
+                id="summonFlash"
+                class="summon-flash"
+            ></div>
 
-        ${
-            completionReward
-                ? `
-                    <div class="completion-reward-title">
-                        ✦ COLECCIÓN COMPLETADA ✦
-                    </div>
-                `
-                : ""
-        }
+            ${
+                completionReward
+                    ? `
+                        <div class="completion-reward-title">
 
-        <div class="summon-animation">
+                            ✦ COLECCIÓN COMPLETADA ✦
+
+                        </div>
+
+                        <div class="completion-reward-subtitle">
+
+                            ¡Has desbloqueado una carta especial!
+
+                        </div>
+                    `
+                    : ""
+            }
+
+            <div class="summon-animation">
 
                 <div
                     id="summonFlip"
@@ -65,8 +73,8 @@ return `
         </div>
 
     `;
-
 }
+
 
 export function renderSummonLoading() {
 
