@@ -470,6 +470,17 @@ setTimeout(() => {
 // Esperamos un poco para que el usuario
 // vea primero la carta que completó la colección.
 
+setTimeout(() => {
+
+    // Quitamos completamente la animación
+    // anterior de la carta obtenida.
+
+    resultArea.innerHTML = "";
+
+
+    // Pequeña pausa para separar visualmente
+    // las dos revelaciones.
+
     setTimeout(() => {
 
         resultArea.innerHTML = `
@@ -508,10 +519,14 @@ setTimeout(() => {
         );
 
 
-        // Actualizamos la interfaz para que
-        // la carta aparezca como conseguida.
+        // Actualizamos el resto de la interfaz
+        // sin borrar la pantalla de recompensa.
 
-        drawCurrentView();
+        setTimeout(() => {
+
+            drawCurrentView();
+
+        }, 100);
 
 
         summonButton.disabled =
@@ -521,7 +536,10 @@ setTimeout(() => {
             "summoning"
         );
 
-    }, 1800);
+    }, 250);
+
+
+}, 1800);
 
 
 }, 1200);
