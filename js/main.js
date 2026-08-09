@@ -443,100 +443,88 @@ setTimeout(() => {
 
     }
 
-
 // =========================================================
 // Si NO hay recompensa de colección,
 // terminamos aquí.
 // =========================================================
 
-    if (!completionReward) {
+if (!completionReward) {
 
-        summonButton.disabled =
-            false;
+    summonButton.disabled =
+        false;
 
-        summonButton.classList.remove(
-            "summoning"
-        );
+    summonButton.classList.remove(
+        "summoning"
+    );
 
-        return;
+    return;
 
-    }
+}
 
 
 // =========================================================
 // Hay recompensa de colección
 // =========================================================
 
-// Esperamos un poco para que el usuario
-// vea primero la carta que completó la colección.
+// Esperamos para que el usuario vea
+// primero la carta que acaba de conseguir.
 
 setTimeout(() => {
 
-    // Quitamos completamente la animación
-    // anterior de la carta obtenida.
+    // Quitamos la carta anterior.
 
     resultArea.innerHTML = "";
 
 
-    // Pequeña pausa para separar visualmente
-    // las dos revelaciones.
+    // Mostramos la recompensa especial.
 
-    setTimeout(() => {
+    resultArea.innerHTML = `
 
-        resultArea.innerHTML = `
+        <div class="completion-reward-reveal">
 
-            <div class="completion-reward-reveal">
+            <div class="completion-reward-title">
 
-                <div class="completion-reward-title">
-
-                    ✦ COLECCIÓN COMPLETADA ✦
-
-                </div>
-
-                <div class="completion-reward-subtitle">
-
-                    Has desbloqueado una carta especial
-
-                </div>
-
-                <div class="completion-reward-card">
-
-                    ${renderCard(
-                        completionReward,
-                        true
-                    )}
-
-                </div>
+                ✦ COLECCIÓN COMPLETADA ✦
 
             </div>
 
-        `;
+            <div class="completion-reward-subtitle">
+
+                Has desbloqueado una carta especial
+
+            </div>
+
+            <div class="completion-reward-card">
+
+                ${renderCard(
+                    completionReward,
+                    true
+                )}
+
+            </div>
+
+        </div>
+
+    `;
 
 
-        initializeCardEvents(
-            [completionReward],
-            profile
-        );
+    // Activamos los eventos de la carta especial.
+
+    initializeCardEvents(
+        [completionReward],
+        profile
+    );
 
 
-        // Actualizamos el resto de la interfaz
-        // sin borrar la pantalla de recompensa.
+    // Dejamos la recompensa visible.
+    // NO hacemos drawCurrentView() aquí.
 
-        setTimeout(() => {
+    summonButton.disabled =
+        false;
 
-            drawCurrentView();
-
-        }, 100);
-
-
-        summonButton.disabled =
-            false;
-
-        summonButton.classList.remove(
-            "summoning"
-        );
-
-    }, 250);
+    summonButton.classList.remove(
+        "summoning"
+    );
 
 
 }, 1800);
