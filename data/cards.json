@@ -910,6 +910,86 @@
     ],
         "enabled": true
     },
+                    {
+        "id": "basch",
+        "number": 5,
+        "title": "Bash GT",
+        "collection": "contributors",
+        "image": "images/cards/bash.webp",
+        "articles": [
+        {
+            "title": "Su primer artículo",
+            "url": "https://www.destinorpg.es/2015/07/experiencias-roleras-basch-gt-nos.html"
+        },
+        {
+            "title": "Su artículo con más visitas",
+            "url": "https://www.destinorpg.es/2016/07/mis-cinco-rpgs-favoritos-de-la-pasada.html"
+        },
+                {
+            "title": "Su último artículo (hasta la fecha)",
+            "url": "https://www.destinorpg.es/2021/05/vaj-pokemon-edicion-platino-capitulo-4.html"
+        }
+    ],
+        "enabled": true
+    },
+                        {
+        "id": "brint",
+        "number": 6,
+        "title": "BrintMea",
+        "collection": "contributors",
+        "image": "images/cards/brint.webp",
+        "articles": [
+        {
+            "title": "Su primer artículo",
+            "url": "https://www.destinorpg.es/2015/04/vaj-final-fantasy-tactics-advance.html"
+        }
+    ],
+        "enabled": true
+    },
+                            {
+        "id": "carcloud",
+        "number": 7,
+        "title": "CarcLoud",
+        "collection": "contributors",
+        "image": "images/cards/carcloud.webp",
+        "articles": [
+        {
+            "title": "Su primer artículo",
+            "url": "https://www.destinorpg.es/2019/09/los-soulslike-opinion-y-debate.html"
+        },
+        {
+            "title": "Su artículo con más visitas",
+            "url": "https://www.destinorpg.es/2020/05/analisis-final-fantasy-vii-remake.html"
+        },
+                {
+            "title": "Su último artículo (hasta la fecha)",
+            "url": "https://www.destinorpg.es/2025/06/analisis-lies-of-p-overture.html"
+        }
+    ],
+        "enabled": true
+    },
+                                {
+        "id": "cid",
+        "number": 8,
+        "title": "Cid",
+        "collection": "contributors",
+        "image": "images/cards/cid.webp",
+        "articles": [
+        {
+            "title": "Su primer artículo",
+            "url": "https://www.destinorpg.es/2015/03/experiencias-roleras-cid-nos-escribe.html"
+        },
+        {
+            "title": "Su artículo con más visitas",
+            "url": "https://www.destinorpg.es/2015/07/shin-megami-tensei-que-es-y-por-donde.html"
+        },
+                {
+            "title": "Su último artículo (hasta la fecha)",
+            "url": "https://www.destinorpg.es/2020/08/analisis-paper-mario-origami-king.html"
+        }
+    ],
+        "enabled": true
+    },
                 {
         "id": "14aniversario",
         "number": 2,
