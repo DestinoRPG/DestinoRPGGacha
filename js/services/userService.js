@@ -284,6 +284,29 @@ export async function addCardToUser(
 ) {
 
     // =========================
+    // Comprobar que la carta existe
+    // =========================
+    
+    const card =
+    await getCard(cardId);
+
+if (!card) {
+
+    return {
+
+        user,
+
+        card: null,
+
+        completionRewards: [],
+
+        reason: "CARD_NOT_FOUND"
+
+    };
+
+}
+
+    // =========================
     // Evitar duplicados
     // =========================
 
