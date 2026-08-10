@@ -106,7 +106,7 @@ export async function renderHome(profile) {
 
                 <section class="home-news">
 
-                    ${renderNews()}
+                    ${renderNews(profile)}
 
                 </section>
 
