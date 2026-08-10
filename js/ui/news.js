@@ -50,6 +50,170 @@ let currentNews = 0;
 
 
 /* =======================================================
+   RECOMPENSA DIARIA
+======================================================= */
+
+function renderDailyReward(profile) {
+
+    if (!profile) {
+
+        return "";
+
+    }
+
+
+    let available = true;
+
+    let remaining = 0;
+
+
+    if (profile.lastDailyReward) {
+
+        const lastReward =
+            profile.lastDailyReward.toDate
+                ? profile.lastDailyReward.toDate()
+                : new Date(
+                    profile.lastDailyReward
+                );
+
+
+        const nextReward =
+            lastReward.getTime()
+            + (24 * 60 * 60 * 1000);
+
+
+        remaining =
+            nextReward -
+            Date.now();
+
+
+        if (remaining > 0) {
+
+            available = false;
+
+        }
+
+    }
+
+
+    // =================================================
+    // RECOMPENSA DISPONIBLE
+    // =================================================
+
+    if (available) {
+
+        return `
+
+            <div class="daily-reward-news">
+
+                <div class="news-label">
+
+                    RECOMPENSA DIARIA
+
+                </div>
+
+
+                <h2>
+
+                    🎁 ¡Recompensa disponible!
+
+                </h2>
+
+
+                <p>
+
+                    Ya puedes reclamar tu ticket diario.
+
+                </p>
+
+
+                <button
+                    id="claimDailyRewardButton"
+                    class="daily-reward-button"
+                    type="button"
+                >
+
+                    RECLAMAR RECOMPENSA
+
+                </button>
+
+            </div>
+
+        `;
+
+    }
+
+
+    // =================================================
+    // RECOMPENSA NO DISPONIBLE
+    // =================================================
+
+    const totalSeconds =
+        Math.ceil(
+            remaining / 1000
+        );
+
+
+    const hours =
+        Math.floor(
+            totalSeconds / 3600
+        );
+
+
+    const minutes =
+        Math.floor(
+            (totalSeconds % 3600) / 60
+        );
+
+
+    const seconds =
+        totalSeconds % 60;
+
+
+    return `
+
+        <div class="daily-reward-news">
+
+            <div class="news-label">
+
+                RECOMPENSA DIARIA
+
+            </div>
+
+
+            <h2>
+
+                🎁 Próxima recompensa
+
+            </h2>
+
+
+            <p>
+
+                Podrás reclamarla de nuevo en:
+
+            </p>
+
+
+            <div
+                id="dailyRewardCountdown"
+                class="daily-reward-countdown"
+            >
+
+                ${String(hours).padStart(2, "0")}:
+                ${String(minutes).padStart(2, "0")}:
+                ${String(seconds).padStart(2, "0")}
+
+            </div>
+
+        </div>
+
+    `;
+
+}
+
+
+/* =======================================================
    RENDERIZAR NOTICIA ACTUAL
 ======================================================= */
 
@@ -58,10 +222,11 @@ export function renderNews(profile) {
     const news =
         newsItems[currentNews];
 
-        console.log(
+
+    console.log(
         "Daily reward:",
         profile?.lastDailyReward
-    );    
+    );
 
 
     return `
@@ -71,6 +236,7 @@ export function renderNews(profile) {
             class="news-panel"
             data-news-index="${currentNews}"
         >
+
 
             <button
                 class="news-arrow news-prev"
@@ -84,25 +250,34 @@ export function renderNews(profile) {
 
             <div class="news-content">
 
-                <div class="news-label">
 
-                    NOTICIAS
+                ${renderDailyReward(profile)}
+
+
+                <div class="news-standard-content">
+
+                    <div class="news-label">
+
+                        NOTICIAS
+
+                    </div>
+
+
+                    <h2>
+
+                        ${news.title}
+
+                    </h2>
+
+
+                    <p>
+
+                        ${news.text}
+
+                    </p>
 
                 </div>
 
-
-                <h2>
-
-                    ${news.title}
-
-                </h2>
-
-
-                <p>
-
-                    ${news.text}
-
-                </p>
 
             </div>
 
@@ -115,6 +290,7 @@ export function renderNews(profile) {
                 ›
 
             </button>
+
 
         </div>
 
@@ -213,21 +389,29 @@ export function getCurrentNews() {
    EVENTOS DE LAS FLECHAS
 ======================================================= */
 
-export function initializeNews() {
+export function initializeNews(profile) {
 
     const newsArea =
         document.getElementById("newsArea");
 
+
     if (!newsArea) {
+
         return;
+
     }
 
 
     const previous =
-        newsArea.querySelector(".news-prev");
+        newsArea.querySelector(
+            ".news-prev"
+        );
+
 
     const next =
-        newsArea.querySelector(".news-next");
+        newsArea.querySelector(
+            ".news-next"
+        );
 
 
     if (previous) {
@@ -236,7 +420,10 @@ export function initializeNews() {
 
             currentNews--;
 
-            if (currentNews < 0) {
+
+            if (
+                currentNews < 0
+            ) {
 
                 currentNews =
                     newsItems.length - 1;
@@ -244,7 +431,7 @@ export function initializeNews() {
             }
 
 
-            updateNews();
+            updateNews(profile);
 
         };
 
@@ -257,6 +444,7 @@ export function initializeNews() {
 
             currentNews++;
 
+
             if (
                 currentNews >=
                 newsItems.length
@@ -267,13 +455,128 @@ export function initializeNews() {
             }
 
 
-            updateNews();
+            updateNews(profile);
 
         };
 
     }
 
+
+    initializeDailyCountdown();
+
 }
+
+
+/* =======================================================
+   CONTADOR DE RECOMPENSA DIARIA
+======================================================= */
+
+function initializeDailyCountdown() {
+
+    const countdown =
+        document.getElementById(
+            "dailyRewardCountdown"
+        );
+
+
+    if (!countdown) {
+
+        return;
+
+    }
+
+
+    const interval =
+        setInterval(() => {
+
+            const current =
+                document.getElementById(
+                    "dailyRewardCountdown"
+                );
+
+
+            if (!current) {
+
+                clearInterval(interval);
+
+                return;
+
+            }
+
+
+            const parts =
+                current.textContent
+                    .trim()
+                    .split(":")
+                    .map(Number);
+
+
+            if (
+                parts.length !== 3
+            ) {
+
+                clearInterval(interval);
+
+                return;
+
+            }
+
+
+            let totalSeconds =
+                (parts[0] * 3600)
+                + (parts[1] * 60)
+                + parts[2];
+
+
+            totalSeconds--;
+
+
+            if (
+                totalSeconds <= 0
+            ) {
+
+                current.textContent =
+                    "00:00:00";
+
+                clearInterval(interval);
+
+                return;
+
+            }
+
+
+            const hours =
+                Math.floor(
+                    totalSeconds / 3600
+                );
+
+
+            const minutes =
+                Math.floor(
+                    (totalSeconds % 3600) / 60
+                );
+
+
+            const seconds =
+                totalSeconds % 60;
+
+
+            current.textContent =
+
+                String(hours)
+                    .padStart(2, "0")
+                + ":"
+                +
+                String(minutes)
+                    .padStart(2, "0")
+                + ":"
+                +
+                String(seconds)
+                    .padStart(2, "0");
+
+        }, 1000);
+
+    }
 
 
 /* =======================================================
@@ -283,16 +586,24 @@ export function initializeNews() {
 function updateNews() {
 
     const newsArea =
-        document.getElementById("newsArea");
+        document.getElementById(
+            "newsArea"
+        );
 
 
     if (!newsArea) {
+
         return;
+
     }
 
 
+    const profile =
+        window.currentProfile;
+
+
     const newNews =
-        renderNews();
+        renderNews(profile);
 
 
     newsArea.outerHTML =
