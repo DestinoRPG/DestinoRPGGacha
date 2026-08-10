@@ -557,68 +557,106 @@ setTimeout(() => {
 
 
 
-                /*
-                    RECOMPENSA DIARIA
-                */
+/*
+    RECOMPENSA DIARIA
+*/
 
-                const params =
-                    getUrlParams();
-                                    if (
-                    params.reward === "daily"
-                ) {
+const params =
+    getUrlParams();
 
+if (
+    params.reward === "daily"
+) {
 
-                    const result =
-                        await claimDailyReward(
-                            profile
-                        );
+    const result =
+        await claimDailyReward(
+            profile
+        );
 
+    const resultArea =
+        document.getElementById(
+            "resultArea"
+        );
 
-                    document
-                        .getElementById("resultArea")
-                        .innerHTML = result.success
+    if (result.success) {
 
-                            ? `
+        resultArea.innerHTML = `
 
-                                <h2>
+            <h2>
+                🎁 ¡Ticket diario conseguido!
+            </h2>
 
-                                    🎁 ¡Ticket diario conseguido!
+            <p>
+                Has recibido
+                <strong>1 ticket</strong>.
+            </p>
 
-                                </h2>
+        `;
 
-                                <p>
+    }
 
-                                    Has recibido
-                                    <strong>1 ticket</strong>.
+    else {
 
-                                </p>
+        const remaining =
+            Math.max(
+                0,
+                result.nextReward -
+                Date.now()
+            );
 
-                            `
+        const hours =
+            Math.floor(
+                remaining /
+                (1000 * 60 * 60)
+            );
 
-                            : `
+        const minutes =
+            Math.floor(
+                (
+                    remaining %
+                    (1000 * 60 * 60)
+                ) /
+                (1000 * 60)
+            );
 
-                                <h2>
+        const seconds =
+            Math.floor(
+                (
+                    remaining %
+                    (1000 * 60)
+                ) /
+                1000
+            );
 
-                                    📅 Ticket diario
+        resultArea.innerHTML = `
 
-                                </h2>
+            <h2>
+                📅 Ticket diario
+            </h2>
 
-                                <p>
+            <p>
+                Ya has reclamado tu
+                recompensa diaria.
+            </p>
 
-                                    Ya has reclamado
-                                    el ticket de hoy.
+            <p>
+                ⏳ Próxima recompensa en
+                <strong>
+                    ${hours}h
+                    ${minutes}m
+                    ${seconds}s
+                </strong>
+            </p>
 
-                                </p>
+        `;
 
-                            `;
+    }
 
+    await drawCurrentView();
 
-                    await drawCurrentView();
+    clearUrlParams();
 
-
-                    clearUrlParams();
-
-                }
+}
 
                                 else if (
                     params.reward ===

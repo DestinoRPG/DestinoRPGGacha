@@ -270,78 +270,92 @@ export async function claimCardReward(
  * RECOMPENSA DIARIA
  * =========================================================
  */
-export async function claimDailyReward(
-    user
-) {
+export async function claimDailyReward(user) {
 
-    const today =
-        getToday();
+    const now = Date.now();
 
+    const lastClaim =
+        user.lastDailyReward ?? null;
 
     // -----------------------------------------------------
-    // Ya reclamó la recompensa hoy
+    // Comprobar si todavía no han pasado 24 horas
     // -----------------------------------------------------
 
-    if (
-        (user.lastDailyReward ?? null)
-            === today
-    ) {
+    if (lastClaim) {
 
-        return {
+        const lastClaimTime =
+            typeof lastClaim === "number"
+                ? lastClaim
+                : new Date(lastClaim).getTime();
 
-            success: false,
+        const elapsed =
+            now - lastClaimTime;
 
-            reason:
-                "ALREADY_CLAIMED"
+        const cooldown =
+            24 * 60 * 60 * 1000;
 
-        };
+        if (elapsed < cooldown) {
+
+            return {
+
+                success: false,
+
+                reason:
+                    "ALREADY_CLAIMED",
+
+                nextReward:
+                    lastClaimTime + cooldown
+
+            };
+
+        }
 
     }
 
+    // -----------------------------------------------------
+    // Conceder ticket
+    // -----------------------------------------------------
 
     const tickets =
         (user.tickets ?? 0) + 1;
 
-
     const dailyRewardsClaimed =
         (user.dailyRewardsClaimed ?? 0) + 1;
 
-
     await updateUser(
-
         user.uid,
-
         {
 
             tickets,
 
             lastDailyReward:
-                today,
+                now,
 
             dailyRewardsClaimed
 
         }
-
     );
 
-
-    // Actualizar objeto local
+    // Actualizar usuario local
 
     user.tickets =
         tickets;
 
     user.lastDailyReward =
-        today;
+        now;
 
     user.dailyRewardsClaimed =
         dailyRewardsClaimed;
-
 
     return {
 
         success: true,
 
-        tickets: 1
+        tickets: 1,
+
+        nextReward:
+            now +
+            24 * 60 * 60 * 1000
 
     };
 
