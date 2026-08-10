@@ -121,8 +121,8 @@ export async function renderHome(profile) {
 }
 
 
-export function initializeHome() {
+export function initializeHome(profile) {
 
-    initializeNews();
+    initializeNews(profile);
 
 }

@@ -1,4 +1,13 @@
+import {
+    claimDailyReward
+} from "../services/rewardService.js";
+
+
 let newsItems = [
+
+    {
+    type: "daily"
+    },
 
     {
         type: "info",
@@ -50,62 +59,87 @@ let currentNews = 0;
 
 let currentProfile = null;
 
+let dailyCountdownInterval = null;
+
+
 /* =======================================================
    RECOMPENSA DIARIA
 ======================================================= */
 
-function renderDailyReward(profile) {
+function getLastDailyRewardTime(profile) {
 
-    if (!profile) {
+    if (
+        !profile ||
+        !profile.lastDailyReward
+    ) {
 
-        return "";
-
-    }
-
-
-    let available = true;
-
-    let remaining = 0;
-
-
-    if (profile.lastDailyReward) {
-
-        const lastReward =
-            profile.lastDailyReward.toDate
-                ? profile.lastDailyReward.toDate()
-                : new Date(
-                    profile.lastDailyReward
-                );
-
-
-        const nextReward =
-            lastReward.getTime()
-            + (24 * 60 * 60 * 1000);
-
-
-        remaining =
-            nextReward -
-            Date.now();
-
-
-        if (remaining > 0) {
-
-            available = false;
-
-        }
+        return null;
 
     }
 
 
-    // =================================================
-    // RECOMPENSA DISPONIBLE
-    // =================================================
+    const lastReward =
+        profile.lastDailyReward;
 
-    if (available) {
+
+    if (
+        typeof lastReward === "object" &&
+        typeof lastReward.toMillis === "function"
+    ) {
+
+        return lastReward.toMillis();
+
+    }
+
+
+    if (
+        typeof lastReward === "number"
+    ) {
+
+        return lastReward;
+
+    }
+
+
+    const parsed =
+        new Date(lastReward).getTime();
+
+
+    if (
+        Number.isNaN(parsed)
+    ) {
+
+        return null;
+
+    }
+
+
+    return parsed;
+
+}
+
+
+/* =======================================================
+   RENDER RECOMPENSA DIARIA
+======================================================= */
+
+function renderDailyNews(profile) {
+
+    const lastReward =
+        getLastDailyRewardTime(
+            profile
+        );
+
+
+    // Nunca ha reclamado la recompensa.
+
+    if (
+        lastReward === null
+    ) {
 
         return `
 
-            <div class="daily-reward-news">
+            <div class="news-content">
 
                 <div class="news-label">
 
@@ -145,35 +179,67 @@ function renderDailyReward(profile) {
     }
 
 
-    // =================================================
-    // RECOMPENSA NO DISPONIBLE
-    // =================================================
-
-    const totalSeconds =
-        Math.ceil(
-            remaining / 1000
-        );
+    const nextReward =
+        lastReward +
+        (24 * 60 * 60 * 1000);
 
 
-    const hours =
-        Math.floor(
-            totalSeconds / 3600
-        );
+    const remaining =
+        nextReward -
+        Date.now();
 
 
-    const minutes =
-        Math.floor(
-            (totalSeconds % 3600) / 60
-        );
+    // Ya está disponible.
+
+    if (
+        remaining <= 0
+    ) {
+
+        return `
+
+            <div class="news-content">
+
+                <div class="news-label">
+
+                    RECOMPENSA DIARIA
+
+                </div>
 
 
-    const seconds =
-        totalSeconds % 60;
+                <h2>
+
+                    🎁 ¡Recompensa disponible!
+
+                </h2>
+
+
+                <p>
+
+                    Ya puedes reclamar tu ticket diario.
+
+                </p>
+
+
+                <button
+                    id="claimDailyRewardButton"
+                    class="daily-reward-button"
+                    type="button"
+                >
+
+                    RECLAMAR RECOMPENSA
+
+                </button>
+
+            </div>
+
+        `;
+
+    }
 
 
     return `
 
-        <div class="daily-reward-news">
+        <div class="news-content">
 
             <div class="news-label">
 
@@ -201,15 +267,68 @@ function renderDailyReward(profile) {
                 class="daily-reward-countdown"
             >
 
-                ${String(hours).padStart(2, "0")}:
-                ${String(minutes).padStart(2, "0")}:
-                ${String(seconds).padStart(2, "0")}
+                ${formatRemainingTime(
+                    remaining
+                )}
 
             </div>
 
         </div>
 
     `;
+
+}
+
+
+/* =======================================================
+   FORMATEAR CONTADOR
+======================================================= */
+
+function formatRemainingTime(
+    milliseconds
+) {
+
+    const totalSeconds =
+        Math.max(
+            0,
+            Math.ceil(
+                milliseconds / 1000
+            )
+        );
+
+
+    const hours =
+        Math.floor(
+            totalSeconds / 3600
+        );
+
+
+    const minutes =
+        Math.floor(
+            (totalSeconds % 3600) / 60
+        );
+
+
+    const seconds =
+        totalSeconds % 60;
+
+
+    return (
+
+        String(hours)
+            .padStart(2, "0")
+
+        + ":"
+
+        + String(minutes)
+            .padStart(2, "0")
+
+        + ":"
+
+        + String(seconds)
+            .padStart(2, "0")
+
+    );
 
 }
 
@@ -222,17 +341,61 @@ export function renderNews(profile) {
 
     if (profile) {
 
-        currentProfile = profile;
+        currentProfile =
+            profile;
 
     }
+
 
     const news =
         newsItems[currentNews];
 
-    console.log(
-        "Daily reward:",
-        currentProfile?.lastDailyReward
-    );
+
+    // -----------------------------------------------
+    // La recompensa diaria es una noticia del carrusel
+    // -----------------------------------------------
+
+    if (
+        news.type === "daily"
+    ) {
+
+        return `
+
+            <div
+                id="newsArea"
+                class="news-panel"
+                data-news-index="${currentNews}"
+            >
+
+                <button
+                    class="news-arrow news-prev"
+                    aria-label="Noticia anterior"
+                >
+
+                    ‹
+
+                </button>
+
+
+                ${renderDailyNews(
+                    currentProfile
+                )}
+
+
+                <button
+                    class="news-arrow news-next"
+                    aria-label="Siguiente noticia"
+                >
+
+                    ›
+
+                </button>
+
+            </div>
+
+        `;
+
+    }
 
 
     return `
@@ -242,7 +405,6 @@ export function renderNews(profile) {
             class="news-panel"
             data-news-index="${currentNews}"
         >
-
 
             <button
                 class="news-arrow news-prev"
@@ -256,34 +418,25 @@ export function renderNews(profile) {
 
             <div class="news-content">
 
+                <div class="news-label">
 
-                ${renderDailyReward(profile)}
-
-
-                <div class="news-standard-content">
-
-                    <div class="news-label">
-
-                        NOTICIAS
-
-                    </div>
-
-
-                    <h2>
-
-                        ${news.title}
-
-                    </h2>
-
-
-                    <p>
-
-                        ${news.text}
-
-                    </p>
+                    NOTICIAS
 
                 </div>
 
+
+                <h2>
+
+                    ${news.title}
+
+                </h2>
+
+
+                <p>
+
+                    ${news.text}
+
+                </p>
 
             </div>
 
@@ -296,7 +449,6 @@ export function renderNews(profile) {
                 ›
 
             </button>
-
 
         </div>
 
@@ -392,19 +544,24 @@ export function getCurrentNews() {
 
 
 /* =======================================================
-   EVENTOS DE LAS FLECHAS
+   INICIALIZAR NOTICIAS
 ======================================================= */
 
 export function initializeNews(profile) {
 
     if (profile) {
 
-        currentProfile = profile;
+        currentProfile =
+            profile;
 
     }
 
+
     const newsArea =
-        document.getElementById("newsArea");
+        document.getElementById(
+            "newsArea"
+        );
+
 
     if (!newsArea) {
 
@@ -412,25 +569,38 @@ export function initializeNews(profile) {
 
     }
 
+
     const previous =
-        newsArea.querySelector(".news-prev");
+        newsArea.querySelector(
+            ".news-prev"
+        );
+
 
     const next =
-        newsArea.querySelector(".news-next");
+        newsArea.querySelector(
+            ".news-next"
+        );
 
 
     if (previous) {
 
         previous.onclick = () => {
 
+            stopDailyCountdown();
+
+
             currentNews--;
 
-            if (currentNews < 0) {
+
+            if (
+                currentNews < 0
+            ) {
 
                 currentNews =
                     newsItems.length - 1;
 
             }
+
 
             updateNews();
 
@@ -443,7 +613,11 @@ export function initializeNews(profile) {
 
         next.onclick = () => {
 
+            stopDailyCountdown();
+
+
             currentNews++;
+
 
             if (
                 currentNews >=
@@ -454,6 +628,7 @@ export function initializeNews(profile) {
 
             }
 
+
             updateNews();
 
         };
@@ -461,121 +636,232 @@ export function initializeNews(profile) {
     }
 
 
-    initializeDailyCountdown();
+    // Botón de recompensa diaria.
+
+    const claimButton =
+        newsArea.querySelector(
+            "#claimDailyRewardButton"
+        );
+
+
+    if (claimButton) {
+
+        claimButton.onclick =
+            () => {
+
+                handleDailyReward();
+
+            };
+
+    }
+
+
+    // Si estamos viendo la diaria,
+    // iniciar su contador.
+
+    if (
+        newsItems[currentNews]?.type
+        === "daily"
+    ) {
+
+        startDailyCountdown();
+
+    }
 
 }
 
 
 /* =======================================================
-   CONTADOR DE RECOMPENSA DIARIA
+   CONTADOR DE RECOMPENSA
 ======================================================= */
 
-function initializeDailyCountdown() {
+function startDailyCountdown() {
 
-    const countdown =
-        document.getElementById(
-            "dailyRewardCountdown"
+    stopDailyCountdown();
+
+
+    const updateCountdown =
+        () => {
+
+            const countdown =
+                document.getElementById(
+                    "dailyRewardCountdown"
+                );
+
+
+            if (!countdown) {
+
+                stopDailyCountdown();
+
+                return;
+
+            }
+
+
+            const lastReward =
+                getLastDailyRewardTime(
+                    currentProfile
+                );
+
+
+            if (
+                lastReward === null
+            ) {
+
+                stopDailyCountdown();
+
+                updateNews();
+
+                return;
+
+            }
+
+
+            const nextReward =
+                lastReward +
+                (24 * 60 * 60 * 1000);
+
+
+            const remaining =
+                nextReward -
+                Date.now();
+
+
+            if (
+                remaining <= 0
+            ) {
+
+                stopDailyCountdown();
+
+                updateNews();
+
+                return;
+
+            }
+
+
+            countdown.textContent =
+                formatRemainingTime(
+                    remaining
+                );
+
+        };
+
+
+    updateCountdown();
+
+
+    dailyCountdownInterval =
+        setInterval(
+            updateCountdown,
+            1000
         );
 
+}
 
-    if (!countdown) {
+
+/* =======================================================
+   DETENER CONTADOR
+======================================================= */
+
+function stopDailyCountdown() {
+
+    if (
+        dailyCountdownInterval
+    ) {
+
+        clearInterval(
+            dailyCountdownInterval
+        );
+
+        dailyCountdownInterval =
+            null;
+
+    }
+
+}
+
+
+/* =======================================================
+   RECLAMAR RECOMPENSA DIARIA
+======================================================= */
+
+async function handleDailyReward() {
+
+    if (
+        !currentProfile
+    ) {
 
         return;
 
     }
 
 
-    const interval =
-        setInterval(() => {
-
-            const current =
-                document.getElementById(
-                    "dailyRewardCountdown"
-                );
+    const button =
+        document.getElementById(
+            "claimDailyRewardButton"
+        );
 
 
-            if (!current) {
+    if (button) {
 
-                clearInterval(interval);
+        button.disabled = true;
 
-                return;
-
-            }
-
-
-            const parts =
-                current.textContent
-                    .trim()
-                    .split(":")
-                    .map(Number);
-
-
-            if (
-                parts.length !== 3
-            ) {
-
-                clearInterval(interval);
-
-                return;
-
-            }
-
-
-            let totalSeconds =
-                (parts[0] * 3600)
-                + (parts[1] * 60)
-                + parts[2];
-
-
-            totalSeconds--;
-
-
-            if (
-                totalSeconds <= 0
-            ) {
-
-                current.textContent =
-                    "00:00:00";
-
-                clearInterval(interval);
-
-                return;
-
-            }
-
-
-            const hours =
-                Math.floor(
-                    totalSeconds / 3600
-                );
-
-
-            const minutes =
-                Math.floor(
-                    (totalSeconds % 3600) / 60
-                );
-
-
-            const seconds =
-                totalSeconds % 60;
-
-
-            current.textContent =
-
-                String(hours)
-                    .padStart(2, "0")
-                + ":"
-                +
-                String(minutes)
-                    .padStart(2, "0")
-                + ":"
-                +
-                String(seconds)
-                    .padStart(2, "0");
-
-        }, 1000);
+        button.textContent =
+            "RECLAMANDO...";
 
     }
+
+
+    try {
+
+        const result =
+            await claimDailyReward(
+                currentProfile
+            );
+
+
+        if (
+            !result.success
+        ) {
+
+            console.warn(
+                "No se pudo reclamar la recompensa diaria:",
+                result.reason
+            );
+
+
+            updateNews();
+
+            return;
+
+        }
+
+
+        // El objeto user ya ha sido actualizado
+        // por claimDailyReward().
+
+        currentProfile =
+            currentProfile;
+
+
+        updateNews();
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "Error al reclamar recompensa diaria:",
+            error
+        );
+
+
+        updateNews();
+
+    }
+
+}
 
 
 /* =======================================================
@@ -585,7 +871,10 @@ function initializeDailyCountdown() {
 function updateNews() {
 
     const newsArea =
-        document.getElementById("newsArea");
+        document.getElementById(
+            "newsArea"
+        );
+
 
     if (!newsArea) {
 
@@ -595,13 +884,17 @@ function updateNews() {
 
 
     const newNews =
-        renderNews(currentProfile);
+        renderNews(
+            currentProfile
+        );
 
 
     newsArea.outerHTML =
         newNews;
 
 
-    initializeNews(currentProfile);
+    initializeNews(
+        currentProfile
+    );
 
 }
