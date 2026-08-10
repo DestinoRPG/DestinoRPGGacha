@@ -759,6 +759,220 @@
     ],
         "enabled": true
     },
+                                                {
+        "id": "papermario",
+        "number": 41,
+        "title": "Paper Mario",
+        "collection": "hall_of_fame",
+        "image": "images/cards/papermario.webp",
+        "series": "Paper Mario",
+        "developer": "Intelligent Systems/Nintendo",
+        "releaseYear": 2000,
+        "description": "",
+        "articles": [
+                {
+            "title": "Análisis",
+            "url": "https://www.destinorpg.es/2018/08/analisis-paper-mario.html"
+        }
+    ],
+        "enabled": true
+    },
+                                                {
+        "id": "p3",
+        "number": 42,
+        "title": "Shin Megami Tensei: Persona 3",
+        "collection": "hall_of_fame",
+        "image": "images/cards/p3.webp",
+        "series": "Persona",
+        "developer": "Atlus",
+        "releaseYear": 2006,
+        "description": "",
+        "articles": [
+                           {
+            "title": "Experiencias Roleras",
+            "url": "https://www.destinorpg.es/2015/07/experiencias-roleras-astara-nos-escribe.html"
+        }, 
+                {
+            "title": "El enfoque tan diferente",
+            "url": "https://www.destinorpg.es/2017/11/el-enfoque-tan-diferente-de-persona-3.html"
+        },
+                        {
+            "title": "La mujer que nunca existió",
+            "url": "https://www.destinorpg.es/2018/05/la-mujer-que-nunca-existio-avatares-en.html"
+        },
+                        {
+            "title": "La voluntad de vivir",
+            "url": "https://www.destinorpg.es/2022/08/persona-3-y-la-voluntad-de-vivir.html"
+        },
+                                {
+            "title": "Análisis de Persona 3 Reload",
+            "url": "https://www.destinorpg.es/2024/02/analisis-persona-3-reload.html"
+        }
+    ],
+        "enabled": true
+    },
+                                                {
+        "id": "p4",
+        "number": 43,
+        "title": "Shin Megami Tensei: Persona 4",
+        "collection": "hall_of_fame",
+        "image": "images/cards/p4.webp",
+        "series": "Persona",
+        "developer": "Atlus",
+        "releaseYear": 2008,
+        "description": "",
+        "articles": [
+                           {
+            "title": "Experiencias Roleras",
+            "url": "https://www.destinorpg.es/2014/03/experiencias-roleras-macrox-nos-escribe.html"
+        }, 
+                {
+            "title": "La entrevista de Atlus del 2008",
+            "url": "https://www.destinorpg.es/2015/11/la-entrevista-atlus-del-ano-2008.html"
+        },
+                                {
+            "title": "Candidata al Salón de la Fama",
+            "url": "https://www.destinorpg.es/2015/11/sdlf-candidato-shin-megami-tensei.html"
+        }
+    ],
+        "enabled": true
+    },
+                                                {
+        "id": "p5",
+        "number": 44,
+        "title": "Persona 5",
+        "collection": "hall_of_fame",
+        "image": "images/cards/p5.webp",
+        "series": "Persona",
+        "developer": "Atlus",
+        "releaseYear": 2016,
+        "description": "",
+        "articles": [
+                           {
+            "title": "¿Realidad o ficción?",
+            "url": "https://www.destinorpg.es/2013/06/shin-megami-tensei-persona-5-realidad-o.html"
+        }, 
+                {
+            "title": "Análisis del tráiler",
+            "url": "https://www.destinorpg.es/2015/02/teorias-curiosidades-e-informacion.html"
+        },
+                        {
+            "title": "¿Por qué tanto hype?",
+            "url": "https://www.destinorpg.es/2015/06/planet-hype-por-que-siento-hype-por.html"
+        },
+                        {
+            "title": "Charlas Destinadas",
+            "url": "http://www.destinorpg.es/2016/05/charlas-destinadas-persona-5.html"
+        },
+                                {
+            "title": "Impresiones iniciales",
+            "url": "https://www.destinorpg.es/2017/04/impresiones-iniciales-persona-5.html"
+        },
+                                {
+            "title": "Análisis",
+            "url": "https://www.destinorpg.es/2017/05/analisis-persona-5.html"
+        },
+                                        {
+            "title": "Entrevista a Katsura Hashino",
+            "url": "https://www.destinorpg.es/2017/04/entrevista-katsura-hashino-habla-sobre.html"
+        },
+                                                {
+            "title": "¿Merece la pena la versión Royal?",
+            "url": "https://www.destinorpg.es/2020/07/persona-5-royal-merece-la-pena.html"
+        }
+    ],
+        "enabled": true
+    },
+                                                    {
+        "id": "planescapetorment",
+        "number": 45,
+        "title": "Planescape Torment",
+        "collection": "hall_of_fame",
+        "image": "images/cards/planescapetorment.webp",
+        "series": "Planescape",
+        "developer": "Black Isle",
+        "releaseYear": 1999,
+        "description": "",
+        "enabled": true
+    },
+                                                    {
+        "id": "pkmra",
+        "number": 46,
+        "title": "Pokémon Edición Roja/Azul",
+        "collection": "hall_of_fame",
+        "image": "images/cards/pkmra.webp",
+        "series": "Pokémon",
+        "developer": "Game Freak/Nintendo",
+        "releaseYear": 1996,
+        "description": "",
+        "articles": [
+                {
+            "title": "Vamos a Jugar",
+            "url": "https://www.destinorpg.es/2014/02/vaj-pokemon-edicion-azul-gb-capitulo-1.html"
+        }
+    ],
+        "enabled": true
+    },
+                                                        {
+        "id": "pkmop",
+        "number": 47,
+        "title": "Pokémon Edición Oro/Plata",
+        "collection": "hall_of_fame",
+        "image": "images/cards/pkmop.webp",
+        "series": "Pokémon",
+        "developer": "Game Freak/Nintendo",
+        "releaseYear": 1999,
+        "description": "",
+        "articles": [
+                {
+            "title": "Vamos a Jugar",
+            "url": "https://www.destinorpg.es/2014/04/vaj-pokemon-heartgold-nds-desafio.html"
+        }
+    ],
+        "enabled": true
+    },
+                                                            {
+        "id": "pkmrz",
+        "number": 48,
+        "title": "Pokémon Edición Rubí/Zafiro",
+        "collection": "hall_of_fame",
+        "image": "images/cards/pkmrz.webp",
+        "series": "Pokémon",
+        "developer": "Game Freak/Nintendo",
+        "releaseYear": 2002,
+        "description": "",
+        "articles": [
+                {
+            "title": "Vamos a Jugar",
+            "url": "https://www.destinorpg.es/2016/07/vaj-pokemon-esmeralda-capitulo-1-adell.html"
+        }
+    ],
+        "enabled": true
+    },
+                                                                {
+        "id": "pkmbn",
+        "number": 49,
+        "title": "Pokémon Edición Blanca/Negra",
+        "collection": "hall_of_fame",
+        "image": "images/cards/pkmbn.webp",
+        "series": "Pokémon",
+        "developer": "Game Freak/Nintendo",
+        "releaseYear": 2011,
+        "description": "",
+        "enabled": true
+    },
+                                                                    {
+        "id": "pkmbn2",
+        "number": 50,
+        "title": "Pokémon Edición Blanca/Negra 2",
+        "collection": "hall_of_fame",
+        "image": "images/cards/pkmbn2.webp",
+        "series": "Pokémon",
+        "developer": "Game Freak/Nintendo",
+        "releaseYear": 2012,
+        "description": "",
+        "enabled": true
+    },
         {
         "id": "Adell",
         "number": 1,
@@ -986,6 +1200,74 @@
                 {
             "title": "Su último artículo (hasta la fecha)",
             "url": "https://www.destinorpg.es/2020/08/analisis-paper-mario-origami-king.html"
+        }
+    ],
+        "enabled": true
+    },
+                            {
+        "id": "dadios",
+        "number": 9,
+        "title": "Dadios",
+        "collection": "contributors",
+        "image": "images/cards/dadios.webp",
+        "articles": [
+        {
+            "title": "Su primer artículo",
+            "url": "hhttps://www.destinorpg.es/2017/04/analisis-mass-effect-andromeda.html"
+        }
+    ],
+        "enabled": true
+    },
+                                    {
+        "id": "darketzer",
+        "number": 10,
+        "title": "Darketzer",
+        "collection": "contributors",
+        "image": "images/cards/darketzer.webp",
+        "articles": [
+        {
+            "title": "Su primer artículo",
+            "url": "https://www.destinorpg.es/2018/10/analisis-castlevania-order-of-ecclesia.html"
+        },
+                {
+            "title": "Su último artículo (hasta la fecha)",
+            "url": "https://www.destinorpg.es/2018/12/analisis-xenoblade-chronicles-2-torna.html"
+        }
+    ],
+        "enabled": true
+    },
+                                    {
+        "id": "desaya",
+        "number": 11,
+        "title": "Desaya",
+        "collection": "contributors",
+        "image": "images/cards/desaya.webp",
+        "articles": [
+        {
+            "title": "Su primer artículo",
+            "url": "https://www.destinorpg.es/2015/04/ha-perdido-pokemon-toda-su-magia.html"
+        },
+        {
+            "title": "Su artículo con más visitas",
+            "url": "https://www.destinorpg.es/2016/04/analisis-pokemon-mundo-megamisterioso.html"
+        },
+                {
+            "title": "Su último artículo (hasta la fecha)",
+            "url": "https://www.destinorpg.es/2019/06/analisis-bloodstained-ritual-of-night.html"
+        }
+    ],
+        "enabled": true
+    },
+                                {
+        "id": "diamancero",
+        "number": 12,
+        "title": "Diamancero",
+        "collection": "contributors",
+        "image": "images/cards/diamancero.webp",
+        "articles": [
+        {
+            "title": "Su primer artículo",
+            "url": "https://www.destinorpg.es/2015/09/experiencias-roleras-diamancero-nos.html"
         }
     ],
         "enabled": true
