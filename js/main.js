@@ -43,9 +43,10 @@ import {
 } from "./ui/events.js";
 
 import {
+    renderNews,
+    initializeNews,
     addCardNews,
-    revealCardNews,
-    renderNews
+    revealCardNews
 } from "./ui/news.js";
 
 import { COLLECTIONS } from "./data/collections.js";
@@ -366,13 +367,14 @@ setTimeout(() => {
         );
 
 
-    if (newsArea) {
+if (newsArea) {
 
-        newsArea.outerHTML =
-            renderNews();
+    newsArea.outerHTML =
+        renderNews(profile);
 
-    }
+    initializeNews(profile);
 
+}
 
     initializeCardEvents(
         [result.card],
