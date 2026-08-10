@@ -52,7 +52,7 @@ import { COLLECTIONS } from "./data/collections.js";
 
 import {
     claimEventReward
-} from "./services/userService.js";
+} from "./services/rewardService.js";
 
 
 
