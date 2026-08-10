@@ -16,11 +16,15 @@ import { COLLECTIONS } from "../data/collections.js";
 
 export async function createOrLoadUser(firebaseUser) {
 
+    console.log("1️⃣ Antes de leer usuario");
+
     let user =
         await getDocument(
             "users",
             firebaseUser.uid
         );
+
+    console.log("2️⃣ Usuario leído:", user);
 
 
     if (!user) {
@@ -60,7 +64,7 @@ export async function createOrLoadUser(firebaseUser) {
     }
 
 else {
-
+console.log("3️⃣ Antes de actualizar lastLogin");
     await updateDocument(
         "users",
         firebaseUser.uid,
@@ -68,13 +72,14 @@ else {
             lastLogin: serverTimestamp()
         }
     );
-
+console.log("4️⃣ lastLogin actualizado");
+console.log("5️⃣ Antes de volver a leer usuario");
     user =
         await getDocument(
             "users",
             firebaseUser.uid
         );
-
+console.log("6️⃣ Usuario vuelto a leer:", user);
 
     user.claimedRewards ??= {};
     user.lastDailyReward ??= null;
