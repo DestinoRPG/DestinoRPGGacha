@@ -48,6 +48,7 @@ let newsItems = [
 
 let currentNews = 0;
 
+let currentProfile = null;
 
 /* =======================================================
    RECOMPENSA DIARIA
@@ -219,13 +220,18 @@ function renderDailyReward(profile) {
 
 export function renderNews(profile) {
 
+    if (profile) {
+
+        currentProfile = profile;
+
+    }
+
     const news =
         newsItems[currentNews];
 
-
     console.log(
         "Daily reward:",
-        profile?.lastDailyReward
+        currentProfile?.lastDailyReward
     );
 
 
@@ -391,9 +397,14 @@ export function getCurrentNews() {
 
 export function initializeNews(profile) {
 
+    if (profile) {
+
+        currentProfile = profile;
+
+    }
+
     const newsArea =
         document.getElementById("newsArea");
-
 
     if (!newsArea) {
 
@@ -401,17 +412,11 @@ export function initializeNews(profile) {
 
     }
 
-
     const previous =
-        newsArea.querySelector(
-            ".news-prev"
-        );
-
+        newsArea.querySelector(".news-prev");
 
     const next =
-        newsArea.querySelector(
-            ".news-next"
-        );
+        newsArea.querySelector(".news-next");
 
 
     if (previous) {
@@ -420,18 +425,14 @@ export function initializeNews(profile) {
 
             currentNews--;
 
-
-            if (
-                currentNews < 0
-            ) {
+            if (currentNews < 0) {
 
                 currentNews =
                     newsItems.length - 1;
 
             }
 
-
-            updateNews(profile);
+            updateNews();
 
         };
 
@@ -444,7 +445,6 @@ export function initializeNews(profile) {
 
             currentNews++;
 
-
             if (
                 currentNews >=
                 newsItems.length
@@ -454,8 +454,7 @@ export function initializeNews(profile) {
 
             }
 
-
-            updateNews(profile);
+            updateNews();
 
         };
 
@@ -586,10 +585,7 @@ function initializeDailyCountdown() {
 function updateNews() {
 
     const newsArea =
-        document.getElementById(
-            "newsArea"
-        );
-
+        document.getElementById("newsArea");
 
     if (!newsArea) {
 
@@ -598,18 +594,14 @@ function updateNews() {
     }
 
 
-    const profile =
-        window.currentProfile;
-
-
     const newNews =
-        renderNews(profile);
+        renderNews(currentProfile);
 
 
     newsArea.outerHTML =
         newNews;
 
 
-    initializeNews();
+    initializeNews(currentProfile);
 
 }

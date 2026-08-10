@@ -121,7 +121,7 @@ export async function renderHome(profile) {
 }
 
 
-export function initializeHome(profile) {
+export function initializeHome() {
 
     initializeNews();
 
