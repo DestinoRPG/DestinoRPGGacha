@@ -59,49 +59,42 @@ export async function createOrLoadUser(firebaseUser) {
 
     }
 
-    else {
+else {
 
-        await updateDocument(
+    await updateDocument(
+        "users",
+        firebaseUser.uid,
+        {
+            lastLogin: serverTimestamp()
+        }
+    );
+
+    user =
+        await getDocument(
             "users",
-            firebaseUser.uid,
-            {
-                lastLogin: serverTimestamp()
-            }
+            firebaseUser.uid
         );
 
 
-        user =
-            await getDocument(
-                "users",
-                firebaseUser.uid
-            );
+    user.claimedRewards ??= {};
+    user.lastDailyReward ??= null;
+    user.ownedCards ??= [];
+    user.tickets ??= 0;
+
+    user.totalSummons ??= 0;
+    user.cardsObtained ??= 0;
+    user.dailyRewardsClaimed ??= 0;
+    user.articleRewardsClaimed ??= 0;
+
+}
 
 
-        // Compatibilidad con usuarios creados
-        // antes de añadir estos campos.
-
-        user.claimedRewards ??= {};
-        user.lastDailyReward ??= null;
-        user.ownedCards ??= [];
-        user.tickets ??= 0;
-
-        user.totalSummons ??= 0;
-        user.cardsObtained ??= 0;
-        user.dailyRewardsClaimed ??= 0;
-        user.articleRewardsClaimed ??= 0;
-
-    }
+// await checkCollectionCompletionRewards(
+//     user
+// );
 
 
-    // Comprueba recompensas de colecciones
-    // incluso para cartas conseguidas anteriormente.
-
-    await checkCollectionCompletionRewards(
-        user
-    );
-
-
-    return user;
+return user;
 
 }
 
