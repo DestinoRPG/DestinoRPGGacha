@@ -51,7 +51,7 @@ import {
 import { COLLECTIONS } from "./data/collections.js";
 
 import {
-    claimAnniversaryReward
+    claimEventReward
 } from "./services/userService.js";
 
 
@@ -626,10 +626,11 @@ setTimeout(() => {
                 ) {
 
 
-                    const result =
-                        await claimAnniversaryReward(
-                            profile
-                        );
+const result =
+await claimEventReward(
+    profile,
+    "anniversary_14"
+);
 
 
                     if (

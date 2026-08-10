@@ -1273,6 +1273,20 @@
         "enabled": true
     },
                 {
+        "id": "gacha_launch",
+        "number": 1,
+        "title": "Pionero",
+        "collection": "eventos",
+        "image": "images/cards/gacha_launch.webp",
+        "articles": [
+        {
+            "title": "Celebración",
+            "url": ""
+        }
+    ],
+        "enabled": true
+    },    
+                {
         "id": "14aniversario",
         "number": 2,
         "title": "14 Aniversario",
@@ -1285,5 +1299,19 @@
         }
     ],
         "enabled": true
-    }
+    },
+                {
+        "id": "15aniversario",
+        "number": 3,
+        "title": "15 Aniversario",
+        "collection": "eventos",
+        "image": "images/cards/drpg15.webp",
+        "articles": [
+        {
+            "title": "Celebración",
+            "url": ""
+        }
+    ],
+        "enabled": true
+    }    
 ]

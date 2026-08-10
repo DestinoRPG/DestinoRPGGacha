@@ -21,10 +21,11 @@ export async function getBannerCards(eventId) {
         ? event.collections
         : [event.collection];
 
-    return cards.filter(card =>
-        collections.includes(card.collection) &&
-        !card.completionReward
-    );
+return cards.filter(card =>
+    collections.includes(card.collection) &&
+    !card.completionReward &&
+    card.collection !== "eventos"
+);
 }
 
 
