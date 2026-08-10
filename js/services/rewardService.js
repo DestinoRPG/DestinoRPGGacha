@@ -1,17 +1,9 @@
 import { updateUser } from "./userService.js";
 import { getCard } from "./cardService.js";
 
-/**
- * Devuelve la fecha actual en formato YYYY-MM-DD
- * usando la hora local del usuario.
- */
-function getToday() {
-
-    return new Date().toLocaleDateString(
-        "sv-SE"
-    );
-
-}
+import {
+    serverTimestamp
+} from "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
 
 
 /**
@@ -21,19 +13,11 @@ function getToday() {
  *
  * Cada evento puede tener una cantidad diferente de tickets.
  *
- * IMPORTANTE:
- * No usamos una función genérica como:
+ * Las recompensas están asociadas a un ID concreto.
  *
- *     giveTickets(user, amount)
- *
- * porque permitiría que cualquier parte del cliente
- * solicite directamente una cantidad arbitraria.
- *
- * Aquí las recompensas están asociadas a un ID concreto.
- *
- * Más adelante podemos mover esta configuración a Firestore
- * si queremos que los eventos sean completamente configurables.
+ * =========================================================
  */
+
 const EVENT_REWARDS = {
 
     anniversary_14: {
@@ -59,12 +43,15 @@ const EVENT_REWARDS = {
  * GASTAR TICKETS
  * =========================================================
  */
+
 export async function spendTickets(
     user,
     amount = 1
 ) {
 
-    if (user.tickets < amount) {
+    if (
+        (user.tickets ?? 0) < amount
+    ) {
 
         return false;
 
@@ -80,17 +67,11 @@ export async function spendTickets(
 
 
     await updateUser(
-
         user.uid,
-
         {
-
             tickets,
-
             totalSummons
-
         }
-
     );
 
 
@@ -112,9 +93,11 @@ export async function spendTickets(
  * =========================================================
  */
 
+
 /**
  * Comprueba si una recompensa ya fue reclamada.
  */
+
 export function hasClaimedReward(
     user,
     rewardId
@@ -130,6 +113,7 @@ export function hasClaimedReward(
 /**
  * Reclama la recompensa asociada a una carta.
  */
+
 export async function claimCardReward(
     user,
     cardId
@@ -162,9 +146,8 @@ export async function claimCardReward(
     // -----------------------------------------------------
 
     if (
-        !user.ownedCards.includes(
-            cardId
-        )
+        !(user.ownedCards ?? [])
+            .includes(cardId)
     ) {
 
         return {
@@ -224,9 +207,7 @@ export async function claimCardReward(
 
 
     await updateUser(
-
         user.uid,
-
         {
 
             tickets,
@@ -236,11 +217,12 @@ export async function claimCardReward(
             articleRewardsClaimed
 
         }
-
     );
 
 
-    // Actualizar objeto local
+    // -----------------------------------------------------
+    // Actualizar usuario local
+    // -----------------------------------------------------
 
     user.tickets =
         tickets;
@@ -272,29 +254,61 @@ export async function claimCardReward(
  */
 export async function claimDailyReward(user) {
 
-    const now = Date.now();
-
     const lastClaim =
         user.lastDailyReward ?? null;
 
-    // -----------------------------------------------------
-    // Comprobar si todavía no han pasado 24 horas
-    // -----------------------------------------------------
+    const cooldown =
+        24 * 60 * 60 * 1000;
+
+
+    // =====================================================
+    // Comprobar cooldown localmente
+    // =====================================================
 
     if (lastClaim) {
 
-        const lastClaimTime =
+        let lastClaimTime;
+
+
+        // Timestamp de Firestore ya convertido a objeto
+        if (
+            typeof lastClaim === "object" &&
+            typeof lastClaim.toMillis === "function"
+        ) {
+
+            lastClaimTime =
+                lastClaim.toMillis();
+
+        }
+
+        // Número
+        else if (
             typeof lastClaim === "number"
-                ? lastClaim
-                : new Date(lastClaim).getTime();
+        ) {
 
-        const elapsed =
-            now - lastClaimTime;
+            lastClaimTime =
+                lastClaim;
 
-        const cooldown =
-            24 * 60 * 60 * 1000;
+        }
 
-        if (elapsed < cooldown) {
+        // Fecha almacenada como string
+        else {
+
+            lastClaimTime =
+                new Date(lastClaim).getTime();
+
+        }
+
+
+        const now =
+            Date.now();
+
+        const nextReward =
+            lastClaimTime + cooldown;
+
+
+        // Todavía no han pasado 24 horas
+        if (now < nextReward) {
 
             return {
 
@@ -303,8 +317,7 @@ export async function claimDailyReward(user) {
                 reason:
                     "ALREADY_CLAIMED",
 
-                nextReward:
-                    lastClaimTime + cooldown
+                nextReward
 
             };
 
@@ -312,9 +325,10 @@ export async function claimDailyReward(user) {
 
     }
 
-    // -----------------------------------------------------
+
+    // =====================================================
     // Conceder ticket
-    // -----------------------------------------------------
+    // =====================================================
 
     const tickets =
         (user.tickets ?? 0) + 1;
@@ -322,30 +336,50 @@ export async function claimDailyReward(user) {
     const dailyRewardsClaimed =
         (user.dailyRewardsClaimed ?? 0) + 1;
 
+
+    // =====================================================
+    // Guardar
+    // =====================================================
+
     await updateUser(
+
         user.uid,
+
         {
 
             tickets,
 
             lastDailyReward:
-                now,
+                serverTimestamp(),
 
             dailyRewardsClaimed
 
         }
+
     );
 
+
+    // =====================================================
     // Actualizar usuario local
+    // =====================================================
 
     user.tickets =
         tickets;
 
-    user.lastDailyReward =
-        now;
-
     user.dailyRewardsClaimed =
         dailyRewardsClaimed;
+
+    user.lastDailyReward =
+    Date.now();    
+
+
+    // No ponemos serverTimestamp()
+    // en el objeto local porque es un sentinel,
+    // no la fecha real.
+
+    const nextReward =
+        Date.now() + cooldown;
+
 
     return {
 
@@ -353,9 +387,7 @@ export async function claimDailyReward(user) {
 
         tickets: 1,
 
-        nextReward:
-            now +
-            24 * 60 * 60 * 1000
+        nextReward
 
     };
 
@@ -366,16 +398,8 @@ export async function claimDailyReward(user) {
  * =========================================================
  * RECOMPENSAS DE EVENTOS
  * =========================================================
- *
- * Ejemplo:
- *
- *     claimEventReward(
- *         user,
- *         "anniversary_14"
- *     );
- *
- * El ID determina qué recompensa corresponde.
  */
+
 export async function claimEventReward(
     user,
     eventId
@@ -427,7 +451,7 @@ export async function claimEventReward(
 
 
     // -----------------------------------------------------
-    // Preparar recompensas
+    // Preparar recompensa
     // -----------------------------------------------------
 
     const claimedRewards = {
@@ -457,7 +481,7 @@ export async function claimEventReward(
 
 
     // -----------------------------------------------------
-    // Añadir carta del evento si existe
+    // Añadir carta del evento
     // -----------------------------------------------------
 
     if (reward.cardId) {
@@ -488,9 +512,7 @@ export async function claimEventReward(
     // -----------------------------------------------------
 
     await updateUser(
-
         user.uid,
-
         {
 
             tickets,
@@ -503,7 +525,6 @@ export async function claimEventReward(
             cardsObtained
 
         }
-
     );
 
 
@@ -514,14 +535,11 @@ export async function claimEventReward(
     user.tickets =
         tickets;
 
-
     user.claimedRewards =
         claimedRewards;
 
-
     user.ownedCards =
         [...updatedCards];
-
 
     user.cardsObtained =
         cardsObtained;
@@ -551,6 +569,7 @@ export async function claimEventReward(
  * COMPROBAR TICKETS
  * =========================================================
  */
+
 export function canSummon(
     user,
     cost = 1
