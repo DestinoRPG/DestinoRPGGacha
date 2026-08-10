@@ -53,15 +53,10 @@ let currentNews = 0;
    RENDERIZAR NOTICIA ACTUAL
 ======================================================= */
 
-export function renderNews(profile) {
+export function renderNews() {
 
     const news =
         newsItems[currentNews];
-
-        console.log(
-        "Daily reward:",
-        profile?.lastDailyReward
-    );    
 
 
     return `
