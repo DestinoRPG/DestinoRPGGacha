@@ -1210,7 +1210,7 @@ hr{
 
 
 /* =======================================================
-   BOTÓN DE INVOCACIÓN PREMIUM
+   BOTÓN DE INVOCACIÓN — PREMIUM RPG
 ======================================================= */
 
 .banner-button{
@@ -1218,55 +1218,48 @@ hr{
     position:relative;
 
     width:100%;
-    min-height:76px;
+    min-height:82px;
 
     display:flex;
-
     align-items:center;
     justify-content:center;
 
-    gap:18px;
+    gap:20px;
 
-    padding:12px 28px;
+    padding:12px 32px;
 
-    border:3px solid #9b741b;
+    border:0;
 
-    border-radius:18px;
+    border-radius:16px;
 
     background:
         linear-gradient(
             180deg,
-            #f8e7ad 0%,
-            #e5c776 42%,
-            #c79b3d 100%
+            #4a3920 0%,
+            #342715 45%,
+            #261d11 100%
         );
 
-    color:#3d2b0c;
+    color:#f5d98b;
 
     cursor:pointer;
 
     overflow:hidden;
 
     box-shadow:
-
-        0 4px 0 #80601a,
-
-        0 8px 18px
-        rgba(0,0,0,.20),
-
-        inset 0 1px 0
-        rgba(255,255,255,.9);
+        0 5px 0 #171108,
+        0 9px 20px rgba(0,0,0,.28);
 
     transition:
         transform .18s ease,
-        filter .18s ease,
-        box-shadow .18s ease;
+        box-shadow .18s ease,
+        filter .18s ease;
 
 }
 
 
 /* =======================================================
-   BORDE INTERIOR
+   MARCO DORADO EXTERIOR
 ======================================================= */
 
 .banner-button::before{
@@ -1275,13 +1268,16 @@ hr{
 
     position:absolute;
 
-    inset:4px;
+    inset:0;
 
     border:
-        1px solid
-        rgba(255,255,255,.5);
+        3px solid #c59a3d;
 
-    border-radius:13px;
+    border-radius:16px;
+
+    box-shadow:
+        inset 0 1px 0 #f9e8ad,
+        inset 0 -2px 0 #765417;
 
     pointer-events:none;
 
@@ -1289,7 +1285,7 @@ hr{
 
 
 /* =======================================================
-   BRILLO ANIMADO
+   MARCO INTERIOR
 ======================================================= */
 
 .banner-button::after{
@@ -1298,51 +1294,44 @@ hr{
 
     position:absolute;
 
-    top:-100%;
+    inset:7px;
 
-    left:-30%;
+    border:
+        1px solid
+        rgba(224,188,103,.65);
 
-    width:22%;
-
-    height:300%;
-
-    background:
-        rgba(255,255,255,.35);
-
-    transform:
-        rotate(25deg);
-
-    transition:
-        left .6s ease;
+    border-radius:11px;
 
     pointer-events:none;
 
 }
 
 
+/* =======================================================
+   ESQUINAS DECORATIVAS
+======================================================= */
+
+.banner-button{
+
+    --corner-size:12px;
+
+}
+
+
+/* =======================================================
+   HOVER
+======================================================= */
+
 .banner-button:hover{
 
     transform:
         translateY(-3px);
 
-    filter:brightness(1.06);
+    filter:brightness(1.12);
 
     box-shadow:
-
-        0 7px 0 #80601a,
-
-        0 12px 24px
-        rgba(0,0,0,.24),
-
-        inset 0 1px 0
-        rgba(255,255,255,.95);
-
-}
-
-
-.banner-button:hover::after{
-
-    left:130%;
+        0 7px 0 #171108,
+        0 13px 26px rgba(0,0,0,.32);
 
 }
 
@@ -1353,11 +1342,8 @@ hr{
         translateY(2px);
 
     box-shadow:
-
-        0 2px 0 #80601a,
-
-        0 5px 10px
-        rgba(0,0,0,.15);
+        0 2px 0 #171108,
+        0 5px 10px rgba(0,0,0,.2);
 
 }
 
@@ -1370,7 +1356,7 @@ hr{
 
     position:relative;
 
-    z-index:1;
+    z-index:2;
 
     display:flex;
 
@@ -1385,38 +1371,42 @@ hr{
 }
 
 
-/* Texto principal */
+/* =======================================================
+   INVOCAR
+======================================================= */
 
 .banner-button-main{
 
-    font-size:1.45rem;
+    font-size:1.55rem;
 
     font-weight:900;
 
-    letter-spacing:2px;
+    letter-spacing:3px;
 
-    color:#352607;
+    color:#f5d98b;
 
     text-shadow:
-        0 1px 0
-        rgba(255,255,255,.45);
+        0 2px 2px rgba(0,0,0,.7),
+        0 0 8px rgba(229,190,91,.15);
 
 }
 
 
-/* Coste */
+/* =======================================================
+   COSTE
+======================================================= */
 
 .banner-button-sub{
 
     margin-top:7px;
 
-    font-size:.72rem;
+    font-size:.68rem;
 
-    font-weight:900;
+    font-weight:800;
 
     letter-spacing:2px;
 
-    color:#654b18;
+    color:#c6a45c;
 
 }
 
@@ -1429,22 +1419,23 @@ hr{
 
     position:relative;
 
-    z-index:1;
+    z-index:2;
 
-    width:46px;
+    width:48px;
 
-    height:30px;
+    height:31px;
 
     flex-shrink:0;
 
     background:
         linear-gradient(
             180deg,
-            #fff1b7,
-            #d8af4f
+            #fff0b5,
+            #d3a944
         );
 
-    border:2px solid #8f6815;
+    border:
+        2px solid #9c731b;
 
     border-radius:5px;
 
@@ -1452,8 +1443,7 @@ hr{
         rotate(-8deg);
 
     box-shadow:
-        0 3px 4px
-        rgba(0,0,0,.25);
+        0 3px 5px rgba(0,0,0,.45);
 
 }
 
@@ -1470,14 +1460,13 @@ hr{
     top:50%;
 
     width:9px;
-
     height:9px;
 
     margin-top:-4.5px;
 
     border-radius:50%;
 
-    background:#d0a647;
+    background:#342715;
 
 }
 
@@ -1492,21 +1481,68 @@ hr{
 }
 
 
-/* Perforación */
+/* Línea perforada */
 
 .ticket-icon-hole{
 
     position:absolute;
 
     top:3px;
-
     bottom:3px;
 
     left:50%;
 
     border-left:
         2px dashed
-        rgba(116,81,12,.7);
+        #927020;
+
+}
+
+
+/* =======================================================
+   PEQUEÑOS ADORNOS DORADOS
+======================================================= */
+
+.banner-button-info::before{
+
+    content:"✦";
+
+    position:absolute;
+
+    left:-65px;
+
+    top:50%;
+
+    transform:
+        translateY(-50%);
+
+    color:#cda74e;
+
+    font-size:.9rem;
+
+    opacity:.8;
+
+}
+
+
+.banner-button-info::after{
+
+    content:"✦";
+
+    position:absolute;
+
+    right:-65px;
+
+    top:50%;
+
+    transform:
+        translateY(-50%);
+
+    color:#cda74e;
+
+    font-size:.9rem;
+
+    opacity:.8;
 
 }
 
@@ -1519,27 +1555,22 @@ hr{
 
     cursor:not-allowed;
 
-    opacity:.55;
+    opacity:.5;
 
     filter:
-        grayscale(.3)
-        brightness(.82);
+        grayscale(.35)
+        brightness(.7);
 
     transform:none;
-
-    box-shadow:
-
-        0 3px 0 #806126,
-
-        0 5px 10px
-        rgba(0,0,0,.12);
 
 }
 
 
-.banner-button:disabled::after{
+.banner-button:disabled:hover{
 
-    display:none;
+    filter:
+        grayscale(.35)
+        brightness(.7);
 
 }
 
