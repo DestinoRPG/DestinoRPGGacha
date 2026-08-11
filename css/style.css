@@ -1317,90 +1317,10 @@ hr{
 
 }
 
-/* =======================================================
-   ICONO DE TICKET
-======================================================= */
-
 .ticket-icon{
 
-    width:22px;
+    font-size:1.3rem;
 
-    height:22px;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    flex-shrink:0;
-
-}
-
-
-/* =======================================================
-   TICKET
-======================================================= */
-
-.ticket-symbol{
-
-    position:relative;
-
-    width:19px;
-
-    height:13px;
-
-    display:block;
-
-    border:1.5px solid #d9b85d;
-
-    border-radius:3px;
-
-    background:
-        linear-gradient(
-            180deg,
-            #f0d37b,
-            #b88920
-        );
-
-    box-shadow:
-        0 1px 3px
-        rgba(0,0,0,.25);
-}
-
-
-/* =======================================================
-   MUESCAS DEL TICKET
-======================================================= */
-
-.ticket-symbol-notch{
-
-    position:absolute;
-
-    left:50%;
-
-    width:5px;
-
-    height:5px;
-
-    background:#091727;
-
-    border-radius:50%;
-
-    transform:
-        translateX(-50%);
-}
-
-
-.ticket-symbol-notch.top{
-
-    top:-3px;
-}
-
-
-.ticket-symbol-notch.bottom{
-
-    bottom:-3px;
 }
 
 .ticket-value{
