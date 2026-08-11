@@ -1190,16 +1190,76 @@ hr{
 
 .profile-avatar{
 
+    position:relative;
+
     width:70px;
 
     height:70px;
 
     border-radius:50%;
 
-    border:3px solid white;
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    flex-shrink:0;
+
+}
+
+.profile-avatar img{
+
+    position:relative;
+
+    z-index:2;
+
+    width:62px;
+
+    height:62px;
+
+    object-fit:cover;
+
+    border-radius:50%;
+
+    border:2px solid #c9a64e;
 
     box-shadow:
-        0 6px 14px rgba(0,0,0,.18);
+        0 4px 10px
+        rgba(0,0,0,.18);
+
+}
+
+.profile-avatar::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    border:1px solid #c9a64e;
+
+    border-radius:50%;
+
+    box-shadow:
+        0 0 8px
+        rgba(201,166,78,.18);
+
+}
+
+.profile-avatar::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:4px;
+
+    border:1px solid
+        rgba(201,166,78,.45);
+
+    border-radius:50%;
 
 }
 
@@ -1229,6 +1289,10 @@ hr{
 
 }
 
+/* =======================================================
+   TICKETS
+======================================================= */
+
 .profile-tickets{
 
     display:flex;
@@ -1237,23 +1301,24 @@ hr{
 
     gap:10px;
 
-    padding:12px 16px;
+    padding:11px 16px;
 
-    border-radius:16px;
+    border:1px solid #c9a64e;
 
-    background:
-        linear-gradient(
-            180deg,
-            #ffe18a,
-            #ffc72d
-        );
+    border-radius:14px;
 
-    color:#5d4200;
+    background:#091727;
 
-    font-weight:700;
+    color:#f5e6b8;
+
+    font-weight:800;
 
     box-shadow:
-        0 6px 14px rgba(0,0,0,.14);
+        inset 0 0 0 1px
+        rgba(255,255,255,.06),
+
+        0 5px 12px
+        rgba(0,0,0,.16);
 
 }
 
