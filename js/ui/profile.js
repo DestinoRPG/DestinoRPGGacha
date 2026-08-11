@@ -88,7 +88,7 @@ export function renderProfile(
 
                     <span class="ticket-icon">
 
-                        🎫
+                        
 
                     </span>
 
