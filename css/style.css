@@ -389,6 +389,70 @@ hr{
 
 }
 
+/* =======================================================
+   MARCO INTERIOR
+======================================================= */
+
+.home-result::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:5px;
+
+    border:
+        1px solid
+        rgba(201,166,78,.45);
+
+    border-radius:16px;
+
+    pointer-events:none;
+
+    z-index:10;
+
+}
+
+
+/* =======================================================
+   ADORNO SUPERIOR
+======================================================= */
+
+.home-result::after{
+
+    content:"◆";
+
+    position:absolute;
+
+    top:-10px;
+
+    left:50%;
+
+    transform:
+        translateX(-50%);
+
+    width:30px;
+
+    height:18px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:var(--panel);
+
+    color:#c9a64e;
+
+    font-size:.65rem;
+
+    line-height:1;
+
+    z-index:11;
+
+}
+
 
 /* =======================================================
    NOTICIAS
