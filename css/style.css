@@ -1190,76 +1190,51 @@ hr{
 
 .profile-avatar{
 
-    position:relative;
-
     width:70px;
 
     height:70px;
 
-    border-radius:50%;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    flex-shrink:0;
-
-}
-
-.profile-avatar img{
-
-    position:relative;
-
-    z-index:2;
-
-    width:62px;
-
-    height:62px;
-
-    object-fit:cover;
+    box-sizing:border-box;
 
     border-radius:50%;
 
     border:2px solid #c9a64e;
 
-    box-shadow:
-        0 4px 10px
-        rgba(0,0,0,.18);
+    padding:3px;
 
-}
-
-.profile-avatar::before{
-
-    content:"";
-
-    position:absolute;
-
-    inset:0;
-
-    border:1px solid #c9a64e;
-
-    border-radius:50%;
+    background:
+        #091727;
 
     box-shadow:
-        0 0 8px
-        rgba(201,166,78,.18);
 
+        0 0 0 1px
+        rgba(201,166,78,.45),
+
+        0 4px 12px
+        rgba(0,0,0,.20);
+
+    object-fit:cover;
+
+    transition:
+        box-shadow var(--transition),
+        transform var(--transition);
 }
 
-.profile-avatar::after{
 
-    content:"";
+.profile-avatar:hover{
 
-    position:absolute;
+    transform:scale(1.03);
 
-    inset:4px;
+    box-shadow:
 
-    border:1px solid
-        rgba(201,166,78,.45);
+        0 0 0 1px
+        rgba(201,166,78,.7),
 
-    border-radius:50%;
+        0 0 12px
+        rgba(201,166,78,.20),
+
+        0 5px 14px
+        rgba(0,0,0,.22);
 
 }
 
