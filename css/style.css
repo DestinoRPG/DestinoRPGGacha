@@ -1217,33 +1217,31 @@ hr{
 
     position:relative;
 
-    min-width:235px;
-
-    min-height:70px;
+    width:100%;
+    min-height:76px;
 
     display:flex;
 
     align-items:center;
-
     justify-content:center;
 
-    gap:15px;
+    gap:18px;
 
-    padding:10px 25px;
+    padding:12px 28px;
 
-    border:3px solid #a77b18;
+    border:3px solid #9b741b;
 
     border-radius:18px;
 
     background:
         linear-gradient(
             180deg,
-            #f9e7ad 0%,
-            #e2c36f 45%,
-            #c19537 100%
+            #f8e7ad 0%,
+            #e5c776 42%,
+            #c79b3d 100%
         );
 
-    color:#fff;
+    color:#3d2b0c;
 
     cursor:pointer;
 
@@ -1253,11 +1251,11 @@ hr{
 
         0 4px 0 #80601a,
 
-        0 7px 15px
+        0 8px 18px
         rgba(0,0,0,.20),
 
         inset 0 1px 0
-        rgba(255,255,255,.8);
+        rgba(255,255,255,.9);
 
     transition:
         transform .18s ease,
@@ -1267,7 +1265,9 @@ hr{
 }
 
 
-/* Borde interior */
+/* =======================================================
+   BORDE INTERIOR
+======================================================= */
 
 .banner-button::before{
 
@@ -1279,7 +1279,7 @@ hr{
 
     border:
         1px solid
-        rgba(255,255,255,.45);
+        rgba(255,255,255,.5);
 
     border-radius:13px;
 
@@ -1288,7 +1288,9 @@ hr{
 }
 
 
-/* Brillo */
+/* =======================================================
+   BRILLO ANIMADO
+======================================================= */
 
 .banner-button::after{
 
@@ -1300,12 +1302,12 @@ hr{
 
     left:-30%;
 
-    width:25%;
+    width:22%;
 
     height:300%;
 
     background:
-        rgba(255,255,255,.3);
+        rgba(255,255,255,.35);
 
     transform:
         rotate(25deg);
@@ -1323,17 +1325,17 @@ hr{
     transform:
         translateY(-3px);
 
-    filter:brightness(1.08);
+    filter:brightness(1.06);
 
     box-shadow:
 
         0 7px 0 #80601a,
 
-        0 12px 22px
-        rgba(0,0,0,.25),
+        0 12px 24px
+        rgba(0,0,0,.24),
 
         inset 0 1px 0
-        rgba(255,255,255,.9);
+        rgba(255,255,255,.95);
 
 }
 
@@ -1374,7 +1376,7 @@ hr{
 
     flex-direction:column;
 
-    align-items:flex-start;
+    align-items:center;
 
     justify-content:center;
 
@@ -1383,42 +1385,44 @@ hr{
 }
 
 
+/* Texto principal */
+
 .banner-button-main{
 
-    font-size:1.35rem;
+    font-size:1.45rem;
 
     font-weight:900;
 
     letter-spacing:2px;
 
+    color:#352607;
+
     text-shadow:
-        0 2px 2px
-        rgba(94,64,10,.35);
+        0 1px 0
+        rgba(255,255,255,.45);
 
 }
 
 
+/* Coste */
+
 .banner-button-sub{
 
-    margin-top:6px;
+    margin-top:7px;
 
-    font-size:.68rem;
+    font-size:.72rem;
 
-    font-weight:800;
+    font-weight:900;
 
     letter-spacing:2px;
 
-    opacity:.9;
-
-    text-shadow:
-        0 1px 1px
-        rgba(94,64,10,.25);
+    color:#654b18;
 
 }
 
 
 /* =======================================================
-   ICONO
+   TICKET
 ======================================================= */
 
 .ticket-icon{
@@ -1427,20 +1431,20 @@ hr{
 
     z-index:1;
 
-    width:42px;
+    width:46px;
 
-    height:28px;
+    height:30px;
 
     flex-shrink:0;
 
     background:
         linear-gradient(
             180deg,
-            #fff2bd,
-            #d6ad4d
+            #fff1b7,
+            #d8af4f
         );
 
-    border:2px solid #9b741b;
+    border:2px solid #8f6815;
 
     border-radius:5px;
 
@@ -1473,22 +1477,18 @@ hr{
 
     border-radius:50%;
 
-    background:#d3aa4b;
+    background:#d0a647;
 
 }
 
 
 .ticket-icon::before{
-
     left:-7px;
-
 }
 
 
 .ticket-icon::after{
-
     right:-7px;
-
 }
 
 
@@ -1506,7 +1506,7 @@ hr{
 
     border-left:
         2px dashed
-        rgba(139,100,21,.7);
+        rgba(116,81,12,.7);
 
 }
 
@@ -1523,7 +1523,7 @@ hr{
 
     filter:
         grayscale(.3)
-        brightness(.8);
+        brightness(.82);
 
     transform:none;
 
