@@ -1210,16 +1210,16 @@ hr{
 
 
 /* =======================================================
-   BOTÓN DE INVOCACIÓN
+   BOTÓN DE INVOCACIÓN PREMIUM
 ======================================================= */
 
 .banner-button{
 
     position:relative;
 
-    min-width:220px;
+    min-width:235px;
 
-    min-height:62px;
+    min-height:70px;
 
     display:flex;
 
@@ -1227,46 +1227,47 @@ hr{
 
     justify-content:center;
 
-    gap:10px;
+    gap:15px;
 
-    padding:12px 22px;
+    padding:10px 25px;
 
-    border:2px solid #9b741b;
+    border:3px solid #a77b18;
 
-    border-radius:14px;
+    border-radius:18px;
 
     background:
         linear-gradient(
             180deg,
-            #f7e2a4 0%,
-            #d9b45c 48%,
-            #b98a2d 100%
+            #f9e7ad 0%,
+            #e2c36f 45%,
+            #c19537 100%
         );
 
     color:#fff;
-
-    font-family:inherit;
-
-    font-weight:800;
 
     cursor:pointer;
 
     overflow:hidden;
 
     box-shadow:
-        0 5px 0 #8a651b,
-        0 8px 18px
-        rgba(0,0,0,.18);
+
+        0 4px 0 #80601a,
+
+        0 7px 15px
+        rgba(0,0,0,.20),
+
+        inset 0 1px 0
+        rgba(255,255,255,.8);
 
     transition:
-        transform var(--transition),
-        box-shadow var(--transition),
-        filter var(--transition);
+        transform .18s ease,
+        filter .18s ease,
+        box-shadow .18s ease;
 
 }
 
 
-/* Brillo superior */
+/* Borde interior */
 
 .banner-button::before{
 
@@ -1274,23 +1275,20 @@ hr{
 
     position:absolute;
 
-    top:0;
+    inset:4px;
 
-    left:8%;
+    border:
+        1px solid
+        rgba(255,255,255,.45);
 
-    width:84%;
+    border-radius:13px;
 
-    height:2px;
-
-    background:
-        rgba(255,255,255,.75);
-
-    border-radius:50%;
+    pointer-events:none;
 
 }
 
 
-/* Reflejo animado */
+/* Brillo */
 
 .banner-button::after{
 
@@ -1298,23 +1296,24 @@ hr{
 
     position:absolute;
 
-    top:-80%;
+    top:-100%;
 
-    left:-35%;
+    left:-30%;
 
-    width:35%;
+    width:25%;
 
-    height:260%;
+    height:300%;
 
     background:
-        rgba(255,255,255,.22);
+        rgba(255,255,255,.3);
 
     transform:
-        rotate(25deg)
-        translateX(-180%);
+        rotate(25deg);
 
     transition:
-        transform .55s ease;
+        left .6s ease;
+
+    pointer-events:none;
 
 }
 
@@ -1324,21 +1323,24 @@ hr{
     transform:
         translateY(-3px);
 
-    filter:brightness(1.06);
+    filter:brightness(1.08);
 
     box-shadow:
-        0 7px 0 #8a651b,
+
+        0 7px 0 #80601a,
+
         0 12px 22px
-        rgba(0,0,0,.22);
+        rgba(0,0,0,.25),
+
+        inset 0 1px 0
+        rgba(255,255,255,.9);
 
 }
 
 
 .banner-button:hover::after{
 
-    transform:
-        rotate(25deg)
-        translateX(500%);
+    left:130%;
 
 }
 
@@ -1349,7 +1351,9 @@ hr{
         translateY(2px);
 
     box-shadow:
-        0 3px 0 #8a651b,
+
+        0 2px 0 #80601a,
+
         0 5px 10px
         rgba(0,0,0,.15);
 
@@ -1357,30 +1361,279 @@ hr{
 
 
 /* =======================================================
-   TICKET
+   TEXTO
 ======================================================= */
 
-.banner-button-ticket{
+.banner-button-info{
 
     position:relative;
 
-    width:30px;
-
-    height:30px;
+    z-index:1;
 
     display:flex;
 
-    align-items:center;
+    flex-direction:column;
+
+    align-items:flex-start;
 
     justify-content:center;
 
-    font-size:1.45rem;
+    line-height:1;
+
+}
+
+
+.banner-button-main{
+
+    font-size:1.35rem;
+
+    font-weight:900;
+
+    letter-spacing:2px;
+
+    text-shadow:
+        0 2px 2px
+        rgba(94,64,10,.35);
+
+}
+
+
+.banner-button-sub{
+
+    margin-top:6px;
+
+    font-size:.68rem;
+
+    font-weight:800;
+
+    letter-spacing:2px;
+
+    opacity:.9;
+
+    text-shadow:
+        0 1px 1px
+        rgba(94,64,10,.25);
+
+}
+
+
+/* =======================================================
+   ICONO
+======================================================= */
+
+.ticket-icon{
+
+    position:relative;
+
+    z-index:1;
+
+    width:42px;
+
+    height:28px;
+
+    flex-shrink:0;
+
+    background:
+        linear-gradient(
+            180deg,
+            #fff2bd,
+            #d6ad4d
+        );
+
+    border:2px solid #9b741b;
+
+    border-radius:5px;
+
+    transform:
+        rotate(-8deg);
+
+    box-shadow:
+        0 3px 4px
+        rgba(0,0,0,.25);
+
+}
+
+
+/* Muescas */
+
+.ticket-icon::before,
+.ticket-icon::after{
+
+    content:"";
+
+    position:absolute;
+
+    top:50%;
+
+    width:9px;
+
+    height:9px;
+
+    margin-top:-4.5px;
+
+    border-radius:50%;
+
+    background:#d3aa4b;
+
+}
+
+
+.ticket-icon::before{
+
+    left:-7px;
+
+}
+
+
+.ticket-icon::after{
+
+    right:-7px;
+
+}
+
+
+/* Perforación */
+
+.ticket-icon-hole{
+
+    position:absolute;
+
+    top:3px;
+
+    bottom:3px;
+
+    left:50%;
+
+    border-left:
+        2px dashed
+        rgba(139,100,21,.7);
+
+}
+
+
+/* =======================================================
+   DESACTIVADO
+======================================================= */
+
+.banner-button:disabled{
+
+    cursor:not-allowed;
+
+    opacity:.55;
 
     filter:
-        drop-shadow(
-            0 2px 1px
-            rgba(0,0,0,.25)
+        grayscale(.3)
+        brightness(.8);
+
+    transform:none;
+
+    box-shadow:
+
+        0 3px 0 #806126,
+
+        0 5px 10px
+        rgba(0,0,0,.12);
+
+}
+
+
+.banner-button:disabled::after{
+
+    display:none;
+
+}
+
+
+/* =======================================================
+   ICONO DE TICKET
+======================================================= */
+
+.ticket-icon{
+
+    position:relative;
+
+    width:38px;
+
+    height:25px;
+
+    flex-shrink:0;
+
+    display:block;
+
+    background:
+        linear-gradient(
+            180deg,
+            #fff1bc,
+            #d6ad4d
         );
+
+    border:2px solid #9b741b;
+
+    border-radius:5px;
+
+    transform:
+        rotate(-8deg);
+
+    box-shadow:
+        0 2px 3px
+        rgba(0,0,0,.22);
+
+}
+
+
+/* Muescas laterales */
+
+.ticket-icon::before,
+.ticket-icon::after{
+
+    content:"";
+
+    position:absolute;
+
+    top:50%;
+
+    width:8px;
+
+    height:8px;
+
+    margin-top:-4px;
+
+    border-radius:50%;
+
+    background:#c49a3c;
+
+}
+
+
+.ticket-icon::before{
+
+    left:-6px;
+
+}
+
+
+.ticket-icon::after{
+
+    right:-6px;
+
+}
+
+
+/* Línea perforada */
+
+.ticket-icon-hole{
+
+    position:absolute;
+
+    top:3px;
+
+    bottom:3px;
+
+    left:50%;
+
+    border-left:
+        2px dashed
+        rgba(139,100,21,.65);
 
 }
 
