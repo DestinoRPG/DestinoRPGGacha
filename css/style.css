@@ -2511,7 +2511,7 @@ hr{
 
     background:var(--panel);
 
-    border:2px solid var(--border);
+    border:2px solid #c9a64e;
 
     border-radius:24px;
 
