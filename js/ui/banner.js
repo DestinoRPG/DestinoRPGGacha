@@ -19,15 +19,25 @@ export function renderBanner(user) {
             <div class="banner-info">
 
 
-                <button
-                    id="summonButton"
-                    class="banner-button"
-                    ${!canSummon(user) ? "disabled" : ""}
-                >
+<button
+    id="summonButton"
+    class="banner-button"
+    ${!canSummon(user) ? "disabled" : ""}
+>
 
-                    🎟️ Invocar · 1 ticket
+    <span class="banner-button-ticket">
+        🎟
+    </span>
 
-                </button>
+    <span class="banner-button-text">
+        INVOCAR
+    </span>
+
+    <span class="banner-button-cost">
+        1 TICKET
+    </span>
+
+</button>
 
             </div>
 

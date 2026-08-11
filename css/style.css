@@ -565,6 +565,175 @@ hr{
 
 }
 
+/* =======================================================
+   RECOMPENSA DIARIA
+======================================================= */
+
+.daily-reward{
+
+    width:100%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:22px;
+
+    padding:10px 20px;
+
+    box-sizing:border-box;
+
+}
+
+
+.daily-reward-icon{
+
+    flex-shrink:0;
+
+    width:64px;
+
+    height:64px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:16px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #f5dfaa,
+            #c49a3c
+        );
+
+    border:2px solid #a67f18;
+
+    box-shadow:
+        0 5px 12px
+        rgba(0,0,0,.15);
+
+    font-size:2rem;
+}
+
+
+.daily-reward-info{
+
+    min-width:0;
+
+    text-align:left;
+
+}
+
+
+.daily-reward-label{
+
+    margin-bottom:5px;
+
+    font-size:.72rem;
+
+    font-weight:800;
+
+    letter-spacing:2px;
+
+    color:#8b6415;
+}
+
+
+.daily-reward-info h2{
+
+    margin:0 0 5px;
+
+    font-size:1.25rem;
+
+    color:var(--text);
+}
+
+
+.daily-reward-info p{
+
+    margin:0;
+
+    color:#51483b;
+
+    line-height:1.4;
+
+}
+
+
+.daily-reward-timer{
+
+    margin-top:8px;
+
+    font-size:1.35rem;
+
+    font-weight:800;
+
+    letter-spacing:2px;
+
+    color:#8b6415;
+
+    font-variant-numeric:tabular-nums;
+}
+
+.daily-reward-button{
+
+    flex-shrink:0;
+
+    padding:12px 20px;
+
+    border:2px solid #a67f18;
+
+    border-radius:12px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #f4d98e,
+            #c49a3c
+        );
+
+    color:#fff;
+
+    font-weight:800;
+
+    letter-spacing:1px;
+
+    cursor:pointer;
+
+    box-shadow:
+        0 5px 12px
+        rgba(0,0,0,.15);
+
+    transition:
+        transform var(--transition),
+        box-shadow var(--transition),
+        filter var(--transition);
+}
+
+
+.daily-reward-button:hover{
+
+    transform:translateY(-2px);
+
+    filter:brightness(1.08);
+
+    box-shadow:
+        0 8px 18px
+        rgba(0,0,0,.20);
+}
+
+
+.daily-reward-button:active{
+
+    transform:scale(.96);
+}
+
+
 
 /* =======================================================
    LOGIN
@@ -1046,72 +1215,243 @@ hr{
 
 .banner-button{
 
+    position:relative;
+
+    min-width:220px;
+
+    min-height:62px;
+
     display:flex;
 
     align-items:center;
 
     justify-content:center;
 
-    width:100%;
+    gap:10px;
 
-    padding:11px 20px;
+    padding:12px 22px;
 
-    border:2px solid var(--gold);
+    border:2px solid #9b741b;
 
-    border-radius:16px;
+    border-radius:14px;
 
     background:
         linear-gradient(
             180deg,
-            #d8b24a,
-            #a67f18
+            #f7e2a4 0%,
+            #d9b45c 48%,
+            #b98a2d 100%
         );
 
-    color:white;
+    color:#fff;
 
-    font-size:1rem;
+    font-family:inherit;
 
     font-weight:800;
 
     cursor:pointer;
 
+    overflow:hidden;
+
     box-shadow:
-        0 8px 18px rgba(0,0,0,.18);
+        0 5px 0 #8a651b,
+        0 8px 18px
+        rgba(0,0,0,.18);
 
     transition:
-        transform .25s,
-        box-shadow .25s,
-        opacity .25s;
+        transform var(--transition),
+        box-shadow var(--transition),
+        filter var(--transition);
 
 }
 
 
-.banner-button:hover:not(:disabled){
+/* Brillo superior */
 
-    transform:translateY(-3px);
+.banner-button::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:8%;
+
+    width:84%;
+
+    height:2px;
+
+    background:
+        rgba(255,255,255,.75);
+
+    border-radius:50%;
+
+}
+
+
+/* Reflejo animado */
+
+.banner-button::after{
+
+    content:"";
+
+    position:absolute;
+
+    top:-80%;
+
+    left:-35%;
+
+    width:35%;
+
+    height:260%;
+
+    background:
+        rgba(255,255,255,.22);
+
+    transform:
+        rotate(25deg)
+        translateX(-180%);
+
+    transition:
+        transform .55s ease;
+
+}
+
+
+.banner-button:hover{
+
+    transform:
+        translateY(-3px);
+
+    filter:brightness(1.06);
 
     box-shadow:
-        0 12px 24px rgba(0,0,0,.24);
+        0 7px 0 #8a651b,
+        0 12px 22px
+        rgba(0,0,0,.22);
 
 }
 
 
-.banner-button:active:not(:disabled){
+.banner-button:hover::after{
 
-    transform:translateY(0);
+    transform:
+        rotate(25deg)
+        translateX(500%);
 
 }
 
+
+.banner-button:active{
+
+    transform:
+        translateY(2px);
+
+    box-shadow:
+        0 3px 0 #8a651b,
+        0 5px 10px
+        rgba(0,0,0,.15);
+
+}
+
+
+/* =======================================================
+   TICKET
+======================================================= */
+
+.banner-button-ticket{
+
+    position:relative;
+
+    width:30px;
+
+    height:30px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:1.45rem;
+
+    filter:
+        drop-shadow(
+            0 2px 1px
+            rgba(0,0,0,.25)
+        );
+
+}
+
+
+/* =======================================================
+   TEXTO PRINCIPAL
+======================================================= */
+
+.banner-button-text{
+
+    font-size:1rem;
+
+    letter-spacing:1.5px;
+
+    text-shadow:
+        0 1px 2px
+        rgba(0,0,0,.3);
+
+}
+
+
+/* =======================================================
+   COSTE
+======================================================= */
+
+.banner-button-cost{
+
+    padding-left:10px;
+
+    border-left:
+        1px solid
+        rgba(255,255,255,.45);
+
+    font-size:.68rem;
+
+    letter-spacing:1px;
+
+    opacity:.9;
+
+    white-space:nowrap;
+
+}
+
+
+/* =======================================================
+   DESACTIVADO
+======================================================= */
 
 .banner-button:disabled{
 
-    opacity:.45;
-
     cursor:not-allowed;
+
+    filter:
+        grayscale(.25)
+        brightness(.82);
+
+    opacity:.65;
 
     transform:none;
 
-    box-shadow:none;
+    box-shadow:
+        0 4px 0 #806126,
+        0 6px 12px
+        rgba(0,0,0,.12);
+
+}
+
+
+.banner-button:disabled::after{
+
+    display:none;
 
 }
 
