@@ -565,6 +565,10 @@ hr{
 }
 
 
+/* =======================================================
+   NOTICIAS
+======================================================= */
+
 .news-panel{
 
     width:100%;
@@ -601,43 +605,86 @@ hr{
 }
 
 
+/* =======================================================
+   ETIQUETA
+======================================================= */
+
 .news-label{
 
-    margin-bottom:10px;
+    display:flex;
 
-    font-family:
-        "Cinzel",
-        serif;
+    align-items:center;
 
-    font-size:.75rem;
+    justify-content:center;
 
-    font-weight:700;
+    gap:12px;
+
+    margin-bottom:14px;
+
+    font-size:.95rem;
+
+    font-weight:900;
 
     letter-spacing:3px;
 
-    color:#8f7028;
+    color:#8b6415;
+
+    text-shadow:
+        0 1px 0
+        rgba(255,255,255,.6);
 
 }
 
+
+.news-label::before,
+.news-label::after{
+
+    content:"";
+
+    width:32px;
+
+    height:1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #c9a64e
+        );
+
+}
+
+
+.news-label::after{
+
+    transform:
+        scaleX(-1);
+
+}
+
+
+/* =======================================================
+   TÍTULO
+======================================================= */
 
 .news-content h2{
 
     margin:0 0 12px;
 
-    font-family:
-        "Cinzel",
-        serif;
+    font-size:1.45rem;
 
-    font-size:1.35rem;
+    font-weight:800;
 
-    font-weight:700;
+    line-height:1.25;
 
-    line-height:1.3;
-
-    color:#3d2f1c;
+    color:var(--text);
 
 }
 
+
+/* =======================================================
+   TEXTO
+======================================================= */
 
 .news-content p{
 
