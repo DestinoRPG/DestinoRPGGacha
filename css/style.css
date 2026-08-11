@@ -634,14 +634,9 @@ hr{
             rgba(0,0,0,.08)
         );
 
-    border:1px solid #c9a64e;
+    border:none;
 
-    box-shadow:
-        inset 0 0 0 1px
-        rgba(229,204,131,.18),
-
-        inset 0 0 25px
-        rgba(0,0,0,.16);
+    box-shadow:none;
 }
 
 
@@ -657,12 +652,54 @@ hr{
 
     inset:6px;
 
-    border:1px solid
-        rgba(229,204,131,.45);
-
     pointer-events:none;
-}
 
+    background:
+
+        /* arriba */
+        linear-gradient(
+            90deg,
+            transparent 0%,
+            #c9a64e 18%,
+            #c9a64e 38%,
+            transparent 38%,
+            transparent 62%,
+            #c9a64e 62%,
+            #c9a64e 82%,
+            transparent 100%
+        )
+        top / 100% 1px no-repeat,
+
+        /* abajo */
+        linear-gradient(
+            90deg,
+            transparent 0%,
+            #c9a64e 18%,
+            #c9a64e 82%,
+            transparent 100%
+        )
+        bottom / 100% 1px no-repeat,
+
+        /* izquierda */
+        linear-gradient(
+            180deg,
+            transparent,
+            #c9a64e 20%,
+            #c9a64e 80%,
+            transparent
+        )
+        left / 1px 100% no-repeat,
+
+        /* derecha */
+        linear-gradient(
+            180deg,
+            transparent,
+            #c9a64e 20%,
+            #c9a64e 80%,
+            transparent
+        )
+        right / 1px 100% no-repeat;
+}
 
 /* =======================================================
    ADORNOS DE LAS ESQUINAS
@@ -695,7 +732,7 @@ hr{
 
     position:relative;
 
-    z-index:1;
+    z-index:2;
 
     display:flex;
 
@@ -706,6 +743,10 @@ hr{
     gap:12px;
 
     margin-bottom:14px;
+
+    padding:0 14px;
+
+    background:#091727;
 
     font-size:.95rem;
 
@@ -719,7 +760,6 @@ hr{
         0 1px 2px
         rgba(0,0,0,.35);
 }
-
 /* Líneas ornamentales */
 
 .news-label::before,
@@ -1005,14 +1045,17 @@ hr{
 
     font-size:1.35rem;
 
-    font-weight:800;
+    font-weight:900;
 
     letter-spacing:2px;
 
-    color:#8b6415;
+    color:#f0d477;
 
     font-variant-numeric:tabular-nums;
 
+    text-shadow:
+        0 1px 3px
+        rgba(0,0,0,.35);
 }
 
 /* =======================================================
