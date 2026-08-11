@@ -25,26 +25,16 @@ export function renderBanner(user) {
     ${!canSummon(user) ? "disabled" : ""}
 >
 
-    <span class="ticket-icon">
-
-        <span class="ticket-icon-hole"></span>
-
+    <span class="ticket-symbol button-ticket">
+        <span class="ticket-symbol-notch top"></span>
+        <span class="ticket-symbol-notch bottom"></span>
     </span>
 
-    <span class="banner-button-info">
-
-        <span class="banner-button-main">
-            INVOCAR
-        </span>
-
-        <span class="banner-button-sub">
-            1 TICKET
-        </span>
-
+    <span>
+        INVOCAR · 1 TICKET
     </span>
 
 </button>
-
             </div>
 
         </section>

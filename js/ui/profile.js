@@ -42,73 +42,89 @@ export function renderProfile(
 
     return `
 
-        <div id="profile">
+<div id="profile">
 
-            <div class="profile-main">
+    <div class="profile-main">
 
-                <img
+        <img
+            class="profile-avatar"
 
-                    class="profile-avatar"
+            src="${
+                user.photoURL ||
+                "images/default-avatar.webp"
+            }"
 
-                    src="${
-                        user.photoURL ||
-                        "images/default-avatar.webp"
-                    }"
+            alt="${
+                user.displayName ||
+                "Usuario"
+            }"
+        >
 
-                    alt="${
-                        user.displayName ||
-                        "Usuario"
-                    }"
 
-                >
+        <div class="profile-info">
 
-                <div class="profile-info">
+            <h2 class="profile-name">
 
-                    <h2 class="profile-name">
+                ${
+                    user.displayName ||
+                    "Coleccionista"
+                }
 
-                        ${
-                            user.displayName ||
-                            "Coleccionista"
-                        }
+            </h2>
 
-                    </h2>
 
-                    <p class="profile-member">
+            <p class="profile-member">
 
-                        Coleccionista desde
-                        ${formatJoinDate(
-                            user.createdAt
-                        )}
+                Coleccionista desde
+                ${formatJoinDate(
+                    user.createdAt
+                )}
 
-                    </p>
-
-                </div>
-
-                <div class="profile-tickets">
-
-                    <span class="ticket-icon">
-
-                        
-
-                    </span>
-
-                    <span class="ticket-value">
-
-                        ${user.tickets ?? 0}
-
-                    </span>
-
-                </div>
-
-            </div>
-
-            <div id="profileProgress">
-
-                ${progressHtml}
-
-            </div>
+            </p>
 
         </div>
+
+
+        <div class="profile-tickets">
+
+            <span
+                class="ticket-icon"
+                aria-hidden="true"
+            >
+
+                <span class="ticket-symbol">
+
+                    <span
+                        class="ticket-symbol-notch top"
+                    ></span>
+
+                    <span
+                        class="ticket-symbol-notch bottom"
+                    ></span>
+
+                </span>
+
+            </span>
+
+
+            <span class="ticket-value">
+
+                ${user.tickets ?? 0}
+
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <div id="profileProgress">
+
+        ${progressHtml}
+
+    </div>
+
+</div>
 
     `;
 
