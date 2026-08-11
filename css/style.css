@@ -1188,6 +1188,10 @@ hr{
 
 }
 
+/* =======================================================
+   AVATAR
+======================================================= */
+
 .profile-avatar{
 
     width:70px;
@@ -1196,28 +1200,30 @@ hr{
 
     box-sizing:border-box;
 
+    display:block;
+
     border-radius:50%;
 
     border:2px solid #c9a64e;
 
-    padding:3px;
+    padding:2px;
 
-    background:
-        #091727;
+    background:#f5ead2;
+
+    object-fit:cover;
 
     box-shadow:
 
         0 0 0 1px
-        rgba(201,166,78,.45),
+        rgba(201,166,78,.35),
 
-        0 4px 12px
-        rgba(0,0,0,.20);
-
-    object-fit:cover;
+        0 4px 10px
+        rgba(0,0,0,.16);
 
     transition:
-        box-shadow var(--transition),
-        transform var(--transition);
+        transform var(--transition),
+        box-shadow var(--transition);
+
 }
 
 
@@ -1228,13 +1234,13 @@ hr{
     box-shadow:
 
         0 0 0 1px
-        rgba(201,166,78,.7),
+        rgba(201,166,78,.65),
 
-        0 0 12px
-        rgba(201,166,78,.20),
+        0 0 10px
+        rgba(201,166,78,.22),
 
-        0 5px 14px
-        rgba(0,0,0,.22);
+        0 5px 13px
+        rgba(0,0,0,.18);
 
 }
 
