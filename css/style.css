@@ -381,7 +381,7 @@ hr{
 
     background:var(--panel);
 
-    border:2px solid var(--border);
+    border:2px solid #c9a64e;
 
     border-radius:22px;
 
@@ -406,6 +406,100 @@ hr{
 
 }
 
+/* =======================================================
+   MARCOS DECORATIVOS DE SECCIONES
+======================================================= */
+
+.home-profile #profile,
+.home-summon .banner,
+.home-result,
+.home-news .news-panel{
+
+    position:relative;
+
+    border:
+        2px solid
+        #c9a64e;
+
+    box-shadow:
+        inset 0 0 0 1px
+        rgba(255,255,255,.35),
+
+        0 4px 14px
+        rgba(0,0,0,.08);
+
+}
+
+
+/* =======================================================
+   SEGUNDO MARCO INTERIOR
+======================================================= */
+
+.home-profile #profile::before,
+.home-summon .banner::before,
+.home-result::before,
+.home-news .news-panel::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:5px;
+
+    border:
+        1px solid
+        rgba(201,166,78,.45);
+
+    border-radius:16px;
+
+    pointer-events:none;
+
+}
+
+
+/* =======================================================
+   ADORNO SUPERIOR
+======================================================= */
+
+.home-profile #profile::after,
+.home-summon .banner::after,
+.home-result::after,
+.home-news .news-panel::after{
+
+    content:"◆";
+
+    position:absolute;
+
+    top:-10px;
+
+    left:50%;
+
+    transform:
+        translateX(-50%);
+
+    width:30px;
+
+    height:18px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:
+        var(--panel);
+
+    color:#c9a64e;
+
+    font-size:.65rem;
+
+    line-height:1;
+
+    z-index:2;
+
+}
+
 
 .news-panel{
 
@@ -423,7 +517,7 @@ hr{
 
     background:var(--panel);
 
-    border:2px solid var(--border);
+    border:2px solid #c9a64e;
 
     border-radius:22px;
 
