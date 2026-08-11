@@ -605,23 +605,36 @@ hr{
 
     margin-bottom:10px;
 
-    font-size:.8rem;
+    font-family:
+        "Cinzel",
+        serif;
 
-    font-weight:800;
+    font-size:.75rem;
 
-    letter-spacing:2px;
+    font-weight:700;
 
-    color:#8b6415;
+    letter-spacing:3px;
+
+    color:#8f7028;
 
 }
+
 
 .news-content h2{
 
     margin:0 0 12px;
 
-    font-size:1.4rem;
+    font-family:
+        "Cinzel",
+        serif;
 
-    color:var(--text);
+    font-size:1.35rem;
+
+    font-weight:700;
+
+    line-height:1.3;
+
+    color:#3d2f1c;
 
 }
 
@@ -630,7 +643,9 @@ hr{
 
     margin:0;
 
-    line-height:1.6;
+    font-size:.95rem;
+
+    line-height:1.7;
 
     color:#51483b;
 
@@ -645,9 +660,11 @@ hr{
 
     flex-shrink:0;
 
-    width:46px;
+    position:relative;
 
-    height:72px;
+    width:52px;
+
+    height:52px;
 
     display:flex;
 
@@ -655,24 +672,19 @@ hr{
 
     justify-content:center;
 
-    border:2px solid var(--border);
+    border:1px solid #c9a64e;
 
-    border-radius:14px;
+    border-radius:50%;
 
-    background:
-        linear-gradient(
-            180deg,
-            #f4ead4,
-            #e5d5b5
-        );
+    background:#091727;
 
-    color:#80601d;
+    color:#e5cc83;
 
-    font-size:2.4rem;
+    font-size:2rem;
 
     font-family:
+        "Cinzel",
         Georgia,
-        "Times New Roman",
         serif;
 
     line-height:1;
@@ -680,46 +692,83 @@ hr{
     cursor:pointer;
 
     box-shadow:
-        0 5px 12px
-        rgba(0,0,0,.10);
+        inset 0 0 0 1px
+        rgba(255,255,255,.06),
+
+        0 4px 10px
+        rgba(0,0,0,.14);
 
     transition:
         transform var(--transition),
-        background var(--transition),
-        color var(--transition),
         border-color var(--transition),
+        color var(--transition),
         box-shadow var(--transition);
 
 }
 
 
+/* =======================================================
+   MARCO INTERIOR
+======================================================= */
+
+.news-arrow::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:4px;
+
+    border:1px solid
+        rgba(229,204,131,.35);
+
+    border-radius:50%;
+
+    pointer-events:none;
+
+}
+
+
+/* =======================================================
+   HOVER
+======================================================= */
+
 .news-arrow:hover{
 
-    transform:translateY(-2px);
+    border-color:#e5cc83;
 
-    background:
-        linear-gradient(
-            180deg,
-            #e9d09a,
-            #c9a34d
-        );
-
-    color:#fff;
-
-    border-color:#a67f18;
+    color:#fff3c9;
 
     box-shadow:
-        0 8px 18px
-        rgba(0,0,0,.18);
+
+        inset 0 0 0 1px
+        rgba(255,255,255,.1),
+
+        0 0 12px
+        rgba(201,166,78,.22);
+
+}
+
+
+.news-prev:hover{
+
+    transform:
+        translateX(-3px);
+
+}
+
+
+.news-next:hover{
+
+    transform:
+        translateX(3px);
 
 }
 
 
 .news-arrow:active{
 
-    transform:
-        translateY(0)
-        scale(.96);
+    transform:scale(.94);
 
 }
 
