@@ -838,57 +838,180 @@ hr{
     font-variant-numeric:tabular-nums;
 }
 
+/* =======================================================
+   BOTÓN DE RECOMPENSA DIARIA
+======================================================= */
+
 .daily-reward-button{
+
+    position:relative;
 
     flex-shrink:0;
 
-    padding:12px 20px;
+    overflow:hidden;
 
-    border:2px solid #a67f18;
+    min-width:190px;
+
+    padding:14px 24px;
+
+    border:2px solid #c9a64e;
 
     border-radius:12px;
 
-    background:
-        linear-gradient(
-            180deg,
-            #f4d98e,
-            #c49a3c
-        );
+    background:#091727;
 
-    color:#fff;
+    color:#f5e6b8;
 
     font-weight:800;
 
-    letter-spacing:1px;
+    font-size:.9rem;
+
+    letter-spacing:1.2px;
 
     cursor:pointer;
 
     box-shadow:
-        0 5px 12px
-        rgba(0,0,0,.15);
+        inset 0 0 0 1px
+        rgba(255,255,255,.08),
+
+        0 4px 10px
+        rgba(0,0,0,.18);
 
     transition:
         transform var(--transition),
+        border-color var(--transition),
         box-shadow var(--transition),
-        filter var(--transition);
+        color var(--transition);
+
 }
 
+
+/* =======================================================
+   MARCO INTERIOR
+======================================================= */
+
+.daily-reward-button::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:4px;
+
+    border:1px solid
+        rgba(229,204,131,.45);
+
+    border-radius:7px;
+
+    pointer-events:none;
+
+}
+
+
+/* =======================================================
+   DESTELLO
+======================================================= */
+
+.daily-reward-button::after{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:-120%;
+
+    width:70%;
+
+    height:100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.16),
+            transparent
+        );
+
+    transform:
+        skewX(-20deg);
+
+    transition:
+        left .55s ease;
+
+}
+
+
+/* =======================================================
+   HOVER
+======================================================= */
 
 .daily-reward-button:hover{
 
-    transform:translateY(-2px);
+    transform:
+        translateY(-2px);
 
-    filter:brightness(1.08);
+    border-color:#e5cc83;
+
+    color:#fff3c9;
 
     box-shadow:
-        0 8px 18px
-        rgba(0,0,0,.20);
+        inset 0 0 0 1px
+        rgba(255,255,255,.12),
+
+        0 7px 16px
+        rgba(0,0,0,.22),
+
+        0 0 12px
+        rgba(201,166,78,.18);
+
 }
 
 
+.daily-reward-button:hover::after{
+
+    left:140%;
+
+}
+
+
+/* =======================================================
+   CLICK
+======================================================= */
+
 .daily-reward-button:active{
 
-    transform:scale(.96);
+    transform:
+        translateY(0)
+        scale(.97);
+
+}
+
+
+/* =======================================================
+   DESACTIVADO
+======================================================= */
+
+.daily-reward-button:disabled{
+
+    cursor:default;
+
+    opacity:.5;
+
+    transform:none;
+
+    box-shadow:
+        inset 0 0 0 1px
+        rgba(255,255,255,.04);
+
+}
+
+
+.daily-reward-button:disabled::after{
+
+    display:none;
+
 }
 
 
