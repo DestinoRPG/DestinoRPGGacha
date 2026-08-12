@@ -1719,10 +1719,10 @@ BANNER / INVOCACIÓN
 
 
 /* =======================================================
-PUERTA ESPACIAL
+ESCENA DEL BANNER
 ======================================================= */
 
-.banner-space{
+.banner-image{
 
     flex:1;
 
@@ -1743,24 +1743,40 @@ PUERTA ESPACIAL
     background:
 
         radial-gradient(
-            ellipse at 50% 50%,
-            #183653 0%,
-            #10283f 30%,
-            #0b1e32 58%,
-            #091727 100%
+            circle at 50% 48%,
+            #122b45 0%,
+            #0b1e32 42%,
+            #091727 78%
         );
 
     border:1px solid
         rgba(201,166,78,.35);
 
     box-shadow:
+        inset 0 0 35px
+        rgba(0,0,0,.35);
+}
 
-        inset 0 0 45px
-        rgba(0,0,0,.45),
 
-        inset 0 0 100px
-        rgba(5,15,27,.4);
+/* =======================================================
+ESCENA
+======================================================= */
 
+.banner-scene{
+
+    position:relative;
+
+    width:100%;
+
+    height:100%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    overflow:hidden;
 }
 
 
@@ -1802,59 +1818,77 @@ ESTRELLAS
 
     animation:
         bannerStars 8s ease-in-out infinite alternate;
-
 }
 
 
 /* =======================================================
-RESPLANDOR DETRÁS DE LA PUERTA
+ÓRBITAS
 ======================================================= */
 
-.banner-space::before{
-
-    content:"";
+.banner-orbit{
 
     position:absolute;
 
-    width:58%;
+    width:62%;
 
-    height:70%;
+    height:62%;
+
+    border:
+        1px solid
+        rgba(201,166,78,.28);
 
     border-radius:50%;
 
-    background:
-
-        radial-gradient(
-            ellipse,
-            rgba(64,126,173,.28) 0%,
-            rgba(37,79,112,.14) 38%,
-            transparent 72%
-        );
-
-    filter:blur(8px);
-
     pointer-events:none;
 
+    box-shadow:
+        0 0 10px
+        rgba(201,166,78,.05);
+}
+
+
+.banner-orbit-1{
+
+    width:64%;
+
+    height:38%;
+
+    transform:
+        rotate(-22deg);
+}
+
+
+.banner-orbit-2{
+
+    width:38%;
+
+    height:64%;
+
+    transform:
+        rotate(32deg);
+
+    border-color:
+        rgba(229,204,131,.18);
 }
 
 
 /* =======================================================
-PORTAL / PUERTA
+NÚCLEO CENTRAL
 ======================================================= */
 
-.banner-portal{
+.banner-core{
 
     position:relative;
 
     z-index:2;
 
-    width:72%;
+    width:150px;
 
-    max-width:330px;
-
-    aspect-ratio:1 / 1;
+    height:150px;
 
     display:flex;
+
+    flex-direction:column;
 
     align-items:center;
 
@@ -1865,341 +1899,93 @@ PORTAL / PUERTA
     background:
 
         radial-gradient(
-            circle at center,
-            #020811 0%,
-            #061321 42%,
-            #0b1d31 67%,
-            #132d46 100%
+            circle,
+            #183653 0%,
+            #0b1d31 68%,
+            #091727 100%
         );
 
     border:
         1px solid
-        rgba(229,204,131,.75);
+        rgba(229,204,131,.7);
 
     box-shadow:
 
         0 0 0 5px
-        rgba(201,166,78,.045),
+        rgba(201,166,78,.05),
 
-        0 0 0 10px
-        rgba(201,166,78,.025),
+        0 0 0 9px
+        rgba(201,166,78,.035),
 
-        0 0 25px
-        rgba(201,166,78,.13),
+        0 0 28px
+        rgba(201,166,78,.14),
 
-        inset 0 0 35px
-        rgba(0,0,0,.75);
+        inset 0 0 24px
+        rgba(0,0,0,.35);
 
     animation:
-        portalPulse 4s ease-in-out infinite;
-
+        bannerCoreGlow 4s ease-in-out infinite;
 }
 
 
 /* =======================================================
-ANILLO EXTERIOR
+SÍMBOLO CENTRAL
 ======================================================= */
 
-.banner-portal::before{
+.banner-core-symbol{
 
-    content:"";
+    margin-bottom:7px;
 
-    position:absolute;
+    color:#e5cc83;
 
-    inset:-10px;
+    font-size:1.7rem;
 
-    border:
-        1px solid
-        rgba(201,166,78,.35);
+    line-height:1;
 
-    border-radius:50%;
-
-    box-shadow:
-
-        0 0 12px
-        rgba(201,166,78,.08);
-
-    pointer-events:none;
-
+    text-shadow:
+        0 0 10px
+        rgba(229,204,131,.45);
 }
 
 
 /* =======================================================
-ANILLO INTERIOR
+TÍTULO CENTRAL
 ======================================================= */
 
-.banner-portal::after{
+.banner-core-title{
 
-    content:"";
+    color:#f0d889;
 
-    position:absolute;
-
-    inset:10px;
-
-    border:
-        1px solid
-        rgba(229,204,131,.22);
-
-    border-radius:50%;
-
-    pointer-events:none;
-
-}
-
-
-/* =======================================================
-ANILLO ORBITAL 1
-======================================================= */
-
-.banner-orbit{
-
-    position:absolute;
-
-    z-index:3;
-
-    width:78%;
-
-    height:30%;
-
-    border:
-        1px solid
-        rgba(229,204,131,.25);
-
-    border-radius:50%;
-
-    pointer-events:none;
-
-}
-
-
-/* =======================================================
-ANILLO ORBITAL 2
-======================================================= */
-
-.banner-orbit-2{
-
-    width:30%;
-
-    height:78%;
-
-    border-color:
-        rgba(201,166,78,.18);
-
-    transform:
-        rotate(25deg);
-
-}
-
-
-/* =======================================================
-CADENAS
-======================================================= */
-
-.banner-chain{
-
-    position:absolute;
-
-    z-index:6;
-
-    width:42%;
-
-    height:9px;
-
-    border-radius:999px;
-
-    background:
-
-        repeating-linear-gradient(
-            90deg,
-            #806326 0,
-            #806326 7px,
-            #d9bd69 8px,
-            #d9bd69 12px,
-            #806326 13px,
-            #806326 19px
-        );
-
-    border:
-        1px solid
-        #e5cc83;
-
-    box-shadow:
-
-        0 2px 5px
-        rgba(0,0,0,.45),
-
-        0 0 8px
-        rgba(201,166,78,.12);
-
-    pointer-events:none;
-
-}
-
-
-/* =======================================================
-CADENA SUPERIOR
-======================================================= */
-
-.banner-chain-1{
-
-    top:38%;
-
-    left:50%;
-
-    transform:
-        translateX(-50%)
-        rotate(16deg);
-
-}
-
-
-/* =======================================================
-CADENA INFERIOR
-======================================================= */
-
-.banner-chain-2{
-
-    top:52%;
-
-    left:50%;
-
-    transform:
-        translateX(-50%)
-        rotate(-16deg);
-
-}
-
-
-/* =======================================================
-CADENA LATERAL
-======================================================= */
-
-.banner-chain-3{
-
-    width:35%;
-
-    top:45%;
-
-    left:50%;
-
-    transform:
-        translateX(-50%)
-        rotate(90deg);
-
-    opacity:.65;
-
-}
-
-
-/* =======================================================
-CANDADO
-======================================================= */
-
-.banner-lock{
-
-    position:relative;
-
-    z-index:8;
-
-    width:58px;
-
-    height:65px;
-
-    display:flex;
-
-    align-items:flex-end;
-
-    justify-content:center;
-
-    padding-bottom:8px;
-
-    box-sizing:border-box;
-
-    border-radius:9px;
-
-    background:
-
-        linear-gradient(
-            145deg,
-            #f1d47b,
-            #a67f18
-        );
-
-    border:
-        2px solid
-        #e8cf82;
-
-    color:#5c4310;
-
-    font-size:1.4rem;
-
-    box-shadow:
-
-        0 5px 14px
-        rgba(0,0,0,.45),
-
-        0 0 15px
-        rgba(201,166,78,.2);
-
-}
-
-
-/* =======================================================
-ARCO DEL CANDADO
-======================================================= */
-
-.banner-lock::before{
-
-    content:"";
-
-    position:absolute;
-
-    top:-25px;
-
-    left:13px;
-
-    width:28px;
-
-    height:32px;
-
-    border:
-        7px solid
-        #c9a64e;
-
-    border-bottom:0;
-
-    border-radius:
-        18px 18px 0 0;
-
-    box-shadow:
-
-        0 0 5px
-        rgba(0,0,0,.25);
-
-}
-
-
-/* =======================================================
-LLAVE / CERRADURA
-======================================================= */
-
-.banner-lock::after{
-
-    content:"✦";
-
-    position:absolute;
-
-    top:50%;
-
-    left:50%;
-
-    transform:
-        translate(-50%,-50%);
-
-    color:#60480f;
+    font-family:
+        "Cinzel",
+        Georgia,
+        serif;
 
     font-size:.9rem;
 
+    font-weight:800;
+
+    letter-spacing:2px;
+
+    text-align:center;
+}
+
+
+/* =======================================================
+SUBTÍTULO CENTRAL
+======================================================= */
+
+.banner-core-subtitle{
+
+    margin-top:5px;
+
+    color:#d8c38b;
+
+    font-size:.62rem;
+
+    font-weight:700;
+
+    letter-spacing:3px;
 }
 
 
@@ -2211,74 +1997,69 @@ DESTELLOS
 
     position:absolute;
 
-    z-index:7;
+    z-index:3;
 
     color:#e5cc83;
 
     text-shadow:
         0 0 8px
-        rgba(229,204,131,.55);
+        rgba(229,204,131,.5);
 
     pointer-events:none;
 
     animation:
         bannerSpark 3.5s ease-in-out infinite;
-
 }
 
 
 .banner-spark-1{
 
-    top:20%;
+    top:22%;
 
-    left:22%;
+    left:23%;
 
     font-size:.75rem;
-
 }
 
 
 .banner-spark-2{
 
-    top:27%;
+    top:31%;
 
-    right:20%;
+    right:21%;
 
     font-size:1rem;
 
     animation-delay:1s;
-
 }
 
 
 .banner-spark-3{
 
-    bottom:20%;
+    bottom:23%;
 
-    left:25%;
+    left:27%;
 
     font-size:.6rem;
 
     animation-delay:2s;
-
 }
 
 
 .banner-spark-4{
 
-    bottom:25%;
+    bottom:28%;
 
-    right:23%;
+    right:25%;
 
     font-size:1rem;
 
     animation-delay:1.5s;
-
 }
 
 
 /* =======================================================
-ANIMACIÓN ESTRELLAS
+ANIMACIÓN DE ESTRELLAS
 ======================================================= */
 
 @keyframes bannerStars{
@@ -2289,7 +2070,6 @@ ANIMACIÓN ESTRELLAS
 
         transform:
             scale(1);
-
     }
 
     to{
@@ -2298,17 +2078,15 @@ ANIMACIÓN ESTRELLAS
 
         transform:
             scale(1.025);
-
     }
-
 }
 
 
 /* =======================================================
-ANIMACIÓN PORTAL
+ANIMACIÓN DEL NÚCLEO
 ======================================================= */
 
-@keyframes portalPulse{
+@keyframes bannerCoreGlow{
 
     0%,
     100%{
@@ -2316,17 +2094,16 @@ ANIMACIÓN PORTAL
         box-shadow:
 
             0 0 0 5px
-            rgba(201,166,78,.045),
+            rgba(201,166,78,.05),
 
-            0 0 0 10px
-            rgba(201,166,78,.025),
+            0 0 0 9px
+            rgba(201,166,78,.035),
 
-            0 0 25px
+            0 0 28px
             rgba(201,166,78,.12),
 
-            inset 0 0 35px
-            rgba(0,0,0,.75);
-
+            inset 0 0 24px
+            rgba(0,0,0,.35);
     }
 
     50%{
@@ -2336,22 +2113,20 @@ ANIMACIÓN PORTAL
             0 0 0 5px
             rgba(201,166,78,.07),
 
-            0 0 0 10px
-            rgba(201,166,78,.04),
+            0 0 0 9px
+            rgba(201,166,78,.045),
 
             0 0 38px
-            rgba(201,166,78,.23),
+            rgba(201,166,78,.22),
 
-            inset 0 0 35px
-            rgba(0,0,0,.8);
-
+            inset 0 0 24px
+            rgba(0,0,0,.35);
     }
-
 }
 
 
 /* =======================================================
-ANIMACIÓN DESTELLOS
+ANIMACIÓN DE DESTELLOS
 ======================================================= */
 
 @keyframes bannerSpark{
@@ -2363,7 +2138,6 @@ ANIMACIÓN DESTELLOS
 
         transform:
             scale(.85);
-
     }
 
     50%{
@@ -2372,9 +2146,7 @@ ANIMACIÓN DESTELLOS
 
         transform:
             scale(1.15);
-
     }
-
 }
 
 
@@ -2393,7 +2165,6 @@ INFORMACIÓN DE INVOCACIÓN
     gap:8px;
 
     padding:10px 8px 2px;
-
 }
 
 
@@ -2419,6 +2190,8 @@ BOTÓN DE INVOCACIÓN
 
     padding:12px 30px;
 
+    box-sizing:border-box;
+
     border:2px solid #c9a64e;
 
     border-radius:14px;
@@ -2442,14 +2215,17 @@ BOTÓN DE INVOCACIÓN
     transition:
 
         border-color .25s ease,
-        box-shadow .25s ease,
-        background .25s ease;
 
+        box-shadow .25s ease,
+
+        background .25s ease,
+
+        transform .25s ease;
 }
 
 
 /* =======================================================
-SEGUNDO BORDE INTERIOR
+BORDE INTERIOR
 ======================================================= */
 
 .banner-button::before{
@@ -2460,18 +2236,18 @@ SEGUNDO BORDE INTERIOR
 
     inset:5px;
 
-    border:1px solid
+    border:
+        1px solid
         rgba(201,166,78,.45);
 
     border-radius:9px;
 
     pointer-events:none;
-
 }
 
 
 /* =======================================================
-BRILLO DEL BOTÓN
+DESTELLO DEL BOTÓN
 ======================================================= */
 
 .banner-button::after{
@@ -2504,9 +2280,12 @@ BRILLO DEL BOTÓN
         left .7s ease;
 
     pointer-events:none;
-
 }
 
+
+/* =======================================================
+HOVER
+======================================================= */
 
 .banner-button:hover{
 
@@ -2522,13 +2301,14 @@ BRILLO DEL BOTÓN
         0 0 14px
         rgba(201,166,78,.25);
 
+    transform:
+        translateY(-1px);
 }
 
 
 .banner-button:hover::after{
 
     left:120%;
-
 }
 
 
@@ -2551,9 +2331,12 @@ TEXTO DEL BOTÓN
     justify-content:center;
 
     line-height:1;
-
 }
 
+
+/* =======================================================
+TEXTO PRINCIPAL
+======================================================= */
 
 .banner-button-main{
 
@@ -2568,9 +2351,12 @@ TEXTO DEL BOTÓN
     text-shadow:
         0 1px 2px
         rgba(0,0,0,.8);
-
 }
 
+
+/* =======================================================
+COSTE
+======================================================= */
 
 .banner-button-sub{
 
@@ -2583,7 +2369,6 @@ TEXTO DEL BOTÓN
     letter-spacing:2px;
 
     color:#a98b45;
-
 }
 
 
@@ -2591,7 +2376,7 @@ TEXTO DEL BOTÓN
 TICKET
 ======================================================= */
 
-.ticket-icon{
+.banner-button .ticket-icon{
 
     position:relative;
 
@@ -2613,7 +2398,9 @@ TICKET
             #d6ad4d
         );
 
-    border:2px solid #9b741b;
+    border:
+        2px solid
+        #9b741b;
 
     border-radius:5px;
 
@@ -2623,12 +2410,15 @@ TICKET
     box-shadow:
         0 2px 3px
         rgba(0,0,0,.22);
-
 }
 
 
-.ticket-icon::before,
-.ticket-icon::after{
+/* =======================================================
+MUESCAS DEL TICKET
+======================================================= */
+
+.banner-button .ticket-icon::before,
+.banner-button .ticket-icon::after{
 
     content:"";
 
@@ -2645,23 +2435,24 @@ TICKET
     border-radius:50%;
 
     background:#091727;
-
 }
 
 
-.ticket-icon::before{
+.banner-button .ticket-icon::before{
 
     left:-6px;
-
 }
 
 
-.ticket-icon::after{
+.banner-button .ticket-icon::after{
 
     right:-6px;
-
 }
 
+
+/* =======================================================
+PERFORACIÓN DEL TICKET
+======================================================= */
 
 .ticket-icon-hole{
 
@@ -2676,7 +2467,6 @@ TICKET
     border-left:
         2px dashed
         rgba(139,100,21,.65);
-
 }
 
 
@@ -2702,7 +2492,6 @@ ADORNOS DEL BOTÓN
     font-size:.8rem;
 
     opacity:.8;
-
 }
 
 
@@ -2724,12 +2513,22 @@ ADORNOS DEL BOTÓN
     font-size:.8rem;
 
     opacity:.8;
-
 }
 
 
 /* =======================================================
-BOTÓN DESACTIVADO
+CLICK
+======================================================= */
+
+.banner-button:active{
+
+    transform:
+        scale(.97);
+}
+
+
+/* =======================================================
+DESACTIVADO
 ======================================================= */
 
 .banner-button:disabled{
@@ -2748,6 +2547,496 @@ BOTÓN DESACTIVADO
 
         0 4px 0 #806126,
 
+        0 6px 12px
+        rgba(0,0,0,.12);
+}
+
+
+.banner-button:disabled::after{
+
+    display:none;
+}
+
+
+.banner-button:disabled:hover{
+
+    background:#091727;
+
+    border-color:#c9a64e;
+
+    box-shadow:
+
+        0 4px 0 #806126,
+
+        0 6px 12px
+        rgba(0,0,0,.12);
+
+    transform:none;
+}
+
+/* =======================================================
+   SEGUNDO BORDE INTERIOR
+======================================================= */
+
+.banner-button::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:5px;
+
+    border:1px solid
+        rgba(201,166,78,.45);
+
+    border-radius:9px;
+
+    pointer-events:none;
+
+}
+
+
+/* =======================================================
+   BRILLO QUE RECORRE EL BOTÓN
+======================================================= */
+
+.banner-button::after{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:-35%;
+
+    width:25%;
+
+    height:100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.12),
+            transparent
+        );
+
+    transform:
+        skewX(-20deg);
+
+    transition:
+        left .7s ease;
+
+    pointer-events:none;
+
+}
+
+
+.banner-button:hover{
+
+    border-color:#f0d889;
+
+    background:#0b1c30;
+
+    box-shadow:
+        inset 0 0 0 1px
+        rgba(255,255,255,.08),
+
+        0 0 14px
+        rgba(201,166,78,.25);
+
+}
+
+
+.banner-button:hover::after{
+
+    left:120%;
+
+}
+
+
+/* =======================================================
+   TEXTO
+======================================================= */
+
+.banner-button-info{
+
+    position:relative;
+
+    z-index:2;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    line-height:1;
+
+}
+
+
+/* =======================================================
+   TEXTO PRINCIPAL
+======================================================= */
+
+.banner-button-main{
+
+    font-size:1.5rem;
+
+    font-weight:900;
+
+    letter-spacing:3px;
+
+    color:#e8cf82;
+
+    text-shadow:
+        0 1px 2px
+        rgba(0,0,0,.8);
+
+}
+
+
+/* =======================================================
+   COSTE
+======================================================= */
+
+.banner-button-sub{
+
+    margin-top:7px;
+
+    font-size:.68rem;
+
+    font-weight:800;
+
+    letter-spacing:2px;
+
+    color:#a98b45;
+
+}
+
+
+/* =======================================================
+   TICKET
+======================================================= */
+
+.ticket-icon{
+
+    position:relative;
+
+    z-index:2;
+
+    width:46px;
+
+    height:30px;
+
+    flex-shrink:0;
+
+    background:
+        linear-gradient(
+            180deg,
+            #f5df9a,
+            #c49b3d
+        );
+
+    border:
+        2px solid #e2c66f;
+
+    border-radius:5px;
+
+    transform:rotate(-8deg);
+
+    box-shadow:
+        0 0 8px
+        rgba(201,166,78,.2);
+
+}
+
+
+/* Muescas */
+
+.ticket-icon::before,
+.ticket-icon::after{
+
+    content:"";
+
+    position:absolute;
+
+    top:50%;
+
+    width:9px;
+    height:9px;
+
+    margin-top:-4.5px;
+
+    border-radius:50%;
+
+    background:#091727;
+
+}
+
+
+.ticket-icon::before{
+    left:-7px;
+}
+
+
+.ticket-icon::after{
+    right:-7px;
+}
+
+
+/* Perforación */
+
+.ticket-icon-hole{
+
+    position:absolute;
+
+    top:3px;
+    bottom:3px;
+
+    left:50%;
+
+    border-left:
+        2px dashed
+        #9b792d;
+
+}
+
+
+/* =======================================================
+   ADORNOS
+======================================================= */
+
+.banner-button-info::before{
+
+    content:"✦";
+
+    position:absolute;
+
+    left:-55px;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    color:#c9a64e;
+
+    font-size:.8rem;
+
+    opacity:.8;
+
+}
+
+
+.banner-button-info::after{
+
+    content:"✦";
+
+    position:absolute;
+
+    right:-55px;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    color:#c9a64e;
+
+    font-size:.8rem;
+
+    opacity:.8;
+
+}
+
+
+/* =======================================================
+   DESACTIVADO
+======================================================= */
+
+.banner-button:disabled{
+
+    cursor:not-allowed;
+
+    opacity:.45;
+
+    filter:grayscale(.3);
+
+    box-shadow:none;
+
+}
+
+
+.banner-button:disabled:hover{
+
+    background:#091727;
+
+    border-color:#c9a64e;
+
+    box-shadow:
+        inset 0 0 0 1px
+        rgba(255,255,255,.06),
+
+        0 0 0 1px
+        rgba(201,166,78,.12);
+
+}
+
+/* =======================================================
+   ICONO DE TICKET
+======================================================= */
+
+.ticket-icon{
+
+    position:relative;
+
+    width:38px;
+
+    height:25px;
+
+    flex-shrink:0;
+
+    display:block;
+
+    background:
+        linear-gradient(
+            180deg,
+            #fff1bc,
+            #d6ad4d
+        );
+
+    border:2px solid #9b741b;
+
+    border-radius:5px;
+
+    transform:
+        rotate(-8deg);
+
+    box-shadow:
+        0 2px 3px
+        rgba(0,0,0,.22);
+
+}
+
+
+/* Muescas laterales */
+
+.ticket-icon::before,
+.ticket-icon::after{
+
+    content:"";
+
+    position:absolute;
+
+    top:50%;
+
+    width:8px;
+
+    height:8px;
+
+    margin-top:-4px;
+
+    border-radius:50%;
+
+    background:#c49a3c;
+
+}
+
+
+.ticket-icon::before{
+
+    left:-6px;
+
+}
+
+
+.ticket-icon::after{
+
+    right:-6px;
+
+}
+
+
+/* Línea perforada */
+
+.ticket-icon-hole{
+
+    position:absolute;
+
+    top:3px;
+
+    bottom:3px;
+
+    left:50%;
+
+    border-left:
+        2px dashed
+        rgba(139,100,21,.65);
+
+}
+
+
+/* =======================================================
+   TEXTO PRINCIPAL
+======================================================= */
+
+.banner-button-text{
+
+    font-size:1rem;
+
+    letter-spacing:1.5px;
+
+    text-shadow:
+        0 1px 2px
+        rgba(0,0,0,.3);
+
+}
+
+
+/* =======================================================
+   COSTE
+======================================================= */
+
+.banner-button-cost{
+
+    padding-left:10px;
+
+    border-left:
+        1px solid
+        rgba(255,255,255,.45);
+
+    font-size:.68rem;
+
+    letter-spacing:1px;
+
+    opacity:.9;
+
+    white-space:nowrap;
+
+}
+
+
+/* =======================================================
+   DESACTIVADO
+======================================================= */
+
+.banner-button:disabled{
+
+    cursor:not-allowed;
+
+    filter:
+        grayscale(.25)
+        brightness(.82);
+
+    opacity:.65;
+
+    transform:none;
+
+    box-shadow:
+        0 4px 0 #806126,
         0 6px 12px
         rgba(0,0,0,.12);
 
