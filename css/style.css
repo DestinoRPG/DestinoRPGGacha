@@ -1686,8 +1686,8 @@ hr{
 }
 
 /* =======================================================
-BANNER / INVOCACIÓN
-======================================================= */
+   BANNER / INVOCACIÓN
+   ======================================================= */
 
 .banner{
 
@@ -1719,10 +1719,10 @@ BANNER / INVOCACIÓN
 
 
 /* =======================================================
-ESCENA DEL BANNER
-======================================================= */
+   ESCENA ESPACIAL
+   ======================================================= */
 
-.banner-image{
+.banner-space{
 
     flex:1;
 
@@ -1743,46 +1743,30 @@ ESCENA DEL BANNER
     background:
 
         radial-gradient(
-            circle at 50% 48%,
+            ellipse at 50% 50%,
             #122b45 0%,
-            #0b1e32 42%,
-            #091727 78%
+            #0d2239 32%,
+            #0a1b2e 60%,
+            #091727 100%
         );
 
     border:1px solid
-        rgba(201,166,78,.35);
+        rgba(201,166,78,.28);
 
     box-shadow:
-        inset 0 0 35px
-        rgba(0,0,0,.35);
+
+        inset 0 0 45px
+        rgba(0,0,0,.45),
+
+        inset 0 0 90px
+        rgba(3,10,18,.35);
+
 }
 
 
 /* =======================================================
-ESCENA
-======================================================= */
-
-.banner-scene{
-
-    position:relative;
-
-    width:100%;
-
-    height:100%;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    overflow:hidden;
-}
-
-
-/* =======================================================
-ESTRELLAS
-======================================================= */
+   ESTRELLAS
+   ======================================================= */
 
 .banner-stars{
 
@@ -1817,13 +1801,14 @@ ESTRELLAS
         50px 80px;
 
     animation:
-        bannerStars 8s ease-in-out infinite alternate;
+        bannerStars 10s ease-in-out infinite alternate;
+
 }
 
 
 /* =======================================================
-ÓRBITAS
-======================================================= */
+   ÓRBITAS
+   ======================================================= */
 
 .banner-orbit{
 
@@ -1835,26 +1820,26 @@ ESTRELLAS
 
     border:
         1px solid
-        rgba(201,166,78,.28);
+        rgba(201,166,78,.18);
 
     border-radius:50%;
 
     pointer-events:none;
 
-    box-shadow:
-        0 0 10px
-        rgba(201,166,78,.05);
+    opacity:.7;
+
 }
 
 
 .banner-orbit-1{
 
-    width:64%;
+    width:70%;
 
-    height:38%;
+    height:32%;
 
     transform:
         rotate(-22deg);
+
 }
 
 
@@ -1862,37 +1847,30 @@ ESTRELLAS
 
     width:38%;
 
-    height:64%;
+    height:68%;
 
     transform:
         rotate(32deg);
 
     border-color:
-        rgba(229,204,131,.18);
+        rgba(229,204,131,.12);
+
 }
 
 
 /* =======================================================
-NÚCLEO CENTRAL
-======================================================= */
+   HALO DEL AGUJERO NEGRO
+   ======================================================= */
 
-.banner-core{
+.banner-horizon{
 
-    position:relative;
+    position:absolute;
 
-    z-index:2;
+    z-index:1;
 
-    width:150px;
+    width:180px;
 
-    height:150px;
-
-    display:flex;
-
-    flex-direction:column;
-
-    align-items:center;
-
-    justify-content:center;
+    height:180px;
 
     border-radius:50%;
 
@@ -1900,167 +1878,278 @@ NÚCLEO CENTRAL
 
         radial-gradient(
             circle,
-            #183653 0%,
-            #0b1d31 68%,
-            #091727 100%
+            transparent 0%,
+            transparent 54%,
+            rgba(229,204,131,.05) 61%,
+            rgba(201,166,78,.12) 67%,
+            rgba(201,166,78,.04) 73%,
+            transparent 80%
         );
 
-    border:
-        1px solid
-        rgba(229,204,131,.7);
+    box-shadow:
+
+        0 0 30px
+        rgba(201,166,78,.12),
+
+        0 0 60px
+        rgba(201,166,78,.06);
+
+    animation:
+        bannerHorizonGlow 4.5s ease-in-out infinite;
+
+}
+
+
+/* =======================================================
+   DISCO DE ACRECIÓN
+   ======================================================= */
+
+.banner-accretion{
+
+    position:absolute;
+
+    z-index:2;
+
+    width:245px;
+
+    height:105px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:50%;
+
+    transform:
+        rotate(-14deg);
+
+    background:
+
+        conic-gradient(
+            from 0deg,
+
+            transparent 0deg,
+
+            rgba(201,166,78,.15) 35deg,
+
+            rgba(244,216,137,.8) 70deg,
+
+            rgba(201,166,78,.35) 105deg,
+
+            transparent 145deg,
+
+            transparent 210deg,
+
+            rgba(201,166,78,.25) 250deg,
+
+            rgba(229,204,131,.7) 285deg,
+
+            rgba(201,166,78,.15) 320deg,
+
+            transparent 350deg
+        );
+
+    filter:
+        blur(.35px);
+
+    box-shadow:
+
+        0 0 18px
+        rgba(201,166,78,.25),
+
+        0 0 38px
+        rgba(201,166,78,.08);
+
+    animation:
+        bannerAccretion 7s linear infinite;
+
+}
+
+
+/* =======================================================
+   ANILLO INTERIOR DEL DISCO
+   ======================================================= */
+
+.banner-accretion-ring{
+
+    width:190px;
+
+    height:68px;
+
+    border-radius:50%;
+
+    background:
+
+        radial-gradient(
+            ellipse,
+            #03070b 0%,
+            #03070b 43%,
+            rgba(3,7,11,.85) 47%,
+            transparent 64%
+        );
+
+    box-shadow:
+
+        inset 0 0 15px
+        rgba(0,0,0,.9),
+
+        0 0 12px
+        rgba(229,204,131,.15);
+
+}
+
+
+/* =======================================================
+   AGUJERO NEGRO
+   ======================================================= */
+
+.banner-blackhole{
+
+    position:absolute;
+
+    z-index:4;
+
+    width:118px;
+
+    height:118px;
+
+    border-radius:50%;
+
+    background:
+
+        radial-gradient(
+            circle at 42% 38%,
+            #07111c 0%,
+            #020609 48%,
+            #000 76%
+        );
 
     box-shadow:
 
         0 0 0 5px
-        rgba(201,166,78,.05),
+        rgba(0,0,0,.35),
 
-        0 0 0 9px
-        rgba(201,166,78,.035),
+        0 0 12px
+        rgba(0,0,0,.9),
 
         0 0 28px
-        rgba(201,166,78,.14),
+        rgba(201,166,78,.16),
 
-        inset 0 0 24px
-        rgba(0,0,0,.35);
+        inset -10px -8px 18px
+        rgba(0,0,0,.8);
 
     animation:
-        bannerCoreGlow 4s ease-in-out infinite;
+        bannerBlackhole 5s ease-in-out infinite;
+
 }
 
 
 /* =======================================================
-SÍMBOLO CENTRAL
-======================================================= */
+   HORIZONTE DE SUCESOS
+   ======================================================= */
 
-.banner-core-symbol{
+.banner-event-horizon{
 
-    margin-bottom:7px;
+    position:absolute;
 
-    color:#e5cc83;
+    inset:-5px;
 
-    font-size:1.7rem;
+    border-radius:50%;
 
-    line-height:1;
+    border:
+        1px solid
+        rgba(229,204,131,.42);
 
-    text-shadow:
-        0 0 10px
-        rgba(229,204,131,.45);
+    box-shadow:
+
+        0 0 8px
+        rgba(229,204,131,.18),
+
+        inset 0 0 8px
+        rgba(201,166,78,.08);
+
 }
 
 
 /* =======================================================
-TÍTULO CENTRAL
-======================================================= */
-
-.banner-core-title{
-
-    color:#f0d889;
-
-    font-family:
-        "Cinzel",
-        Georgia,
-        serif;
-
-    font-size:.9rem;
-
-    font-weight:800;
-
-    letter-spacing:2px;
-
-    text-align:center;
-}
-
-
-/* =======================================================
-SUBTÍTULO CENTRAL
-======================================================= */
-
-.banner-core-subtitle{
-
-    margin-top:5px;
-
-    color:#d8c38b;
-
-    font-size:.62rem;
-
-    font-weight:700;
-
-    letter-spacing:3px;
-}
-
-
-/* =======================================================
-DESTELLOS
-======================================================= */
+   DESTELLOS
+   ======================================================= */
 
 .banner-spark{
 
     position:absolute;
 
-    z-index:3;
+    z-index:5;
 
     color:#e5cc83;
 
     text-shadow:
         0 0 8px
-        rgba(229,204,131,.5);
+        rgba(229,204,131,.55);
 
     pointer-events:none;
 
     animation:
         bannerSpark 3.5s ease-in-out infinite;
+
 }
 
 
 .banner-spark-1{
 
-    top:22%;
+    top:20%;
 
-    left:23%;
+    left:22%;
 
     font-size:.75rem;
+
 }
 
 
 .banner-spark-2{
 
-    top:31%;
+    top:28%;
 
-    right:21%;
+    right:20%;
 
     font-size:1rem;
 
     animation-delay:1s;
+
 }
 
 
 .banner-spark-3{
 
-    bottom:23%;
+    bottom:22%;
 
-    left:27%;
+    left:26%;
 
     font-size:.6rem;
 
     animation-delay:2s;
+
 }
 
 
 .banner-spark-4{
 
-    bottom:28%;
+    bottom:27%;
 
-    right:25%;
+    right:24%;
 
     font-size:1rem;
 
     animation-delay:1.5s;
+
 }
 
 
 /* =======================================================
-ANIMACIÓN DE ESTRELLAS
-======================================================= */
+   ANIMACIÓN DE ESTRELLAS
+   ======================================================= */
 
 @keyframes bannerStars{
 
@@ -2070,74 +2159,120 @@ ANIMACIÓN DE ESTRELLAS
 
         transform:
             scale(1);
+
     }
 
     to{
 
-        opacity:.8;
+        opacity:.78;
 
         transform:
-            scale(1.025);
+            scale(1.018);
+
     }
+
 }
 
 
 /* =======================================================
-ANIMACIÓN DEL NÚCLEO
-======================================================= */
+   ANIMACIÓN DEL DISCO
+   ======================================================= */
 
-@keyframes bannerCoreGlow{
+@keyframes bannerAccretion{
 
-    0%,
-    100%{
+    0%{
 
-        box-shadow:
+        transform:
+            rotate(-14deg)
+            scale(1);
 
-            0 0 0 5px
-            rgba(201,166,78,.05),
-
-            0 0 0 9px
-            rgba(201,166,78,.035),
-
-            0 0 28px
-            rgba(201,166,78,.12),
-
-            inset 0 0 24px
-            rgba(0,0,0,.35);
     }
 
     50%{
 
-        box-shadow:
+        transform:
+            rotate(-14deg)
+            scale(1.035);
 
-            0 0 0 5px
-            rgba(201,166,78,.07),
-
-            0 0 0 9px
-            rgba(201,166,78,.045),
-
-            0 0 38px
-            rgba(201,166,78,.22),
-
-            inset 0 0 24px
-            rgba(0,0,0,.35);
     }
+
+    100%{
+
+        transform:
+            rotate(-14deg)
+            scale(1);
+
+    }
+
 }
 
 
 /* =======================================================
-ANIMACIÓN DE DESTELLOS
-======================================================= */
+   ANIMACIÓN DEL HORIZONTE
+   ======================================================= */
+
+@keyframes bannerHorizonGlow{
+
+    0%,
+    100%{
+
+        opacity:.65;
+
+        transform:
+            scale(1);
+
+    }
+
+    50%{
+
+        opacity:1;
+
+        transform:
+            scale(1.04);
+
+    }
+
+}
+
+
+/* =======================================================
+   ANIMACIÓN DEL AGUJERO NEGRO
+   ======================================================= */
+
+@keyframes bannerBlackhole{
+
+    0%,
+    100%{
+
+        transform:
+            scale(1);
+
+    }
+
+    50%{
+
+        transform:
+            scale(1.025);
+
+    }
+
+}
+
+
+/* =======================================================
+   ANIMACIÓN DE DESTELLOS
+   ======================================================= */
 
 @keyframes bannerSpark{
 
     0%,
     100%{
 
-        opacity:.35;
+        opacity:.3;
 
         transform:
             scale(.85);
+
     }
 
     50%{
@@ -2146,13 +2281,15 @@ ANIMACIÓN DE DESTELLOS
 
         transform:
             scale(1.15);
+
     }
+
 }
 
 
 /* =======================================================
-INFORMACIÓN DE INVOCACIÓN
-======================================================= */
+   INFORMACIÓN DE INVOCACIÓN
+   ======================================================= */
 
 .banner-info{
 
@@ -2165,8 +2302,8 @@ INFORMACIÓN DE INVOCACIÓN
     gap:8px;
 
     padding:10px 8px 2px;
-}
 
+}
 
 /* =======================================================
 BOTÓN DE INVOCACIÓN
