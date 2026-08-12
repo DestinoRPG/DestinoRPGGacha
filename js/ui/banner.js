@@ -6,14 +6,37 @@ export function renderBanner(user) {
 
         <section class="banner">
 
-            <div class="banner-image">
+<div class="banner-image">
 
-                <img
-                    src="images/banners/standard.webp"
-                    alt="Invocación estándar"
-                >
+    <div class="banner-scene">
 
-            </div>
+        <div class="banner-stars"></div>
+
+        <div class="banner-orbit banner-orbit-1"></div>
+        <div class="banner-orbit banner-orbit-2"></div>
+
+        <div class="banner-core">
+
+            <span class="banner-core-symbol">✦</span>
+
+            <span class="banner-core-title">
+                DESTINO RPG
+            </span>
+
+            <span class="banner-core-subtitle">
+                INVOCACIÓN
+            </span>
+
+        </div>
+
+        <span class="banner-spark banner-spark-1">✦</span>
+        <span class="banner-spark banner-spark-2">✧</span>
+        <span class="banner-spark banner-spark-3">✦</span>
+        <span class="banner-spark banner-spark-4">·</span>
+
+    </div>
+
+</div>
 
 
             <div class="banner-info">
