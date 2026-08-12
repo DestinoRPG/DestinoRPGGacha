@@ -1,20 +1,21 @@
 import { canSummon } from "../services/rewardService.js";
 
+
 export function renderBanner(user) {
 
     return `
 
 <section class="banner">
 
-    <div class="banner-space">
+    <div class="banner-image-frame">
 
-        <div class="banner-stars"></div>
+        <div class="banner-image">
 
-        <div class="banner-orbit banner-orbit-1"></div>
-        <div class="banner-orbit banner-orbit-2"></div>
+            <img
+                src="images/banners/standard.webp"
+                alt="Portal de invocación"
+            >
 
-        <div class="banner-core">
-            <span class="banner-core-symbol">✦</span>
         </div>
 
     </div>
