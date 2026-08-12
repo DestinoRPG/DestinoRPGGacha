@@ -1039,23 +1039,20 @@ hr{
 }
 
 
-.daily-reward-timer{
+#dailyRewardCountdown{
 
     margin-top:8px;
 
     font-size:1.35rem;
 
-    font-weight:900;
+    font-weight:800;
 
     letter-spacing:2px;
 
-    color:#8b6415;
+    color:#f0d477;
 
     font-variant-numeric:tabular-nums;
 
-    text-shadow:
-        0 1px 3px
-        rgba(0,0,0,.35);
 }
 
 /* =======================================================
