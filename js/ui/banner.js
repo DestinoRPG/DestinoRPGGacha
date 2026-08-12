@@ -7,48 +7,32 @@ export function renderBanner(user) {
 
         <section class="banner">
 
-            <!-- =================================================
-                 ESCENA ESPACIAL
-                 ================================================= -->
+<div class="banner-space">
 
-            <div class="banner-space">
+    <div class="banner-stars"></div>
 
-                <!-- Estrellas de fondo -->
-                <div class="banner-stars"></div>
+    <div class="banner-orbit banner-orbit-1"></div>
+    <div class="banner-orbit banner-orbit-2"></div>
 
-                <!-- Estrellas / partículas individuales -->
-                <span class="banner-spark banner-spark-1">✦</span>
-                <span class="banner-spark banner-spark-2">✦</span>
-                <span class="banner-spark banner-spark-3">·</span>
-                <span class="banner-spark banner-spark-4">✦</span>
+    <div class="banner-portal">
 
-                <!-- Disco de acreción -->
-                <div class="banner-accretion">
+        <div class="banner-chain banner-chain-1"></div>
+        <div class="banner-chain banner-chain-2"></div>
+        <div class="banner-chain banner-chain-3"></div>
 
-                    <div class="banner-accretion-ring"></div>
+        <div class="banner-lock"></div>
 
-                </div>
+    </div>
 
-                <!-- Brillo del horizonte -->
-                <div class="banner-horizon"></div>
+    <span class="banner-spark banner-spark-1">✦</span>
+    <span class="banner-spark banner-spark-2">✦</span>
+    <span class="banner-spark banner-spark-3">✦</span>
+    <span class="banner-spark banner-spark-4">✦</span>
 
-                <!-- Agujero negro -->
-                <div class="banner-blackhole">
-
-                    <div class="banner-event-horizon"></div>
-
-                </div>
-
-                <!-- Pequeños detalles orbitales -->
-                <div class="banner-orbit banner-orbit-1"></div>
-                <div class="banner-orbit banner-orbit-2"></div>
+</div>
 
             </div>
 
-
-            <!-- =================================================
-                 BOTÓN DE INVOCACIÓN
-                 ================================================= -->
 
             <div class="banner-info">
 
@@ -58,9 +42,13 @@ export function renderBanner(user) {
                     ${!canSummon(user) ? "disabled" : ""}
                 >
 
-                    <span class="ticket-icon">
+                    <span class="key-icon">
 
-                        <span class="ticket-icon-hole"></span>
+                        <span class="key-icon-ring"></span>
+
+                        <span class="key-icon-stem"></span>
+
+                        <span class="key-icon-teeth"></span>
 
                     </span>
 
@@ -72,7 +60,7 @@ export function renderBanner(user) {
                         </span>
 
                         <span class="banner-button-sub">
-                            1 TICKET
+                            1 LLAVE
                         </span>
 
                     </span>
