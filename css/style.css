@@ -1686,7 +1686,7 @@ hr{
 }
 
 /* =======================================================
-   BANNER / INVOCACIÓN
+BANNER / INVOCACIÓN
 ======================================================= */
 
 .banner{
@@ -1701,17 +1701,25 @@ hr{
 
     padding:18px;
 
-    background:var(--panel);
+    box-sizing:border-box;
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:#091727;
 
     border:2px solid #c9a64e;
 
     border-radius:22px;
 
     box-shadow:var(--shadow);
+
 }
 
+
 /* =======================================================
-   ESCENA DEL BANNER
+ESCENA DEL BANNER
 ======================================================= */
 
 .banner-image{
@@ -1730,9 +1738,10 @@ hr{
 
     overflow:hidden;
 
-    border-radius:18px;
+    border-radius:16px;
 
     background:
+
         radial-gradient(
             circle at 50% 48%,
             #122b45 0%,
@@ -1750,7 +1759,7 @@ hr{
 
 
 /* =======================================================
-   ESCENA
+ESCENA
 ======================================================= */
 
 .banner-scene{
@@ -1772,7 +1781,7 @@ hr{
 
 
 /* =======================================================
-   ESTRELLAS
+ESTRELLAS
 ======================================================= */
 
 .banner-stars{
@@ -1781,20 +1790,31 @@ hr{
 
     inset:0;
 
-    opacity:.75;
+    opacity:.7;
+
+    pointer-events:none;
 
     background-image:
+
         radial-gradient(
             circle,
             rgba(255,255,255,.8) 1px,
             transparent 1.5px
+        ),
+
+        radial-gradient(
+            circle,
+            rgba(229,204,131,.55) 1px,
+            transparent 1.5px
         );
 
     background-size:
-        72px 68px;
+        72px 68px,
+        137px 121px;
 
     background-position:
-        12px 18px;
+        12px 18px,
+        50px 80px;
 
     animation:
         bannerStars 8s ease-in-out infinite alternate;
@@ -1802,7 +1822,7 @@ hr{
 
 
 /* =======================================================
-   ÓRBITAS
+ÓRBITAS
 ======================================================= */
 
 .banner-orbit{
@@ -1819,8 +1839,7 @@ hr{
 
     border-radius:50%;
 
-    transform:
-        rotate(-18deg);
+    pointer-events:none;
 
     box-shadow:
         0 0 10px
@@ -1854,7 +1873,7 @@ hr{
 
 
 /* =======================================================
-   NÚCLEO CENTRAL
+NÚCLEO CENTRAL
 ======================================================= */
 
 .banner-core{
@@ -1878,6 +1897,7 @@ hr{
     border-radius:50%;
 
     background:
+
         radial-gradient(
             circle,
             #183653 0%,
@@ -1909,7 +1929,7 @@ hr{
 
 
 /* =======================================================
-   SÍMBOLO
+SÍMBOLO CENTRAL
 ======================================================= */
 
 .banner-core-symbol{
@@ -1929,7 +1949,7 @@ hr{
 
 
 /* =======================================================
-   TÍTULO
+TÍTULO CENTRAL
 ======================================================= */
 
 .banner-core-title{
@@ -1952,7 +1972,7 @@ hr{
 
 
 /* =======================================================
-   SUBTÍTULO
+SUBTÍTULO CENTRAL
 ======================================================= */
 
 .banner-core-subtitle{
@@ -1970,7 +1990,7 @@ hr{
 
 
 /* =======================================================
-   DESTELLOS
+DESTELLOS
 ======================================================= */
 
 .banner-spark{
@@ -1984,6 +2004,8 @@ hr{
     text-shadow:
         0 0 8px
         rgba(229,204,131,.5);
+
+    pointer-events:none;
 
     animation:
         bannerSpark 3.5s ease-in-out infinite;
@@ -2037,7 +2059,7 @@ hr{
 
 
 /* =======================================================
-   ANIMACIONES
+ANIMACIÓN DE ESTRELLAS
 ======================================================= */
 
 @keyframes bannerStars{
@@ -2048,7 +2070,6 @@ hr{
 
         transform:
             scale(1);
-
     }
 
     to{
@@ -2057,11 +2078,13 @@ hr{
 
         transform:
             scale(1.025);
-
     }
-
 }
 
+
+/* =======================================================
+ANIMACIÓN DEL NÚCLEO
+======================================================= */
 
 @keyframes bannerCoreGlow{
 
@@ -2081,7 +2104,6 @@ hr{
 
             inset 0 0 24px
             rgba(0,0,0,.35);
-
     }
 
     50%{
@@ -2099,11 +2121,13 @@ hr{
 
             inset 0 0 24px
             rgba(0,0,0,.35);
-
     }
-
 }
 
+
+/* =======================================================
+ANIMACIÓN DE DESTELLOS
+======================================================= */
 
 @keyframes bannerSpark{
 
@@ -2114,7 +2138,6 @@ hr{
 
         transform:
             scale(.85);
-
     }
 
     50%{
@@ -2123,39 +2146,30 @@ hr{
 
         transform:
             scale(1.15);
-
     }
-
 }
 
+
 /* =======================================================
-   INFORMACIÓN DE INVOCACIÓN
+INFORMACIÓN DE INVOCACIÓN
 ======================================================= */
 
 .banner-info{
+
     display:flex;
+
     flex-direction:column;
+
     align-items:center;
+
     gap:8px;
+
     padding:10px 8px 2px;
 }
 
 
-.banner-info h2{
-
-    margin:0;
-
-    font-size:1.5rem;
-
-    text-align:center;
-
-    color:var(--text);
-
-}
-
-
 /* =======================================================
-   BOTÓN DE INVOCACIÓN
+BOTÓN DE INVOCACIÓN
 ======================================================= */
 
 .banner-button{
@@ -2163,15 +2177,20 @@ hr{
     position:relative;
 
     width:100%;
+
     min-height:78px;
 
     display:flex;
+
     align-items:center;
+
     justify-content:center;
 
     gap:18px;
 
     padding:12px 30px;
+
+    box-sizing:border-box;
 
     border:2px solid #c9a64e;
 
@@ -2186,6 +2205,7 @@ hr{
     overflow:hidden;
 
     box-shadow:
+
         inset 0 0 0 1px
         rgba(255,255,255,.06),
 
@@ -2193,12 +2213,366 @@ hr{
         rgba(201,166,78,.12);
 
     transition:
-        border-color .25s ease,
-        box-shadow .25s ease,
-        background .25s ease;
 
+        border-color .25s ease,
+
+        box-shadow .25s ease,
+
+        background .25s ease,
+
+        transform .25s ease;
 }
 
+
+/* =======================================================
+BORDE INTERIOR
+======================================================= */
+
+.banner-button::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:5px;
+
+    border:
+        1px solid
+        rgba(201,166,78,.45);
+
+    border-radius:9px;
+
+    pointer-events:none;
+}
+
+
+/* =======================================================
+DESTELLO DEL BOTÓN
+======================================================= */
+
+.banner-button::after{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:-35%;
+
+    width:25%;
+
+    height:100%;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.12),
+            transparent
+        );
+
+    transform:
+        skewX(-20deg);
+
+    transition:
+        left .7s ease;
+
+    pointer-events:none;
+}
+
+
+/* =======================================================
+HOVER
+======================================================= */
+
+.banner-button:hover{
+
+    border-color:#f0d889;
+
+    background:#0b1c30;
+
+    box-shadow:
+
+        inset 0 0 0 1px
+        rgba(255,255,255,.08),
+
+        0 0 14px
+        rgba(201,166,78,.25);
+
+    transform:
+        translateY(-1px);
+}
+
+
+.banner-button:hover::after{
+
+    left:120%;
+}
+
+
+/* =======================================================
+TEXTO DEL BOTÓN
+======================================================= */
+
+.banner-button-info{
+
+    position:relative;
+
+    z-index:2;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    line-height:1;
+}
+
+
+/* =======================================================
+TEXTO PRINCIPAL
+======================================================= */
+
+.banner-button-main{
+
+    font-size:1.5rem;
+
+    font-weight:900;
+
+    letter-spacing:3px;
+
+    color:#e8cf82;
+
+    text-shadow:
+        0 1px 2px
+        rgba(0,0,0,.8);
+}
+
+
+/* =======================================================
+COSTE
+======================================================= */
+
+.banner-button-sub{
+
+    margin-top:7px;
+
+    font-size:.68rem;
+
+    font-weight:800;
+
+    letter-spacing:2px;
+
+    color:#a98b45;
+}
+
+
+/* =======================================================
+TICKET
+======================================================= */
+
+.banner-button .ticket-icon{
+
+    position:relative;
+
+    z-index:2;
+
+    width:38px;
+
+    height:25px;
+
+    flex-shrink:0;
+
+    display:block;
+
+    background:
+
+        linear-gradient(
+            180deg,
+            #fff1bc,
+            #d6ad4d
+        );
+
+    border:
+        2px solid
+        #9b741b;
+
+    border-radius:5px;
+
+    transform:
+        rotate(-8deg);
+
+    box-shadow:
+        0 2px 3px
+        rgba(0,0,0,.22);
+}
+
+
+/* =======================================================
+MUESCAS DEL TICKET
+======================================================= */
+
+.banner-button .ticket-icon::before,
+.banner-button .ticket-icon::after{
+
+    content:"";
+
+    position:absolute;
+
+    top:50%;
+
+    width:8px;
+
+    height:8px;
+
+    margin-top:-4px;
+
+    border-radius:50%;
+
+    background:#091727;
+}
+
+
+.banner-button .ticket-icon::before{
+
+    left:-6px;
+}
+
+
+.banner-button .ticket-icon::after{
+
+    right:-6px;
+}
+
+
+/* =======================================================
+PERFORACIÓN DEL TICKET
+======================================================= */
+
+.ticket-icon-hole{
+
+    position:absolute;
+
+    top:3px;
+
+    bottom:3px;
+
+    left:50%;
+
+    border-left:
+        2px dashed
+        rgba(139,100,21,.65);
+}
+
+
+/* =======================================================
+ADORNOS DEL BOTÓN
+======================================================= */
+
+.banner-button-info::before{
+
+    content:"✦";
+
+    position:absolute;
+
+    left:-55px;
+
+    top:50%;
+
+    transform:
+        translateY(-50%);
+
+    color:#c9a64e;
+
+    font-size:.8rem;
+
+    opacity:.8;
+}
+
+
+.banner-button-info::after{
+
+    content:"✦";
+
+    position:absolute;
+
+    right:-55px;
+
+    top:50%;
+
+    transform:
+        translateY(-50%);
+
+    color:#c9a64e;
+
+    font-size:.8rem;
+
+    opacity:.8;
+}
+
+
+/* =======================================================
+CLICK
+======================================================= */
+
+.banner-button:active{
+
+    transform:
+        scale(.97);
+}
+
+
+/* =======================================================
+DESACTIVADO
+======================================================= */
+
+.banner-button:disabled{
+
+    cursor:not-allowed;
+
+    filter:
+        grayscale(.25)
+        brightness(.82);
+
+    opacity:.65;
+
+    transform:none;
+
+    box-shadow:
+
+        0 4px 0 #806126,
+
+        0 6px 12px
+        rgba(0,0,0,.12);
+}
+
+
+.banner-button:disabled::after{
+
+    display:none;
+}
+
+
+.banner-button:disabled:hover{
+
+    background:#091727;
+
+    border-color:#c9a64e;
+
+    box-shadow:
+
+        0 4px 0 #806126,
+
+        0 6px 12px
+        rgba(0,0,0,.12);
+
+    transform:none;
+}
 
 /* =======================================================
    SEGUNDO BORDE INTERIOR
