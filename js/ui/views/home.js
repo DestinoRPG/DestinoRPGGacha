@@ -97,11 +97,22 @@ export async function renderHome(profile) {
             <div class="home-bottom">
 
 
-                <section class="home-result">
+<section class="home-result">
 
-                    <div id="resultArea"></div>
+    <div id="resultArea">
 
-                </section>
+        <div class="summon-placeholder">
+
+            <img
+                src="images/summon-placeholder.webp"
+                alt=""
+            >
+
+        </div>
+
+    </div>
+
+</section>
 
 
                 <section class="home-news">
