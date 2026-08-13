@@ -63,25 +63,16 @@ export async function refreshUI(profile) {
     }
 
 
-    if (currentView === "home") {
+if (currentView === "home") {
 
-        viewArea.innerHTML =
-            await renderHome(profile);
+    viewArea.innerHTML =
+        await renderHome(profile);
 
-        const resultArea =
-            document.getElementById("resultArea");
+    initializeHome(profile);
 
-        if (resultArea) {
+    return;
 
-            resultArea.innerHTML = "";
-
-        }
-
-        initializeHome(profile);
-
-        return;
-
-    }
+}
 
 
     if (currentView === "collection") {
