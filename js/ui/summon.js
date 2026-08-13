@@ -6,9 +6,22 @@ export function renderSummonResult(card) {
 
         <div class="summon-result">
 
-            <div class="summon-background"></div>
+<div class="summon-background">
 
-            <div class="summon-particles"></div>
+    <div class="summon-portal"></div>
+
+    <div class="summon-chain summon-chain-tl"></div>
+    <div class="summon-chain summon-chain-tr"></div>
+    <div class="summon-chain summon-chain-bl"></div>
+    <div class="summon-chain summon-chain-br"></div>
+
+    <div class="summon-lock">
+        🔒
+    </div>
+
+</div>
+
+<div class="summon-particles"></div>
 
             <div
                 id="summonFlash"
@@ -64,9 +77,7 @@ export function renderSummonLoading() {
             <div class="summon-circle"></div>
 
             <h2>
-
                 INVOCANDO...
-
             </h2>
 
         </div>
