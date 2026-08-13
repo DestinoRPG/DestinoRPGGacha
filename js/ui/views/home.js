@@ -101,14 +101,23 @@ export async function renderHome(profile) {
 
     <div id="resultArea">
 
-        <div class="summon-placeholder">
+<div class="summon-placeholder">
 
-            <img
-                src="images/banners/placeholder.webp"
-                alt=""
-            >
+    <img
+        src="https://destinorpg.github.io/DestinoRPGGacha/images/banners/placeholder.webp"
+        alt="Placeholder de invocación"
+        style="
+            display:block;
+            width:700px;
+            max-width:100%;
+            height:350px;
+            object-fit:contain;
+            opacity:1;
+            visibility:visible;
+        "
+    >
 
-        </div>
+</div>
 
     </div>
 
