@@ -5202,7 +5202,7 @@ DESACTIVADO
 
     width:100%;
 
-    min-height:420px;
+    height:100%;
 
     display:flex;
 
@@ -5210,13 +5210,11 @@ DESACTIVADO
 
     justify-content:center;
 
-    position:relative;
-
-    overflow:hidden;
+    padding:28px;
 
     box-sizing:border-box;
-}
 
+}
 
 .summon-placeholder img{
 
@@ -5224,17 +5222,12 @@ DESACTIVADO
 
     width:100%;
 
-    max-width:700px;
+    max-width:620px;
 
     height:auto;
 
-    max-height:350px;
+    max-height:calc(100% - 20px);
 
     object-fit:contain;
 
-    margin:auto;
-
-    position:relative;
-
-    z-index:2;
 }
