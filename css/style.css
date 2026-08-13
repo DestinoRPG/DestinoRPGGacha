@@ -4687,7 +4687,9 @@ DESACTIVADO
 
 }
 
-/* Pantalla de carga */
+/* =======================================================
+   PANTALLA DE CARGA
+======================================================= */
 
 .summon-loading{
 
@@ -4697,11 +4699,18 @@ DESACTIVADO
 
     align-items:center;
 
+    justify-content:center;
+
     gap:20px;
 
     padding:70px 0;
 
 }
+
+
+/* =======================================================
+   NÚCLEO DE INVOCACIÓN
+======================================================= */
 
 .summon-circle{
 
@@ -4711,25 +4720,47 @@ DESACTIVADO
 
     border-radius:50%;
 
-    border:6px solid rgba(255,255,255,.15);
+    border:5px solid
+        rgba(255,255,255,.12);
 
-    border-top-color:#ffd54f;
+    border-top-color:#e5cc83;
 
-    animation:spin 1s linear infinite;
+    border-right-color:#c9a64e;
 
+    box-shadow:
+
+        0 0 15px
+        rgba(201,166,78,.25),
+
+        0 0 35px
+        rgba(201,166,78,.12);
+
+    animation:
+        spin 1s linear infinite;
 }
+
+
+/* =======================================================
+   TEXTO DE CARGA
+======================================================= */
 
 .summon-loading h2{
 
-    color:white;
+    color:#f0d889;
 
     font-size:2rem;
 
     letter-spacing:4px;
 
+    text-shadow:
+        0 0 12px
+        rgba(201,166,78,.35);
 }
 
-/* Animaciones */
+
+/* =======================================================
+   ANIMACIONES GENERALES
+======================================================= */
 
 @keyframes spin{
 
@@ -4740,6 +4771,7 @@ DESACTIVADO
     }
 
 }
+
 
 @keyframes fadeIn{
 
@@ -4757,36 +4789,18 @@ DESACTIVADO
 
 }
 
-@keyframes summonPulse{
 
-    0%,100%{
-
-        transform:scale(1);
-
-        opacity:.5;
-
-    }
-
-    50%{
-
-        transform:scale(1.08);
-
-        opacity:1;
-
-    }
-
-}
+/* =======================================================
+   ANIMACIÓN DE PARTÍCULAS
+======================================================= */
 
 @keyframes summonParticles{
 
     from{
 
         background-position:
-
             0 0,
-
             0 0,
-
             0 0;
 
     }
@@ -4794,16 +4808,18 @@ DESACTIVADO
     to{
 
         background-position:
-
             0 -240px,
-
             0 -320px,
-
             0 -180px;
 
     }
 
 }
+
+
+/* =======================================================
+   CONTENEDOR DE LA CARTA
+======================================================= */
 
 .summon-animation{
 
@@ -4821,51 +4837,390 @@ DESACTIVADO
 
 }
 
-/* Destello */
+
+/* =======================================================
+   NÚCLEO DORADO DE INVOCACIÓN
+======================================================= */
 
 .summon-flash{
 
     position:absolute;
 
-    width:650px;
+    left:50%;
 
-    height:650px;
+    top:50%;
+
+    width:110px;
+
+    height:110px;
 
     border-radius:50%;
 
     pointer-events:none;
 
-    background:
-
-        radial-gradient(
-
-            circle,
-
-            rgba(255,255,255,.95),
-
-            rgba(255,235,160,.45),
-
-            transparent 72%
-
-        );
+    transform:
+        translate(-50%,-50%)
+        scale(.15);
 
     opacity:0;
 
-    transform:scale(.2);
-
     z-index:3;
 
+    background:
+
+        radial-gradient(
+            circle,
+            rgba(255,255,255,1) 0%,
+            rgba(255,239,171,.98) 10%,
+            rgba(229,204,131,.9) 25%,
+            rgba(201,166,78,.5) 45%,
+            rgba(201,166,78,.18) 62%,
+            transparent 75%
+        );
+
+    filter:
+        blur(.5px);
+
 }
+
+
+/* =======================================================
+   ANILLOS DE ENERGÍA
+======================================================= */
+
+.summon-flash::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:50%;
+
+    top:50%;
+
+    width:80px;
+
+    height:80px;
+
+    border-radius:50%;
+
+    border:
+        2px solid
+        rgba(229,204,131,.85);
+
+    transform:
+        translate(-50%,-50%)
+        scale(.4);
+
+    opacity:.8;
+
+    box-shadow:
+
+        0 0 12px
+        rgba(229,204,131,.65),
+
+        inset 0 0 12px
+        rgba(229,204,131,.25);
+
+}
+
+
+/* =======================================================
+   RAYOS / EXPLOSIÓN
+======================================================= */
+
+.summon-flash::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:50%;
+
+    top:50%;
+
+    width:20px;
+
+    height:20px;
+
+    border-radius:50%;
+
+    transform:
+        translate(-50%,-50%)
+        scale(.2);
+
+    opacity:0;
+
+    background:
+
+        radial-gradient(
+            circle,
+            #ffffff 0%,
+            #f0d889 30%,
+            #c9a64e 55%,
+            transparent 75%
+        );
+
+    box-shadow:
+
+        0 0 25px
+        rgba(255,230,130,.95),
+
+        0 0 60px
+        rgba(201,166,78,.65),
+
+        0 0 110px
+        rgba(201,166,78,.35);
+
+}
+
+
+/* =======================================================
+   ACTIVACIÓN
+======================================================= */
 
 .summon-flash.active{
 
     animation:
-
-        summonFlash .55s ease;
+        summonCoreBurst 1.15s
+        cubic-bezier(.18,.8,.2,1)
+        forwards;
 
 }
 
-/* Carta */
+
+/* =======================================================
+   ANIMACIÓN DEL NÚCLEO
+======================================================= */
+
+@keyframes summonCoreBurst{
+
+    /* ---------------------------------
+       APARECE LA ENERGÍA
+    --------------------------------- */
+
+    0%{
+
+        opacity:0;
+
+        transform:
+            translate(-50%,-50%)
+            scale(.15);
+
+        filter:
+            blur(4px);
+
+    }
+
+
+    /* ---------------------------------
+       LA CERRADURA EMPIEZA A BRILLAR
+    --------------------------------- */
+
+    18%{
+
+        opacity:.85;
+
+        transform:
+            translate(-50%,-50%)
+            scale(.55);
+
+        filter:
+            blur(1px);
+
+    }
+
+
+    /* ---------------------------------
+       CARGA MÁXIMA
+    --------------------------------- */
+
+    42%{
+
+        opacity:1;
+
+        transform:
+            translate(-50%,-50%)
+            scale(1.05);
+
+        filter:
+            blur(0);
+
+    }
+
+
+    /* ---------------------------------
+       EXPLOSIÓN
+    --------------------------------- */
+
+    60%{
+
+        opacity:1;
+
+        transform:
+            translate(-50%,-50%)
+            scale(2.5);
+
+    }
+
+
+    /* ---------------------------------
+       SE ABRE EL PORTAL
+    --------------------------------- */
+
+    78%{
+
+        opacity:.65;
+
+        transform:
+            translate(-50%,-50%)
+            scale(4.2);
+
+    }
+
+
+    /* ---------------------------------
+       DESAPARECE
+    --------------------------------- */
+
+    100%{
+
+        opacity:0;
+
+        transform:
+            translate(-50%,-50%)
+            scale(5.5);
+
+        filter:
+            blur(3px);
+
+    }
+
+}
+
+
+/* =======================================================
+   ANILLO INTERIOR
+======================================================= */
+
+.summon-flash.active::before{
+
+    animation:
+        summonRingBurst 1.05s
+        cubic-bezier(.15,.75,.2,1)
+        forwards;
+
+}
+
+
+@keyframes summonRingBurst{
+
+    0%{
+
+        opacity:0;
+
+        transform:
+            translate(-50%,-50%)
+            scale(.25);
+
+    }
+
+    25%{
+
+        opacity:1;
+
+        transform:
+            translate(-50%,-50%)
+            scale(.7);
+
+    }
+
+    55%{
+
+        opacity:.9;
+
+        transform:
+            translate(-50%,-50%)
+            scale(2);
+
+    }
+
+    100%{
+
+        opacity:0;
+
+        transform:
+            translate(-50%,-50%)
+            scale(4.8);
+
+    }
+
+}
+
+
+/* =======================================================
+   EXPLOSIÓN CENTRAL
+======================================================= */
+
+.summon-flash.active::after{
+
+    animation:
+        summonExplosion 1.05s
+        cubic-bezier(.15,.75,.2,1)
+        forwards;
+
+}
+
+
+@keyframes summonExplosion{
+
+    0%{
+
+        opacity:0;
+
+        transform:
+            translate(-50%,-50%)
+            scale(.2);
+
+    }
+
+    35%{
+
+        opacity:1;
+
+        transform:
+            translate(-50%,-50%)
+            scale(2);
+
+    }
+
+    55%{
+
+        opacity:1;
+
+        transform:
+            translate(-50%,-50%)
+            scale(5);
+
+    }
+
+    100%{
+
+        opacity:0;
+
+        transform:
+            translate(-50%,-50%)
+            scale(15);
+
+    }
+
+}
+
+
+/* =======================================================
+   CARTA
+======================================================= */
+
 .summon-flip{
 
     position:relative;
@@ -4877,20 +5232,32 @@ DESACTIVADO
     transform-style:preserve-3d;
 
     transition:
-        transform .9s cubic-bezier(.22,.9,.18,1);
+        transform .9s
+        cubic-bezier(.22,.9,.18,1);
 
     z-index:10;
 }
 
+
 .summon-flip.opened{
 
-    transform:rotateY(180deg);
+    transform:
+        rotateY(180deg);
+
 }
+
 
 .summon-flip.shake{
 
-    animation:summonShake .55s;
+    animation:
+        summonShake .55s;
+
 }
+
+
+/* =======================================================
+   CARAS DE LA CARTA
+======================================================= */
 
 .summon-face{
 
@@ -4906,6 +5273,11 @@ DESACTIVADO
 
 }
 
+
+/* =======================================================
+   PARTE TRASERA
+======================================================= */
+
 .summon-back{
 
     display:flex;
@@ -4915,6 +5287,7 @@ DESACTIVADO
     align-items:center;
 
 }
+
 
 .summon-back img{
 
@@ -4928,17 +5301,27 @@ DESACTIVADO
 
     box-shadow:
 
-        0 25px 70px rgba(0,0,0,.45);
+        0 25px 70px
+        rgba(0,0,0,.45);
 
     filter:
 
-        drop-shadow(0 0 35px rgba(255,220,90,.55));
+        drop-shadow(
+            0 0 35px
+            rgba(255,220,90,.55)
+        );
 
 }
 
+
+/* =======================================================
+   PARTE FRONTAL
+======================================================= */
+
 .summon-front{
 
-    transform:rotateY(180deg);
+    transform:
+        rotateY(180deg);
 
     display:flex;
 
@@ -4947,6 +5330,7 @@ DESACTIVADO
     align-items:center;
 
 }
+
 
 .summon-front .summon-card{
 
@@ -4959,18 +5343,21 @@ DESACTIVADO
     transform-style:preserve-3d;
 
     transition:
-
         transform .18s ease;
 
     animation:
 
         summonReveal .8s ease,
 
-        summonFloat 3.5s ease-in-out infinite;
+        summonFloat 3.5s
+        ease-in-out infinite;
 
 }
 
-/* Halo */
+
+/* =======================================================
+   HALO DE LA CARTA
+======================================================= */
 
 .card-glow{
 
@@ -4985,16 +5372,13 @@ DESACTIVADO
     background:
 
         radial-gradient(
-
             circle,
-
             rgba(255,230,120,.5),
-
             transparent 72%
-
         );
 
-    filter:blur(18px);
+    filter:
+        blur(18px);
 
     opacity:.85;
 
@@ -5002,7 +5386,10 @@ DESACTIVADO
 
 }
 
-/* Brillo */
+
+/* =======================================================
+   BRILLO DE LA CARTA
+======================================================= */
 
 .card-shine{
 
@@ -5017,6 +5404,7 @@ DESACTIVADO
     pointer-events:none;
 
 }
+
 
 .card-shine::after{
 
@@ -5035,30 +5423,32 @@ DESACTIVADO
     background:
 
         linear-gradient(
-
             110deg,
-
             transparent,
-
             rgba(255,255,255,.65),
-
             transparent
-
         );
 
-    transform:rotate(10deg);
+    transform:
+        rotate(10deg);
 
     animation:
-
-        summonShine 3.5s ease-in-out infinite;
+        summonShine 3.5s
+        ease-in-out infinite;
 
 }
+
+
+/* =======================================================
+   APARICIÓN DE LA CARTA
+======================================================= */
 
 @keyframes summonReveal{
 
     0%{
 
         opacity:0;
+
         transform:
             scale(.65)
             rotateY(180deg);
@@ -5076,6 +5466,7 @@ DESACTIVADO
     100%{
 
         opacity:1;
+
         transform:
             scale(1)
             rotateY(180deg);
@@ -5083,6 +5474,11 @@ DESACTIVADO
     }
 
 }
+
+
+/* =======================================================
+   FLOTACIÓN
+======================================================= */
 
 @keyframes summonFloat{
 
@@ -5102,29 +5498,10 @@ DESACTIVADO
 
 }
 
-@keyframes summonFlash{
 
-    0%{
-
-        opacity:0;
-        transform:scale(.2);
-
-    }
-
-    30%{
-
-        opacity:1;
-
-    }
-
-    100%{
-
-        opacity:0;
-        transform:scale(1.6);
-
-    }
-
-}
+/* =======================================================
+   BRILLO DE LA CARTA
+======================================================= */
 
 @keyframes summonShine{
 
@@ -5148,47 +5525,59 @@ DESACTIVADO
 
 }
 
+
+/* =======================================================
+   SACUDIDA
+======================================================= */
+
 @keyframes summonShake{
 
     0%{
 
-        transform:translateX(0);
+        transform:
+            translateX(0);
 
     }
 
     15%{
 
-        transform:translateX(-12px);
+        transform:
+            translateX(-12px);
 
     }
 
     30%{
 
-        transform:translateX(12px);
+        transform:
+            translateX(12px);
 
     }
 
     45%{
 
-        transform:translateX(-10px);
+        transform:
+            translateX(-10px);
 
     }
 
     60%{
 
-        transform:translateX(10px);
+        transform:
+            translateX(10px);
 
     }
 
     75%{
 
-        transform:translateX(-6px);
+        transform:
+            translateX(-6px);
 
     }
 
     100%{
 
-        transform:translateX(0);
+        transform:
+            translateX(0);
 
     }
 
