@@ -5231,3 +5231,47 @@ DESACTIVADO
     object-fit:contain;
 
 }
+
+
+.gacha-box {
+    transition:
+        transform 0.25s ease,
+        filter 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.gacha-box:hover {
+    transform: scale(1.015);
+
+    filter:
+        drop-shadow(0 0 8px rgba(255, 210, 80, 0.35))
+        drop-shadow(0 0 18px rgba(30, 120, 255, 0.15));
+}
+
+.gacha-box.lock-glow {
+    animation: lockPulse 2s ease-in-out infinite;
+}
+
+@keyframes lockPulse {
+    0%, 100% {
+        filter: drop-shadow(0 0 2px rgba(255, 210, 80, 0.2));
+    }
+
+    50% {
+        filter: drop-shadow(0 0 9px rgba(255, 210, 80, 0.7));
+    }
+}
+
+.gacha-box.ready {
+    cursor: pointer;
+}
+
+.gacha-box.opening {
+    animation:
+        boxShake 0.12s infinite alternate,
+        boxGlow 1s ease-in-out infinite;
+}
+
+.gacha-box.revealing {
+    animation: boxDisappear 0.45s ease forwards;
+}
