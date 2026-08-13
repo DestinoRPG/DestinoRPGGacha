@@ -231,27 +231,42 @@ if (!result.success) {
 
     }
 
-    if (
-        result.reason ===
-        "COLLECTION_COMPLETE"
-    ) {
+if (
+    result.reason ===
+    "COLLECTION_COMPLETE"
+) {
 
-        document
-            .getElementById("resultArea")
-            .innerHTML = `
+    document
+        .getElementById("resultArea")
+        .innerHTML = `
+
+            <div class="collection-complete">
+
+                <div class="collection-complete-label">
+                    COLECCIÓN COMPLETADA
+                </div>
 
                 <h2>
-
-                    ¡Colección completada!
-
+                    ¡Enhorabuena!
                 </h2>
-                <p>Has conseguido todas las cartas disponibles actualmente en el juego. ¡Enhorabuena!</p>
 
-            `;
+                <p>
+                    Has conseguido todas las cartas disponibles
+                    actualmente en el juego.
+                </p>
 
-        return;
+                <p class="collection-complete-next">
+                    Nuevas colecciones y cartas se irán
+                    incorporando con el tiempo.
+                </p>
 
-    }
+            </div>
+
+        `;
+
+    return;
+
+}
 
 }
 
