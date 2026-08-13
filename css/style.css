@@ -4490,7 +4490,7 @@ DESACTIVADO
     }
 
 /* =======================================================
-   INVOCACIÓN / ESCENARIO
+   INVOCACIÓN
 ======================================================= */
 
 .summon-result{
@@ -4505,32 +4505,11 @@ DESACTIVADO
 
     padding:40px 20px 70px;
 
-    min-height:360px;
-
     animation:fadeIn .5s;
 
-    background:
-        radial-gradient(
-            circle at 50% 45%,
-            #122b45 0%,
-            #0b1e32 45%,
-            #091727 82%
-        );
-
-    border-radius:22px;
-
-    border:1px solid
-        rgba(201,166,78,.28);
-
-    box-shadow:
-        inset 0 0 45px
-        rgba(0,0,0,.28);
 }
 
-
-/* =======================================================
-   FONDO ESPACIAL
-======================================================= */
+/* Fondo mágico */
 
 .summon-background{
 
@@ -4538,475 +4517,29 @@ DESACTIVADO
 
     inset:0;
 
-    overflow:hidden;
-
     pointer-events:none;
 
     background:
 
         radial-gradient(
-            ellipse at center,
-            rgba(30,65,96,.35) 0%,
-            transparent 55%
-        );
-}
 
-
-/* =======================================================
-   ESTRELLAS
-======================================================= */
-
-.summon-background::before{
-
-    content:"";
-
-    position:absolute;
-
-    inset:0;
-
-    opacity:.7;
-
-    background-image:
-
-        radial-gradient(
             circle,
-            rgba(255,255,255,.8) 1px,
-            transparent 1.5px
-        ),
 
-        radial-gradient(
-            circle,
-            rgba(229,204,131,.55) 1px,
-            transparent 1.5px
-        );
+            rgba(255,215,90,.22) 0%,
 
-    background-size:
-        75px 70px,
-        145px 130px;
+            rgba(255,215,90,.08) 35%,
 
-    background-position:
-        10px 20px,
-        45px 75px;
-
-    animation:
-        summonStars 9s ease-in-out infinite alternate;
-}
-
-
-/* =======================================================
-   RESPLANDOR CENTRAL
-======================================================= */
-
-.summon-background::after{
-
-    content:"";
-
-    position:absolute;
-
-    left:50%;
-
-    top:50%;
-
-    width:280px;
-
-    height:280px;
-
-    transform:
-        translate(-50%,-50%);
-
-    border-radius:50%;
-
-    background:
-
-        radial-gradient(
-            circle,
-            rgba(229,204,131,.16) 0%,
-            rgba(201,166,78,.07) 35%,
-            transparent 72%
-        );
-
-    filter:blur(4px);
-
-    animation:
-        summonPortalGlow 4s ease-in-out infinite;
-}
-
-
-/* =======================================================
-   PORTAL / PUERTA ESPACIAL
-======================================================= */
-
-.summon-portal{
-
-    position:absolute;
-
-    left:50%;
-
-    top:50%;
-
-    width:210px;
-
-    height:210px;
-
-    transform:
-        translate(-50%,-50%);
-
-    border-radius:50%;
-
-    background:
-
-        radial-gradient(
-            circle,
-            #030912 0%,
-            #06111d 52%,
-            #0b1e32 68%,
             transparent 70%
-        );
 
-    border:
-        2px solid
-        rgba(229,204,131,.7);
-
-    box-shadow:
-
-        0 0 0 6px
-        rgba(201,166,78,.06),
-
-        0 0 0 12px
-        rgba(201,166,78,.035),
-
-        0 0 20px
-        rgba(201,166,78,.16),
-
-        inset 0 0 35px
-        rgba(0,0,0,.8);
-
-    animation:
-        summonPortalPulse 4s ease-in-out infinite;
-}
-
-
-/* =======================================================
-   SEGUNDO ANILLO DEL PORTAL
-======================================================= */
-
-.summon-portal::before{
-
-    content:"";
-
-    position:absolute;
-
-    inset:8px;
-
-    border-radius:50%;
-
-    border:
-        1px solid
-        rgba(229,204,131,.4);
-
-    box-shadow:
-        inset 0 0 18px
-        rgba(201,166,78,.12);
-}
-
-
-/* =======================================================
-   TERCER ANILLO
-======================================================= */
-
-.summon-portal::after{
-
-    content:"";
-
-    position:absolute;
-
-    inset:-17px;
-
-    border-radius:50%;
-
-    border:
-        1px solid
-        rgba(201,166,78,.22);
-
-    transform:
-        rotate(25deg);
-
-    box-shadow:
-        0 0 12px
-        rgba(201,166,78,.05);
-}
-
-
-/* =======================================================
-   CADENAS
-======================================================= */
-
-.summon-chain{
-
-    position:absolute;
-
-    width:190px;
-
-    height:18px;
-
-    z-index:4;
-
-    pointer-events:none;
-
-    transform-origin:left center;
-
-    opacity:.9;
-
-    background:
-
-        repeating-linear-gradient(
-            90deg,
-            transparent 0 7px,
-            #c49a3c 7px 12px,
-            transparent 12px 19px
-        );
-
-    filter:
-        drop-shadow(
-            0 2px 3px
-            rgba(0,0,0,.5)
         );
 
     animation:
-        summonChainGlow 3s ease-in-out infinite;
-}
 
-
-/* =======================================================
-   ESLABONES VISUALES
-======================================================= */
-
-.summon-chain::before{
-
-    content:"";
-
-    position:absolute;
-
-    inset:-4px 0;
-
-    background:
-
-        repeating-linear-gradient(
-            90deg,
-            transparent 0 8px,
-            rgba(245,223,154,.85) 8px 11px,
-            transparent 11px 19px
-        );
-
-    border-radius:20px;
-
-    opacity:.7;
-}
-
-
-/* =======================================================
-   CADENA SUPERIOR IZQUIERDA
-======================================================= */
-
-.summon-chain-tl{
-
-    top:0;
-
-    left:0;
-
-    transform:
-        rotate(28deg);
-
-    transform-origin:left center;
-}
-
-
-/* =======================================================
-   CADENA SUPERIOR DERECHA
-======================================================= */
-
-.summon-chain-tr{
-
-    top:0;
-
-    right:0;
-
-    transform:
-        rotate(152deg);
-
-    transform-origin:left center;
-}
-
-
-/* =======================================================
-   CADENA INFERIOR IZQUIERDA
-======================================================= */
-
-.summon-chain-bl{
-
-    bottom:0;
-
-    left:0;
-
-    transform:
-        rotate(-28deg);
-
-    transform-origin:left center;
-}
-
-
-/* =======================================================
-   CADENA INFERIOR DERECHA
-======================================================= */
-
-.summon-chain-br{
-
-    bottom:0;
-
-    right:0;
-
-    transform:
-        rotate(-152deg);
-
-    transform-origin:left center;
-}
-
-
-/* =======================================================
-   CANDADO CENTRAL
-======================================================= */
-
-.summon-lock{
-
-    position:absolute;
-
-    left:50%;
-
-    top:50%;
-
-    z-index:8;
-
-    width:54px;
-
-    height:64px;
-
-    display:flex;
-
-    align-items:flex-end;
-
-    justify-content:center;
-
-    padding-bottom:10px;
-
-    box-sizing:border-box;
-
-    transform:
-        translate(-50%,-50%);
-
-    border:
-        2px solid #d8b75d;
-
-    border-radius:8px;
-
-    background:
-
-        linear-gradient(
-            145deg,
-            #e8cc78,
-            #a67c20
-        );
-
-    color:#fff2bd;
-
-    font-size:1.7rem;
-
-    text-shadow:
-        0 2px 3px
-        rgba(0,0,0,.45);
-
-    box-shadow:
-
-        0 4px 10px
-        rgba(0,0,0,.45),
-
-        0 0 18px
-        rgba(201,166,78,.22);
-
-    animation:
-        summonLockPulse 3s ease-in-out infinite;
-}
-
-
-/* =======================================================
-   ARCO DEL CANDADO
-======================================================= */
-
-.summon-lock::before{
-
-    content:"";
-
-    position:absolute;
-
-    left:50%;
-
-    top:-27px;
-
-    width:30px;
-
-    height:32px;
-
-    transform:
-        translateX(-50%);
-
-    border:
-        6px solid #c9a64e;
-
-    border-bottom:0;
-
-    border-radius:
-        18px 18px 0 0;
-
-    box-sizing:border-box;
-
-    filter:
-        drop-shadow(
-            0 2px 2px
-            rgba(0,0,0,.4)
-        );
-}
-
-
-/* =======================================================
-   CERRADURA
-======================================================= */
-
-.summon-lock::after{
-
-    content:"";
-
-    position:absolute;
-
-    left:50%;
-
-    top:28px;
-
-    width:7px;
-
-    height:12px;
-
-    transform:
-        translateX(-50%);
-
-    border-radius:4px;
-
-    background:#755817;
+        summonPulse 3s ease-in-out infinite;
 
 }
 
-
-/* =======================================================
-   PARTÍCULAS
-======================================================= */
+/* Partículas */
 
 .summon-particles{
 
@@ -5016,228 +4549,105 @@ DESACTIVADO
 
     pointer-events:none;
 
-    z-index:5;
-
-    opacity:.55;
+    opacity:.65;
 
     background-image:
 
-        radial-gradient(
-            circle,
-            rgba(255,255,255,.9) 1px,
-            transparent 2px
-        ),
+        radial-gradient(circle,#ffffff 2px,transparent 3px),
 
-        radial-gradient(
-            circle,
-            rgba(229,204,131,.7) 1px,
-            transparent 2px
-        );
+        radial-gradient(circle,#ffd75a 2px,transparent 3px),
+
+        radial-gradient(circle,#ffffff 1px,transparent 2px);
 
     background-size:
-        160px 160px,
-        230px 230px;
+
+        180px 180px,
+
+        240px 240px,
+
+        120px 120px;
 
     animation:
+
         summonParticles 12s linear infinite;
+
 }
 
+.summon-title{
 
-/* =======================================================
-   ANIMACIÓN DE ESTRELLAS
-======================================================= */
+    display:inline-flex;
 
-@keyframes summonStars{
+    justify-content:center;
 
-    from{
+    align-items:center;
 
-        opacity:.45;
+    margin:0 auto 35px;
 
-        transform:
-            scale(1);
-    }
+    padding:16px 34px;
 
-    to{
+    border-radius:999px;
 
-        opacity:.8;
+    background:
+        linear-gradient(
+            180deg,
+            rgba(40,32,18,.92),
+            rgba(18,14,8,.92)
+        );
 
-        transform:
-            scale(1.025);
-    }
+    border:2px solid #d9b85b;
+
+    color:#fff;
+
+    font-size:1.15rem;
+
+    font-weight:800;
+
+    letter-spacing:.4px;
+
+    text-shadow:none;
+
+    box-shadow:
+        0 12px 30px rgba(0,0,0,.35),
+        0 0 20px rgba(255,215,90,.18);
+
+    position:relative;
+
+    z-index:20;
+
 }
 
+.summon-subtitle{
 
-/* =======================================================
-   PULSO DEL PORTAL
-======================================================= */
+    display:inline-flex;
 
-@keyframes summonPortalPulse{
+    align-items:center;
 
-    0%,
-    100%{
+    justify-content:center;
 
-        box-shadow:
+    margin:24px auto 40px;
 
-            0 0 0 6px
-            rgba(201,166,78,.05),
+    padding:14px 28px;
 
-            0 0 0 12px
-            rgba(201,166,78,.035),
+    border-radius:999px;
 
-            0 0 20px
-            rgba(201,166,78,.14),
+    background:rgba(15,15,15,.72);
 
-            inset 0 0 35px
-            rgba(0,0,0,.8);
+    border:1px solid rgba(255,215,90,.45);
 
-        transform:
-            translate(-50%,-50%)
-            scale(1);
-    }
+    color:#fff;
 
-    50%{
+    font-size:1.08rem;
 
-        box-shadow:
+    font-weight:700;
 
-            0 0 0 6px
-            rgba(201,166,78,.08),
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.35);
 
-            0 0 0 12px
-            rgba(201,166,78,.05),
+    backdrop-filter:blur(10px);
 
-            0 0 35px
-            rgba(201,166,78,.24),
-
-            inset 0 0 40px
-            rgba(0,0,0,.85);
-
-        transform:
-            translate(-50%,-50%)
-            scale(1.025);
-    }
 }
 
-
-/* =======================================================
-   PULSO DEL RESPLANDOR
-======================================================= */
-
-@keyframes summonPortalGlow{
-
-    0%,
-    100%{
-
-        opacity:.55;
-
-        transform:
-            translate(-50%,-50%)
-            scale(.9);
-    }
-
-    50%{
-
-        opacity:1;
-
-        transform:
-            translate(-50%,-50%)
-            scale(1.08);
-    }
-}
-
-
-/* =======================================================
-   PULSO DEL CANDADO
-======================================================= */
-
-@keyframes summonLockPulse{
-
-    0%,
-    100%{
-
-        filter:
-            brightness(.95);
-
-        box-shadow:
-
-            0 4px 10px
-            rgba(0,0,0,.45),
-
-            0 0 12px
-            rgba(201,166,78,.16);
-    }
-
-    50%{
-
-        filter:
-            brightness(1.12);
-
-        box-shadow:
-
-            0 4px 10px
-            rgba(0,0,0,.45),
-
-            0 0 25px
-            rgba(201,166,78,.3);
-    }
-}
-
-
-/* =======================================================
-   BRILLO DE LAS CADENAS
-======================================================= */
-
-@keyframes summonChainGlow{
-
-    0%,
-    100%{
-
-        opacity:.65;
-
-        filter:
-            drop-shadow(
-                0 2px 3px
-                rgba(0,0,0,.5)
-            );
-    }
-
-    50%{
-
-        opacity:1;
-
-        filter:
-            drop-shadow(
-                0 0 7px
-                rgba(229,204,131,.4)
-            );
-    }
-}
-
-
-/* =======================================================
-   MOVIMIENTO DE PARTÍCULAS
-======================================================= */
-
-@keyframes summonParticles{
-
-    from{
-
-        background-position:
-            0 0,
-            0 0;
-    }
-
-    to{
-
-        background-position:
-            0 -240px,
-            0 -320px;
-    }
-}
-
-
-/* =======================================================
-   PANTALLA DE CARGA
-======================================================= */
+/* Pantalla de carga */
 
 .summon-loading{
 
@@ -5251,9 +4661,6 @@ DESACTIVADO
 
     padding:70px 0;
 
-    position:relative;
-
-    z-index:10;
 }
 
 .summon-circle{
@@ -5264,14 +4671,12 @@ DESACTIVADO
 
     border-radius:50%;
 
-    border:
-        6px solid
-        rgba(255,255,255,.15);
+    border:6px solid rgba(255,255,255,.15);
 
     border-top-color:#ffd54f;
 
-    animation:
-        spin 1s linear infinite;
+    animation:spin 1s linear infinite;
+
 }
 
 .summon-loading h2{
@@ -5281,19 +4686,19 @@ DESACTIVADO
     font-size:2rem;
 
     letter-spacing:4px;
+
 }
 
-
-/* =======================================================
-   ANIMACIÓN GENERAL
-======================================================= */
+/* Animaciones */
 
 @keyframes spin{
 
     to{
 
         transform:rotate(360deg);
+
     }
+
 }
 
 @keyframes fadeIn{
@@ -5301,12 +4706,63 @@ DESACTIVADO
     from{
 
         opacity:0;
+
     }
 
     to{
 
         opacity:1;
+
     }
+
+}
+
+@keyframes summonPulse{
+
+    0%,100%{
+
+        transform:scale(1);
+
+        opacity:.5;
+
+    }
+
+    50%{
+
+        transform:scale(1.08);
+
+        opacity:1;
+
+    }
+
+}
+
+@keyframes summonParticles{
+
+    from{
+
+        background-position:
+
+            0 0,
+
+            0 0,
+
+            0 0;
+
+    }
+
+    to{
+
+        background-position:
+
+            0 -240px,
+
+            0 -320px,
+
+            0 -180px;
+
+    }
+
 }
 
 .summon-animation{
