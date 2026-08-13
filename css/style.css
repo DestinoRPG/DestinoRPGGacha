@@ -4688,137 +4688,7 @@ DESACTIVADO
 }
 
 /* =======================================================
-   PANTALLA DE CARGA
-======================================================= */
-
-.summon-loading{
-
-    display:flex;
-
-    flex-direction:column;
-
-    align-items:center;
-
-    justify-content:center;
-
-    gap:20px;
-
-    padding:70px 0;
-
-}
-
-
-/* =======================================================
-   NÚCLEO DE INVOCACIÓN
-======================================================= */
-
-.summon-circle{
-
-    width:90px;
-
-    height:90px;
-
-    border-radius:50%;
-
-    border:5px solid
-        rgba(255,255,255,.12);
-
-    border-top-color:#e5cc83;
-
-    border-right-color:#c9a64e;
-
-    box-shadow:
-
-        0 0 15px
-        rgba(201,166,78,.25),
-
-        0 0 35px
-        rgba(201,166,78,.12);
-
-    animation:
-        spin 1s linear infinite;
-}
-
-
-/* =======================================================
-   TEXTO DE CARGA
-======================================================= */
-
-.summon-loading h2{
-
-    color:#f0d889;
-
-    font-size:2rem;
-
-    letter-spacing:4px;
-
-    text-shadow:
-        0 0 12px
-        rgba(201,166,78,.35);
-}
-
-
-/* =======================================================
-   ANIMACIONES GENERALES
-======================================================= */
-
-@keyframes spin{
-
-    to{
-
-        transform:rotate(360deg);
-
-    }
-
-}
-
-
-@keyframes fadeIn{
-
-    from{
-
-        opacity:0;
-
-    }
-
-    to{
-
-        opacity:1;
-
-    }
-
-}
-
-
-/* =======================================================
-   ANIMACIÓN DE PARTÍCULAS
-======================================================= */
-
-@keyframes summonParticles{
-
-    from{
-
-        background-position:
-            0 0,
-            0 0,
-            0 0;
-
-    }
-
-    to{
-
-        background-position:
-            0 -240px,
-            0 -320px,
-            0 -180px;
-
-    }
-
-}
-
-
-/* =======================================================
-   CONTENEDOR DE LA CARTA
+   ANIMACIÓN DE INVOCACIÓN
 ======================================================= */
 
 .summon-animation{
@@ -4839,310 +4709,404 @@ DESACTIVADO
 
 
 /* =======================================================
-   NÚCLEO DORADO DE INVOCACIÓN
+   NÚCLEO DE ENERGÍA
+   Aparece en el centro antes de que salga la carta
+======================================================= */
+
+.summon-animation::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:55px;
+
+    height:55px;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,255,255,.95) 0%,
+            rgba(255,225,105,.9) 18%,
+            rgba(255,195,45,.55) 42%,
+            rgba(201,166,78,.18) 65%,
+            transparent 75%
+        );
+
+    filter:blur(3px);
+
+    opacity:0;
+
+    transform:scale(.15);
+
+    z-index:2;
+
+    pointer-events:none;
+}
+
+
+/* =======================================================
+   HALO EXTERIOR
+======================================================= */
+
+.summon-animation::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:170px;
+
+    height:170px;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,215,80,.25),
+            rgba(255,200,50,.12) 35%,
+            transparent 70%
+        );
+
+    filter:blur(12px);
+
+    opacity:0;
+
+    transform:scale(.2);
+
+    z-index:1;
+
+    pointer-events:none;
+}
+
+
+/* =======================================================
+   ACTIVACIÓN DE LA INVOCACIÓN
+======================================================= */
+
+/*
+   Añade .summon-animation.summoning mediante JS
+   durante el proceso de invocación.
+*/
+
+.summon-animation.summoning::before{
+
+    animation:
+        summonCoreCharge .85s ease-out forwards;
+}
+
+
+.summon-animation.summoning::after{
+
+    animation:
+        summonCoreHalo .85s ease-out forwards;
+}
+
+
+/* =======================================================
+   DESTELLO DE EXPLOSIÓN
 ======================================================= */
 
 .summon-flash{
 
     position:absolute;
 
-    left:50%;
+    width:650px;
 
-    top:50%;
-
-    width:110px;
-
-    height:110px;
+    height:650px;
 
     border-radius:50%;
 
     pointer-events:none;
 
-    transform:
-        translate(-50%,-50%)
-        scale(.15);
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,255,255,.98) 0%,
+            rgba(255,235,160,.9) 8%,
+            rgba(255,210,80,.55) 25%,
+            rgba(255,195,50,.18) 48%,
+            transparent 72%
+        );
 
     opacity:0;
 
-    z-index:3;
+    transform:scale(.05);
 
-    background:
+    z-index:5;
 
-        radial-gradient(
-            circle,
-            rgba(255,255,255,1) 0%,
-            rgba(255,239,171,.98) 10%,
-            rgba(229,204,131,.9) 25%,
-            rgba(201,166,78,.5) 45%,
-            rgba(201,166,78,.18) 62%,
-            transparent 75%
-        );
-
-    filter:
-        blur(.5px);
-
+    pointer-events:none;
 }
 
-
-/* =======================================================
-   ANILLOS DE ENERGÍA
-======================================================= */
-
-.summon-flash::before{
-
-    content:"";
-
-    position:absolute;
-
-    left:50%;
-
-    top:50%;
-
-    width:80px;
-
-    height:80px;
-
-    border-radius:50%;
-
-    border:
-        2px solid
-        rgba(229,204,131,.85);
-
-    transform:
-        translate(-50%,-50%)
-        scale(.4);
-
-    opacity:.8;
-
-    box-shadow:
-
-        0 0 12px
-        rgba(229,204,131,.65),
-
-        inset 0 0 12px
-        rgba(229,204,131,.25);
-
-}
-
-
-/* =======================================================
-   RAYOS / EXPLOSIÓN
-======================================================= */
-
-.summon-flash::after{
-
-    content:"";
-
-    position:absolute;
-
-    left:50%;
-
-    top:50%;
-
-    width:20px;
-
-    height:20px;
-
-    border-radius:50%;
-
-    transform:
-        translate(-50%,-50%)
-        scale(.2);
-
-    opacity:0;
-
-    background:
-
-        radial-gradient(
-            circle,
-            #ffffff 0%,
-            #f0d889 30%,
-            #c9a64e 55%,
-            transparent 75%
-        );
-
-    box-shadow:
-
-        0 0 25px
-        rgba(255,230,130,.95),
-
-        0 0 60px
-        rgba(201,166,78,.65),
-
-        0 0 110px
-        rgba(201,166,78,.35);
-
-}
-
-
-/* =======================================================
-   ACTIVACIÓN
-======================================================= */
 
 .summon-flash.active{
 
     animation:
-        summonCoreBurst 1.15s
-        cubic-bezier(.18,.8,.2,1)
-        forwards;
+        summonFlash .65s
+        cubic-bezier(.2,.8,.2,1);
+}
+
+
+/* =======================================================
+   CARTA
+======================================================= */
+
+.summon-flip{
+
+    position:relative;
+
+    width:min(440px,78vw);
+
+    aspect-ratio:2/1;
+
+    transform-style:preserve-3d;
+
+    transition:
+        transform .9s
+        cubic-bezier(.22,.9,.18,1);
+
+    z-index:10;
+
+    /*
+       Mientras se carga la invocación,
+       la carta permanece invisible.
+    */
 
 }
 
 
 /* =======================================================
-   ANIMACIÓN DEL NÚCLEO
+   CARTA ABIERTA
 ======================================================= */
 
-@keyframes summonCoreBurst{
+.summon-flip.opened{
 
-    /* ---------------------------------
-       APARECE LA ENERGÍA
-    --------------------------------- */
-
-    0%{
-
-        opacity:0;
-
-        transform:
-            translate(-50%,-50%)
-            scale(.15);
-
-        filter:
-            blur(4px);
-
-    }
-
-
-    /* ---------------------------------
-       LA CERRADURA EMPIEZA A BRILLAR
-    --------------------------------- */
-
-    18%{
-
-        opacity:.85;
-
-        transform:
-            translate(-50%,-50%)
-            scale(.55);
-
-        filter:
-            blur(1px);
-
-    }
-
-
-    /* ---------------------------------
-       CARGA MÁXIMA
-    --------------------------------- */
-
-    42%{
-
-        opacity:1;
-
-        transform:
-            translate(-50%,-50%)
-            scale(1.05);
-
-        filter:
-            blur(0);
-
-    }
-
-
-    /* ---------------------------------
-       EXPLOSIÓN
-    --------------------------------- */
-
-    60%{
-
-        opacity:1;
-
-        transform:
-            translate(-50%,-50%)
-            scale(2.5);
-
-    }
-
-
-    /* ---------------------------------
-       SE ABRE EL PORTAL
-    --------------------------------- */
-
-    78%{
-
-        opacity:.65;
-
-        transform:
-            translate(-50%,-50%)
-            scale(4.2);
-
-    }
-
-
-    /* ---------------------------------
-       DESAPARECE
-    --------------------------------- */
-
-    100%{
-
-        opacity:0;
-
-        transform:
-            translate(-50%,-50%)
-            scale(5.5);
-
-        filter:
-            blur(3px);
-
-    }
-
+    transform:
+        rotateY(180deg);
 }
 
 
 /* =======================================================
-   ANILLO INTERIOR
+   TEMBLOR
 ======================================================= */
 
-.summon-flash.active::before{
+.summon-flip.shake{
 
     animation:
-        summonRingBurst 1.05s
-        cubic-bezier(.15,.75,.2,1)
-        forwards;
-
+        summonShake .55s;
 }
 
 
-@keyframes summonRingBurst{
+/* =======================================================
+   CARAS
+======================================================= */
+
+.summon-face{
+
+    position:absolute;
+
+    inset:0;
+
+    width:100%;
+
+    height:100%;
+
+    backface-visibility:hidden;
+}
+
+
+/* =======================================================
+   PARTE TRASERA
+======================================================= */
+
+.summon-back{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+}
+
+
+.summon-back img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    border-radius:22px;
+
+    box-shadow:
+        0 25px 70px
+        rgba(0,0,0,.45);
+
+    filter:
+        drop-shadow(
+            0 0 35px
+            rgba(255,220,90,.55)
+        );
+}
+
+
+/* =======================================================
+   PARTE DELANTERA
+======================================================= */
+
+.summon-front{
+
+    transform:
+        rotateY(180deg);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+}
+
+
+.summon-front .summon-card{
+
+    position:relative;
+
+    width:100%;
+
+    max-width:760px;
+
+    transform-style:preserve-3d;
+
+    transition:
+        transform .18s ease;
+
+    animation:
+        summonReveal .8s ease,
+        summonFloat 3.5s ease-in-out infinite;
+}
+
+
+/* =======================================================
+   HALO DE LA CARTA
+======================================================= */
+
+.card-glow{
+
+    position:absolute;
+
+    inset:-30px;
+
+    border-radius:40px;
+
+    pointer-events:none;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,230,120,.5),
+            transparent 72%
+        );
+
+    filter:blur(18px);
+
+    opacity:.85;
+
+    z-index:-1;
+}
+
+
+/* =======================================================
+   BRILLO DE LA CARTA
+======================================================= */
+
+.card-shine{
+
+    position:absolute;
+
+    inset:0;
+
+    overflow:hidden;
+
+    border-radius:20px;
+
+    pointer-events:none;
+}
+
+
+.card-shine::after{
+
+    content:"";
+
+    position:absolute;
+
+    top:-25%;
+
+    left:-60%;
+
+    width:55%;
+
+    height:160%;
+
+    background:
+        linear-gradient(
+            110deg,
+            transparent,
+            rgba(255,255,255,.65),
+            transparent
+        );
+
+    transform:
+        rotate(10deg);
+
+    animation:
+        summonShine 3.5s
+        ease-in-out infinite;
+}
+
+
+/* =======================================================
+   CARGA DEL NÚCLEO
+======================================================= */
+
+@keyframes summonCoreCharge{
 
     0%{
 
         opacity:0;
 
         transform:
-            translate(-50%,-50%)
-            scale(.25);
+            scale(.15);
 
     }
 
     25%{
 
-        opacity:1;
+        opacity:.8;
 
         transform:
-            translate(-50%,-50%)
-            scale(.7);
+            scale(.65);
 
     }
 
     55%{
 
-        opacity:.9;
+        opacity:1;
 
         transform:
-            translate(-50%,-50%)
-            scale(2);
+            scale(1.15);
 
+    }
+
+    78%{
+
+        opacity:1;
+
+        transform:
+            scale(1.5);
     }
 
     100%{
@@ -5150,8 +5114,7 @@ DESACTIVADO
         opacity:0;
 
         transform:
-            translate(-50%,-50%)
-            scale(4.8);
+            scale(2.8);
 
     }
 
@@ -5159,48 +5122,35 @@ DESACTIVADO
 
 
 /* =======================================================
-   EXPLOSIÓN CENTRAL
+   EXPANSIÓN DEL HALO
 ======================================================= */
 
-.summon-flash.active::after{
-
-    animation:
-        summonExplosion 1.05s
-        cubic-bezier(.15,.75,.2,1)
-        forwards;
-
-}
-
-
-@keyframes summonExplosion{
+@keyframes summonCoreHalo{
 
     0%{
 
         opacity:0;
 
         transform:
-            translate(-50%,-50%)
             scale(.2);
 
     }
 
     35%{
 
-        opacity:1;
+        opacity:.45;
 
         transform:
-            translate(-50%,-50%)
-            scale(2);
+            scale(.65);
 
     }
 
-    55%{
+    65%{
 
-        opacity:1;
+        opacity:.8;
 
         transform:
-            translate(-50%,-50%)
-            scale(5);
+            scale(1);
 
     }
 
@@ -5209,8 +5159,198 @@ DESACTIVADO
         opacity:0;
 
         transform:
-            translate(-50%,-50%)
-            scale(15);
+            scale(1.8);
+
+    }
+
+}
+
+
+/* =======================================================
+   REVELACIÓN DE LA CARTA
+======================================================= */
+
+@keyframes summonReveal{
+
+    0%{
+
+        opacity:0;
+
+        transform:
+            scale(.65)
+            rotateY(180deg);
+
+    }
+
+    60%{
+
+        transform:
+            scale(1.08)
+            rotateY(180deg);
+
+    }
+
+    100%{
+
+        opacity:1;
+
+        transform:
+            scale(1)
+            rotateY(180deg);
+
+    }
+
+}
+
+
+/* =======================================================
+   FLOTACIÓN
+======================================================= */
+
+@keyframes summonFloat{
+
+    0%,
+    100%{
+
+        transform:
+            translateY(0);
+
+    }
+
+    50%{
+
+        transform:
+            translateY(-12px);
+
+    }
+
+}
+
+
+/* =======================================================
+   EXPLOSIÓN
+======================================================= */
+
+@keyframes summonFlash{
+
+    0%{
+
+        opacity:0;
+
+        transform:
+            scale(.05);
+
+    }
+
+    18%{
+
+        opacity:1;
+
+        transform:
+            scale(.35);
+
+    }
+
+    45%{
+
+        opacity:1;
+
+        transform:
+            scale(.85);
+
+    }
+
+    100%{
+
+        opacity:0;
+
+        transform:
+            scale(1.6);
+
+    }
+
+}
+
+
+/* =======================================================
+   BRILLO DE LA CARTA
+======================================================= */
+
+@keyframes summonShine{
+
+    0%{
+
+        left:-70%;
+
+    }
+
+    35%{
+
+        left:140%;
+
+    }
+
+    100%{
+
+        left:140%;
+
+    }
+
+}
+
+
+/* =======================================================
+   SACUDIDA
+======================================================= */
+
+@keyframes summonShake{
+
+    0%{
+
+        transform:
+            translateX(0);
+
+    }
+
+    15%{
+
+        transform:
+            translateX(-12px);
+
+    }
+
+    30%{
+
+        transform:
+            translateX(12px);
+
+    }
+
+    45%{
+
+        transform:
+            translateX(-10px);
+
+    }
+
+    60%{
+
+        transform:
+            translateX(10px);
+
+    }
+
+    75%{
+
+        transform:
+            translateX(-6px);
+
+    }
+
+    100%{
+
+        transform:
+            translateX(0);
 
     }
 

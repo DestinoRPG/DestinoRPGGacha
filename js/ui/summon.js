@@ -65,8 +65,6 @@ export function renderSummonLoading() {
 
             <h2>
 
-                INVOCANDO...
-
             </h2>
 
         </div>
