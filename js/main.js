@@ -245,6 +245,7 @@ if (!result.success) {
                     ¡Colección completada!
 
                 </h2>
+                <p>Has conseguido todas las cartas disponibles actualmente en el juego. ¡Enhorabuena!</p>
 
             `;
 
