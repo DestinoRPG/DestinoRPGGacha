@@ -104,7 +104,7 @@ export async function renderHome(profile) {
         <div class="summon-placeholder">
 
             <img
-                src="images/summon-placeholder.webp"
+                src="images/banners/summon-placeholder.webp"
                 alt=""
             >
 
