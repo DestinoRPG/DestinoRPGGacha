@@ -26,7 +26,10 @@ export async function renderHome(profile) {
 
     for (const collection of COLLECTIONS) {
 
-        if (!collection.enabled) {
+        if (
+            !collection.enabled ||
+            !collection.showInProfile
+        ) {
             continue;
         }
 
