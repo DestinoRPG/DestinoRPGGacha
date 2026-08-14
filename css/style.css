@@ -5110,11 +5110,15 @@ DESACTIVADO
 
     align-items:center;
 
-    margin:10px 0;
+    margin-top:55px;
+
+    margin-bottom:35px;
+
+    padding:15px 0;
 
     perspective:1800px;
 
-    z-index:99999;
+    z-index:5;
 
 }
 
@@ -5666,18 +5670,17 @@ DESACTIVADO
 
 @keyframes summonFloat{
 
-    0%,
-    100%{
+    0%,100%{
 
         transform:
-            translateY(0);
+            translateY(8px);
 
     }
 
     50%{
 
         transform:
-            translateY(6px);
+            translateY(-4px);
 
     }
 
