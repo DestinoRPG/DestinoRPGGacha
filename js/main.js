@@ -315,7 +315,7 @@ await new Promise(resolve =>
 
 
 // =========================================================
-// Mostrar carta obtenida
+// Mostrar carta boca abajo
 // =========================================================
 
 const completionReward =
@@ -339,7 +339,7 @@ const flash =
 
 
 // =========================================================
-// Animación de aparición
+// PEQUEÑA ESPERA ANTES DE ACTIVAR LA INVOCACIÓN
 // =========================================================
 
 setTimeout(() => {
@@ -356,7 +356,7 @@ setTimeout(() => {
 
 
 // =========================================================
-// Revelar carta normal
+// REVELAR CARTA
 // =========================================================
 
 setTimeout(() => {
@@ -374,6 +374,10 @@ setTimeout(() => {
     );
 
 
+    // -----------------------------------------------------
+    // Actualizar noticias
+    // -----------------------------------------------------
+
     revealCardNews();
 
 
@@ -383,20 +387,29 @@ setTimeout(() => {
         );
 
 
-if (newsArea) {
+    if (newsArea) {
 
-    newsArea.outerHTML =
-        renderNews(profile);
+        newsArea.outerHTML =
+            renderNews(profile);
 
-    initializeNews(profile);
+        initializeNews(profile);
 
-}
+    }
+
+
+    // -----------------------------------------------------
+    // Eventos de la carta
+    // -----------------------------------------------------
 
     initializeCardEvents(
         [result.card],
         profile
     );
 
+
+    // -----------------------------------------------------
+    // Efecto de inclinación con el ratón
+    // -----------------------------------------------------
 
     const summonCard =
         flip?.querySelector(
@@ -459,9 +472,9 @@ if (newsArea) {
 
     }
 
+
 // =========================================================
-// Si NO hay recompensa de colección,
-// terminamos aquí.
+// SI NO HAY RECOMPENSA DE COLECCIÓN
 // =========================================================
 
 if (!completionReward) {
@@ -477,32 +490,20 @@ if (!completionReward) {
 
 }
 
-// =========================================================
-// Hay recompensa de colección
-// =========================================================
 
-// Esperamos para que el usuario vea
-// primero la carta que acaba de conseguir.
+// =========================================================
+// HAY RECOMPENSA DE COLECCIÓN
+// =========================================================
+//
+// La carta normal permanece visible durante 1,8 segundos.
+// Después se sustituye por la carta especial.
+// =========================================================
 
 setTimeout(() => {
 
+
     // -----------------------------------------------------
-    // ELIMINAR EXPLÍCITAMENTE LA PANTALLA DE MEMELE
-    // -----------------------------------------------------
-
-    const summonResult =
-        resultArea.querySelector(
-            ".summon-result"
-        );
-
-    if (summonResult) {
-
-        summonResult.remove();
-
-    }
-
-// -----------------------------------------------------
-    // Mostrar recompensa
+    // Sustituir la carta obtenida por la recompensa
     // -----------------------------------------------------
 
     resultArea.innerHTML = `
@@ -546,7 +547,7 @@ setTimeout(() => {
 
 
     // -----------------------------------------------------
-    // Ya hemos terminado la invocación
+    // Termina la invocación
     // -----------------------------------------------------
 
     summonButton.disabled =

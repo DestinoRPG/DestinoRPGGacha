@@ -16,6 +16,8 @@ import {
     initializeNews
 } from "../news.js";
 
+import { renderSummonPlaceholder } from "../summon.js";
+
 
 export async function renderHome(profile) {
 
@@ -101,14 +103,7 @@ export async function renderHome(profile) {
 
     <div id="resultArea">
 
-<div class="summon-placeholder">
-
-    <img
-        src="https://destinorpg.github.io/DestinoRPGGacha/images/banners/placeholder.webp"
-        alt="Placeholder de invocación"
-    >
-
-</div>
+        ${renderSummonPlaceholder()}
 
     </div>
 

@@ -1,5 +1,42 @@
 import { renderCard } from "./card.js";
 
+
+/* =======================================================
+   PLACEHOLDER / CARTA CERRADA
+======================================================= */
+
+export function renderSummonPlaceholder() {
+
+    return `
+
+        <div class="summon-result summon-idle">
+
+            <div class="summon-background"></div>
+
+            <div class="summon-particles"></div>
+
+            <div class="summon-idle-card">
+
+                <img
+                    src="images/card-back.webp"
+                    alt="Carta disponible para invocar"
+                >
+
+                <div class="summon-idle-glow"></div>
+
+            </div>
+
+        </div>
+
+    `;
+
+}
+
+
+/* =======================================================
+   RESULTADO DE INVOCACIÓN
+======================================================= */
+
 export function renderSummonResult(card) {
 
     return `
@@ -15,12 +52,16 @@ export function renderSummonResult(card) {
                 class="summon-flash"
             ></div>
 
+
             <div class="summon-animation">
 
                 <div
                     id="summonFlip"
                     class="summon-flip"
                 >
+
+
+                    <!-- CARTA TRASERA -->
 
                     <div class="summon-face summon-back">
 
@@ -30,6 +71,9 @@ export function renderSummonResult(card) {
                         >
 
                     </div>
+
+
+                    <!-- CARTA REVELADA -->
 
                     <div class="summon-face summon-front">
 
@@ -45,6 +89,7 @@ export function renderSummonResult(card) {
 
                     </div>
 
+
                 </div>
 
             </div>
@@ -52,23 +97,22 @@ export function renderSummonResult(card) {
         </div>
 
     `;
+
 }
 
 
+/* =======================================================
+   LOADING
+======================================================= */
+
 export function renderSummonLoading() {
 
-    return `
+    /*
+     * Ya no usamos una pantalla de carga.
+     * Se mantiene la función por compatibilidad
+     * con cualquier import existente.
+     */
 
-        <div class="summon-loading">
-
-            <div class="summon-circle"></div>
-
-            <h2>
-
-            </h2>
-
-        </div>
-
-    `;
+    return renderSummonPlaceholder();
 
 }
