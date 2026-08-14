@@ -1749,6 +1749,80 @@
     ],
         "enabled": true
     },
+                                        {
+        "id": "diegomurphy",
+        "number": 13,
+        "title": "Diego Murphy",
+        "collection": "contributors",
+        "image": "images/cards/diegomurphy.webp",
+        "articles": [
+        {
+            "title": "Su primer artículo",
+            "url": "https://www.destinorpg.es/2022/08/persona-3-y-la-voluntad-de-vivir.html"
+        },
+                {
+            "title": "Su último artículo (hasta la fecha)",
+            "url": "https://www.destinorpg.es/2022/09/xenogears-y-el-existente.html"
+        }
+    ],
+        "enabled": true
+    },
+                                            {
+        "id": "dimento",
+        "number": 14,
+        "title": "Dimento",
+        "collection": "contributors",
+        "image": "images/cards/dimento.webp",
+        "articles": [
+        {
+            "title": "Su primer artículo",
+            "url": "https://www.destinorpg.es/2016/02/opinion-el-protagonista-como-titere-del.html"
+        }
+    ],
+        "enabled": true
+    },
+                                                {
+        "id": "eric",
+        "number": 15,
+        "title": "Eric",
+        "collection": "contributors",
+        "image": "images/cards/eric.webp",
+        "articles": [
+        {
+            "title": "Su primer artículo",
+            "url": "https://www.destinorpg.es/2018/10/ys-que-es-y-por-donde-empezar.html"
+        }
+    ],
+        "enabled": true
+    },
+                                                    {
+        "id": "frederick",
+        "number": 16,
+        "title": "Frederick",
+        "collection": "contributors",
+        "image": "images/cards/frederick.webp",
+        "articles": [
+        {
+            "title": "Su primer artículo",
+            "url": "http://destino-rpg.blogspot.com.es/2015/10/obras-literarias-que-serian-grandes-rpg.html"
+        }
+    ],
+        "enabled": true
+    },
+                                                        {
+        "id": "frisodio",
+        "number": 17,
+        "title": "Frisodio",
+        "collection": "contributors",
+        "image": "images/cards/frisodio.webp",
+        "articles": [
+        {
+            "title": "Su primer artículo",
+            "url": "https://www.destinorpg.es/2017/02/debate-como-podemos-considerar-lo-que.html"
+        }
+    ],
+        "enabled": true
+    },
                                     {
         "id": "mylady",
         "number": 1,
