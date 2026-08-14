@@ -5289,6 +5289,34 @@ DESACTIVADO
 }
 
 
+/* =======================================================
+   OCULTAR REVERSO AL REVELAR
+======================================================= */
+
+.summon-flip.opened .summon-back{
+
+    visibility:hidden;
+
+}
+
+
+.summon-flip.opened .summon-back img{
+
+    opacity:0;
+
+    pointer-events:none;
+
+}
+
+
+.summon-flip.shake{
+
+    animation:
+        summonShake .55s;
+
+}
+
+
 .summon-flip.shake{
 
     animation:
