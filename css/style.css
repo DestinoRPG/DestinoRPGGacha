@@ -5114,7 +5114,7 @@ DESACTIVADO
 
     perspective:1800px;
 
-    z-index:5;
+    z-index:99999;
 
 }
 
@@ -5152,7 +5152,7 @@ DESACTIVADO
 
     transform:scale(.15);
 
-    z-index:2;
+    z-index:9999999;
 
     pointer-events:none;
 }
@@ -5188,7 +5188,7 @@ DESACTIVADO
 
     transform:scale(.2);
 
-    z-index:1;
+    z-index:99999999;
 
     pointer-events:none;
 }
@@ -5279,7 +5279,7 @@ DESACTIVADO
         transform .9s
         cubic-bezier(.22,.9,.18,1);
 
-    z-index:10;
+    z-index:9999999;
 }
 
 
