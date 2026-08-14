@@ -5394,8 +5394,9 @@ DESACTIVADO
 
     position:relative;
 
-width:84%;
-max-width:650px;
+    width:92%;
+
+    max-width:700px;
 
     transform-style:preserve-3d;
 
@@ -5404,7 +5405,6 @@ max-width:650px;
 
     animation:
         summonReveal .8s ease,
-
         summonFloat 3.5s ease-in-out infinite;
 
 }
@@ -5886,14 +5886,17 @@ max-width:650px;
 
 .summon-front{
 
-    transform:
-        rotateY(180deg);
+    transform:rotateY(180deg);
 
     display:flex;
 
     justify-content:center;
 
     align-items:center;
+
+    padding:10px 0;
+
+    box-sizing:border-box;
 
 }
 
