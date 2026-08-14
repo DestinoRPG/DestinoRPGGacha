@@ -17,7 +17,14 @@ export function createUI() {
                     class="nav-button"
                 >
 
-                    🏠 Inicio
+    <i
+        class="fa-solid fa-house nav-icon"
+        aria-hidden="true"
+    ></i>
+
+    <span>
+        Inicio
+    </span>
 
                 </button>
 
@@ -26,7 +33,15 @@ export function createUI() {
                     class="nav-button"
                 >
 
-                    📚 Colección
+    
+    <i
+        class="fa-solid fa-layer-group nav-icon"
+        aria-hidden="true"
+    ></i>
+
+    <span>
+        Colección
+    </span>
 
                 </button>
 

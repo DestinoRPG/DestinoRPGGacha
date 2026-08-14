@@ -172,24 +172,38 @@ hr{
 
     align-items:stretch;
 
-    gap:28px;
-
-    max-width:1200px;
-
-    margin:0 auto 24px;
-}
-
-#mainLogo{
-
-    display:block;
+    gap:20px;
 
     width:100%;
 
     max-width:1200px;
 
-    margin:0 auto;
+    margin:0 auto 24px;
+
+    min-width:0;
+
+}
+
+
+/* =======================================================
+   LOGO
+======================================================= */
+
+#mainLogo{
+
+    display:block;
+
+    flex:1 1 auto;
+
+    min-width:0;
+
+    width:auto;
+
+    max-width:none;
 
     height:auto;
+
+    object-fit:contain;
 
 }
 
@@ -200,17 +214,23 @@ hr{
 
 #navigation{
 
+    position:relative;
+
+    flex:0 0 auto;
+
     display:flex;
 
     justify-content:center;
 
-    align-items:center;
+    align-items:stretch;
 
-    gap:12px;
+    flex-direction:column;
 
-    padding:24px;
+    gap:8px;
 
-    background:var(--panel);
+    padding:14px;
+
+    background:#091727;
 
     border:2px solid #c9a64e;
 
@@ -218,10 +238,53 @@ hr{
 
     box-shadow:var(--shadow);
 
-    flex-shrink:0;
+    overflow:hidden;
+
 }
 
-.nav-button{
+
+/* =======================================================
+   MARCO INTERIOR
+======================================================= */
+
+#navigation::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:5px;
+
+    border:1px solid
+        rgba(201,166,78,.45);
+
+    border-radius:16px;
+
+    pointer-events:none;
+
+}
+
+
+/* =======================================================
+   ADORNO SUPERIOR
+======================================================= */
+
+#navigation::after{
+
+    content:"◆";
+
+    position:absolute;
+
+    top:-9px;
+
+    left:50%;
+
+    transform:
+        translateX(-50%);
+
+    width:42px;
+
+    height:18px;
 
     display:flex;
 
@@ -229,47 +292,210 @@ hr{
 
     justify-content:center;
 
-    gap:8px;
+    background:#091727;
 
-    min-width:170px;
+    color:#e5cc83;
 
-    padding:14px 22px;
+    font-size:.7rem;
 
-    border:none;
+    line-height:1;
 
-    border-radius:14px;
+    z-index:2;
+
+}
+
+
+/* =======================================================
+   BOTONES
+======================================================= */
+
+.nav-button{
+
+    position:relative;
+
+    z-index:1;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:10px;
+
+    min-width:150px;
+
+    padding:12px 20px;
+
+    border:1px solid transparent;
+
+    border-radius:12px;
 
     background:transparent;
 
-    color:var(--text);
+    color:#e5cc83;
 
     font-size:15px;
 
-    font-weight:700;
+    font-weight:800;
+
+    letter-spacing:.5px;
 
     cursor:pointer;
 
-    transition:all var(--transition);
+    transition:
+        background var(--transition),
+        border-color var(--transition),
+        color var(--transition),
+        transform var(--transition),
+        box-shadow var(--transition);
+
 }
+
+/* =======================================================
+   ICONOS DE NAVEGACIÓN
+======================================================= */
+
+.nav-icon{
+
+    width:20px;
+
+    text-align:center;
+
+    font-size:1rem;
+
+    color:#c9a64e;
+
+    transition:
+        color var(--transition),
+        transform var(--transition);
+
+}
+
+
+.nav-button:hover .nav-icon{
+
+    color:#e5cc83;
+
+    transform:scale(1.08);
+
+}
+
+
+.nav-button.active .nav-icon{
+
+    color:#e5cc83;
+
+}
+
+
+/* =======================================================
+   HOVER
+======================================================= */
 
 .nav-button:hover{
 
-    background:rgba(0,126,252,.08);
+    background:
+        rgba(201,166,78,.08);
 
-    transform:translateY(-2px);
+    border-color:
+        rgba(201,166,78,.35);
+
+    color:#f5ead0;
+
+    transform:
+        translateY(-1px);
 
 }
+
+
+/* =======================================================
+   BOTÓN ACTIVO
+======================================================= */
 
 .nav-button.active{
 
-    background:#091727;
+    background:
+        linear-gradient(
+            180deg,
+            #16304a,
+            #10243a
+        );
 
-    color:white;
+    border-color:
+        rgba(201,166,78,.7);
+
+    color:#f5ead0;
 
     box-shadow:
-        0 6px 16px rgba(9,23,39,.45);
+
+        inset 0 0 0 1px
+        rgba(255,255,255,.04),
+
+        0 5px 14px
+        rgba(0,0,0,.3);
+
 }
 
+
+/* =======================================================
+   DETALLE DEL BOTÓN ACTIVO
+======================================================= */
+
+.nav-button.active::before{
+
+    content:"✦";
+
+    position:absolute;
+
+    left:9px;
+
+    color:#e5cc83;
+
+    font-size:.65rem;
+
+}
+
+
+/* =======================================================
+   RESPONSIVE
+======================================================= */
+
+@media (max-width:768px){
+
+    #topBar{
+
+        flex-direction:column;
+
+        gap:14px;
+
+    }
+
+    #mainLogo{
+
+        width:100%;
+
+    }
+
+    #navigation{
+
+        width:100%;
+
+        flex-direction:row;
+
+        padding:10px;
+
+    }
+
+    .nav-button{
+
+        flex:1;
+
+        min-width:0;
+
+    }
+
+}
 
 /* =======================================================
    ÁREA DE USUARIO
