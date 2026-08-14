@@ -167,7 +167,6 @@ hr{
 ======================================================= */
 
 #topBar{
-
     display:grid;
 
     grid-template-columns:
@@ -182,8 +181,7 @@ hr{
 
     max-width:1200px;
 
-    margin:0 auto 18px;
-
+    margin:0 auto 3px;
 }
 
 
