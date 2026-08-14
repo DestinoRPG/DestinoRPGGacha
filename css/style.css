@@ -5394,9 +5394,9 @@ DESACTIVADO
 
     position:relative;
 
-    width:100%;
+    width:88%;
 
-    max-width:760px;
+    max-width:680px;
 
     transform-style:preserve-3d;
 
@@ -5405,7 +5405,9 @@ DESACTIVADO
 
     animation:
         summonReveal .8s ease,
+
         summonFloat 3.5s ease-in-out infinite;
+
 }
 
 
