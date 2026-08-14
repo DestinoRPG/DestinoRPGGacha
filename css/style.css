@@ -5041,27 +5041,6 @@ DESACTIVADO
 
 }
 
-    /* =========================
-       NAVEGACIÓN
-    ========================= */
-
-    #navigation{
-
-        flex-direction:column;
-
-        gap:12px;
-
-    }
-
-
-    .nav-button{
-
-        max-width:none;
-
-        width:100%;
-
-    }
-
 
     /* =========================
        PERFIL
