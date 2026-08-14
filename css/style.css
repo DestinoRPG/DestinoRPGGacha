@@ -5267,7 +5267,7 @@ DESACTIVADO
 
     position:relative;
 
-    width:min(430px,78%);
+    width:min(430px,78vw);
 
     aspect-ratio:2/1;
 
@@ -5394,9 +5394,9 @@ DESACTIVADO
 
     position:relative;
 
-    width:92%;
+    width:100%;
 
-    max-width:700px;
+    max-width:760px;
 
     transform-style:preserve-3d;
 
