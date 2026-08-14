@@ -168,29 +168,21 @@ hr{
 
 #topBar{
 
-    position:relative;
+    display:grid;
 
-    width:100%;
-
-    margin:0 0 24px;
-
-    padding:24px 30px;
-
-    display:flex;
+    grid-template-columns:
+        minmax(0,1fr)
+        auto;
 
     align-items:center;
 
-    justify-content:center;
+    gap:18px;
 
-    background:#091727;
+    width:100%;
 
-    border:2px solid #c9a64e;
+    max-width:1200px;
 
-    border-radius:22px;
-
-    box-shadow:var(--shadow);
-
-    overflow:hidden;
+    margin:0 auto 24px;
 
 }
 
@@ -268,32 +260,71 @@ hr{
 }
 
 /* =======================================================
-   NAVEGACIÓN
+   BOTONES DE NAVEGACIÓN
 ======================================================= */
 
-#navigation{
-
-    width:100%;
+.nav-button{
 
     display:flex;
 
-    justify-content:center;
-
     align-items:center;
 
-    gap:12px;
+    justify-content:center;
 
-    padding:12px;
+    gap:8px;
 
-    margin-bottom:24px;
+    min-width:125px;
 
-    background:#091727;
+    padding:11px 16px;
 
-    border:2px solid #c9a64e;
+    border:1px solid transparent;
 
-    border-radius:22px;
+    border-radius:12px;
 
-    box-shadow:var(--shadow);
+    background:transparent;
+
+    color:#f5e6b8;
+
+    font-size:14px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+        transition:
+        background var(--transition),
+        color var(--transition),
+        border-color var(--transition),
+        transform var(--transition);
+
+}
+
+
+.nav-button:hover{
+
+    background:
+        rgba(255,255,255,.06);
+
+    border-color:
+        rgba(201,166,78,.35);
+
+    transform:translateY(-1px);
+
+}
+
+
+.nav-button.active{
+
+    background:#142b43;
+
+    color:#f5d978;
+
+    border-color:
+        rgba(201,166,78,.55);
+
+    box-shadow:
+        inset 0 0 12px
+        rgba(201,166,78,.08);
 
 }
 
@@ -2060,6 +2091,25 @@ hr{
     align-items:center;
 
     margin-bottom:16px;
+
+}
+
+
+/* =======================================================
+   LOGO / TÍTULO
+======================================================= */
+
+#mainLogo{
+
+    display:block;
+
+    width:100%;
+
+    height:auto;
+
+    max-width:100%;
+
+    margin:0;
 
 }
 
