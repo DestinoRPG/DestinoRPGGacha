@@ -415,7 +415,57 @@ export function renderModal(
 
 
 
+${
+    card.Arte?.length
+    ?
 
+    `
+
+    <h3>
+
+        Arte
+
+    </h3>
+
+    <div class="article-list art-list">
+
+        ${
+            card.Arte
+                .map(artist => `
+
+                    <a
+
+                        class="article-link"
+
+                        href="${artist.url}"
+
+                        target="_blank"
+
+                        rel="noopener noreferrer"
+
+                    >
+
+                        <span>
+
+                            ${artist.title}
+
+                        </span>
+
+                    </a>
+
+                `)
+                .join("")
+        }
+
+    </div>
+
+    `
+
+    :
+
+    ""
+
+}
 
 
 
