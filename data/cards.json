@@ -1749,6 +1749,20 @@
     ],
         "enabled": true
     },
+                                    {
+        "id": "mylady",
+        "number": 1,
+        "title": "Señora",
+        "collection": "chronicles",
+        "image": "images/cards/mylady.webp",
+        "articles": [
+        {
+            "title": "Nazgul, pero educado",
+            "url": "https://www.destinorpg.es/2014/02/vaj-el-senor-de-los-anillos-la.html"
+        }
+    ],
+        "enabled": true
+    },
                 {
         "id": "gacha_launch",
         "number": 1,
