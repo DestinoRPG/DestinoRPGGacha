@@ -1719,7 +1719,7 @@ hr{
 
 #profile{
 
-    background:var(--panel);
+    background:#091727;
 
     border:2px solid #c9a64e;
 
@@ -1729,9 +1729,17 @@ hr{
 
     margin-bottom:0;
 
-    box-shadow:var(--shadow);
+    box-shadow:
+        var(--shadow),
+        inset 0 0 0 1px
+        rgba(255,255,255,.04);
 
 }
+
+
+/* =======================================================
+   CABECERA
+======================================================= */
 
 .profile-main{
 
@@ -1746,6 +1754,7 @@ hr{
     margin-bottom:16px;
 
 }
+
 
 /* =======================================================
    AVATAR
@@ -1767,7 +1776,7 @@ hr{
 
     padding:2px;
 
-    background:#f5ead2;
+    background:#091727;
 
     object-fit:cover;
 
@@ -1777,7 +1786,7 @@ hr{
         rgba(201,166,78,.35),
 
         0 4px 10px
-        rgba(0,0,0,.16);
+        rgba(0,0,0,.3);
 
     transition:
         transform var(--transition),
@@ -1799,15 +1808,21 @@ hr{
         rgba(201,166,78,.22),
 
         0 5px 13px
-        rgba(0,0,0,.18);
+        rgba(0,0,0,.35);
 
 }
+
+
+/* =======================================================
+   INFORMACIÓN
+======================================================= */
 
 .profile-info{
 
     min-width:0;
 
 }
+
 
 .profile-name{
 
@@ -1817,17 +1832,21 @@ hr{
 
     font-weight:700;
 
+    color:#f5ead0;
+
 }
+
 
 .profile-member{
 
     margin-top:4px;
 
-    color:var(--textSoft);
+    color:#bdb7aa;
 
     font-size:.85rem;
 
 }
+
 
 /* =======================================================
    TICKETS
@@ -1847,20 +1866,22 @@ hr{
 
     border-radius:14px;
 
-    background:#091727;
+    background:#061321;
 
     color:#f5e6b8;
 
     font-weight:800;
 
     box-shadow:
+
         inset 0 0 0 1px
         rgba(255,255,255,.06),
 
         0 5px 12px
-        rgba(0,0,0,.16);
+        rgba(0,0,0,.3);
 
 }
+
 
 #profileProgress{
 
@@ -1876,11 +1897,13 @@ hr{
 
 }
 
+
 .ticket-icon{
 
     font-size:1.3rem;
 
 }
+
 
 .ticket-value{
 
@@ -1913,6 +1936,14 @@ hr{
 }
 
 
+.collection-progress:hover{
+
+    background:
+        rgba(255,255,255,.025);
+
+}
+
+
 /* =======================================================
    CABECERA DE PROGRESO
 ======================================================= */
@@ -1932,6 +1963,8 @@ hr{
     font-weight:700;
 
     font-size:.88rem;
+
+    color:#f5ead0;
 
 }
 
@@ -1968,7 +2001,7 @@ hr{
 
     border-radius:999px;
 
-    background:#ddd1b7;
+    background:#1d3042;
 
 }
 
@@ -2001,7 +2034,7 @@ hr{
 
     text-align:right;
 
-    color:var(--textSoft);
+    color:#9da8b2;
 
     font-size:.78rem;
 
@@ -2022,11 +2055,11 @@ hr{
         );
 
     border-color:
-        rgba(166,127,24,.55);
+        rgba(201,166,78,.55);
 
     box-shadow:
         inset 0 0 0 1px
-        rgba(255,255,255,.35);
+        rgba(255,255,255,.05);
 
 }
 
@@ -2048,7 +2081,7 @@ hr{
 .collection-progress.completed
 .progress-footer{
 
-    color:#8b6415;
+    color:#e5cc83;
 
     font-weight:800;
 
@@ -2084,7 +2117,7 @@ hr{
 
     box-shadow:
         0 2px 5px
-        rgba(0,0,0,.15);
+        rgba(0,0,0,.3);
 
 }
 
