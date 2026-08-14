@@ -5110,7 +5110,7 @@ DESACTIVADO
 
     align-items:center;
 
-    margin-top:35px;
+    margin:10px 0;
 
     perspective:1800px;
 
@@ -5267,7 +5267,7 @@ DESACTIVADO
 
     position:relative;
 
-    width:min(440px,78vw);
+    width:min(430px,78%);
 
     aspect-ratio:2/1;
 
@@ -5278,11 +5278,21 @@ DESACTIVADO
         cubic-bezier(.22,.9,.18,1);
 
     z-index:10;
+}
 
-    /*
-       Mientras se carga la invocación,
-       la carta permanece invisible.
-    */
+
+.summon-flip.opened{
+
+    transform:
+        rotateY(180deg);
+
+}
+
+
+.summon-flip.shake{
+
+    animation:
+        summonShake .55s;
 
 }
 
@@ -5403,30 +5413,36 @@ DESACTIVADO
    HALO DE LA CARTA
 ======================================================= */
 
+/* =======================================================
+   HALO DE LA CARTA
+======================================================= */
+
 .card-glow{
 
     position:absolute;
 
-    inset:-30px;
+    inset:-10px;
 
-    border-radius:40px;
+    border-radius:24px;
 
     pointer-events:none;
 
     background:
+
         radial-gradient(
-            circle,
-            rgba(255,230,120,.5),
+            ellipse at center,
+            rgba(255,220,110,.22),
+            rgba(201,166,78,.08) 45%,
             transparent 72%
         );
 
-    filter:blur(18px);
+    filter:blur(12px);
 
-    opacity:.85;
+    opacity:.65;
 
     z-index:-1;
-}
 
+}
 
 /* =======================================================
    BRILLO DE LA CARTA
@@ -5629,7 +5645,7 @@ DESACTIVADO
     50%{
 
         transform:
-            translateY(-12px);
+            translateY(-4px);
 
     }
 
