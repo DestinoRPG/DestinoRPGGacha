@@ -12,38 +12,21 @@ export function createUI() {
 
             <nav id="navigation">
 
-                <button
-                    id="homeButton"
-                    class="nav-button"
-                >
+<button
+    id="homeButton"
+    class="nav-button"
+>
+    <i class="fa-solid fa-house"></i>
+    <span>Inicio</span>
+</button>
 
-    <i
-        class="fa-solid fa-house nav-icon"
-        aria-hidden="true"
-    ></i>
-
-    <span>
-        Inicio
-    </span>
-
-                </button>
-
-                <button
-                    id="collectionButton"
-                    class="nav-button"
-                >
-
-    
-    <i
-        class="fa-solid fa-layer-group nav-icon"
-        aria-hidden="true"
-    ></i>
-
-    <span>
-        Colección
-    </span>
-
-                </button>
+<button
+    id="collectionButton"
+    class="nav-button"
+>
+    <i class="fa-solid fa-book-open"></i>
+    <span>Colección</span>
+</button>
 
             </nav>
 
