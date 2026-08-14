@@ -1535,6 +1535,12 @@
         "title": "Afrael",
         "collection": "contributors",
         "image": "images/cards/afrael.webp",
+                "Arte": [
+        {
+            "title": "@Nodowdyabouty",
+            "url": "https://www.instagram.com/engerklaux/"
+        }
+    ],  
         "articles": [
         {
             "title": "Su primer artículo",
@@ -1557,6 +1563,11 @@
         "title": "Albel",
         "collection": "contributors",
         "image": "images/cards/albel.webp",
+                "Arte": [
+        {
+            "title": "Akira Toriyama"
+        }
+    ],          
         "articles": [
         {
             "title": "Su primer artículo (con este nick, ha escrito más usando otro)",
@@ -1571,6 +1582,12 @@
         "title": "Astara",
         "collection": "contributors",
         "image": "images/cards/astara.webp",
+                        "Arte": [
+        {
+            "title": "Satoshi Kuramochi",
+            "url": "https://x.com/kurasatojob"
+        }
+    ],  
         "articles": [
         {
             "title": "Su primer artículo",
@@ -1593,6 +1610,12 @@
         "title": "Aurant",
         "collection": "contributors",
         "image": "images/cards/aurant.webp",
+                                "Arte": [
+        {
+            "title": "Saay0nararts",
+            "url": "https://say0ran.carrd.co/"
+        }
+    ], 
         "articles": [
         {
             "title": "Su primer artículo",
@@ -1607,6 +1630,12 @@
         "title": "Bash GT",
         "collection": "contributors",
         "image": "images/cards/bash.webp",
+        "Arte": [
+        {
+            "title": "Reki Kawahara",
+            "url": "https://a1p.jp/"
+        }
+    ], 
         "articles": [
         {
             "title": "Su primer artículo",
@@ -1629,6 +1658,11 @@
         "title": "BrintMea",
         "collection": "contributors",
         "image": "images/cards/brint.webp",
+        "Arte": [
+        {
+            "title": "Gosho Aoyama"
+        }
+    ], 
         "articles": [
         {
             "title": "Su primer artículo",
@@ -1643,6 +1677,12 @@
         "title": "CarcLoud",
         "collection": "contributors",
         "image": "images/cards/carcloud.webp",
+        "Arte": [
+        {
+            "title": "MenasLG",
+            "url": "https://www.deviantart.com/menaslg"
+        }
+    ], 
         "articles": [
         {
             "title": "Su primer artículo",
@@ -1665,6 +1705,12 @@
         "title": "Cid",
         "collection": "contributors",
         "image": "images/cards/cid.webp",
+        "Arte": [
+        {
+            "title": "Tylor Hepner",
+            "url": "https://linktr.ee/tylorhepner"
+        }
+    ], 
         "articles": [
         {
             "title": "Su primer artículo",
@@ -1687,6 +1733,11 @@
         "title": "Dadios",
         "collection": "contributors",
         "image": "images/cards/dadios.webp",
+        "Arte": [
+        {
+            "title": "Grzegorz Rosiński"
+        }
+    ], 
         "articles": [
         {
             "title": "Su primer artículo",
@@ -1701,6 +1752,11 @@
         "title": "Darketzer",
         "collection": "contributors",
         "image": "images/cards/darketzer.webp",
+        "Arte": [
+        {
+            "title": "Takayuki Yanase"
+        }
+    ], 
         "articles": [
         {
             "title": "Su primer artículo",
@@ -1719,6 +1775,11 @@
         "title": "Desaya",
         "collection": "contributors",
         "image": "images/cards/desaya.webp",
+        "Arte": [
+        {
+            "title": "Akihiko Yoshida"
+        }
+    ], 
         "articles": [
         {
             "title": "Su primer artículo",
@@ -1741,6 +1802,11 @@
         "title": "Diamancero",
         "collection": "contributors",
         "image": "images/cards/diamancero.webp",
+        "Arte": [
+        {
+            "title": "Gen Kobayashi"
+        }
+    ], 
         "articles": [
         {
             "title": "Su primer artículo",
@@ -1755,6 +1821,11 @@
         "title": "Diego Murphy",
         "collection": "contributors",
         "image": "images/cards/diegomurphy.webp",
+        "Arte": [
+        {
+            "title": "Aruseito"
+        }
+    ], 
         "articles": [
         {
             "title": "Su primer artículo",
@@ -1773,6 +1844,11 @@
         "title": "Dimento",
         "collection": "contributors",
         "image": "images/cards/dimento.webp",
+        "Arte": [
+        {
+            "title": "Yuji Himukai, Yuji Hyuga y/o Masao Nagashima"
+        }
+    ], 
         "articles": [
         {
             "title": "Su primer artículo",
@@ -1787,6 +1863,11 @@
         "title": "Eric",
         "collection": "contributors",
         "image": "images/cards/eric.webp",
+        "Arte": [
+        {
+            "title": "Nihon Falcom"
+        }
+    ], 
         "articles": [
         {
             "title": "Su primer artículo",
@@ -1801,6 +1882,12 @@
         "title": "Frederick",
         "collection": "contributors",
         "image": "images/cards/frederick.webp",
+        "Arte": [
+        {
+            "title": "@Nodowdyabouty",
+            "url": "https://linktr.ee/Nodowdyabouty"
+        }
+    ],  
         "articles": [
         {
             "title": "Su primer artículo",
@@ -1815,6 +1902,12 @@
         "title": "Frisodio",
         "collection": "contributors",
         "image": "images/cards/frisodio.webp",
+        "Arte": [
+        {
+            "title": "Jorge Marme",
+            "url": "https://jorgemarme.com/about"
+        }
+    ],  
         "articles": [
         {
             "title": "Su primer artículo",
