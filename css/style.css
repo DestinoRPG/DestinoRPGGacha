@@ -196,65 +196,6 @@ hr{
 
 
 /* =======================================================
-   MARCO INTERIOR
-======================================================= */
-
-#topBar::before{
-
-    content:"";
-
-    position:absolute;
-
-    inset:6px;
-
-    border:
-        1px solid
-        rgba(201,166,78,.45);
-
-    border-radius:16px;
-
-    pointer-events:none;
-
-}
-
-
-/* =======================================================
-   LÍNEA ORNAMENTAL
-======================================================= */
-
-#topBar::after{
-
-    content:"";
-
-    position:absolute;
-
-    top:6px;
-
-    left:50%;
-
-    transform:
-        translateX(-50%);
-
-    width:170px;
-
-    height:1px;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            #c9a64e 20%,
-            #e5cc83 50%,
-            #c9a64e 80%,
-            transparent
-        );
-
-    pointer-events:none;
-
-}
-
-
-/* =======================================================
    TÍTULO
 ======================================================= */
 
@@ -344,7 +285,7 @@ hr{
 
     gap:12px;
 
-    padding:18px 24px;
+    padding:12px;
 
     margin-bottom:24px;
 
@@ -427,6 +368,8 @@ hr{
 
 .nav-button{
 
+    flex:0 1 220px;
+
     display:flex;
 
     align-items:center;
@@ -435,9 +378,7 @@ hr{
 
     gap:9px;
 
-    min-width:170px;
-
-    padding:14px 22px;
+    padding:13px 22px;
 
     border:none;
 
