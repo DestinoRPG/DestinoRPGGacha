@@ -2,35 +2,61 @@ export function createUI() {
 
     document.getElementById("app").innerHTML = `
 
-        <div id="topBar">
+        <!-- =========================
+             CABECERA
+        ========================== -->
 
-            <img
-                id="mainLogo"
-                src="images/logo-gacha.webp"
-                alt="Destino RPG Gacha"
+        <header id="topBar">
+
+            <div class="site-title">
+
+                <div class="site-title-main">
+                    DESTINO RPG
+                </div>
+
+                <div class="site-title-sub">
+                    G A C H A
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- =========================
+             NAVEGACIÓN
+        ========================== -->
+
+        <nav id="navigation">
+
+            <button
+                id="homeButton"
+                class="nav-button"
             >
 
-            <nav id="navigation">
+                <i class="fa-solid fa-house"></i>
 
-<button
-    id="homeButton"
-    class="nav-button"
->
-    <i class="fa-solid fa-house"></i>
-    <span>Inicio</span>
-</button>
+                <span>
+                    Inicio
+                </span>
 
-<button
-    id="collectionButton"
-    class="nav-button"
->
-    <i class="fa-solid fa-book-open"></i>
-    <span>Colección</span>
-</button>
+            </button>
 
-            </nav>
 
-        </div>
+            <button
+                id="collectionButton"
+                class="nav-button"
+            >
+
+                <i class="fa-solid fa-book-open"></i>
+
+                <span>
+                    Colección
+                </span>
+
+            </button>
+
+        </nav>
 
 
         <div id="userArea">
@@ -48,4 +74,5 @@ export function createUI() {
         </div>
 
     `;
+
 }

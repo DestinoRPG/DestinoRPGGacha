@@ -168,67 +168,19 @@ hr{
 
 #topBar{
 
-    display:flex;
-
-    align-items:stretch;
-
-    gap:20px;
+    position:relative;
 
     width:100%;
 
-    max-width:1200px;
+    margin:0 0 24px;
 
-    margin:0 auto 24px;
-
-    min-width:0;
-
-}
-
-
-/* =======================================================
-   LOGO
-======================================================= */
-
-#mainLogo{
-
-    display:block;
-
-    flex:1 1 auto;
-
-    min-width:0;
-
-    width:auto;
-
-    max-width:none;
-
-    height:auto;
-
-    object-fit:contain;
-
-}
-
-
-/* =======================================================
-   NAVEGACIÓN
-======================================================= */
-
-#navigation{
-
-    position:relative;
-
-    flex:0 0 auto;
+    padding:24px 30px;
 
     display:flex;
 
+    align-items:center;
+
     justify-content:center;
-
-    align-items:stretch;
-
-    flex-direction:column;
-
-    gap:8px;
-
-    padding:14px;
 
     background:#091727;
 
@@ -239,6 +191,170 @@ hr{
     box-shadow:var(--shadow);
 
     overflow:hidden;
+
+}
+
+
+/* =======================================================
+   MARCO INTERIOR
+======================================================= */
+
+#topBar::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:6px;
+
+    border:
+        1px solid
+        rgba(201,166,78,.45);
+
+    border-radius:16px;
+
+    pointer-events:none;
+
+}
+
+
+/* =======================================================
+   LÍNEA ORNAMENTAL
+======================================================= */
+
+#topBar::after{
+
+    content:"";
+
+    position:absolute;
+
+    top:6px;
+
+    left:50%;
+
+    transform:
+        translateX(-50%);
+
+    width:170px;
+
+    height:1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #c9a64e 20%,
+            #e5cc83 50%,
+            #c9a64e 80%,
+            transparent
+        );
+
+    pointer-events:none;
+
+}
+
+
+/* =======================================================
+   TÍTULO
+======================================================= */
+
+.site-title{
+
+    position:relative;
+
+    z-index:2;
+
+    text-align:center;
+
+}
+
+
+/* =======================================================
+   DESTINO RPG
+======================================================= */
+
+.site-title-main{
+
+    font-size:2.25rem;
+
+    font-weight:900;
+
+    letter-spacing:7px;
+
+    line-height:1;
+
+    background:
+        linear-gradient(
+            180deg,
+            #f7e7a6,
+            #c9a64e 55%,
+            #9f761c
+        );
+
+    -webkit-background-clip:text;
+
+    background-clip:text;
+
+    color:transparent;
+
+    text-shadow:
+        0 2px 4px
+        rgba(0,0,0,.45);
+
+}
+
+
+/* =======================================================
+   GACHA
+======================================================= */
+
+.site-title-sub{
+
+    margin-top:9px;
+
+    color:#e5cc83;
+
+    font-size:.72rem;
+
+    font-weight:800;
+
+    letter-spacing:8px;
+
+    text-indent:8px;
+
+    text-shadow:
+        0 1px 3px
+        rgba(0,0,0,.45);
+
+}
+
+/* =======================================================
+   NAVEGACIÓN
+======================================================= */
+
+#navigation{
+
+    width:100%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:12px;
+
+    padding:18px 24px;
+
+    margin-bottom:24px;
+
+    background:#091727;
+
+    border:2px solid #c9a64e;
+
+    border-radius:22px;
+
+    box-shadow:var(--shadow);
 
 }
 
@@ -311,44 +427,90 @@ hr{
 
 .nav-button{
 
-    position:relative;
-
-    z-index:1;
-
     display:flex;
 
     align-items:center;
 
     justify-content:center;
 
-    gap:10px;
+    gap:9px;
 
-    min-width:150px;
+    min-width:170px;
 
-    padding:12px 20px;
+    padding:14px 22px;
 
-    border:1px solid transparent;
+    border:none;
 
-    border-radius:12px;
+    border-radius:14px;
 
     background:transparent;
 
-    color:#e5cc83;
+    color:#d9d0bd;
 
     font-size:15px;
 
-    font-weight:800;
-
-    letter-spacing:.5px;
+    font-weight:700;
 
     cursor:pointer;
 
     transition:
         background var(--transition),
-        border-color var(--transition),
         color var(--transition),
-        transform var(--transition),
-        box-shadow var(--transition);
+        transform var(--transition);
+
+}
+
+
+.nav-button i{
+
+    font-size:1rem;
+
+    color:#c9a64e;
+
+    transition:
+        color var(--transition),
+        transform var(--transition);
+
+}
+
+
+.nav-button:hover{
+
+    background:
+        rgba(201,166,78,.08);
+
+    color:#f5ead0;
+
+    transform:translateY(-2px);
+
+}
+
+
+.nav-button:hover i{
+
+    color:#e5cc83;
+
+    transform:scale(1.08);
+
+}
+
+
+.nav-button.active{
+
+    background:#091727;
+
+    color:white;
+
+    box-shadow:
+        0 6px 16px
+        rgba(9,23,39,.45);
+
+}
+
+
+.nav-button.active i{
+
+    color:#e5cc83;
 
 }
 
