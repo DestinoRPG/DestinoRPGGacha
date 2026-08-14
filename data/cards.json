@@ -973,6 +973,483 @@
         "description": "",
         "enabled": true
     },
+                                                                        {
+        "id": "oblivion",
+        "number": 51,
+        "title": "The Elder Scrolls IV: Oblivion",
+        "collection": "hall_of_fame",
+        "image": "images/cards/tes4.webp",
+        "series": "The Elder Scrolls",
+        "developer": "Bethesda",
+        "releaseYear": 2006,
+        "description": "",
+        "enabled": true
+    },
+                                                                            {
+        "id": "skyrim",
+        "number": 52,
+        "title": "The Elder Scrolls V: Skyrim",
+        "collection": "hall_of_fame",
+        "image": "images/cards/tes5.webp",
+        "series": "The Elder Scrolls",
+        "developer": "Bethesda",
+        "releaseYear": 2011,
+        "description": "",
+        "enabled": true
+    },
+                                                                {
+        "id": "skies",
+        "number": 53,
+        "title": "Skies of Arcadia",
+        "collection": "hall_of_fame",
+        "image": "images/cards/skies.webp",
+        "developer": "Overworks",
+        "releaseYear": 2000,
+        "description": "",
+        "articles": [
+                {
+            "title": "Experiencias roleras",
+            "url": "https://www.destinorpg.es/2015/03/experiencias-roleras-miguel-martinez.html"
+        }
+    ],
+        "enabled": true
+    },
+                                                                    {
+        "id": "stardew",
+        "number": 54,
+        "title": "Stardew Valley",
+        "collection": "hall_of_fame",
+        "image": "images/cards/stardew.webp",
+        "developer": "Concerned Ape",
+        "releaseYear": 2016,
+        "description": "",
+        "articles": [
+                {
+            "title": "Análisis",
+            "url": "https://www.destinorpg.es/2017/11/analisis-stardew-valley.html"
+        }
+    ],
+        "enabled": true
+    },
+                                                                        {
+        "id": "kotor",
+        "number": 55,
+        "title": "Knights of the Old Republic",
+        "collection": "hall_of_fame",
+        "image": "images/cards/kotor.webp",
+        "series": "Knights of the Old Republic",
+        "developer": "BioWare",
+        "releaseYear": 2003,
+        "description": "",
+        "articles": [
+                {
+            "title": "Vamos a jugar",
+            "url": "https://www.destinorpg.es/search/label/KOTOR?&max-results=8"
+        }
+    ],
+        "enabled": true
+    },
+                                                                            {
+        "id": "suikoden",
+        "number": 56,
+        "title": "Suikoden",
+        "collection": "hall_of_fame",
+        "image": "images/cards/suikoden.webp",
+        "series": "Suikoden",
+        "developer": "Konami",
+        "releaseYear": 1995,
+        "description": "",
+        "articles": [
+                {
+            "title": "Experiencias roleras",
+            "url": "https://www.destinorpg.es/2015/08/experiencias-roleras-m2hero-nos-escribe.html"
+        },
+                {
+            "title": "Análisis del HD remaster",
+            "url": "https://www.destinorpg.es/2025/03/analisis-suikoden-i-hd-remaster.html"
+        }
+    ],
+    
+        "enabled": true
+    },
+                                                                            {
+        "id": "symphonia",
+        "number": 57,
+        "title": "Tales of Symphonia",
+        "collection": "hall_of_fame",
+        "image": "images/cards/symphonia.webp",
+        "series": "Tales of",
+        "developer": "Tales Studio",
+        "releaseYear": 2003,
+        "description": "",
+        "articles": [
+                {
+            "title": "Análisis",
+            "url": "https://www.destinorpg.es/2018/10/analisis-tales-of-symphonia.html"
+        }
+    ],
+        "enabled": true
+    },
+                                                                                {
+        "id": "abyss",
+        "number": 58,
+        "title": "Tales of the Abyss",
+        "collection": "hall_of_fame",
+        "image": "images/cards/abyss.webp",
+        "series": "Tales of",
+        "developer": "Tales Studio",
+        "releaseYear": 2005,
+        "description": "",
+        "articles": [
+                {
+            "title": "Candidato al Salón de la Fama",
+            "url": "https://www.destinorpg.es/2019/11/candidato-al-salon-de-la-fama-tales-of.html"
+        }
+    ],
+        "enabled": true
+    },
+                                                                               {
+        "id": "terranigma",
+        "number": 59,
+        "title": "Terranigma",
+        "collection": "hall_of_fame",
+        "image": "images/cards/terranigma.webp",
+        "developer": "Quintet",
+        "releaseYear": 1995,
+        "description": "",
+        "articles": [
+                {
+            "title": "Experiencias roleras",
+            "url": "https://www.destinorpg.es/2015/04/experiencias-roleras-mike-nos-escribe.html"
+        },
+                {
+            "title": "El peligro de las compañías perdidas",
+            "url": "https://www.destinorpg.es/2021/11/terranigma-y-el-peligro-de-las.html"
+        }
+    ],
+    
+        "enabled": true
+    },
+                                                                                   {
+        "id": "twewy",
+        "number": 60,
+        "title": "The World Ends With You",
+        "collection": "hall_of_fame",
+        "image": "images/cards/twewy.webp",
+        "series": "The World Ends With You",
+        "developer": "Square Enix",
+        "releaseYear": 2007,
+        "description": "",
+        "articles": [
+                {
+            "title": "Candidato al Salón de la Fama",
+            "url": "https://www.destinorpg.es/2015/10/sdlf-candidato-world-ends-with-you.html"
+        },
+                        {
+            "title": "Antes y ahora",
+            "url": "https://www.destinorpg.es/2017/11/reto-al-salon-de-la-fama-world-ends.html"
+        },
+                                {
+            "title": "¿Y el mundo pudo contigo?",
+            "url": "https://www.destinorpg.es/2019/09/y-el-mundo-pudo-contigo.html"
+        },
+                {
+            "title": "¿Sabías que sus marcas hacen referencia al Zodiaco chino?",
+            "url": "https://www.destinorpg.es/2013/03/sabias-que-las-marcas-en-world-ends.html"
+        }
+    ],
+    
+        "enabled": true
+    },
+                                                                                       {
+        "id": "coldsteel",
+        "number": 61,
+        "title": "Trails of Cold Steel",
+        "collection": "hall_of_fame",
+        "image": "images/cards/cs.webp",
+        "series": "Trails",
+        "developer": "Nihon Falcom",
+        "releaseYear": 2013,
+        "description": "",
+        "articles": [
+                {
+            "title": "Jugando de importación",
+            "url": "https://www.destinorpg.es/2015/03/jugando-de-importacion-legend-of-heroes.html"
+        },
+                        {
+            "title": "Hangout comentando sus primeras horas",
+            "url": "https://www.destinorpg.es/2016/02/hangouts-legend-of-heroes-trails-of.html"
+        },
+                                {
+            "title": "Charlas destinadas",
+            "url": "https://www.destinorpg.es/2016/07/charlas-destinadas-proposito-de-legend.html"
+        },
+                {
+            "title": "Guía",
+            "url": "https://www.destinorpg.es/2022/04/trails-of-cold-steel-guia-para.html"
+        }
+    ],
+    
+        "enabled": true
+    },
+                                                                                           {
+        "id": "coldsteel2",
+        "number": 62,
+        "title": "Trails of Cold Steel II",
+        "collection": "hall_of_fame",
+        "image": "images/cards/cs2.webp",
+        "series": "Trails",
+        "developer": "Nihon Falcom",
+        "releaseYear": 2014,
+        "description": "",
+        "articles": [
+                {
+            "title": "Jugando de importación",
+            "url": "https://www.destinorpg.es/2016/08/jugando-de-importacion-legend-of-heroes.html"
+        },
+                {
+            "title": "Podcast hablando del juego",
+            "url": "https://www.destinorpg.es/2017/02/podcast-hablando-de-trails-of-cold.html"
+        }
+    ],
+    
+        "enabled": true
+    },
+                                                                                               {
+        "id": "coldsteel3",
+        "number": 63,
+        "title": "Trails of Cold Steel III",
+        "collection": "hall_of_fame",
+        "image": "images/cards/cs3.webp",
+        "series": "Trails",
+        "developer": "Nihon Falcom",
+        "releaseYear": 2017,
+        "description": "",
+        "articles": [
+                {
+            "title": "Análisis",
+            "url": "https://www.destinorpg.es/2019/10/analisis-legend-of-heroes-trails-of.html"
+        }
+    ],
+    
+        "enabled": true
+    },
+                                                                                                   {
+        "id": "coldsteel4",
+        "number": 64,
+        "title": "Trails of Cold Steel IV",
+        "collection": "hall_of_fame",
+        "image": "images/cards/cs4.webp",
+        "series": "Trails",
+        "developer": "Nihon Falcom",
+        "releaseYear": 2018,
+        "description": "",
+        "articles": [
+                {
+            "title": "Análisis",
+            "url": "https://www.destinorpg.es/2020/10/analisis-trails-of-cold-steel-iv.html"
+        }
+    ],
+    
+        "enabled": true
+    },
+                                                                                           {
+        "id": "undertale",
+        "number": 65,
+        "title": "Undertale",
+        "collection": "hall_of_fame",
+        "image": "images/cards/undertale.webp",
+        "developer": "Toby Fox",
+        "releaseYear": 2015,
+        "description": "",
+        "articles": [
+                {
+            "title": "Análisis",
+            "url": "https://www.destinorpg.es/2015/10/analisis-undertale-pc.html"
+        },
+                        {
+            "title": "Charlas destinadas",
+            "url": "https://www.destinorpg.es/2016/03/charlas-destinadas-proposito-de.html"
+        },
+                                {
+            "title": "Cómo acceder a sus rutas y finales",
+            "url": "https://www.destinorpg.es/2016/03/undertale-como-acceder-las-diferentes.html"
+        },
+                {
+            "title": "Secretos, cruiosidades, easter eggs...",
+            "url": "https://www.destinorpg.es/2016/04/undertale-entrada-colaborativa-secretos.html"
+        }
+    ],
+    
+        "enabled": true
+    },
+                                                                                                       {
+        "id": "vagrant",
+        "number": 66,
+        "title": "Vagrant Story",
+        "collection": "hall_of_fame",
+        "image": "images/cards/vagrant.webp",
+        "developer": "Square",
+        "releaseYear": 2000,
+        "description": "",
+        "articles": [
+                {
+            "title": "No apto para todos los públicos",
+            "url": "https://www.destinorpg.es/2014/06/no-apto-para-todos-los-publicos-cuarta.html"
+        }
+    ],
+    
+        "enabled": true
+    },
+                                                                                                           {
+        "id": "valkyrie",
+        "number": 67,
+        "title": "Valkyrie Profile",
+        "collection": "hall_of_fame",
+        "image": "images/cards/valkyrie.webp",
+        "series": "Valkyrie Profile",
+        "developer": "tri-Ace",
+        "releaseYear": 1999,
+        "description": "",
+        "articles": [
+                {
+            "title": "Experiencias roleras",
+            "url": "https://www.destinorpg.es/2015/03/experiencias-roleras-m2hero-nos-escribe.html"
+        }
+    ],
+    
+        "enabled": true
+    },
+                                                                                               {
+        "id": "witcher3",
+        "number": 68,
+        "title": "The Witcher III: Wild Hunt",
+        "collection": "hall_of_fame",
+        "image": "images/cards/witcher 3.webp",
+        "series": "Witcher",
+        "developer": "CD Projekt RED",
+        "releaseYear": 2015,
+        "description": "",
+        "articles": [
+                {
+            "title": "Impresiones iniciales",
+            "url": "https://www.destinorpg.es/2015/06/impresiones-iniciales-witcher-3-wild.html"
+        },
+                        {
+            "title": "Experiencias roleras de sus expansiones",
+            "url": "https://www.destinorpg.es/2018/01/experiencias-roleras-witcher-3-hearts.html"
+        },
+                                {
+            "title": "La importancia de llamarse Geralt (de Rivia)",
+            "url": "https://www.destinorpg.es/2016/08/opinion-la-importancia-de-llamarse.html"
+        },
+                {
+            "title": "¿Cabe esperar más entregas?",
+            "url": "https://www.destinorpg.es/2017/09/cabe-esperar-mas-entregas-de-witcher.html"
+        }
+    ],
+    
+        "enabled": true
+    },
+                                                                                                               {
+        "id": "wow",
+        "number": 69,
+        "title": "Wold of Warcraft",
+        "collection": "hall_of_fame",
+        "image": "images/cards/wow.webp",
+        "series": "Warcraft",
+        "developer": "Blizzard",
+        "releaseYear": 2004,
+        "description": "",
+        "articles": [
+                {
+            "title": "Análisis de Battle for Azeroth",
+            "url": "https://www.destinorpg.es/2018/09/analisis-world-of-warcraft-battle-for_13.html"
+        }
+    ],
+    
+        "enabled": true
+    },
+                                                                                                                   {
+        "id": "xeno",
+        "number": 70,
+        "title": "Xenoblade Chronicles",
+        "collection": "hall_of_fame",
+        "image": "images/cards/xeno.webp",
+        "series": "Xeno",
+        "developer": "Monolith Soft",
+        "releaseYear": 2010,
+        "description": "",
+        "articles": [
+                {
+            "title": "Experiencias roleras",
+            "url": "https://www.destinorpg.es/2015/09/experiencias-roleras-wander-nos-escribe.html"
+        }
+    ],
+    
+        "enabled": true
+    },
+                                                                                                                       {
+        "id": "xeno3",
+        "number": 71,
+        "title": "Xenoblade Chronicles 3",
+        "collection": "hall_of_fame",
+        "image": "images/cards/xeno3.webp",
+        "series": "Xeno",
+        "developer": "Monolith Soft",
+        "releaseYear": 2022,
+        "description": "",
+        "articles": [
+                            {
+            "title": "Preview",
+            "url": "https://www.destinorpg.es/2022/03/preview-xenoblade-chronicles-3.html"
+        },
+                {
+            "title": "Análisis",
+            "url": "https://www.destinorpg.es/2022/08/analisis-xenoblade-chronicles-3.html"
+        }
+    ],
+    
+        "enabled": true
+    },
+                                                                                                                           {
+        "id": "xenogears",
+        "number": 72,
+        "title": "Xengears",
+        "collection": "hall_of_fame",
+        "image": "images/cards/xenogears.webp",
+        "series": "Xeno",
+        "developer": "Monolith Soft/Square",
+        "releaseYear": 1998,
+        "description": "",
+        "articles": [
+                {
+            "title": "Candidato al Salón de la Fama",
+            "url": "https://www.destinorpg.es/2017/04/sdlf-candidato-xenogears.html"
+        }
+    ],
+    
+        "enabled": true
+    },
+                                                                                                                               {
+        "id": "lad",
+        "number": 73,
+        "title": "Yakuza: Like A Dragon",
+        "collection": "hall_of_fame",
+        "image": "images/cards/lad.webp",
+        "series": "Yakuza",
+        "developer": "Ryu Ga Gotoku/Sega",
+        "releaseYear": 2020,
+        "description": "",
+        "articles": [
+                {
+            "title": "Análisis",
+            "url": "https://www.destinorpg.es/2021/02/analisis-yakuza-like-dragon.html"
+        }
+    ],
+    
+        "enabled": true
+    },
         {
         "id": "Adell",
         "number": 1,
