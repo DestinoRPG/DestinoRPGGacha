@@ -300,7 +300,7 @@ hr{
 
     gap:6px;
 
-    padding:8px 8px 24px;
+    padding:6px 6px 10px;
 
     margin-bottom:16px;
 
@@ -337,15 +337,15 @@ hr{
 
     justify-content:center;
 
-    gap:7px;
+    gap:6px;
 
     min-width:0;
 
     width:100%;
 
-    min-height:58px;
+    min-height:54px;
 
-    padding:10px 18px;
+    padding:8px 18px;
 
     border:1px solid transparent;
 
