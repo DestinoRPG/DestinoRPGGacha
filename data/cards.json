@@ -1930,6 +1930,34 @@
     ],
         "enabled": true
     },
+                                        {
+        "id": "digata",
+        "number": 2,
+        "title": "Atravezando",
+        "collection": "chronicles",
+        "image": "images/cards/digata.webp",
+        "articles": [
+        {
+            "title": "Todos atraviezan la puerta exepto el secuás",
+            "url": "https://www.destinorpg.es/2014/03/vaj-di-gata-defenders-nds-capitulo-1.html"
+        }
+    ],
+        "enabled": true
+    },
+                                            {
+        "id": "robopon",
+        "number": 3,
+        "title": "Robopon y el Sumito invencible",
+        "collection": "chronicles",
+        "image": "images/cards/robopon.webp",
+        "articles": [
+        {
+            "title": "Pocas bormas con el poder del sumo",
+            "url": "https://www.destinorpg.es/2014/03/vaj-di-gata-defenders-nds-capitulo-1.html"
+        }
+    ],
+        "enabled": true
+    },
                 {
         "id": "gacha_launch",
         "number": 1,
