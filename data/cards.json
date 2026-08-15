@@ -1565,7 +1565,8 @@
         "image": "images/cards/albel.webp",
                 "Arte": [
         {
-            "title": "Akira Toriyama"
+            "title": "Akira Toriyama",
+            "url": "https://x.com/ToriyamaArts?lang=es"
         }
     ],          
         "articles": [
@@ -1660,7 +1661,8 @@
         "image": "images/cards/brint.webp",
         "Arte": [
         {
-            "title": "Gosho Aoyama"
+            "title": "Gosho Aoyama",
+            "url": "https://x.com/GoshoArt"
         }
     ], 
         "articles": [
@@ -1735,7 +1737,8 @@
         "image": "images/cards/dadios.webp",
         "Arte": [
         {
-            "title": "Grzegorz Rosiński"
+            "title": "Grzegorz Rosiński",
+            "url": "https://www.comicartfans.com/comic-artists/grzegorz_rosinski.asp"
         }
     ], 
         "articles": [
@@ -1754,7 +1757,8 @@
         "image": "images/cards/darketzer.webp",
         "Arte": [
         {
-            "title": "Takayuki Yanase"
+            "title": "Takayuki Yanase",
+            "url": "https://es.pinterest.com/xinyusha/yanase-takayuki/"
         }
     ], 
         "articles": [
@@ -1777,7 +1781,8 @@
         "image": "images/cards/desaya.webp",
         "Arte": [
         {
-            "title": "Akihiko Yoshida"
+            "title": "Akihiko Yoshida",
+            "url": "https://characterdesignreferences.com/artist-of-the-week-8/akihiko-yoshida"
         }
     ], 
         "articles": [
@@ -1804,7 +1809,8 @@
         "image": "images/cards/diamancero.webp",
         "Arte": [
         {
-            "title": "Gen Kobayashi"
+            "title": "Gen Kobayashi",
+            "url": "https://www.mobygames.com/person/107467/gen-kobayashi/"
         }
     ], 
         "articles": [
@@ -1823,7 +1829,8 @@
         "image": "images/cards/diegomurphy.webp",
         "Arte": [
         {
-            "title": "Aruseito"
+            "title": "Takahito Ekusa",
+            "url": "https://x.com/exa_takahito?lang=es"
         }
     ], 
         "articles": [
@@ -1846,7 +1853,8 @@
         "image": "images/cards/dimento.webp",
         "Arte": [
         {
-            "title": "Yuji Himukai, Yuji Hyuga y/o Masao Nagashima"
+            "title": "Yuji Himukai, Yuji Hyuga y/o Masao Nagashima",
+            "url": "https://www.nintendo.com/es-es/Juegos/Juegos-de-Nintendo-Switch/Xenoblade-Chronicles-X-Definitive-Edition-2687393.html"
         }
     ], 
         "articles": [
@@ -1857,15 +1865,40 @@
     ],
         "enabled": true
     },
+                                            {
+        "id": "drop",
+        "number": 15,
+        "title": "Drop",
+        "collection": "contributors",
+        "image": "images/cards/drop.webp",
+        "Arte": [
+        {
+            "title": "Doro",
+            "url": "https://danbooru.donmai.us/posts?tags=doro_%28sabarudoro%29"
+        }
+    ], 
+        "articles": [
+        {
+            "title": "Su primer artículo",
+            "url": "https://www.destinorpg.es/2014/04/vaj-pokemon-edicion-azul-gb-capitulo-7.html"
+        },
+                {
+            "title": "Su último artículo (hasta la fecha)",
+            "url": "https://www.destinorpg.es/2015/06/vaj-final-fantasy-tactics-advance.html"
+        }
+    ],
+        "enabled": true
+    },
                                                 {
         "id": "eric",
-        "number": 15,
+        "number": 16,
         "title": "Eric",
         "collection": "contributors",
         "image": "images/cards/eric.webp",
         "Arte": [
         {
-            "title": "Nihon Falcom"
+            "title": "Nihon Falcom",
+            "url": "https://falcom-collections.net/"
         }
     ], 
         "articles": [
@@ -1878,7 +1911,7 @@
     },
                                                     {
         "id": "frederick",
-        "number": 16,
+        "number": 17,
         "title": "Frederick",
         "collection": "contributors",
         "image": "images/cards/frederick.webp",
@@ -1898,7 +1931,7 @@
     },
                                                         {
         "id": "frisodio",
-        "number": 17,
+        "number": 18,
         "title": "Frisodio",
         "collection": "contributors",
         "image": "images/cards/frisodio.webp",
@@ -1912,6 +1945,146 @@
         {
             "title": "Su primer artículo",
             "url": "https://www.destinorpg.es/2017/02/debate-como-podemos-considerar-lo-que.html"
+        }
+    ],
+        "enabled": true
+    },
+                                                            {
+        "id": "haru",
+        "number": 19,
+        "title": "Haru",
+        "collection": "contributors",
+        "image": "images/cards/haru.webp",
+        "Arte": [
+        {
+            "title": "Go Takeuchi",
+            "url": "https://x.com/Kosan_Takeuchi"
+        }
+    ],  
+        "articles": [
+        {
+            "title": "Su primer artículo",
+            "url": "https://www.destinorpg.es/2015/10/no-todo-es-un-rpg-steinsgate.html"
+        },
+        {
+            "title": "Su artículo con más visitas",
+            "url": "https://www.destinorpg.es/2015/10/fire-emblem-que-es-y-por-donde-empezar.html"
+        },
+                {
+            "title": "Su último artículo (hasta la fecha)",
+            "url": "https://www.destinorpg.es/2018/07/que-podemos-esperar-de-fire-emblem.html"
+        }
+    ],
+        "enabled": true
+    },
+                                                            {
+        "id": "hunter",
+        "number": 20,
+        "title": "Hunter138",
+        "collection": "contributors",
+        "image": "images/cards/hunter.webp",
+        "Arte": [
+        {
+            "title": "Akira Toriyama",
+            "url": "https://x.com/ToriyamaArts?lang=es"
+        }
+    ],  
+        "articles": [
+        {
+            "title": "Su primer artículo",
+            "url": "https://www.destinorpg.es/2018/09/analisis-octopath-traveler.html"
+        }
+    ],
+        "enabled": true
+    },
+                                                               {
+        "id": "jdavid",
+        "number": 21,
+        "title": "JDavid",
+        "collection": "contributors",
+        "image": "images/cards/jdavid.webp",
+        "Arte": [
+        {
+            "title": "Bryan Lee O'Malley",
+            "url": "https://www.instagram.com/radiomaru/?hl=es"
+        }
+    ],  
+        "articles": [
+        {
+            "title": "Su primer artículo",
+            "url": "https://www.destinorpg.es/2015/08/casinos-y-jrpgs-siempre-muy-de-la-mano.html"
+        }
+    ],
+        "enabled": true
+    },
+                                                                {
+        "id": "jorgetrola",
+        "number": 22,
+        "title": "Jorgetrola",
+        "collection": "contributors",
+        "image": "images/cards/jorgetrola.webp",
+        "Arte": [
+        {
+            "title": "J. G. Quintel",
+            "url": "https://x.com/JGQuintel"
+        }
+    ],  
+        "articles": [
+        {
+            "title": "Su primer artículo",
+            "url": "https://www.destinorpg.es/2014/03/vaj-pokemon-edicion-azul-gb-capitulo-5.html"
+        },
+        {
+            "title": "Su artículo con más visitas",
+            "url": "https://www.destinorpg.es/2014/02/experiencias-roleras-jorgetrola-nos.html"
+        },
+                {
+            "title": "Su último artículo (hasta la fecha)",
+            "url": "https://www.destinorpg.es/2015/05/experiencias-roleras-jorgetrola-nos.html"
+        }
+    ],
+        "enabled": true
+    },
+                                                                   {
+        "id": "keelan",
+        "number": 23,
+        "title": "Keelan Maher",
+        "collection": "contributors",
+        "image": "images/cards/keelan.webp",
+        "Arte": [
+        {
+            "title": "pol",
+            "url": "https://www.pixiv.net/en/artworks/60760074"
+        }
+    ],  
+        "articles": [
+        {
+            "title": "Su primer artículo",
+            "url": "https://www.destinorpg.es/2019/10/que-tal-fue-assassins-creed-origins.html"
+        },
+                        {
+            "title": "Su último artículo (hasta la fecha)",
+            "url": "https://www.destinorpg.es/2019/11/analisis-below.html"
+        }
+    ],
+        "enabled": true
+    },
+                                                            {
+        "id": "kintarros",
+        "number": 24,
+        "title": "Kintarros",
+        "collection": "contributors",
+        "image": "images/cards/kintarros.webp",
+        "Arte": [
+        {
+            "title": "Mors",
+            "url": "https://linktr.ee/morsgn"
+        }
+    ],  
+        "articles": [
+        {
+            "title": "Su primer artículo",
+            "url": "https://www.destinorpg.es/2015/11/la-cara-oscura-de-final-fantasy-xiv.html"
         }
     ],
         "enabled": true
