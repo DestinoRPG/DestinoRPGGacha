@@ -1456,6 +1456,12 @@
         "title": "Adell Sparda",
         "collection": "admins",
         "image": "images/cards/adell.webp",
+        "Arte": [
+        {
+            "title": "Adell Sparda",
+            "url": "https://x.com/Adell_Sparda"
+        }
+    ],  
         "description": "El creador, administrador y editor jefe de Destino RPG. ¿Sabías que su nick proviene de la mezcla del protagonista de Disgaea 2 y el apellido del protagonista de Devil May Cry?",
         "articles": [
         {
@@ -1479,6 +1485,12 @@
         "title": "Drive",
         "collection": "admins",
         "image": "images/cards/drive.webp",
+        "Arte": [
+        {
+            "title": "Akio Watanabe",
+            "url": "https://x.com/punipoyo"
+        }
+    ],  
         "description": "AKA Abe",
         "articles": [
         {
@@ -1502,6 +1514,12 @@
         "title": "Memele",
         "collection": "admins",
         "image": "images/cards/mml.webp",
+        "Arte": [
+        {
+            "title": "Toshiyuki Itahana",
+            "url": "https://finalfantasy.fandom.com/wiki/Toshiyuki_Itahana"
+        }
+    ],  
         "description": "El guardián cuando Adell no está disponible",
         "articles": [
         {
@@ -1514,7 +1532,7 @@
         },
                 {
             "title": "Un artículo reciente que me guste",
-            "url": "https://www.destinorpg.es/2026/07/analisis-escape-from-ever-after.html"
+            "url": "https://www.destinorpg.es/2026/08/analisis-sovereign-tower.html"
         }
     ],
         "enabled": true
@@ -2089,6 +2107,186 @@
     ],
         "enabled": true
     },
+                                                                    {
+        "id": "luxar",
+        "number": 25,
+        "title": "Luxar Cole",
+        "collection": "contributors",
+        "image": "images/cards/luxar.webp",
+        "Arte": [
+        {
+            "title": "Fumio Minagawa",
+            "url": "https://x.com/minafumi"
+        }
+    ],  
+        "articles": [
+        {
+            "title": "Su primer artículo",
+            "url": "http://destino-rpg.blogspot.com.es/2015/09/experiencias-roleras-luxar-cole-nos.html"
+        },
+        {
+            "title": "Su artículo con más visitas",
+            "url": "https://www.destinorpg.es/2017/11/analisis-tactics-ogre-knight-of-lodis.html"
+        },
+                {
+            "title": "Su último artículo (hasta la fecha)",
+            "url": "https://www.destinorpg.es/2016/02/opinion-spoilers-que-duelen.html"
+        }
+    ],
+        "enabled": true
+    },
+                                                                        {
+        "id": "m2hero",
+        "number": 26,
+        "title": "M2Hero",
+        "collection": "contributors",
+        "image": "images/cards/m2hero.webp",
+        "Arte": [
+        {
+            "title": "Kuroba",
+            "url": "https://www.artstation.com/kuroba-k"
+        }
+    ],  
+        "articles": [
+        {
+            "title": "Su primer artículo",
+            "url": "https://www.destinorpg.es/2015/03/experiencias-roleras-m2hero-nos-escribe.html"
+        },
+        {
+            "title": "Su artículo con más visitas",
+            "url": "https://www.destinorpg.es/2017/08/the-witcher-que-es-y-por-donde-empezar.html"
+        },
+                {
+            "title": "Su último artículo (hasta la fecha)",
+            "url": "https://www.destinorpg.es/2020/03/analisis-fire-emblem-three-houses-en-la.html"
+        }
+    ],
+        "enabled": true
+    },
+                                                                            {
+        "id": "macrox",
+        "number": 27,
+        "title": "Macrox",
+        "collection": "contributors",
+        "image": "images/cards/macrox.webp",
+        "Arte": [
+        {
+            "title": "Hatsu",
+            "url": "https://x.com/hatsupuppy"
+        }
+    ],  
+        "articles": [
+        {
+            "title": "Su primer artículo",
+            "url": "https://www.destinorpg.es/2013/05/experiencias-roleras-macrox-nos-escribe.html"
+        },
+        {
+            "title": "Su artículo con más visitas",
+            "url": "https://www.destinorpg.es/2015/07/juegos-de-la-serie-xeno-que-es-y-por.html"
+        },
+                {
+            "title": "Su último artículo (hasta la fecha)",
+            "url": "https://www.destinorpg.es/2020/10/analisis-ys-origins.html"
+        }
+    ],
+        "enabled": true
+    },
+                                                                {
+        "id": "marcus",
+        "number": 28,
+        "title": "Marcus Delorean",
+        "collection": "contributors",
+        "image": "images/cards/marcus.webp",
+        "Arte": [
+        {
+            "title": "Tsukasa Hojo",
+            "url": "https://x.com/hojo_official?lang=es"
+        }
+    ],  
+        "articles": [
+        {
+            "title": "Su primer artículo",
+            "url": "https://www.destinorpg.es/2014/05/experiencias-roleras-marcus-delorean.html"
+        }
+    ],
+        "enabled": true
+    },
+                                                                                {
+        "id": "marte",
+        "number": 29,
+        "title": "Marte",
+        "collection": "contributors",
+        "image": "images/cards/marte.webp",
+        "Arte": [
+        {
+            "title": "Kairon22",
+            "url": "https://www.deviantart.com/kairon22/gallery"
+        }
+    ],  
+        "articles": [
+        {
+            "title": "Su primer artículo",
+            "url": "https://www.destinorpg.es/2019/03/la-actualizacion-de-los-roguelike.html"
+        },
+        {
+            "title": "Su artículo con más visitas",
+            "url": "https://www.destinorpg.es/2021/02/analisis-digimon-world-redigitize-decode.html"
+        },
+                {
+            "title": "Su último artículo (hasta la fecha)",
+            "url": "https://www.destinorpg.es/2021/09/analisis-digital-tamers-reborn.html"
+        }
+    ],
+        "enabled": true
+    },
+                                                                                    {
+        "id": "matias",
+        "number": 30,
+        "title": "Matías Guajardo",
+        "collection": "contributors",
+        "image": "images/cards/matias.webp",
+        "Arte": [
+        {
+            "title": "Kimihiko Fujisaka",
+            "url": "https://www.creativeuncut.com/art_the-last-story_a.html"
+        }
+    ],  
+        "articles": [
+        {
+            "title": "Su primer artículo",
+            "url": "https://www.destinorpg.es/2014/04/jugando-de-importacion-ar-nosurge.html"
+        },
+        {
+            "title": "Su artículo con más visitas",
+            "url": "https://www.destinorpg.es/2016/05/guia-para-principiantes-en-final.html"
+        },
+                {
+            "title": "Su último artículo (hasta la fecha)",
+            "url": "https://www.destinorpg.es/2018/04/que-tal-es-witch-spring-2.html"
+        }
+    ],
+        "enabled": true
+    },
+                                                                {
+        "id": "mike",
+        "number": 31,
+        "title": "Mike",
+        "collection": "contributors",
+        "image": "images/cards/mike.webp",
+        "Arte": [
+        {
+            "title": "Gen Kobayashi",
+            "url": "https://x.com/Gengenkob"
+        }
+    ],  
+        "articles": [
+        {
+            "title": "Su primer artículo",
+            "url": "https://www.destinorpg.es/2015/04/experiencias-roleras-mike-nos-escribe.html"
+        }
+    ],
+        "enabled": true
+    },
                                     {
         "id": "mylady",
         "number": 1,
@@ -2097,7 +2295,7 @@
         "image": "images/cards/mylady.webp",
         "articles": [
         {
-            "title": "Nazgul, pero educado",
+            "title": "El nazgul educado de La Comunidad del Anillo de GBA",
             "url": "https://www.destinorpg.es/2014/02/vaj-el-senor-de-los-anillos-la.html"
         }
     ],
@@ -2111,7 +2309,7 @@
         "image": "images/cards/digata.webp",
         "articles": [
         {
-            "title": "Todos atraviezan la puerta exepto el secuás",
+            "title": "Los errores gramaticales de Di-Gata Defenders",
             "url": "https://www.destinorpg.es/2014/03/vaj-di-gata-defenders-nds-capitulo-1.html"
         }
     ],
@@ -2125,7 +2323,7 @@
         "image": "images/cards/robopon.webp",
         "articles": [
         {
-            "title": "Pocas bormas con el poder del sumo",
+            "title": "El equipo que formamos en Robopon: Sun",
             "url": "https://www.destinorpg.es/2014/03/vaj-di-gata-defenders-nds-capitulo-1.html"
         }
     ],
