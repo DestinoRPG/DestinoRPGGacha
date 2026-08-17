@@ -2287,6 +2287,342 @@
     ],
         "enabled": true
     },
+                                                                                        {
+        "id": "nayimi",
+        "number": 32,
+        "title": "Nayimi",
+        "collection": "contributors",
+        "image": "images/cards/nayimi.webp",
+        "Arte": [
+        {
+            "title": "Nikukyu",
+            "url": "https://nikukyu.fanbox.cc/"
+        }
+    ],  
+        "articles": [
+        {
+            "title": "Su primer artículo",
+            "url": "https://www.destinorpg.es/2015/06/star-ocean-que-es-y-por-donde-empezar.html"
+        },
+        {
+            "title": "Su artículo con más visitas",
+            "url": "https://www.destinorpg.es/2015/06/star-ocean-que-es-y-por-donde-empezar.html"
+        },
+                {
+            "title": "Su último artículo (hasta la fecha)",
+            "url": "https://www.destinorpg.es/2017/05/analisis-tales-of-graces-f.html"
+        }
+    ],
+        "enabled": true
+    },
+                                                                                            {
+        "id": "nuada",
+        "number": 33,
+        "title": "Nuada",
+        "collection": "contributors",
+        "image": "images/cards/nuada.webp",
+        "Arte": [
+        {
+            "title": "Masaki Hirooka",
+            "url": "https://x.com/masaki_hirooka?lang=es"
+        }
+    ],  
+        "articles": [
+        {
+            "title": "Su primer artículo",
+            "url": "https://www.destinorpg.es/2014/06/experiencias-roleras-nuada-nos-escribe.html"
+        },
+        {
+            "title": "Su artículo con más visitas",
+            "url": "https://www.destinorpg.es/2015/05/gabe-boy-advance-el-legado.html"
+        },
+                {
+            "title": "Su último artículo (hasta la fecha)",
+            "url": "https://www.destinorpg.es/2017/01/experiencias-roleras-luminous-arc-nds.html"
+        }
+    ],
+        "enabled": true
+    },
+                                                                    {
+        "id": "raven",
+        "number": 34,
+        "title": "Raven Albarea",
+        "collection": "contributors",
+        "image": "images/cards/raven.webp",
+        "Arte": [
+        {
+            "title": "Yukiya",
+            "url": "https://www.zerochan.net/Yukiya"
+        }
+    ],  
+        "articles": [
+        {
+            "title": "Su primer artículo",
+            "url": "https://www.destinorpg.es/2019/10/la-existencia-de-tropos-en-los-jrpg-un.html"
+        }
+    ],
+        "enabled": true
+    },
+                                                                        {
+        "id": "rayzen",
+        "number": 35,
+        "title": "Rayzen",
+        "collection": "contributors",
+        "image": "images/cards/rayzen.webp",
+        "Arte": [
+        {
+            "title": "Tatsuya Yoshikawa",
+            "url": "https://x.com/0t0_Yoshikawa?lang=es"
+        }
+    ],  
+        "articles": [
+        {
+            "title": "Su primer artículo",
+            "url": "https://www.destinorpg.es/2015/04/experiencias-roleras-rayzen-nos-habla.html"
+        },
+                        {
+            "title": "Su último artículo (hasta la fecha)",
+            "url": "https://www.destinorpg.es/2015/06/vaj-final-fantasy-tactics-advance_22.html"
+        }
+    ],
+        "enabled": true
+    },
+                                                                                                {
+        "id": "saifogeo",
+        "number": 36,
+        "title": "Saifogeo",
+        "collection": "contributors",
+        "image": "images/cards/saifogeo.webp",
+        "Arte": [
+        {
+            "title": "Sen",
+            "url": "https://x.com/sen_old"
+        }
+    ],  
+        "articles": [
+        {
+            "title": "Su primer artículo",
+            "url": "https://www.destinorpg.es/2015/04/personajes-secundarios-en-los-rpg-1.html"
+        },
+        {
+            "title": "Su artículo con más visitas",
+            "url": "https://www.destinorpg.es/2018/03/las-mujeres-mas-admirables-en-los-rpgs.html"
+        },
+                {
+            "title": "Su último artículo (hasta la fecha)",
+            "url": "https://www.destinorpg.es/2018/07/analisis-dx2-shin-megami-tensei.html"
+        }
+    ],
+        "enabled": true
+    },
+                                                                                                    {
+        "id": "salika",
+        "number": 37,
+        "title": "Salika",
+        "collection": "contributors",
+        "image": "images/cards/salika.webp",
+        "Arte": [
+        {
+            "title": "?",
+            "url": ""
+        }
+    ],  
+        "articles": [
+        {
+            "title": "Su primer artículo",
+            "url": "https://www.destinorpg.es/2021/05/vaj-pokemon-edicion-platino-capitulo-6.html"
+        },
+                {
+            "title": "Su último artículo (hasta la fecha)",
+            "url": "https://www.destinorpg.es/2021/12/analisis-pokemon-perla.html"
+        }
+    ],
+        "enabled": true
+    },
+                                                                        {
+        "id": "sarai",
+        "number": 38,
+        "title": "Sarai",
+        "collection": "contributors",
+        "image": "images/cards/sarai.webp",
+        "Arte": [
+        {
+            "title": "∑sion",
+            "url": "https://x.com/sion_lazuli"
+        }
+    ],  
+        "articles": [
+        {
+            "title": "Su primer artículo",
+            "url": "https://www.destinorpg.es/2019/10/analisis-psychedelica-of-ashen-hawk.html"
+        }
+    ],
+        "enabled": true
+    },
+                                                                                                    {
+        "id": "sebas",
+        "number": 39,
+        "title": "Sebastián Codocedo",
+        "collection": "contributors",
+        "image": "images/cards/sebas.webp",
+        "Arte": [
+        {
+            "title": "GungHo Online Entertainment Illustrators",
+            "url": "https://pad.gungho.jp/member/app/g_credit.html"
+        }
+    ],  
+        "articles": [
+        {
+            "title": "Su primer artículo",
+            "url": "https://www.destinorpg.es/2015/08/experiencias-roleras-sebas-nos-escribe.html"
+        },
+        {
+            "title": "Su artículo con más visitas",
+            "url": "https://www.destinorpg.es/2016/05/dragon-quest-que-es-y-por-donde-empezar.html"
+        },
+                {
+            "title": "Su último artículo (hasta la fecha)",
+            "url": "https://www.destinorpg.es/2017/01/etrian-odyssey-que-es-y-por-donde.html"
+        }
+    ],
+        "enabled": true
+    },
+                                                                                                        {
+        "id": "shafla",
+        "number": 40,
+        "title": "Shafla of Hope",
+        "collection": "contributors",
+        "image": "images/cards/shafla.webp",
+        "Arte": [
+        {
+            "title": "Vertigo (redes borradas)",
+            "url": "https://www.destinorpg.es/"
+        }
+    ],  
+        "articles": [
+        {
+            "title": "Su primer artículo",
+            "url": "https://www.destinorpg.es/2020/12/experiencias-roleras-fallout-1-y-2.html"
+        },
+        {
+            "title": "Su artículo con más visitas",
+            "url": "https://www.destinorpg.es/2021/02/no-apto-para-todos-los-publicos.html"
+        },
+                {
+            "title": "Su último artículo (hasta la fecha)",
+            "url": "https://www.destinorpg.es/2021/05/vaj-pokemon-edicion-platino-capitulo-3.html"
+        }
+    ],
+        "enabled": true
+    },
+                                                                                                            {
+        "id": "sergio",
+        "number": 41,
+        "title": "Sergio Hidalgo",
+        "collection": "contributors",
+        "image": "images/cards/sergio.webp",
+        "Arte": [
+        {
+            "title": "Chap Sal !",
+            "url": "https://www.pixiv.net/users/7184954"
+        }
+    ],  
+        "articles": [
+        {
+            "title": "Su primer artículo",
+            "url": "https://www.destinorpg.es/2016/04/el-gran-paso-de-nippon-ichi.html"
+        },
+        {
+            "title": "Su artículo con más visitas",
+            "url": "https://www.destinorpg.es/2016/05/no-apto-para-todos-los-publicos.html"
+        },
+                {
+            "title": "Su último artículo (hasta la fecha)",
+            "url": "https://www.destinorpg.es/2016/09/por-que-nos-gusta-animal-crossing.html"
+        }
+    ],
+        "enabled": true
+    },
+                                                                                                                {
+        "id": "dekar",
+        "number": 42,
+        "title": "Sir Dekar",
+        "collection": "contributors",
+        "image": "images/cards/dekar.webp",
+        "Arte": [
+        {
+            "title": "Ryu Kurugami",
+            "url": "https://www.instagram.com/popular/ryu-kurugami-artwork/"
+        }
+    ],  
+        "articles": [
+        {
+            "title": "Su primer artículo",
+            "url": "https://www.destinorpg.es/2019/06/kemco-la-fabrica-de-suenos-y-clones.html"
+        },
+                {
+            "title": "Su último artículo (hasta la fecha)",
+            "url": "https://www.destinorpg.es/2019/08/indie-seguir-chained-echoes.html"
+        }
+    ],
+        "enabled": true
+    },
+                                                                                                                {
+        "id": "skaidus",
+        "number": 43,
+        "title": "Skaidus",
+        "collection": "contributors",
+        "image": "images/cards/skaidus.webp",
+        "Arte": [
+        {
+            "title": "ssktmm",
+            "url": "https://x.com/ssktmm?lang=es"
+        }
+    ],  
+        "articles": [
+        {
+            "title": "Su primer artículo",
+            "url": "https://www.destinorpg.es/2018/09/jugando-de-importacion-dragon-quest.html"
+        },
+        {
+            "title": "Su artículo con más visitas",
+            "url": "https://www.destinorpg.es/2019/07/criaturas-subestimadas-en-los-jrpgs.html"
+        },
+                {
+            "title": "Su último artículo (hasta la fecha)",
+            "url": "https://www.destinorpg.es/2021/06/vaj-pokemon-edicion-platino-capitulo-8.html"
+        }
+    ],
+        "enabled": true
+    },
+                                                                                                                    {
+        "id": "sokomizer",
+        "number": 44,
+        "title": "Sokomizer",
+        "collection": "contributors",
+        "image": "images/cards/sokomizer.webp",
+        "Arte": [
+        {
+            "title": "Hadjusto",
+            "url": "https://linktr.ee/Hadjusto"
+        }
+    ],  
+        "articles": [
+        {
+            "title": "Su primer artículo",
+            "url": "https://www.destinorpg.es/2013/05/experiencias-roleras-sokomizer-nos.html"
+        },
+        {
+            "title": "Su artículo con más visitas",
+            "url": "https://www.destinorpg.es/2014/03/vaj-pokemon-edicion-azul-gb-capitulo-3.html"
+        },
+                {
+            "title": "Su último artículo (hasta la fecha)",
+            "url": "https://www.destinorpg.es/2015/11/paris-games-week-2015-impresiones-de.html"
+        }
+    ],
+        "enabled": true
+    },
                                     {
         "id": "mylady",
         "number": 1,
