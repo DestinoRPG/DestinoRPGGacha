@@ -2797,6 +2797,20 @@
     ],
         "enabled": true
     },
+                                                {
+        "id": "guerra",
+        "number": 10,
+        "title": "Las Guerras Destinadas",
+        "collection": "chronicles",
+        "image": "images/cards/guerra.webp",
+        "articles": [
+        {
+            "title": "El conato de guerra por la sucesión en Destino RPG",
+            "url": "https://x.com/BaschGT/status/764471333107425280?s=20"
+        }
+    ],
+        "enabled": true
+    },
                 {
         "id": "gacha_launch",
         "number": 1,
