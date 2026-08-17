@@ -2423,8 +2423,8 @@
         "image": "images/cards/salika.webp",
         "Arte": [
         {
-            "title": "?",
-            "url": ""
+            "title": "Shigure S.",
+            "url": "https://x.com/ShiguShigu90"
         }
     ],  
         "articles": [
@@ -2619,6 +2619,138 @@
                 {
             "title": "Su último artículo (hasta la fecha)",
             "url": "https://www.destinorpg.es/2015/11/paris-games-week-2015-impresiones-de.html"
+        }
+    ],
+        "enabled": true
+    },
+                                                                                                                        {
+        "id": "wander",
+        "number": 45,
+        "title": "Wander",
+        "collection": "contributors",
+        "image": "images/cards/wander.webp",
+        "Arte": [
+        {
+            "title": "Felipe Llinas R.",
+            "url": "https://linktr.ee/feloart"
+        }
+    ],  
+        "articles": [
+        {
+            "title": "Su primer artículo",
+            "url": "https://www.destinorpg.es/2015/08/experiencias-roleras-wander-nos-escribe.html"
+        },
+        {
+            "title": "Su artículo con más visitas",
+            "url": "https://www.destinorpg.es/2015/09/experiencias-roleras-wander-nos-escribe.html"
+        },
+                {
+            "title": "Su último artículo (hasta la fecha)",
+            "url": "https://www.destinorpg.es/2015/11/primeras-impresiones-fallout-4.html"
+        }
+    ],
+        "enabled": true
+    },
+                                                                                                                            {
+        "id": "waxy",
+        "number": 46,
+        "title": "Waxy",
+        "collection": "contributors",
+        "image": "images/cards/waxy.webp",
+        "Arte": [
+        {
+            "title": "Fubuki",
+            "url": "https://x.com/fubuki_works?lang=es"
+        }
+    ],  
+        "articles": [
+        {
+            "title": "Su primer artículo",
+            "url": "https://www.destinorpg.es/2015/03/vaj-final-fantasy-tactics-advance_26.html"
+        },
+        {
+            "title": "Su artículo con más visitas",
+            "url": "https://www.destinorpg.es/2015/07/experiencias-roleras-waxy-nos-escribe.html"
+        },
+                {
+            "title": "Su último artículo (hasta la fecha)",
+            "url": "https://www.destinorpg.es/2016/09/vaj-pokemon-esmeralda-capitulo-8-waxy.html"
+        }
+    ],
+        "enabled": true
+    },
+                                                                                                                                {
+        "id": "zero",
+        "number": 47,
+        "title": "Zero Wolf",
+        "collection": "contributors",
+        "image": "images/cards/zero.webp",
+        "Arte": [
+        {
+            "title": "Kinu Nishimura",
+            "url": "https://x.com/nishi_katsu"
+        }
+    ],  
+        "articles": [
+        {
+            "title": "Su primer artículo",
+            "url": "https://www.destinorpg.es/2016/10/que-es-la-trilogia-zero-escape.html"
+        },
+        {
+            "title": "Su artículo con más visitas",
+            "url": "https://www.destinorpg.es/2016/11/no-apto-para-todos-los-publicos-lisa.html"
+        },
+                {
+            "title": "Su último artículo (hasta la fecha)",
+            "url": "https://www.destinorpg.es/2020/04/analisis-zanki-zero-last-beginning.html"
+        }
+    ],
+        "enabled": true
+    },
+                                                                                                                                    {
+        "id": "zeromus",
+        "number": 48,
+        "title": "Zeromus",
+        "collection": "contributors",
+        "image": "images/cards/zeromus.webp",
+        "Arte": [
+        {
+            "title": "Arc System Works",
+            "url": "https://www.arcsystemworks.jp/35th/en/history/"
+        }
+    ],  
+        "articles": [
+        {
+            "title": "Su primer artículo",
+            "url": "https://www.destinorpg.es/2015/04/vaj-final-fantasy-tactics-advance_29.html"
+        },
+        {
+            "title": "Su artículo con más visitas",
+            "url": "https://www.destinorpg.es/2015/08/analisis-lost-dimension-ps3vita.html"
+        },
+                {
+            "title": "Su último artículo (hasta la fecha)",
+            "url": "https://www.destinorpg.es/2015/12/analisis-exit-fate-pc.html"
+        }
+    ],
+        "enabled": true
+    },
+                                                                            {
+        "id": "zoanir",
+        "number": 49,
+        "title": "zoanir",
+        "collection": "contributors",
+        "image": "images/cards/zoanir.webp",
+        "Arte": [
+        {
+            "title": "Yusuke Mogi",
+            "url": "https://press.na.square-enix.com/Final-Fantasy-XIV-Endwalker/Focus/Job-Artwork-by-Yusuke-Mogi"
+        }
+    ],  
+        "articles": [
+        {
+            "title": "Su primer artículo",
+            "url": "https://www.destinorpg.es/2015/07/final-fantasy-xiv-la-esencia-de-final.html"
         }
     ],
         "enabled": true
