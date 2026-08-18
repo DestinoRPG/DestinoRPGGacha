@@ -363,7 +363,7 @@ export function renderModal(
 
                         <strong>
 
-                            Lanzamiento
+                            Año
 
                         </strong>
 

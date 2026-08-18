@@ -2755,12 +2755,43 @@
     ],
         "enabled": true
     },
+                                        {
+        "id": "peores",
+        "number": 1,
+        "title": "Los peores RPGs de la historia",
+        "collection": "chronicles",
+        "image": "images/cards/peores.webp",
+        "releaseYear": 2012,
+        "articles": [
+        {
+            "title": "Nuestro primer artículo original que tuvo un alto impacto",
+            "url": "https://www.destinorpg.es/2012/09/los-peores-rpgs-de-la-historia.html"
+        }
+    ],
+        "enabled": true
+    },
+                                            {
+        "id": "sabiasque",
+        "number": 2,
+        "title": "¿Sabías que...?",
+        "collection": "chronicles",
+        "image": "images/cards/sabiasque.webp",
+        "releaseYear": 2013,
+        "articles": [
+        {
+            "title": "Las pequeñas curiosidades del género RPG",
+            "url": "https://www.destinorpg.es/search/label/%C2%BFSab%C3%ADas%20que...?updated-max=2013-02-17T12%3A00%3A00%2B01%3A00&max-results=8#PageNo=10"
+        }
+    ],
+        "enabled": true
+    },
                                     {
         "id": "mylady",
-        "number": 1,
+        "number": 3,
         "title": "Señora",
         "collection": "chronicles",
         "image": "images/cards/mylady.webp",
+        "releaseYear": 2014,
         "articles": [
         {
             "title": "El nazgul educado de La Comunidad del Anillo de GBA",
@@ -2771,10 +2802,11 @@
     },
                                         {
         "id": "digata",
-        "number": 2,
+        "number": 4,
         "title": "Atravezando",
         "collection": "chronicles",
         "image": "images/cards/digata.webp",
+        "releaseYear": 2014,
         "articles": [
         {
             "title": "Los errores gramaticales de Di-Gata Defenders",
@@ -2785,10 +2817,11 @@
     },
                                             {
         "id": "robopon",
-        "number": 3,
+        "number": 5,
         "title": "Robopon y el Sumito invencible",
         "collection": "chronicles",
         "image": "images/cards/robopon.webp",
+        "releaseYear": 2014,
         "articles": [
         {
             "title": "El equipo que formamos en Robopon: Sun",
@@ -2803,6 +2836,7 @@
         "title": "Las Guerras Destinadas",
         "collection": "chronicles",
         "image": "images/cards/guerra.webp",
+        "releaseYear": 2016,
         "articles": [
         {
             "title": "El conato de guerra por la sucesión en Destino RPG",

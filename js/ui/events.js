@@ -21,16 +21,13 @@ export function initializeCardEvents(cards, profile) {
     }
 
 
-
     document
         .querySelectorAll(".card")
         .forEach(cardElement => {
 
 
-
             cardElement.onclick =
                 () => {
-
 
 
                     const card =
@@ -41,7 +38,6 @@ export function initializeCardEvents(cards, profile) {
                         );
 
 
-
                     if (!card) {
 
                         return;
@@ -49,12 +45,10 @@ export function initializeCardEvents(cards, profile) {
                     }
 
 
-
                     const owned =
                         profile.ownedCards.includes(
                             card.id
                         );
-
 
 
                     modalArea.innerHTML =
@@ -64,6 +58,9 @@ export function initializeCardEvents(cards, profile) {
                         );
 
 
+                    // -------------------------
+                    // Cerrar con la X
+                    // -------------------------
 
                     const closeButton =
                         document.getElementById(
@@ -71,9 +68,7 @@ export function initializeCardEvents(cards, profile) {
                         );
 
 
-
                     if (closeButton) {
-
 
                         closeButton.onclick =
                             () => {
@@ -83,6 +78,36 @@ export function initializeCardEvents(cards, profile) {
 
                             };
 
+                    }
+
+
+                    // -------------------------
+                    // Cerrar haciendo clic fuera
+                    // de la carta
+                    // -------------------------
+
+                    const modalOverlay =
+                        modalArea.querySelector(
+                            ".modal-overlay"
+                        );
+
+
+                    if (modalOverlay) {
+
+                        modalOverlay.onclick =
+                            event => {
+
+                                if (
+                                    event.target ===
+                                    modalOverlay
+                                ) {
+
+                                    modalArea.innerHTML =
+                                        "";
+
+                                }
+
+                            };
 
                     }
 
