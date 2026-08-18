@@ -4035,20 +4035,22 @@ DESACTIVADO
 
     position:relative;
 
-    padding:24px;
+    padding:24px 24px 28px;
 
-    border:2px solid rgba(166,127,24,.45);
+    border:2px solid rgba(166,127,24,.42);
 
     border-radius:24px;
 
     background:
+
         linear-gradient(
             180deg,
-            rgba(216,178,74,.09),
-            rgba(255,255,255,.15)
+            rgba(216,178,74,.08),
+            rgba(255,255,255,.12)
         );
 
     box-shadow:
+
         0 10px 24px
         rgba(166,127,24,.08);
 
@@ -4091,31 +4093,89 @@ DESACTIVADO
 
 .collection-header{
 
+    position:relative;
+
     display:flex;
 
     justify-content:space-between;
 
     align-items:center;
 
-    margin-bottom:24px;
+    gap:24px;
 
-    gap:20px;
+    margin-bottom:22px;
+
+    padding:
+
+        4px
+        4px
+        18px;
+
+    border-bottom:
+
+        1px solid
+        rgba(166,127,24,.35);
 
 }
 
+/* Línea decorativa inferior */
+
+.collection-header::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    bottom:-2px;
+
+    width:90px;
+
+    height:3px;
+
+    border-radius:3px;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            #a67f18,
+            #e5c96b,
+            transparent
+        );
+
+}
+
+/* =======================================================
+   TÍTULO
+======================================================= */
 
 .collection-title{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
 
     margin:0 0 6px;
 
     font-size:1.8rem;
 
-    font-weight:700;
+    line-height:1.15;
+
+    font-weight:800;
 
     color:#3b2d17;
 
+    letter-spacing:.2px;
+
 }
 
+/* =======================================================
+   SUBTÍTULO
+======================================================= */
 
 .collection-subtitle{
 
@@ -4123,7 +4183,9 @@ DESACTIVADO
 
     color:var(--textSoft);
 
-    font-size:.95rem;
+    font-size:.92rem;
+
+    line-height:1.4;
 
 }
 
@@ -4150,9 +4212,9 @@ DESACTIVADO
 
     align-items:center;
 
-    width:76px;
+    width:64px;
 
-    height:76px;
+    height:64px;
 
     flex-shrink:0;
 
@@ -4165,20 +4227,25 @@ DESACTIVADO
             #ffe18a,
             #ffc72d
         );
+   color:#533800;
 
-    color:#533800;
-
-    font-size:1.5rem;
+    font-size:1.25rem;
 
     font-weight:800;
 
+    border:2px solid
+        rgba(255,255,255,.75);
+
     box-shadow:
 
-        0 8px 18px
-        rgba(0,0,0,.15);
+        0 6px 14px
+        rgba(0,0,0,.13);
 
 }
 
+/* =======================================================
+   COLECCIÓN COMPLETADA
+======================================================= */
 
 .collection-section.completed
 .collection-counter{
@@ -4191,17 +4258,19 @@ DESACTIVADO
             #a67f18
         );
 
-    border:3px solid #f7e5ad;
+    border:
+
+        3px solid
+        #f7e5ad;
 
     color:white;
 
     box-shadow:
 
-        0 8px 20px
-        rgba(166,127,24,.25);
+        0 7px 17px
+        rgba(166,127,24,.22);
 
 }
-
 
 /* =======================================================
    CARTAS
