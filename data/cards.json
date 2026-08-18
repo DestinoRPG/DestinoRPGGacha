@@ -2764,7 +2764,7 @@
         "releaseYear": 2012,
         "articles": [
         {
-            "title": "Nuestro primer artículo original que tuvo un alto impacto",
+            "title": "Uno de nuestros primeros artículos originales que tuvieron un alto impacto",
             "url": "https://www.destinorpg.es/2012/09/los-peores-rpgs-de-la-historia.html"
         }
     ],
@@ -2826,6 +2826,36 @@
         {
             "title": "El equipo que formamos en Robopon: Sun",
             "url": "https://www.destinorpg.es/2014/03/vaj-di-gata-defenders-nds-capitulo-1.html"
+        }
+    ],
+        "enabled": true
+    },
+                                                {
+        "id": "preguntadell",
+        "number": 6,
+        "title": "Los Pregunta a Adell",
+        "collection": "chronicles",
+        "image": "images/cards/preguntadell.webp",
+        "releaseYear": 2014,
+        "articles": [
+        {
+            "title": "La antigua sección donde podías preguntarle cosas al administrador",
+            "url": "https://www.destinorpg.es/search/label/Pregunta%20a%20Adell?updated-max=2014-05-23T23%3A35%3A00%2B02%3A00&max-results=8#PageNo=7"
+        }
+    ],
+        "enabled": true
+    },
+                                                {
+        "id": "paladin",
+        "number": 7,
+        "title": "El final alternativo de Paladin's Quest",
+        "collection": "chronicles",
+        "image": "images/cards/paladin.webp",
+        "releaseYear": 2015,
+        "articles": [
+        {
+            "title": "Sí, de alguna forma logramos morir los dos a la vez en el combate final",
+            "url": "https://youtu.be/X2KH9vlEDFU?si=ERqC0mU_t6g969H5"
         }
     ],
         "enabled": true
