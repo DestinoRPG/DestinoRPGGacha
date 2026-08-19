@@ -2773,8 +2773,8 @@
                                                 {
         "id": "musica",
         "number": 2,
-        "title": "¿Sabías que...?",
-        "collection": "Los proyectos musicales",
+        "title": "Los proyectos musicales",
+        "collection": "chronicles",
         "image": "images/cards/musica.webp",
         "releaseYear": 2012,
         "articles": [
@@ -2785,7 +2785,7 @@
     ],
         "enabled": true
     },
-                                            {
+                                                {
         "id": "sabiasque",
         "number": 3,
         "title": "¿Sabías que...?",
@@ -2800,9 +2800,99 @@
     ],
         "enabled": true
     },
+                                                {
+        "id": "nds",
+        "number": 4,
+        "title": "Los mejores RPGs de Nintendo DS",
+        "collection": "chronicles",
+        "image": "images/cards/nds.webp",
+        "releaseYear": 2013,
+        "articles": [
+        {
+            "title": "El primer artículo de este tipo y uno de los visitados de la historia de la página",
+            "url": "https://www.destinorpg.es/2013/04/los-mejores-rpgs-de-nintendo-ds.html"
+        }
+    ],
+        "enabled": true
+    },
+                                                    {
+        "id": "noadell",
+        "number": 5,
+        "title": "El primer artículo de un colaborador",
+        "collection": "chronicles",
+        "image": "images/cards/noadell.webp",
+        "releaseYear": 2013,
+        "articles": [
+        {
+            "title": "Macrox y su análisis de Ni No Kuni fue el primero en abrir la veda",
+            "url": "https://www.destinorpg.es/2013/05/experiencias-roleras-macrox-nos-escribe.html"
+        }
+    ],
+        "enabled": true
+    },
+                                                        {
+        "id": "psp",
+        "number": 6,
+        "title": "Los mejores RPGs de PSP",
+        "collection": "chronicles",
+        "image": "images/cards/psp.webp",
+        "releaseYear": 2013,
+        "articles": [
+        {
+            "title": "Uno de los artículos más leídos de nuestra historia",
+            "url": "https://www.destinorpg.es/2013/10/los-mejores-rpgs-de-psp.html"
+        }
+    ],
+        "enabled": true
+    },
+                                                        {
+        "id": "traduccion",
+        "number": 7,
+        "title": "Los errores de traducción en el género RPG",
+        "collection": "chronicles",
+        "image": "images/cards/traduccion.webp",
+        "releaseYear": 2013,
+        "articles": [
+        {
+            "title": "Varios artículos ejemplarizando algunos de los horrores del género",
+            "url": "https://www.destinorpg.es/search/label/Errores%20de%20traducci%C3%B3n?&max-results=8"
+        }
+    ],
+        "enabled": true
+    },
+                                                            {
+        "id": "bravely",
+        "number": 8,
+        "title": "La guía de Bravely Default",
+        "collection": "chronicles",
+        "image": "images/cards/bravely.webp",
+        "releaseYear": 2013,
+        "articles": [
+        {
+            "title": "Su publicación trajo miles de usuarios a descubrir Destino RPG",
+            "url": "https://www.destinorpg.es/2013/12/guia-de-bravely-default-en-construccion.html"
+        }
+    ],
+        "enabled": true
+    },
+                                                                {
+        "id": "aerv",
+        "number": 9,
+        "title": "El RPG más vendidod e neustra compañía",
+        "collection": "chronicles",
+        "image": "images/cards/aerv.webp",
+        "releaseYear": 2014,
+        "articles": [
+        {
+            "title": "Compeltamos Game Dev Tycoon pulicando solo RPGs",
+            "url": "https://www.destinorpg.es/2014/01/experiencias-roleras-game-dev-tycoon.html"
+        }
+    ],
+        "enabled": true
+    },
                                     {
         "id": "mylady",
-        "number": 3,
+        "number": 5,
         "title": "Señora",
         "collection": "chronicles",
         "image": "images/cards/mylady.webp",
@@ -2817,7 +2907,7 @@
     },
                                         {
         "id": "digata",
-        "number": 4,
+        "number": 6,
         "title": "Atravezando",
         "collection": "chronicles",
         "image": "images/cards/digata.webp",
@@ -2832,7 +2922,7 @@
     },
                                             {
         "id": "robopon",
-        "number": 5,
+        "number": 7,
         "title": "Robopon y el Sumito invencible",
         "collection": "chronicles",
         "image": "images/cards/robopon.webp",
@@ -2847,7 +2937,7 @@
     },
                                                 {
         "id": "preguntadell",
-        "number": 6,
+        "number": 8,
         "title": "Los Pregunta a Adell",
         "collection": "chronicles",
         "image": "images/cards/preguntadell.webp",
@@ -2862,7 +2952,7 @@
     },
                                                 {
         "id": "paladin",
-        "number": 7,
+        "number": 9,
         "title": "El final alternativo de Paladin's Quest",
         "collection": "chronicles",
         "image": "images/cards/paladin.webp",
