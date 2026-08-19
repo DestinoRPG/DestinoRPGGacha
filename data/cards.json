@@ -2892,7 +2892,7 @@
     },
                                     {
         "id": "mylady",
-        "number": 5,
+        "number": 10,
         "title": "Señora",
         "collection": "chronicles",
         "image": "images/cards/mylady.webp",
@@ -2907,7 +2907,7 @@
     },
                                         {
         "id": "digata",
-        "number": 6,
+        "number": 11,
         "title": "Atravezando",
         "collection": "chronicles",
         "image": "images/cards/digata.webp",
@@ -2922,7 +2922,7 @@
     },
                                             {
         "id": "robopon",
-        "number": 7,
+        "number": 12,
         "title": "Robopon y el Sumito invencible",
         "collection": "chronicles",
         "image": "images/cards/robopon.webp",
@@ -2937,7 +2937,7 @@
     },
                                                 {
         "id": "preguntadell",
-        "number": 8,
+        "number": 13,
         "title": "Los Pregunta a Adell",
         "collection": "chronicles",
         "image": "images/cards/preguntadell.webp",
@@ -2950,9 +2950,69 @@
     ],
         "enabled": true
     },
+                                                    {
+        "id": "360",
+        "number": 14,
+        "title": "Los Mejores RPGs de Xbox 360",
+        "collection": "chronicles",
+        "image": "images/cards/360.webp",
+        "releaseYear": 2014,
+        "articles": [
+        {
+            "title": "La consola que empezó fenomenal y se pegó el tiro en el pie al final",
+            "url": "https://www.destinorpg.es/2014/02/los-mejores-rpgs-de-xbox-360.html"
+        }
+    ],
+        "enabled": true
+    },
+                                                        {
+        "id": "pokemon1",
+        "number": 15,
+        "title": "El VaJ Conjunto de Pokémon Azul",
+        "collection": "chronicles",
+        "image": "images/cards/pokemon1.webp",
+        "releaseYear": 2014,
+        "articles": [
+        {
+            "title": "Grandes memorias jugando juntos pasándonos el grupo",
+            "url": "https://www.destinorpg.es/2014/02/vaj-pokemon-edicion-azul-gb-capitulo-1.html"
+        }
+    ],
+        "enabled": true
+    },
+                                                            {
+        "id": "nuzlocke",
+        "number": 16,
+        "title": "El Nuzlocke de Pokémon HeartGold",
+        "collection": "chronicles",
+        "image": "images/cards/nuzlocke.webp",
+        "releaseYear": 2014,
+        "articles": [
+        {
+            "title": "Fue una gran aventura, pero Lance y la falta de experiencia fue demasiado",
+            "url": "https://www.destinorpg.es/search/label/Nuzlocke?&max-results=8"
+        }
+    ],
+        "enabled": true
+    },
+                                                                {
+        "id": "persona",
+        "number": 17,
+        "title": "Recomendando Persona",
+        "collection": "chronicles",
+        "image": "images/cards/persona.webp",
+        "releaseYear": 2014,
+        "articles": [
+        {
+            "title": "Nuestro primer -Qué es y por dónde empezar- fue para la saga de Atlus",
+            "url": "https://www.destinorpg.es/2014/05/shin-megami-tensei-persona-que-es-y-por.html"
+        }
+    ],
+        "enabled": true
+    },
                                                 {
         "id": "paladin",
-        "number": 9,
+        "number": 18,
         "title": "El final alternativo de Paladin's Quest",
         "collection": "chronicles",
         "image": "images/cards/paladin.webp",
@@ -2967,7 +3027,7 @@
     },
                                                 {
         "id": "guerra",
-        "number": 10,
+        "number": 21,
         "title": "Las Guerras Destinadas",
         "collection": "chronicles",
         "image": "images/cards/guerra.webp",
@@ -2978,7 +3038,7 @@
             "url": "https://x.com/BaschGT/status/764471333107425280?s=20"
         }
     ],
-        "enabled": true
+        "enabled": false
     },
                 {
         "id": "gacha_launch",
