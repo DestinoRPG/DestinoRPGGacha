@@ -2770,9 +2770,24 @@
     ],
         "enabled": true
     },
+                                                {
+        "id": "musica",
+        "number": 2,
+        "title": "¿Sabías que...?",
+        "collection": "Los proyectos musicales",
+        "image": "images/cards/musica.webp",
+        "releaseYear": 2012,
+        "articles": [
+        {
+            "title": "El Top-10 Musical (que tardo dos años en compeltarse) y la colaboración con Radio Avalancha",
+            "url": "https://www.destinorpg.es/2014/01/top-10-musical-los-10-mejores-temas.html"
+        }
+    ],
+        "enabled": true
+    },
                                             {
         "id": "sabiasque",
-        "number": 2,
+        "number": 3,
         "title": "¿Sabías que...?",
         "collection": "chronicles",
         "image": "images/cards/sabiasque.webp",
