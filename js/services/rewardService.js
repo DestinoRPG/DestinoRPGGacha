@@ -252,32 +252,68 @@ export async function claimCardReward(
  * RECOMPENSA DIARIA
  * =========================================================
  */
+
 export async function claimDailyReward(user) {
+
+    // =====================================================
+    // Obtener el día actual en España
+    // =====================================================
+
+    const getSpainDay = () => {
+
+        return new Intl.DateTimeFormat(
+            "en-CA",
+            {
+                timeZone: "Europe/Madrid",
+                year: "numeric",
+                month: "2-digit",
+                day: "2-digit"
+            }
+        ).format(
+            new Date()
+        );
+
+    };
+
+
+    const today =
+        getSpainDay();
+
+
+    // =====================================================
+    // Comprobar el último día reclamado
+    // =====================================================
 
     const lastClaim =
         user.lastDailyReward ?? null;
 
-    const cooldown =
-        24 * 60 * 60 * 1000;
-
-
-    // =====================================================
-    // Comprobar cooldown localmente
-    // =====================================================
 
     if (lastClaim) {
 
-        let lastClaimTime;
+        let lastClaimDate;
 
 
-        // Timestamp de Firestore ya convertido a objeto
+        // Timestamp de Firestore
         if (
+            typeof lastClaim === "object" &&
+            typeof lastClaim.toDate === "function"
+        ) {
+
+            lastClaimDate =
+                lastClaim.toDate();
+
+        }
+
+        // Timestamp compatible con toMillis()
+        else if (
             typeof lastClaim === "object" &&
             typeof lastClaim.toMillis === "function"
         ) {
 
-            lastClaimTime =
-                lastClaim.toMillis();
+            lastClaimDate =
+                new Date(
+                    lastClaim.toMillis()
+                );
 
         }
 
@@ -286,38 +322,52 @@ export async function claimDailyReward(user) {
             typeof lastClaim === "number"
         ) {
 
-            lastClaimTime =
-                lastClaim;
+            lastClaimDate =
+                new Date(
+                    lastClaim
+                );
 
         }
 
-        // Fecha almacenada como string
+        // String / fecha
         else {
 
-            lastClaimTime =
-                new Date(lastClaim).getTime();
+            lastClaimDate =
+                new Date(
+                    lastClaim
+                );
 
         }
 
 
-        const now =
-            Date.now();
+        const lastClaimDay =
+            new Intl.DateTimeFormat(
+                "en-CA",
+                {
+                    timeZone: "Europe/Madrid",
+                    year: "numeric",
+                    month: "2-digit",
+                    day: "2-digit"
+                }
+            ).format(
+                lastClaimDate
+            );
 
-        const nextReward =
-            lastClaimTime + cooldown;
 
+        // =================================================
+        // Ya reclamó durante el día actual
+        // =================================================
 
-        // Todavía no han pasado 24 horas
-        if (now < nextReward) {
+        if (
+            lastClaimDay === today
+        ) {
 
             return {
 
                 success: false,
 
                 reason:
-                    "ALREADY_CLAIMED",
-
-                nextReward
+                    "ALREADY_CLAIMED"
 
             };
 
@@ -332,6 +382,7 @@ export async function claimDailyReward(user) {
 
     const tickets =
         (user.tickets ?? 0) + 1;
+
 
     const dailyRewardsClaimed =
         (user.dailyRewardsClaimed ?? 0) + 1;
@@ -370,24 +421,14 @@ export async function claimDailyReward(user) {
         dailyRewardsClaimed;
 
     user.lastDailyReward =
-    Date.now();    
-
-
-    // No ponemos serverTimestamp()
-    // en el objeto local porque es un sentinel,
-    // no la fecha real.
-
-    const nextReward =
-        Date.now() + cooldown;
+        Date.now();
 
 
     return {
 
         success: true,
 
-        tickets: 1,
-
-        nextReward
+        tickets: 1
 
     };
 
