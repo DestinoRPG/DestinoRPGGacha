@@ -179,9 +179,12 @@ function renderDailyNews(profile) {
     }
 
 
+    // =====================================================
+    // PRÓXIMA MEDIANOCHE EN EUROPE/MADRID
+    // =====================================================
+
     const nextReward =
-        lastReward +
-        (24 * 60 * 60 * 1000);
+        getNextMadridMidnight();
 
 
     const remaining =
@@ -189,7 +192,9 @@ function renderDailyNews(profile) {
         Date.now();
 
 
-    // Ya está disponible.
+    // =====================================================
+    // Ya está disponible
+    // =====================================================
 
     if (
         remaining <= 0
@@ -276,6 +281,157 @@ function renderDailyNews(profile) {
         </div>
 
     `;
+
+}
+
+
+/* =======================================================
+   OBTENER PRÓXIMA MEDIANOCHE
+======================================================= */
+
+function getNextMadridMidnight() {
+
+    const now =
+        new Date();
+
+
+    // Obtenemos la fecha actual en Madrid.
+
+    const madridDate =
+        new Intl.DateTimeFormat(
+            "en-CA",
+            {
+                timeZone: "Europe/Madrid",
+                year: "numeric",
+                month: "2-digit",
+                day: "2-digit"
+            }
+        ).format(
+            now
+        );
+
+
+    const [
+        year,
+        month,
+        day
+    ] =
+        madridDate
+            .split("-")
+            .map(Number);
+
+
+    // =====================================================
+    // Crear una fecha aproximada en UTC.
+    //
+    // Después calculamos qué offset tiene Madrid en ese
+    // momento para obtener la medianoche real.
+    // =====================================================
+
+    const approximateUTC =
+        Date.UTC(
+            year,
+            month - 1,
+            day + 1,
+            0,
+            0,
+            0,
+            0
+        );
+
+
+    const offset =
+        getMadridOffset(
+            new Date(
+                approximateUTC
+            )
+        );
+
+
+    return (
+        approximateUTC
+        -
+        offset
+    );
+
+}
+
+
+/* =======================================================
+   OBTENER OFFSET DE MADRID
+======================================================= */
+
+function getMadridOffset(date) {
+
+    const parts =
+        new Intl.DateTimeFormat(
+            "en-US",
+            {
+                timeZone: "Europe/Madrid",
+                timeZoneName: "longOffset"
+            }
+        ).formatToParts(
+            date
+        );
+
+
+    const offsetPart =
+        parts.find(
+            part =>
+                part.type === "timeZoneName"
+        );
+
+
+    if (
+        !offsetPart ||
+        !offsetPart.value
+    ) {
+
+        return 0;
+
+    }
+
+
+    const match =
+        offsetPart.value.match(
+            /GMT([+-])(\d{2}):(\d{2})/
+        );
+
+
+    if (!match) {
+
+        return 0;
+
+    }
+
+
+    const sign =
+        match[1] === "+"
+            ? 1
+            : -1;
+
+
+    const hours =
+        Number(
+            match[2]
+        );
+
+
+    const minutes =
+        Number(
+            match[3]
+        );
+
+
+    return (
+        sign *
+        (
+            hours * 60 +
+            minutes
+        ) *
+        60 *
+        1000
+    );
 
 }
 

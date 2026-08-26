@@ -245,8 +245,6 @@ export async function claimCardReward(
     };
 
 }
-
-
 /**
  * =========================================================
  * RECOMPENSA DIARIA
@@ -269,15 +267,12 @@ export async function claimDailyReward(user) {
                 month: "2-digit",
                 day: "2-digit"
             }
-        ).format(
-            new Date()
-        );
+        ).format(new Date());
 
     };
 
 
-    const today =
-        getSpainDay();
+    const today = getSpainDay();
 
 
     // =====================================================
@@ -311,9 +306,7 @@ export async function claimDailyReward(user) {
         ) {
 
             lastClaimDate =
-                new Date(
-                    lastClaim.toMillis()
-                );
+                new Date(lastClaim.toMillis());
 
         }
 
@@ -323,9 +316,7 @@ export async function claimDailyReward(user) {
         ) {
 
             lastClaimDate =
-                new Date(
-                    lastClaim
-                );
+                new Date(lastClaim);
 
         }
 
@@ -333,9 +324,7 @@ export async function claimDailyReward(user) {
         else {
 
             lastClaimDate =
-                new Date(
-                    lastClaim
-                );
+                new Date(lastClaim);
 
         }
 
@@ -349,26 +338,18 @@ export async function claimDailyReward(user) {
                     month: "2-digit",
                     day: "2-digit"
                 }
-            ).format(
-                lastClaimDate
-            );
+            ).format(lastClaimDate);
 
 
         // =================================================
         // Ya reclamó durante el día actual
         // =================================================
 
-        if (
-            lastClaimDay === today
-        ) {
+        if (lastClaimDay === today) {
 
             return {
-
                 success: false,
-
-                reason:
-                    "ALREADY_CLAIMED"
-
+                reason: "ALREADY_CLAIMED"
             };
 
         }
@@ -383,7 +364,6 @@ export async function claimDailyReward(user) {
     const tickets =
         (user.tickets ?? 0) + 1;
 
-
     const dailyRewardsClaimed =
         (user.dailyRewardsClaimed ?? 0) + 1;
 
@@ -397,14 +377,12 @@ export async function claimDailyReward(user) {
         user.uid,
 
         {
-
             tickets,
 
             lastDailyReward:
                 serverTimestamp(),
 
             dailyRewardsClaimed
-
         }
 
     );
@@ -420,8 +398,14 @@ export async function claimDailyReward(user) {
     user.dailyRewardsClaimed =
         dailyRewardsClaimed;
 
-    user.lastDailyReward =
-        Date.now();
+
+    // No ponemos Date.now() aquí.
+    //
+    // Firestore será quien proporcione el timestamp real
+    // del servidor.
+    //
+    // El usuario se actualizará con el valor real cuando
+    // se vuelva a cargar/observar el documento.
 
 
     return {
