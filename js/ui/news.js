@@ -286,7 +286,7 @@ function renderDailyNews(profile) {
 
 
 /* =======================================================
-   OBTENER PRÓXIMA MEDIANOCHE
+   OBTENER PRÓXIMA MEDIANOCHE DE MADRID
 ======================================================= */
 
 function getNextMadridMidnight() {
@@ -295,7 +295,14 @@ function getNextMadridMidnight() {
         new Date();
 
 
-    // Obtenemos la fecha actual en Madrid.
+    // -----------------------------------------------------
+    // Obtener la fecha actual en Madrid.
+    //
+    // Formato:
+    //
+    // YYYY-MM-DD
+    //
+    // -----------------------------------------------------
 
     const madridDate =
         new Intl.DateTimeFormat(
@@ -321,14 +328,122 @@ function getNextMadridMidnight() {
             .map(Number);
 
 
-    // =====================================================
-    // Crear una fecha aproximada en UTC.
+    // -----------------------------------------------------
+    // Primero creamos una fecha UTC aproximada para:
     //
-    // Después calculamos qué offset tiene Madrid en ese
-    // momento para obtener la medianoche real.
-    // =====================================================
+    // siguiente día
+    // 00:00:00
+    //
+    // -----------------------------------------------------
 
-    const approximateUTC =
+    const nextDayUTC =
+        new Date(
+            Date.UTC(
+                year,
+                month - 1,
+                day + 1,
+                0,
+                0,
+                0,
+                0
+            )
+        );
+
+
+    // -----------------------------------------------------
+    // Averiguamos qué hora corresponde en Madrid.
+    //
+    // Intl se encarga automáticamente de:
+    //
+    // UTC+1 en invierno
+    // UTC+2 en verano
+    //
+    // -----------------------------------------------------
+
+    const madridParts =
+        new Intl.DateTimeFormat(
+            "en-US",
+            {
+                timeZone: "Europe/Madrid",
+                year: "numeric",
+                month: "2-digit",
+                day: "2-digit",
+                hour: "2-digit",
+                minute: "2-digit",
+                second: "2-digit",
+                hourCycle: "h23"
+            }
+        ).formatToParts(
+            nextDayUTC
+        );
+
+
+    const getPart =
+        type => {
+
+            const part =
+                madridParts.find(
+                    item =>
+                        item.type === type
+                );
+
+            return part
+                ? Number(part.value)
+                : 0;
+
+        };
+
+
+    const madridYear =
+        getPart("year");
+
+    const madridMonth =
+        getPart("month");
+
+    const madridDay =
+        getPart("day");
+
+    const madridHour =
+        getPart("hour");
+
+    const madridMinute =
+        getPart("minute");
+
+    const madridSecond =
+        getPart("second");
+
+
+    // -----------------------------------------------------
+    // Diferencia entre la fecha UTC aproximada y la hora
+    // que esa fecha representa en Madrid.
+    // -----------------------------------------------------
+
+    const approximateMilliseconds =
+        nextDayUTC.getTime();
+
+
+    const madridAsUTC =
+        Date.UTC(
+            madridYear,
+            madridMonth - 1,
+            madridDay,
+            madridHour,
+            madridMinute,
+            madridSecond,
+            0
+        );
+
+
+    const offset =
+        madridAsUTC -
+        approximateMilliseconds;
+
+
+    // -----------------------------------------------------
+    // Medianoche real de Madrid.
+    // -----------------------------------------------------
+
+    return (
         Date.UTC(
             year,
             month - 1,
@@ -337,100 +452,9 @@ function getNextMadridMidnight() {
             0,
             0,
             0
-        );
-
-
-    const offset =
-        getMadridOffset(
-            new Date(
-                approximateUTC
-            )
-        );
-
-
-    return (
-        approximateUTC
+        )
         -
         offset
-    );
-
-}
-
-
-/* =======================================================
-   OBTENER OFFSET DE MADRID
-======================================================= */
-
-function getMadridOffset(date) {
-
-    const parts =
-        new Intl.DateTimeFormat(
-            "en-US",
-            {
-                timeZone: "Europe/Madrid",
-                timeZoneName: "longOffset"
-            }
-        ).formatToParts(
-            date
-        );
-
-
-    const offsetPart =
-        parts.find(
-            part =>
-                part.type === "timeZoneName"
-        );
-
-
-    if (
-        !offsetPart ||
-        !offsetPart.value
-    ) {
-
-        return 0;
-
-    }
-
-
-    const match =
-        offsetPart.value.match(
-            /GMT([+-])(\d{2}):(\d{2})/
-        );
-
-
-    if (!match) {
-
-        return 0;
-
-    }
-
-
-    const sign =
-        match[1] === "+"
-            ? 1
-            : -1;
-
-
-    const hours =
-        Number(
-            match[2]
-        );
-
-
-    const minutes =
-        Number(
-            match[3]
-        );
-
-
-    return (
-        sign *
-        (
-            hours * 60 +
-            minutes
-        ) *
-        60 *
-        1000
     );
 
 }
@@ -686,7 +710,6 @@ export function revealCardNews() {
         `;
 
 }
-
 
 /* =======================================================
    NOTICIA ACTUAL
