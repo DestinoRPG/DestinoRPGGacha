@@ -856,6 +856,10 @@ export function initializeNews(profile) {
 
 function startDailyCountdown() {
 
+    // -----------------------------------------------------
+    // Evitar múltiples intervalos simultáneos.
+    // -----------------------------------------------------
+
     stopDailyCountdown();
 
 
@@ -868,6 +872,11 @@ function startDailyCountdown() {
                 );
 
 
+            // -------------------------------------------------
+            // Si el contador ya no existe, significa que
+            // hemos cambiado de noticia.
+            // -------------------------------------------------
+
             if (!countdown) {
 
                 stopDailyCountdown();
@@ -877,28 +886,17 @@ function startDailyCountdown() {
             }
 
 
-            const lastReward =
-                getLastDailyRewardTime(
-                    currentProfile
-                );
-
-
-            if (
-                lastReward === null
-            ) {
-
-                stopDailyCountdown();
-
-                updateNews();
-
-                return;
-
-            }
-
+            // -------------------------------------------------
+            // Calcular SIEMPRE la próxima medianoche de Madrid.
+            //
+            // NO usamos:
+            //
+            // lastReward + 24 horas
+            //
+            // -------------------------------------------------
 
             const nextReward =
-                lastReward +
-                (24 * 60 * 60 * 1000);
+                getNextMadridMidnight();
 
 
             const remaining =
@@ -906,11 +904,22 @@ function startDailyCountdown() {
                 Date.now();
 
 
+            // -------------------------------------------------
+            // Ha llegado la medianoche.
+            // -------------------------------------------------
+
             if (
                 remaining <= 0
             ) {
 
                 stopDailyCountdown();
+
+
+                // Actualizamos la noticia una sola vez.
+                //
+                // Al renderizarse de nuevo, si ya es el nuevo
+                // día, aparecerá el botón de recompensa.
+                //
 
                 updateNews();
 
@@ -918,6 +927,12 @@ function startDailyCountdown() {
 
             }
 
+
+            // -------------------------------------------------
+            // Actualizar únicamente el contador.
+            //
+            // NO llamar a updateNews() aquí.
+            // -------------------------------------------------
 
             countdown.textContent =
                 formatRemainingTime(
@@ -927,8 +942,12 @@ function startDailyCountdown() {
         };
 
 
+    // Primera actualización inmediata.
+
     updateCountdown();
 
+
+    // Actualizar cada segundo.
 
     dailyCountdownInterval =
         setInterval(
