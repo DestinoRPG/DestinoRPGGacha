@@ -63,63 +63,6 @@ let dailyCountdownInterval = null;
 
 
 /* =======================================================
-   RECOMPENSA DIARIA
-======================================================= */
-
-function getLastDailyRewardTime(profile) {
-
-    if (
-        !profile ||
-        !profile.lastDailyReward
-    ) {
-
-        return null;
-
-    }
-
-
-    const lastReward =
-        profile.lastDailyReward;
-
-
-    if (
-        typeof lastReward === "object" &&
-        typeof lastReward.toMillis === "function"
-    ) {
-
-        return lastReward.toMillis();
-
-    }
-
-
-    if (
-        typeof lastReward === "number"
-    ) {
-
-        return lastReward;
-
-    }
-
-
-    const parsed =
-        new Date(lastReward).getTime();
-
-
-    if (
-        Number.isNaN(parsed)
-    ) {
-
-        return null;
-
-    }
-
-
-    return parsed;
-
-}
-
-
-/* =======================================================
    RENDER RECOMPENSA DIARIA
 ======================================================= */
 
@@ -131,7 +74,9 @@ function renderDailyNews(profile) {
         );
 
 
-    // Nunca ha reclamado la recompensa.
+    // =====================================================
+    // Nunca ha reclamado la recompensa
+    // =====================================================
 
     if (
         lastReward === null
@@ -180,7 +125,95 @@ function renderDailyNews(profile) {
 
 
     // =====================================================
-    // PRÓXIMA MEDIANOCHE EN EUROPE/MADRID
+    // Obtener día actual en España
+    // =====================================================
+
+    const getSpainDay =
+        date => {
+
+            return new Intl.DateTimeFormat(
+                "en-CA",
+                {
+                    timeZone: "Europe/Madrid",
+                    year: "numeric",
+                    month: "2-digit",
+                    day: "2-digit"
+                }
+            ).format(
+                date
+            );
+
+        };
+
+
+    const today =
+        getSpainDay(
+            new Date()
+        );
+
+
+    const lastRewardDay =
+        getSpainDay(
+            new Date(
+                lastReward
+            )
+        );
+
+
+    // =====================================================
+    // Si el último reclamo fue otro día,
+    // la recompensa ya está disponible.
+    // =====================================================
+
+    if (
+        lastRewardDay !== today
+    ) {
+
+        return `
+
+            <div class="news-content">
+
+                <div class="news-label">
+
+                    RECOMPENSA DIARIA
+
+                </div>
+
+
+                <h2>
+
+                    🎁 ¡Recompensa disponible!
+
+                </h2>
+
+
+                <p>
+
+                    Ya puedes reclamar tu ticket diario.
+
+                </p>
+
+
+                <button
+                    id="claimDailyRewardButton"
+                    class="daily-reward-button"
+                    type="button"
+                >
+
+                    RECLAMAR RECOMPENSA
+
+                </button>
+
+            </div>
+
+        `;
+
+    }
+
+
+    // =====================================================
+    // Sigue siendo el mismo día.
+    // Mostrar contador hasta la próxima medianoche.
     // =====================================================
 
     const nextReward =
@@ -193,7 +226,9 @@ function renderDailyNews(profile) {
 
 
     // =====================================================
-    // Ya está disponible
+    // Seguridad:
+    // si por alguna razón ya hemos llegado a medianoche,
+    // mostrar directamente la recompensa.
     // =====================================================
 
     if (
@@ -242,6 +277,10 @@ function renderDailyNews(profile) {
     }
 
 
+    // =====================================================
+    // Mostrar contador
+    // =====================================================
+
     return `
 
         <div class="news-content">
@@ -281,234 +320,6 @@ function renderDailyNews(profile) {
         </div>
 
     `;
-
-}
-
-
-/* =======================================================
-   OBTENER PRÓXIMA MEDIANOCHE DE MADRID
-======================================================= */
-
-function getNextMadridMidnight() {
-
-    const now =
-        new Date();
-
-
-    // -----------------------------------------------------
-    // Obtener la fecha actual en Madrid.
-    //
-    // Formato:
-    //
-    // YYYY-MM-DD
-    //
-    // -----------------------------------------------------
-
-    const madridDate =
-        new Intl.DateTimeFormat(
-            "en-CA",
-            {
-                timeZone: "Europe/Madrid",
-                year: "numeric",
-                month: "2-digit",
-                day: "2-digit"
-            }
-        ).format(
-            now
-        );
-
-
-    const [
-        year,
-        month,
-        day
-    ] =
-        madridDate
-            .split("-")
-            .map(Number);
-
-
-    // -----------------------------------------------------
-    // Primero creamos una fecha UTC aproximada para:
-    //
-    // siguiente día
-    // 00:00:00
-    //
-    // -----------------------------------------------------
-
-    const nextDayUTC =
-        new Date(
-            Date.UTC(
-                year,
-                month - 1,
-                day + 1,
-                0,
-                0,
-                0,
-                0
-            )
-        );
-
-
-    // -----------------------------------------------------
-    // Averiguamos qué hora corresponde en Madrid.
-    //
-    // Intl se encarga automáticamente de:
-    //
-    // UTC+1 en invierno
-    // UTC+2 en verano
-    //
-    // -----------------------------------------------------
-
-    const madridParts =
-        new Intl.DateTimeFormat(
-            "en-US",
-            {
-                timeZone: "Europe/Madrid",
-                year: "numeric",
-                month: "2-digit",
-                day: "2-digit",
-                hour: "2-digit",
-                minute: "2-digit",
-                second: "2-digit",
-                hourCycle: "h23"
-            }
-        ).formatToParts(
-            nextDayUTC
-        );
-
-
-    const getPart =
-        type => {
-
-            const part =
-                madridParts.find(
-                    item =>
-                        item.type === type
-                );
-
-            return part
-                ? Number(part.value)
-                : 0;
-
-        };
-
-
-    const madridYear =
-        getPart("year");
-
-    const madridMonth =
-        getPart("month");
-
-    const madridDay =
-        getPart("day");
-
-    const madridHour =
-        getPart("hour");
-
-    const madridMinute =
-        getPart("minute");
-
-    const madridSecond =
-        getPart("second");
-
-
-    // -----------------------------------------------------
-    // Diferencia entre la fecha UTC aproximada y la hora
-    // que esa fecha representa en Madrid.
-    // -----------------------------------------------------
-
-    const approximateMilliseconds =
-        nextDayUTC.getTime();
-
-
-    const madridAsUTC =
-        Date.UTC(
-            madridYear,
-            madridMonth - 1,
-            madridDay,
-            madridHour,
-            madridMinute,
-            madridSecond,
-            0
-        );
-
-
-    const offset =
-        madridAsUTC -
-        approximateMilliseconds;
-
-
-    // -----------------------------------------------------
-    // Medianoche real de Madrid.
-    // -----------------------------------------------------
-
-    return (
-        Date.UTC(
-            year,
-            month - 1,
-            day + 1,
-            0,
-            0,
-            0,
-            0
-        )
-        -
-        offset
-    );
-
-}
-
-
-/* =======================================================
-   FORMATEAR CONTADOR
-======================================================= */
-
-function formatRemainingTime(
-    milliseconds
-) {
-
-    const totalSeconds =
-        Math.max(
-            0,
-            Math.ceil(
-                milliseconds / 1000
-            )
-        );
-
-
-    const hours =
-        Math.floor(
-            totalSeconds / 3600
-        );
-
-
-    const minutes =
-        Math.floor(
-            (totalSeconds % 3600) / 60
-        );
-
-
-    const seconds =
-        totalSeconds % 60;
-
-
-    return (
-
-        String(hours)
-            .padStart(2, "0")
-
-        + ":"
-
-        + String(minutes)
-            .padStart(2, "0")
-
-        + ":"
-
-        + String(seconds)
-            .padStart(2, "0")
-
-    );
 
 }
 
@@ -856,10 +667,6 @@ export function initializeNews(profile) {
 
 function startDailyCountdown() {
 
-    // -----------------------------------------------------
-    // Evitar múltiples intervalos simultáneos.
-    // -----------------------------------------------------
-
     stopDailyCountdown();
 
 
@@ -873,8 +680,8 @@ function startDailyCountdown() {
 
 
             // -------------------------------------------------
-            // Si el contador ya no existe, significa que
-            // hemos cambiado de noticia.
+            // Si ya no existe el contador, hemos cambiado
+            // de noticia.
             // -------------------------------------------------
 
             if (!countdown) {
@@ -887,12 +694,84 @@ function startDailyCountdown() {
 
 
             // -------------------------------------------------
-            // Calcular SIEMPRE la próxima medianoche de Madrid.
+            // Obtener el último reclamo.
+            // -------------------------------------------------
+
+            const lastReward =
+                getLastDailyRewardTime(
+                    currentProfile
+                );
+
+
+            if (
+                lastReward === null
+            ) {
+
+                stopDailyCountdown();
+
+                updateNews();
+
+                return;
+
+            }
+
+
+            // -------------------------------------------------
+            // Obtener día actual y día del último reclamo
+            // usando SIEMPRE Europe/Madrid.
+            // -------------------------------------------------
+
+            const madridFormatter =
+                new Intl.DateTimeFormat(
+                    "en-CA",
+                    {
+                        timeZone: "Europe/Madrid",
+                        year: "numeric",
+                        month: "2-digit",
+                        day: "2-digit"
+                    }
+                );
+
+
+            const today =
+                madridFormatter.format(
+                    new Date()
+                );
+
+
+            const lastRewardDay =
+                madridFormatter.format(
+                    new Date(
+                        lastReward
+                    )
+                );
+
+
+            // -------------------------------------------------
+            // Si ya estamos en otro día:
             //
-            // NO usamos:
+            // LA RECOMPENSA ESTÁ DISPONIBLE.
             //
-            // lastReward + 24 horas
+            // Dejamos de contar y reconstruimos la noticia.
+            // -------------------------------------------------
+
+            if (
+                lastRewardDay !== today
+            ) {
+
+                stopDailyCountdown();
+
+                updateNews();
+
+                return;
+
+            }
+
+
+            // -------------------------------------------------
+            // Seguimos en el mismo día.
             //
+            // Calcular próxima medianoche de Madrid.
             // -------------------------------------------------
 
             const nextReward =
@@ -905,7 +784,7 @@ function startDailyCountdown() {
 
 
             // -------------------------------------------------
-            // Ha llegado la medianoche.
+            // Seguridad adicional.
             // -------------------------------------------------
 
             if (
@@ -913,13 +792,6 @@ function startDailyCountdown() {
             ) {
 
                 stopDailyCountdown();
-
-
-                // Actualizamos la noticia una sola vez.
-                //
-                // Al renderizarse de nuevo, si ya es el nuevo
-                // día, aparecerá el botón de recompensa.
-                //
 
                 updateNews();
 
@@ -929,9 +801,7 @@ function startDailyCountdown() {
 
 
             // -------------------------------------------------
-            // Actualizar únicamente el contador.
-            //
-            // NO llamar a updateNews() aquí.
+            // Actualizar solamente el contador.
             // -------------------------------------------------
 
             countdown.textContent =
@@ -942,12 +812,16 @@ function startDailyCountdown() {
         };
 
 
+    // -------------------------------------------------------
     // Primera actualización inmediata.
+    // -------------------------------------------------------
 
     updateCountdown();
 
 
+    // -------------------------------------------------------
     // Actualizar cada segundo.
+    // -------------------------------------------------------
 
     dailyCountdownInterval =
         setInterval(
