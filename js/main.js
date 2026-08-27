@@ -75,33 +75,69 @@ window.addEventListener(
                 // USUARIO NO LOGUEADO
                 // =========================
 
-                if (!user) {
+if (!user) {
+
+    document
+        .getElementById("userArea")
+        .innerHTML = `
+
+            <div class="login-panel">
+
+                <div class="login-panel-content">
+
+                    <div class="login-label">
+                        DESTINO RPG GACHA
+                    </div>
+
+                    <h2>
+                        Guarda tu progreso
+                    </h2>
+
+                    <p>
+                        Inicia sesión para conservar tus cartas,
+                        tickets y progreso del Gacha.
+                    </p>
+
+                    <button
+                        id="loginButton"
+                        class="gacha-login-button"
+                    >
+
+                        <i class="fa-brands fa-google"></i>
+
+                        <span>
+                            Iniciar sesión con Google
+                        </span>
+
+                    </button>
+
+                    <p class="login-privacy">
+
+                        Utilizamos tu cuenta de Google
+                        únicamente para identificarte y
+                        guardar tu progreso. Nunca tenemos
+                        acceso a tu contraseña.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        `;
 
 
-                    document
-                        .getElementById("userArea")
-                        .innerHTML = `
-
-                            <button id="loginButton">
-
-                                Iniciar sesión
-
-                            </button>
-
-                        `;
+    document
+        .getElementById("loginButton")
+        .addEventListener(
+            "click",
+            login
+        );
 
 
-                    document
-                        .getElementById("loginButton")
-                        .addEventListener(
-                            "click",
-                            login
-                        );
+    return;
 
-
-                    return;
-
-                }
+}
 
 
 

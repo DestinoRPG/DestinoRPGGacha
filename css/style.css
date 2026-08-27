@@ -282,6 +282,282 @@ hr{
 
 }
 
+/* =======================================================
+   LOGIN
+======================================================= */
+
+.login-panel{
+
+    width:100%;
+
+    box-sizing:border-box;
+
+    padding:24px 24px 0;
+
+}
+
+
+/* =======================================================
+   CONTENIDO LOGIN
+======================================================= */
+
+.login-panel-content{
+
+    position:relative;
+
+    max-width:620px;
+
+    margin:0 auto;
+
+    padding:28px 36px 24px;
+
+    box-sizing:border-box;
+
+    text-align:center;
+
+    background:#091727;
+
+    border:2px solid #c9a64e;
+
+    border-radius:22px;
+
+    box-shadow:var(--shadow);
+
+}
+
+
+/* =======================================================
+   MARCO INTERIOR
+======================================================= */
+
+.login-panel-content::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:5px;
+
+    border:
+        1px solid
+        rgba(201,166,78,.45);
+
+    border-radius:16px;
+
+    pointer-events:none;
+
+}
+
+
+/* =======================================================
+   ADORNO SUPERIOR
+======================================================= */
+
+.login-panel-content::after{
+
+    content:"◆";
+
+    position:absolute;
+
+    top:-11px;
+
+    left:50%;
+
+    transform:
+        translateX(-50%);
+
+    width:38px;
+
+    height:20px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:var(--panel);
+
+    color:#c9a64e;
+
+    font-size:.65rem;
+
+    line-height:1;
+
+}
+
+
+/* =======================================================
+   ETIQUETA
+======================================================= */
+
+.login-label{
+
+    position:relative;
+
+    z-index:2;
+
+    margin-bottom:8px;
+
+    color:#e5cc83;
+
+    font-size:.75rem;
+
+    font-weight:900;
+
+    letter-spacing:3px;
+
+}
+
+
+/* =======================================================
+   TÍTULO
+======================================================= */
+
+.login-panel-content h2{
+
+    position:relative;
+
+    z-index:2;
+
+    margin:0 0 8px;
+
+    color:#fff;
+
+    font-size:1.45rem;
+
+}
+
+
+/* =======================================================
+   TEXTO
+======================================================= */
+
+.login-panel-content > p{
+
+    position:relative;
+
+    z-index:2;
+
+    max-width:500px;
+
+    margin:0 auto 20px;
+
+    color:rgba(255,255,255,.78);
+
+    font-size:.9rem;
+
+    line-height:1.5;
+
+}
+
+
+/* =======================================================
+   BOTÓN GOOGLE
+======================================================= */
+
+.gacha-login-button{
+
+    position:relative;
+
+    z-index:2;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:10px;
+
+    width:100%;
+
+    max-width:360px;
+
+    margin:0 auto;
+
+    padding:13px 20px;
+
+    box-sizing:border-box;
+
+    border:1px solid #c9a64e;
+
+    border-radius:10px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #172c43,
+            #0d1d30
+        );
+
+    color:#fff;
+
+    font-family:inherit;
+
+    font-size:.9rem;
+
+    font-weight:800;
+
+    letter-spacing:.5px;
+
+    cursor:pointer;
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease,
+        border-color .2s ease;
+
+}
+
+
+.gacha-login-button i{
+
+    font-size:1.05rem;
+
+}
+
+
+.gacha-login-button:hover{
+
+    transform:
+        translateY(-2px);
+
+    border-color:#e5cc83;
+
+    box-shadow:
+        0 4px 16px
+        rgba(201,166,78,.2);
+
+}
+
+
+.gacha-login-button:active{
+
+    transform:
+        translateY(0);
+
+}
+
+
+/* =======================================================
+   TEXTO DE PRIVACIDAD
+======================================================= */
+
+.login-panel-content .login-privacy{
+
+    margin-top:14px;
+
+    margin-bottom:0;
+
+    color:rgba(255,255,255,.48);
+
+    font-size:.7rem;
+
+    line-height:1.45;
+
+}
+
 
 /* =======================================================
    NAVEGACIÓN
