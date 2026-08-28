@@ -1180,8 +1180,7 @@ async function handleDailyReward() {
 
     if (button) {
 
-        button.disabled =
-            true;
+        button.disabled = true;
 
         button.textContent =
             "RECLAMANDO...";
@@ -1214,16 +1213,22 @@ async function handleDailyReward() {
         }
 
 
-        /*
-         * claimDailyReward() ya actualiza:
-         *
-         * currentProfile.tickets
-         * currentProfile.dailyRewardsClaimed
-         * currentProfile.lastDailyReward
-         */
+        // -------------------------------------------------
+        // La recompensa se ha concedido correctamente.
+        //
+        // Detenemos cualquier contador anterior.
+        // -------------------------------------------------
 
         stopDailyCountdown();
 
+
+        // -------------------------------------------------
+        // Redibujar la noticia.
+        //
+        // Como ahora sabemos que se ha reclamado hoy,
+        // renderDailyNews() mostrará el contador hasta
+        // la próxima medianoche de Madrid.
+        // -------------------------------------------------
 
         updateNews();
 
