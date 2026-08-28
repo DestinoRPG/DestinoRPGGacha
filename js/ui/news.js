@@ -6,7 +6,7 @@ import {
 let newsItems = [
 
     {
-    type: "daily"
+        type: "daily"
     },
 
     {
@@ -19,7 +19,6 @@ let newsItems = [
             "Una nueva colección se incorpora al Gacha. ¡Consigue sus cartas y aumenta tu porcentaje de colección!"
     },
 
-
     {
         type: "info",
 
@@ -30,7 +29,6 @@ let newsItems = [
             "Las cartas que ya posees no volverán a aparecer en tus invocaciones. ¡Cada tirada te acerca a completar tus colecciones!"
     },
 
-
     {
         type: "info",
 
@@ -40,7 +38,6 @@ let newsItems = [
         text:
             "Cada colección reúne cartas con información sobre el juego, su desarrollador y su año de lanzamiento."
     },
-
 
     {
         type: "info",
@@ -63,8 +60,283 @@ let dailyCountdownInterval = null;
 
 
 /* =======================================================
-   RENDER RECOMPENSA DIARIA
+   RECOMPENSA DIARIA
 ======================================================= */
+
+/* -------------------------------------------------------
+   OBTENER ÚLTIMO MOMENTO DE RECLAMACIÓN
+------------------------------------------------------- */
+
+function getLastDailyRewardTime(profile) {
+
+    if (
+        !profile ||
+        !profile.lastDailyReward
+    ) {
+
+        return null;
+
+    }
+
+
+    const lastReward =
+        profile.lastDailyReward;
+
+
+    // Timestamp de Firestore
+
+    if (
+        typeof lastReward === "object" &&
+        typeof lastReward.toMillis === "function"
+    ) {
+
+        return lastReward.toMillis();
+
+    }
+
+
+    // Timestamp con toDate()
+
+    if (
+        typeof lastReward === "object" &&
+        typeof lastReward.toDate === "function"
+    ) {
+
+        return lastReward.toDate().getTime();
+
+    }
+
+
+    // Número
+
+    if (
+        typeof lastReward === "number"
+    ) {
+
+        return lastReward;
+
+    }
+
+
+    // String / fecha
+
+    const parsed =
+        new Date(
+            lastReward
+        ).getTime();
+
+
+    if (
+        Number.isNaN(parsed)
+    ) {
+
+        return null;
+
+    }
+
+
+    return parsed;
+
+}
+
+
+/* -------------------------------------------------------
+   OBTENER DÍA EN MADRID
+------------------------------------------------------- */
+
+function getSpainDay(date) {
+
+    return new Intl.DateTimeFormat(
+        "en-CA",
+        {
+            timeZone: "Europe/Madrid",
+            year: "numeric",
+            month: "2-digit",
+            day: "2-digit"
+        }
+    ).format(
+        date
+    );
+
+}
+
+
+/* -------------------------------------------------------
+   OBTENER PRÓXIMA MEDIANOCHE DE MADRID
+------------------------------------------------------- */
+
+function getNextMadridMidnight() {
+
+    const now =
+        new Date();
+
+
+    const madridDate =
+        getSpainDay(
+            now
+        );
+
+
+    const [
+        year,
+        month,
+        day
+    ] =
+        madridDate
+            .split("-")
+            .map(Number);
+
+
+    /*
+     * Buscamos la medianoche del día siguiente.
+     *
+     * No utilizamos:
+     *
+     * lastReward + 24 horas
+     *
+     * porque eso produciría exactamente el problema
+     * que estamos intentando solucionar.
+     *
+     * Europe/Madrid se encarga automáticamente del
+     * cambio entre UTC+1 y UTC+2.
+     */
+
+    const targetYear =
+        year;
+
+    const targetMonth =
+        month;
+
+    const targetDay =
+        day + 1;
+
+
+    /*
+     * Tomamos una fecha UTC aproximada.
+     */
+
+    let timestamp =
+        Date.UTC(
+            targetYear,
+            targetMonth - 1,
+            targetDay,
+            0,
+            0,
+            0,
+            0
+        );
+
+
+    /*
+     * Hacemos unas pocas iteraciones para ajustar
+     * correctamente el offset de Madrid.
+     *
+     * Esto evita cualquier cálculo recursivo.
+     */
+
+    for (
+        let i = 0;
+        i < 3;
+        i++
+    ) {
+
+        const parts =
+            new Intl.DateTimeFormat(
+                "en-US",
+                {
+                    timeZone: "Europe/Madrid",
+                    timeZoneName: "longOffset"
+                }
+            ).formatToParts(
+                new Date(
+                    timestamp
+                )
+            );
+
+
+        const offsetPart =
+            parts.find(
+                part =>
+                    part.type === "timeZoneName"
+            );
+
+
+        if (
+            !offsetPart
+        ) {
+
+            break;
+
+        }
+
+
+        const match =
+            offsetPart.value.match(
+                /GMT([+-])(\d{2}):(\d{2})/
+            );
+
+
+        if (
+            !match
+        ) {
+
+            break;
+
+        }
+
+
+        const sign =
+            match[1] === "+"
+                ? 1
+                : -1;
+
+
+        const hours =
+            Number(
+                match[2]
+            );
+
+
+        const minutes =
+            Number(
+                match[3]
+            );
+
+
+        const offset =
+            sign *
+            (
+                hours * 60 +
+                minutes
+            ) *
+            60 *
+            1000;
+
+
+        timestamp =
+            Date.UTC(
+                targetYear,
+                targetMonth - 1,
+                targetDay,
+                0,
+                0,
+                0,
+                0
+            )
+            -
+            offset;
+
+    }
+
+
+    return timestamp;
+
+}
+
+
+/* -------------------------------------------------------
+   RENDER RECOMPENSA DIARIA
+------------------------------------------------------- */
 
 function renderDailyNews(profile) {
 
@@ -74,9 +346,9 @@ function renderDailyNews(profile) {
         );
 
 
-    // =====================================================
-    // Nunca ha reclamado la recompensa
-    // =====================================================
+    /*
+     * Nunca ha reclamado la recompensa.
+     */
 
     if (
         lastReward === null
@@ -124,27 +396,10 @@ function renderDailyNews(profile) {
     }
 
 
-    // =====================================================
-    // Obtener día actual en España
-    // =====================================================
-
-    const getSpainDay =
-        date => {
-
-            return new Intl.DateTimeFormat(
-                "en-CA",
-                {
-                    timeZone: "Europe/Madrid",
-                    year: "numeric",
-                    month: "2-digit",
-                    day: "2-digit"
-                }
-            ).format(
-                date
-            );
-
-        };
-
+    /*
+     * Comparamos el día de la última reclamación
+     * con el día actual en Madrid.
+     */
 
     const today =
         getSpainDay(
@@ -160,10 +415,9 @@ function renderDailyNews(profile) {
         );
 
 
-    // =====================================================
-    // Si el último reclamo fue otro día,
-    // la recompensa ya está disponible.
-    // =====================================================
+    /*
+     * Si estamos en otro día, está disponible.
+     */
 
     if (
         lastRewardDay !== today
@@ -211,10 +465,12 @@ function renderDailyNews(profile) {
     }
 
 
-    // =====================================================
-    // Sigue siendo el mismo día.
-    // Mostrar contador hasta la próxima medianoche.
-    // =====================================================
+    /*
+     * Todavía estamos en el mismo día.
+     *
+     * El contador va hasta la próxima medianoche
+     * de Madrid.
+     */
 
     const nextReward =
         getNextMadridMidnight();
@@ -225,11 +481,10 @@ function renderDailyNews(profile) {
         Date.now();
 
 
-    // =====================================================
-    // Seguridad:
-    // si por alguna razón ya hemos llegado a medianoche,
-    // mostrar directamente la recompensa.
-    // =====================================================
+    /*
+     * Seguridad por si justo hemos cruzado
+     * la medianoche.
+     */
 
     if (
         remaining <= 0
@@ -277,9 +532,9 @@ function renderDailyNews(profile) {
     }
 
 
-    // =====================================================
-    // Mostrar contador
-    // =====================================================
+    /*
+     * Mostrar contador.
+     */
 
     return `
 
@@ -325,6 +580,59 @@ function renderDailyNews(profile) {
 
 
 /* =======================================================
+   FORMATEAR CONTADOR
+======================================================= */
+
+function formatRemainingTime(
+    milliseconds
+) {
+
+    const totalSeconds =
+        Math.max(
+            0,
+            Math.ceil(
+                milliseconds / 1000
+            )
+        );
+
+
+    const hours =
+        Math.floor(
+            totalSeconds / 3600
+        );
+
+
+    const minutes =
+        Math.floor(
+            (totalSeconds % 3600) / 60
+        );
+
+
+    const seconds =
+        totalSeconds % 60;
+
+
+    return (
+
+        String(hours)
+            .padStart(2, "0")
+
+        + ":"
+
+        + String(minutes)
+            .padStart(2, "0")
+
+        + ":"
+
+        + String(seconds)
+            .padStart(2, "0")
+
+    );
+
+}
+
+
+/* =======================================================
    RENDERIZAR NOTICIA ACTUAL
 ======================================================= */
 
@@ -341,10 +649,6 @@ export function renderNews(profile) {
     const news =
         newsItems[currentNews];
 
-
-    // -----------------------------------------------
-    // La recompensa diaria es una noticia del carrusel
-    // -----------------------------------------------
 
     if (
         news.type === "daily"
@@ -522,6 +826,7 @@ export function revealCardNews() {
 
 }
 
+
 /* =======================================================
    NOTICIA ACTUAL
 ======================================================= */
@@ -626,7 +931,9 @@ export function initializeNews(profile) {
     }
 
 
-    // Botón de recompensa diaria.
+    /*
+     * Botón de recompensa diaria.
+     */
 
     const claimButton =
         newsArea.querySelector(
@@ -646,15 +953,35 @@ export function initializeNews(profile) {
     }
 
 
-    // Si estamos viendo la diaria,
-    // iniciar su contador.
+    /*
+     * Si estamos viendo la diaria,
+     * iniciar contador.
+     */
 
     if (
         newsItems[currentNews]?.type
         === "daily"
     ) {
 
-        startDailyCountdown();
+        const countdown =
+            newsArea.querySelector(
+                "#dailyRewardCountdown"
+            );
+
+
+        /*
+         * Solo iniciamos el contador si realmente
+         * existe el elemento.
+         *
+         * Si aparece el botón de reclamar,
+         * no hay contador que iniciar.
+         */
+
+        if (countdown) {
+
+            startDailyCountdown();
+
+        }
 
     }
 
@@ -679,10 +1006,10 @@ function startDailyCountdown() {
                 );
 
 
-            // -------------------------------------------------
-            // Si ya no existe el contador, hemos cambiado
-            // de noticia.
-            // -------------------------------------------------
+            /*
+             * Si ya no existe, hemos cambiado
+             * de noticia.
+             */
 
             if (!countdown) {
 
@@ -693,9 +1020,10 @@ function startDailyCountdown() {
             }
 
 
-            // -------------------------------------------------
-            // Obtener el último reclamo.
-            // -------------------------------------------------
+            /*
+             * Comprobar si ya estamos en un nuevo día
+             * de Madrid.
+             */
 
             const lastReward =
                 getLastDailyRewardTime(
@@ -716,44 +1044,24 @@ function startDailyCountdown() {
             }
 
 
-            // -------------------------------------------------
-            // Obtener día actual y día del último reclamo
-            // usando SIEMPRE Europe/Madrid.
-            // -------------------------------------------------
-
-            const madridFormatter =
-                new Intl.DateTimeFormat(
-                    "en-CA",
-                    {
-                        timeZone: "Europe/Madrid",
-                        year: "numeric",
-                        month: "2-digit",
-                        day: "2-digit"
-                    }
-                );
-
-
             const today =
-                madridFormatter.format(
+                getSpainDay(
                     new Date()
                 );
 
 
             const lastRewardDay =
-                madridFormatter.format(
+                getSpainDay(
                     new Date(
                         lastReward
                     )
                 );
 
 
-            // -------------------------------------------------
-            // Si ya estamos en otro día:
-            //
-            // LA RECOMPENSA ESTÁ DISPONIBLE.
-            //
-            // Dejamos de contar y reconstruimos la noticia.
-            // -------------------------------------------------
+            /*
+             * Si ya es otro día, sustituimos el contador
+             * por el botón.
+             */
 
             if (
                 lastRewardDay !== today
@@ -768,11 +1076,10 @@ function startDailyCountdown() {
             }
 
 
-            // -------------------------------------------------
-            // Seguimos en el mismo día.
-            //
-            // Calcular próxima medianoche de Madrid.
-            // -------------------------------------------------
+            /*
+             * Calcular SIEMPRE la próxima medianoche
+             * de Madrid.
+             */
 
             const nextReward =
                 getNextMadridMidnight();
@@ -783,9 +1090,9 @@ function startDailyCountdown() {
                 Date.now();
 
 
-            // -------------------------------------------------
-            // Seguridad adicional.
-            // -------------------------------------------------
+            /*
+             * Seguridad adicional.
+             */
 
             if (
                 remaining <= 0
@@ -800,10 +1107,6 @@ function startDailyCountdown() {
             }
 
 
-            // -------------------------------------------------
-            // Actualizar solamente el contador.
-            // -------------------------------------------------
-
             countdown.textContent =
                 formatRemainingTime(
                     remaining
@@ -812,16 +1115,16 @@ function startDailyCountdown() {
         };
 
 
-    // -------------------------------------------------------
-    // Primera actualización inmediata.
-    // -------------------------------------------------------
+    /*
+     * Primera actualización inmediata.
+     */
 
     updateCountdown();
 
 
-    // -------------------------------------------------------
-    // Actualizar cada segundo.
-    // -------------------------------------------------------
+    /*
+     * Actualizar cada segundo.
+     */
 
     dailyCountdownInterval =
         setInterval(
@@ -839,7 +1142,7 @@ function startDailyCountdown() {
 function stopDailyCountdown() {
 
     if (
-        dailyCountdownInterval
+        dailyCountdownInterval !== null
     ) {
 
         clearInterval(
@@ -877,7 +1180,8 @@ async function handleDailyReward() {
 
     if (button) {
 
-        button.disabled = true;
+        button.disabled =
+            true;
 
         button.textContent =
             "RECLAMANDO...";
@@ -910,11 +1214,15 @@ async function handleDailyReward() {
         }
 
 
-        // El objeto user ya ha sido actualizado
-        // por claimDailyReward().
+        /*
+         * claimDailyReward() ya actualiza:
+         *
+         * currentProfile.tickets
+         * currentProfile.dailyRewardsClaimed
+         * currentProfile.lastDailyReward
+         */
 
-        currentProfile =
-            currentProfile;
+        stopDailyCountdown();
 
 
         updateNews();
