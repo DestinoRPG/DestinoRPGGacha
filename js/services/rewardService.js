@@ -388,24 +388,29 @@ export async function claimDailyReward(user) {
     );
 
 
-    // =====================================================
-    // Actualizar usuario local
-    // =====================================================
+// =====================================================
+// Actualizar usuario local
+// =====================================================
 
-    user.tickets =
-        tickets;
+user.tickets =
+    tickets;
 
-    user.dailyRewardsClaimed =
-        dailyRewardsClaimed;
+user.dailyRewardsClaimed =
+    dailyRewardsClaimed;
 
+// =====================================================
+// Actualizar también la fecha local.
+//
+// Firestore guardará el timestamp real mediante
+// serverTimestamp(), pero para la interfaz necesitamos
+// saber inmediatamente que la recompensa ya fue reclamada.
+//
+// No afecta a la seguridad ni al valor almacenado:
+// simplemente mantiene sincronizada la interfaz local.
+// =====================================================
 
-    // No ponemos Date.now() aquí.
-    //
-    // Firestore será quien proporcione el timestamp real
-    // del servidor.
-    //
-    // El usuario se actualizará con el valor real cuando
-    // se vuelva a cargar/observar el documento.
+user.lastDailyReward =
+    Date.now();
 
 
     return {
@@ -415,6 +420,7 @@ export async function claimDailyReward(user) {
         tickets: 1
 
     };
+
 
 }
 

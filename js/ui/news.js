@@ -1212,7 +1212,6 @@ async function handleDailyReward() {
 
         }
 
-
         // -------------------------------------------------
         // La recompensa se ha concedido correctamente.
         //
