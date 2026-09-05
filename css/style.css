@@ -2208,48 +2208,74 @@ hr{
 }
 
 
-
 /* =======================================================
-   LOGIN
+   BOTÓN DE INICIO DE SESIÓN
 ======================================================= */
 
 #loginButton{
 
-    display:block;
+    display:flex;
 
-    margin:auto;
+    align-items:center;
+    justify-content:center;
 
-    padding:14px 34px;
+    gap:10px;
 
-    border:none;
+    width:100%;
 
-    border-radius:16px;
+    padding:12px 20px;
 
-    background:var(--blue);
+    border:1px solid #c9a64e;
 
-    color:white;
+    border-radius:12px;
 
-    font-size:15px;
+    background:#091727;
 
-    font-weight:700;
+    color:#e5cc83;
+
+    font-family:inherit;
+
+    font-size:.9rem;
+
+    font-weight:800;
+
+    letter-spacing:1px;
 
     cursor:pointer;
 
-    transition:all var(--transition);
-
     box-shadow:
-        0 8px 18px rgba(0,126,252,.25);
+        0 4px 12px
+        rgba(0,0,0,.25);
 
+    transition:
+        background .2s ease,
+        border-color .2s ease,
+        transform .2s ease,
+        box-shadow .2s ease;
 }
+
 
 #loginButton:hover{
 
-    background:var(--blueHover);
+    background:#10243a;
 
-    transform:translateY(-2px);
+    border-color:#e5cc83;
 
+    transform:translateY(-1px);
+
+    box-shadow:
+        0 6px 16px
+        rgba(0,0,0,.35);
 }
 
+
+#loginButton i{
+
+    color:#e5cc83;
+
+    font-size:1rem;
+
+}
 
 /* =======================================================
    PERFIL
