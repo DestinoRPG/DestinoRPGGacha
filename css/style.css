@@ -350,44 +350,6 @@ hr{
 
 
 /* =======================================================
-   ADORNO SUPERIOR
-======================================================= */
-
-.login-panel-content::after{
-
-    content:"◆";
-
-    position:absolute;
-
-    top:-11px;
-
-    left:50%;
-
-    transform:
-        translateX(-50%);
-
-    width:38px;
-
-    height:20px;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    background:var(--panel);
-
-    color:#c9a64e;
-
-    font-size:.65rem;
-
-    line-height:1;
-
-}
-
-
-/* =======================================================
    ETIQUETA
 ======================================================= */
 
