@@ -89,6 +89,89 @@ if (currentView === "home") {
         );
 
         // =========================
+// Colecciones desplegables
+// =========================
+
+document
+    .querySelectorAll(".collection-header")
+    .forEach(header => {
+
+        const section =
+            header.closest(
+                ".collection-section"
+            );
+
+        const grid =
+            section.querySelector(
+                ".collection-grid"
+            );
+
+        const toggle =
+            header.querySelector(
+                ".collection-toggle"
+            );
+
+
+        const toggleCollection =
+            () => {
+
+                const isOpen =
+                    section.classList.contains(
+                        "open"
+                    );
+
+
+                section.classList.toggle(
+                    "open",
+                    !isOpen
+                );
+
+
+                header.setAttribute(
+                    "aria-expanded",
+                    String(!isOpen)
+                );
+
+
+                if (toggle) {
+
+                    toggle.innerHTML =
+                        !isOpen
+                            ? `<i class="fa-solid fa-chevron-up"></i>`
+                            : `<i class="fa-solid fa-chevron-down"></i>`;
+
+                }
+
+            };
+
+
+        header.addEventListener(
+            "click",
+            toggleCollection
+        );
+
+
+        header.addEventListener(
+            "keydown",
+            event => {
+
+                if (
+                    event.key === "Enter" ||
+                    event.key === " "
+                ) {
+
+                    event.preventDefault();
+
+                    toggleCollection();
+
+                }
+
+            }
+        );
+
+    });
+
+        // =========================
         // Botones del índice
         // =========================
 

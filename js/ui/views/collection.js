@@ -150,46 +150,60 @@ export function renderCollectionView(
 
             >
 
-                <div class="collection-header">
+<div
+    class="collection-header"
+    role="button"
+    tabindex="0"
+    aria-expanded="false"
+    data-collection="${collection.id}"
+>
 
-                    <div>
+    <div>
 
-                        <h2 class="collection-title">
+        <h2 class="collection-title">
 
-                            ${collection.icon}
-                            ${collection.name}
+            ${collection.icon}
+            ${collection.name}
 
-                        </h2>
+        </h2>
 
-                        <p class="collection-subtitle">
+        <p class="collection-subtitle">
 
-                            ${
-                                completed
-                                    ? "✦ Colección completada · "
-                                    : ""
-                            }
+            ${
+                completed
+                    ? "✦ Colección completada · "
+                    : ""
+            }
 
-                            ${owned}
-                            de
-                            ${total}
-                            cartas descubiertas
+            ${owned}
+            de
+            ${total}
+            cartas descubiertas
 
-                        </p>
+        </p>
 
-                    </div>
+    </div>
 
 
-                    <div class="collection-counter">
+    <div class="collection-counter">
 
-                        ${
-                            completed
-                                ? "✦"
-                                : `${percentage}%`
-                        }
+        ${
+            completed
+                ? "✦"
+                : `${percentage}%`
+        }
 
-                    </div>
+    </div>
 
-                </div>
+
+    <span class="collection-toggle">
+
+        <i class="fa-solid fa-chevron-down"></i>
+
+    </span>
+
+</div>
+
 
 
                 <div class="collection-grid">

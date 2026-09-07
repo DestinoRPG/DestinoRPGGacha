@@ -4588,6 +4588,108 @@ DESACTIVADO
 }
 
 /* =======================================================
+   COLECCIONES DESPLEGABLES
+======================================================= */
+
+.collection-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0,1fr));
+
+    gap:24px;
+
+    max-height:0;
+
+    overflow:hidden;
+
+    opacity:0;
+
+    padding-top:0;
+    padding-bottom:0;
+
+    transition:
+        max-height .4s ease,
+        opacity .25s ease,
+        padding .4s ease;
+
+}
+
+
+/* =======================================================
+   COLECCIÓN ABIERTA
+======================================================= */
+
+.collection-section.open
+.collection-grid{
+
+    max-height:10000px;
+
+    opacity:1;
+
+    padding-top:24px;
+    padding-bottom:24px;
+
+}
+
+
+/* =======================================================
+   CABECERA
+======================================================= */
+
+.collection-header{
+
+    cursor:pointer;
+
+    user-select:none;
+
+}
+
+
+/* =======================================================
+   INDICADOR
+======================================================= */
+
+.collection-toggle{
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    width:34px;
+    height:34px;
+
+    flex-shrink:0;
+
+    color:#e5cc83;
+
+    font-size:.85rem;
+
+    transition:
+        transform .25s ease,
+        color .2s ease;
+
+}
+
+
+.collection-header:hover
+.collection-toggle{
+
+    color:#ffffff;
+
+}
+
+
+.collection-section.open
+.collection-toggle{
+
+    transform:rotate(0deg);
+
+}
+
+/* =======================================================
    CARTAS
 ======================================================= */
 
