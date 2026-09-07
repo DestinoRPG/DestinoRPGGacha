@@ -1231,6 +1231,16 @@ async function handleDailyReward() {
 
         updateNews();
 
+const ticketValue =
+    document.querySelector(".ticket-value");
+
+if (ticketValue) {
+
+    ticketValue.textContent =
+        currentProfile.tickets ?? 0;
+
+}
+
     }
 
     catch (error) {
