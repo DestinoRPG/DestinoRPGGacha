@@ -2423,9 +2423,29 @@
     ],
         "enabled": true
     },
+                                                                            {
+        "id": "retro",
+        "number": 36,
+        "title": "RetroSoulsBorne",
+        "collection": "contributors",
+        "image": "images/cards/retro.webp",
+        "Arte": [
+        {
+            "title": "RetroSoulsBorne",
+            "url": "https://www.retrosoulsborne.nl/"
+        }
+    ],  
+        "articles": [
+        {
+            "title": "Su primer artículo",
+            "url": "https://www.destinorpg.es/2026/09/el-funcionamiento-de-la-pila-en-los.html"
+        }
+    ],
+        "enabled": true
+    },
                                                                                                 {
         "id": "saifogeo",
-        "number": 36,
+        "number": 37,
         "title": "Saifogeo",
         "collection": "contributors",
         "image": "images/cards/saifogeo.webp",
@@ -2453,7 +2473,7 @@
     },
                                                                                                     {
         "id": "salika",
-        "number": 37,
+        "number": 38,
         "title": "Salika",
         "collection": "contributors",
         "image": "images/cards/salika.webp",
@@ -2477,7 +2497,7 @@
     },
                                                                         {
         "id": "sarai",
-        "number": 38,
+        "number": 39,
         "title": "Sarai",
         "collection": "contributors",
         "image": "images/cards/sarai.webp",
@@ -2497,7 +2517,7 @@
     },
                                                                                                     {
         "id": "sebas",
-        "number": 39,
+        "number": 40,
         "title": "Sebastián Codocedo",
         "collection": "contributors",
         "image": "images/cards/sebas.webp",
@@ -2525,7 +2545,7 @@
     },
                                                                                                         {
         "id": "shafla",
-        "number": 40,
+        "number": 41,
         "title": "Shafla of Hope",
         "collection": "contributors",
         "image": "images/cards/shafla.webp",
@@ -2553,7 +2573,7 @@
     },
                                                                                                             {
         "id": "sergio",
-        "number": 41,
+        "number": 42,
         "title": "Sergio Hidalgo",
         "collection": "contributors",
         "image": "images/cards/sergio.webp",
@@ -2581,7 +2601,7 @@
     },
                                                                                                                 {
         "id": "dekar",
-        "number": 42,
+        "number": 43,
         "title": "Sir Dekar",
         "collection": "contributors",
         "image": "images/cards/dekar.webp",
@@ -2605,7 +2625,7 @@
     },
                                                                                                                 {
         "id": "skaidus",
-        "number": 43,
+        "number": 44,
         "title": "Skaidus",
         "collection": "contributors",
         "image": "images/cards/skaidus.webp",
@@ -2633,7 +2653,7 @@
     },
                                                                                                                     {
         "id": "sokomizer",
-        "number": 44,
+        "number": 45,
         "title": "Sokomizer",
         "collection": "contributors",
         "image": "images/cards/sokomizer.webp",
@@ -2661,7 +2681,7 @@
     },
                                                                                                                         {
         "id": "wander",
-        "number": 45,
+        "number": 46,
         "title": "Wander",
         "collection": "contributors",
         "image": "images/cards/wander.webp",
@@ -2689,7 +2709,7 @@
     },
                                                                                                                             {
         "id": "waxy",
-        "number": 46,
+        "number": 47,
         "title": "Waxy",
         "collection": "contributors",
         "image": "images/cards/waxy.webp",
@@ -2717,7 +2737,7 @@
     },
                                                                                                                                 {
         "id": "zero",
-        "number": 47,
+        "number": 48,
         "title": "Zero Wolf",
         "collection": "contributors",
         "image": "images/cards/zero.webp",
@@ -2745,7 +2765,7 @@
     },
                                                                                                                                     {
         "id": "zeromus",
-        "number": 48,
+        "number": 49,
         "title": "Zeromus",
         "collection": "contributors",
         "image": "images/cards/zeromus.webp",
@@ -2773,7 +2793,7 @@
     },
                                                                             {
         "id": "zoanir",
-        "number": 49,
+        "number": 50,
         "title": "zoanir",
         "collection": "contributors",
         "image": "images/cards/zoanir.webp",
