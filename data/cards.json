@@ -3081,6 +3081,111 @@
     ],
         "enabled": true
     },
+                                                    {
+        "id": "uranium",
+        "number": 19,
+        "title": "La partida de Pokémon Uranium",
+        "collection": "chronicles",
+        "image": "images/cards/uranium.webp",
+        "releaseYear": 2015,
+        "articles": [
+        {
+            "title": "La partida (incompleta) a este hackrom fue muy especial",
+            "url": "https://www.destinorpg.es/search/label/Uranium?&max-results=8"
+        }
+    ],
+        "enabled": true
+    },
+                                                        {
+        "id": "y2k",
+        "number": 20,
+        "title": "Nuestra primera preview oficial",
+        "collection": "chronicles",
+        "image": "images/cards/y2k.webp",
+        "releaseYear": 2015,
+        "articles": [
+        {
+            "title": "A YIIK lo probamos desde su alfa",
+            "url": "https://www.destinorpg.es/search/label/YIIK?&max-results=8"
+        }
+    ],
+        "enabled": true
+    },
+                                                            {
+        "id": "vajffta",
+        "number": 21,
+        "title": "El clan de Final Fantasy Tactics Advance",
+        "collection": "chronicles",
+        "image": "images/cards/vajffta.webp",
+        "releaseYear": 2015,
+        "articles": [
+        {
+            "title": "Una partida en conjunto inolvidable",
+            "url": "https://www.destinorpg.es/2015/03/destino-rpg-jugara-conjuntamente-final.html"
+        }
+    ],
+        "enabled": true
+    },
+                                                                {
+        "id": "mezcla",
+        "number": 22,
+        "title": "Mezcla Visionaria",
+        "collection": "chronicles",
+        "image": "images/cards/mezcla.webp",
+        "releaseYear": 2015,
+        "articles": [
+        {
+            "title": "Nuestro podcast",
+            "url": "https://www.destinorpg.es/search/label/Podcast?&max-results=8"
+        }
+    ],
+        "enabled": true
+    },
+                                                                    {
+        "id": "historia",
+        "number": 23,
+        "title": "El repaso a la historia de las consolas",
+        "collection": "chronicles",
+        "image": "images/cards/historia.webp",
+        "releaseYear": 2015,
+        "articles": [
+        {
+            "title": "Desde el inicio del género",
+            "url": "https://www.destinorpg.es/search/label/Historia%20de%20los%20videojuegos?&max-results=8"
+        }
+    ],
+        "enabled": true
+    },
+                                                                        {
+        "id": "hype",
+        "number": 24,
+        "title": "Planet Hype",
+        "collection": "chronicles",
+        "image": "images/cards/hype.webp",
+        "releaseYear": 2015,
+        "articles": [
+        {
+            "title": "El resultado colaborativo de unir nuestras listas de RPGs más esperados",
+            "url": "https://www.destinorpg.es/search/label/Historia%20de%20los%20videojuegos?&max-results=8"
+        }
+    ],
+        "enabled": true
+    },
+                                                                            {
+        "id": "sdlf",
+        "number": 25,
+        "title": "Salón de la Fama",
+        "collection": "chronicles",
+        "image": "images/cards/sdlf.webp",
+        "releaseYear": 2015,
+        "articles": [
+        {
+            "title": "Los mejores RPGs de la historia",
+            "url": "https://www.destinorpg.es/2022/03/el-nuevo-salon-de-la-fama-de-destino.html"
+        }
+    ],
+        "enabled": true
+    },
                                                 {
         "id": "guerra",
         "number": 21,
