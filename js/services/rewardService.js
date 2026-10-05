@@ -26,7 +26,7 @@ const EVENT_REWARDS = {
     },
 
     anniversary_15: {
-        tickets: 3,
+        tickets: 5,
         cardId: "15aniversario"
     },
 

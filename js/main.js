@@ -948,6 +948,111 @@ await claimEventReward(
 
                 }
 
+                                else if (
+                    params.reward ===
+                    "anniversary15"
+                ) {
+
+
+                    const result =
+                        await claimEventReward(
+                            profile,
+                            "anniversary_15"
+                        );
+
+
+                    if (
+                        result.success
+                    ) {
+
+
+                        document
+                            .getElementById("resultArea")
+                            .innerHTML = `
+
+                                <h2>
+
+                                    🎉 ¡Recompensa del
+                                    15.º aniversario!
+
+                                </h2>
+
+                                <p>
+
+                                    Has recibido una
+                                    <strong>carta especial</strong>
+                                    y
+                                    <strong>5 tickets</strong>.
+
+                                </p>
+
+                            `;
+
+                    }
+
+
+                    else if (
+                        result.reason ===
+                        "ALREADY_CLAIMED"
+                    ) {
+
+
+                        document
+                            .getElementById("resultArea")
+                            .innerHTML = `
+
+                                <h2>
+
+                                    ℹ️ Recompensa del
+                                    15.º aniversario
+
+                                </h2>
+
+                                <p>
+
+                                    Ya habías reclamado
+                                    esta recompensa.
+
+                                </p>
+
+                            `;
+
+                    }
+
+
+                    else {
+
+
+                        document
+                            .getElementById("resultArea")
+                            .innerHTML = `
+
+                                <h2>
+
+                                    ❌ Error
+
+                                </h2>
+
+                                <p>
+
+                                    No se pudo reclamar
+                                    la recompensa.
+
+                                </p>
+
+                            `;
+
+                    }
+
+
+                    await drawCurrentView();
+
+
+                    clearUrlParams();
+
+                }
+
+
 
             }
 
@@ -955,4 +1060,5 @@ await claimEventReward(
 
     }
 
+    
 );
