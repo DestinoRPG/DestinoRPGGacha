@@ -1035,7 +1035,7 @@ await claimEventReward(
 
                                 <p>
 
-                                    No se pudo reclamarr
+                                    No se pudo reclamar
                                     la recompensa.
 
                                 </p>
