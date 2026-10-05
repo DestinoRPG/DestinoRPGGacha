@@ -1,4 +1,6 @@
-import { serverTimestamp } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
+import {
+    serverTimestamp
+} from "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
 
 import {
     getDocument,
@@ -11,20 +13,20 @@ import {
     getCardsByCollection
 } from "./cardService.js";
 
-import { COLLECTIONS } from "../data/collections.js";
+import {
+    COLLECTIONS
+} from "../data/collections.js";
 
 
-export async function createOrLoadUser(firebaseUser) {
-
-    console.log("1️⃣ Antes de leer usuario");
+export async function createOrLoadUser(
+    firebaseUser
+) {
 
     let user =
         await getDocument(
             "users",
             firebaseUser.uid
         );
-
-    console.log("2️⃣ Usuario leído:", user);
 
 
     if (!user) {
@@ -63,43 +65,43 @@ export async function createOrLoadUser(firebaseUser) {
 
     }
 
-else {
-console.log("3️⃣ Antes de actualizar lastLogin");
-    await updateDocument(
-        "users",
-        firebaseUser.uid,
-        {
-            lastLogin: serverTimestamp()
-        }
-    );
-console.log("4️⃣ lastLogin actualizado");
-console.log("5️⃣ Antes de volver a leer usuario");
-    user =
-        await getDocument(
+    else {
+
+        await updateDocument(
             "users",
-            firebaseUser.uid
+            firebaseUser.uid,
+            {
+                lastLogin: serverTimestamp()
+            }
         );
-console.log("6️⃣ Usuario vuelto a leer:", user);
-
-    user.claimedRewards ??= {};
-    user.lastDailyReward ??= null;
-    user.ownedCards ??= [];
-    user.tickets ??= 0;
-
-    user.totalSummons ??= 0;
-    user.cardsObtained ??= 0;
-    user.dailyRewardsClaimed ??= 0;
-    user.articleRewardsClaimed ??= 0;
-
-}
 
 
-// await checkCollectionCompletionRewards(
-//     user
-// );
+        user =
+            await getDocument(
+                "users",
+                firebaseUser.uid
+            );
 
 
-return user;
+        user.claimedRewards ??= {};
+        user.lastDailyReward ??= null;
+        user.ownedCards ??= [];
+        user.tickets ??= 0;
+
+        user.totalSummons ??= 0;
+        user.cardsObtained ??= 0;
+        user.dailyRewardsClaimed ??= 0;
+        user.articleRewardsClaimed ??= 0;
+
+    }
+
+
+    // await checkCollectionCompletionRewards(
+    //     user
+    // );
+
+
+    return user;
 
 }
 
@@ -116,7 +118,6 @@ export async function updateUser(
     );
 
 }
-
 
 /**
  * Comprueba todas las colecciones que tienen
