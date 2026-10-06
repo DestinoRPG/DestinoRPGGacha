@@ -816,7 +816,106 @@ await claimEventReward(
                     clearUrlParams();
 
                 }
+                else if (
+                    params.reward ===
+                    "gachaLaunch"
+                ) {
 
+                    const result =
+                        await claimEventReward(
+                            profile,
+                            "gacha_launch"
+                        );
+
+
+                    if (
+                        result.success
+                    ) {
+
+                        document
+                            .getElementById("resultArea")
+                            .innerHTML = `
+
+                                <h2>
+
+                                    🎉 ¡Recompensa del
+                                    lanzamiento del Gacha!
+
+                                </h2>
+
+                                <p>
+
+                                    Como Pionero del Gacha,
+                                    has recibido la
+                                    <strong>carta especial Gacha Launch</strong>
+                                    y
+                                    <strong>5 tickets</strong>.
+
+                                </p>
+
+                            `;
+
+                    }
+
+
+                    else if (
+                        result.reason ===
+                        "ALREADY_CLAIMED"
+                    ) {
+
+                        document
+                            .getElementById("resultArea")
+                            .innerHTML = `
+
+                                <h2>
+
+                                    ℹ️ Recompensa del
+                                    lanzamiento del Gacha
+
+                                </h2>
+
+                                <p>
+
+                                    Ya habías reclamado
+                                    esta recompensa.
+
+                                </p>
+
+                            `;
+
+                    }
+
+
+                    else {
+
+                        document
+                            .getElementById("resultArea")
+                            .innerHTML = `
+
+                                <h2>
+
+                                    ❌ Error
+
+                                </h2>
+
+                                <p>
+
+                                    No se pudo reclamar
+                                    la recompensa.
+
+                                </p>
+
+                            `;
+
+                    }
+
+
+                    await drawCurrentView();
+
+
+                    clearUrlParams();
+
+                }
 
                 else if (
                     hasPendingReward()

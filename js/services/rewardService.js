@@ -34,7 +34,6 @@ const EVENT_REWARDS = {
         tickets: 5,
         cardId: "gacha_launch"
     }
-/** */    
 
 };
 
