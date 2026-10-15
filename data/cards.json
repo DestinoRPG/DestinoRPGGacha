@@ -3186,9 +3186,99 @@
     ],
         "enabled": true
     },
-                                                {
+                                                    {
+        "id": "sespain",
+        "number": 26,
+        "title": "Las polémicas de Square Enix con España",
+        "collection": "chronicles",
+        "image": "images/cards/sespain.webp",
+        "releaseYear": 2016,
+        "articles": [
+        {
+            "title": "El año empezó con varias polémicas",
+            "url": "https://www.destinorpg.es/2016/01/square-enix-y-su-lista-de-desencuentros.html"
+        }
+    ],
+        "enabled": true
+    },
+                                                        {
+        "id": "fonts",
+        "number": 27,
+        "title": "Sobre las fonts minúsculas",
+        "collection": "chronicles",
+        "image": "images/cards/fonts.webp",
+        "releaseYear": 2016,
+        "articles": [
+        {
+            "title": "Y sigue pasando hoy en día de vez en cuando",
+            "url": "https://www.destinorpg.es/2016/01/que-demonios-pasa-con-el-tamano-de-las.html"
+        }
+    ],
+        "enabled": true
+    },
+                                                            {
+        "id": "undertalefinales",
+        "number": 28,
+        "title": "La guía de los finales de Undertale",
+        "collection": "chronicles",
+        "image": "images/cards/undertalefinales.webp",
+        "releaseYear": 2016,
+        "articles": [
+        {
+            "title": "Fue uno de los juegos del 2015, pero en 2016 ya era un gigante",
+            "url": "https://www.destinorpg.es/2016/03/undertale-como-acceder-las-diferentes.html"
+        }
+    ],
+        "enabled": true
+    },
+                                                                {
+        "id": "bravelysecond",
+        "number": 29,
+        "title": "La guía de Bravely Second",
+        "collection": "chronicles",
+        "image": "images/cards/bravelysecond.webp",
+        "releaseYear": 2016,
+        "articles": [
+        {
+            "title": "No tuvo el impacto de la original, pero sí miles de visitas",
+            "url": "https://www.destinorpg.es/2016/02/guia-de-bravely-second.html"
+        }
+    ],
+        "enabled": true
+    },
+                                                                    {
+        "id": "ffpsx",
+        "number": 30,
+        "title": "El lenguaje de los Final Fantasy de PS",
+        "collection": "chronicles",
+        "image": "images/cards/ffpsx.webp",
+        "releaseYear": 2016,
+        "articles": [
+        {
+            "title": "Bastante comentado incluso fuera de Destino RPG",
+            "url": "https://www.destinorpg.es/2016/04/opinion-el-lenguaje-de-los-final.html"
+        }
+    ],
+        "enabled": true
+    },
+                                                                        {
+        "id": "tweet",
+        "number": 31,
+        "title": "Tweet Time",
+        "collection": "chronicles",
+        "image": "images/cards/tweet.webp",
+        "releaseYear": 2016,
+        "articles": [
+        {
+            "title": "Una sección entera para compartir Twitter. Buenos tiempos",
+            "url": "https://www.destinorpg.es/search/label/Tweet%20Time?&max-results=8"
+        }
+    ],
+        "enabled": true
+    },
+                                                    {
         "id": "guerra",
-        "number": 21,
+        "number": 32,
         "title": "Las Guerras Destinadas",
         "collection": "chronicles",
         "image": "images/cards/guerra.webp",
@@ -3199,7 +3289,127 @@
             "url": "https://x.com/BaschGT/status/764471333107425280?s=20"
         }
     ],
-        "enabled": false
+        "enabled": true
+    },
+                                                                            {
+        "id": "ffxvinfierno",
+        "number": 33,
+        "title": "El infierno por el que pasó Final Fantasy XV",
+        "collection": "chronicles",
+        "image": "images/cards/ffxvinfierno.webp",
+        "releaseYear": 2016,
+        "articles": [
+        {
+            "title": "Uno de los muchos artículos que escribimos sobre el esperadísimo juego",
+            "url": "https://www.destinorpg.es/2016/09/el-tortuoso-desarrollo-de-final-fantasy.html"
+        }
+    ],
+        "enabled": true
+    },
+                                                                                {
+        "id": "furyu",
+        "number": 34,
+        "title": "FuRyu, siempre igual",
+        "collection": "chronicles",
+        "image": "images/cards/furyu.webp",
+        "releaseYear": 2016,
+        "articles": [
+        {
+            "title": "El primero de los muchos monográficos sobre FuRyu donde les calamos completamentes",
+            "url": "https://www.destinorpg.es/2016/10/furyu-y-sus-buenas-ideas-que-no-cuajan.html"
+        }
+    ],
+        "enabled": true
+    },
+                                                                                    {
+        "id": "cambiodiseño",
+        "number": 35,
+        "title": "It's black, it's white~",
+        "collection": "chronicles",
+        "image": "images/cards/cambiodiseño.webp",
+        "releaseYear": 2016,
+        "articles": [
+        {
+            "title": "Nuestro primer gran cambio de diseño donde adoptamos el blanco",
+            "url": "https://www.destinorpg.es/2016/10/descubre-las-novedades-del-nuevo.html"
+        }
+    ],
+        "enabled": true
+    },
+                                                                                        {
+        "id": "drpggolden",
+        "number": 36,
+        "title": "Destino RPG Golden",
+        "collection": "chronicles",
+        "image": "images/cards/drpggolden.webp",
+        "releaseYear": 2016,
+        "articles": [
+        {
+            "title": "Una guía para leer los artículos más importantes de la página",
+            "url": "https://www.destinorpg.es/2016/10/destino-rpg-golden-las-entradas-mas.html"
+        }
+    ],
+        "enabled": true
+    },
+                                                                                            {
+        "id": "fftcg",
+        "number": 37,
+        "title": "Destino RPG Golden",
+        "collection": "chronicles",
+        "image": "images/cards/fftcg.webp",
+        "releaseYear": 2016,
+        "articles": [
+        {
+            "title": "Nos tomamos en serio el apoyo a los inicios del juego de cartas de Final Fantasy",
+            "url": "https://www.destinorpg.es/search/label/Final%20Fantasy%20TCG?&max-results=8"
+        }
+    ],
+        "enabled": true
+    },
+                                                                                                {
+        "id": "tyranny",
+        "number": 38,
+        "title": "Nuestro primer análisis oficial",
+        "collection": "chronicles",
+        "image": "images/cards/tyranny.webp",
+        "releaseYear": 2016,
+        "articles": [
+        {
+            "title": "Tyranny fue el primer caso donde recibimos una copia antes de su lanzamiento",
+            "url": "https://www.destinorpg.es/2016/11/analisis-tyranny.html"
+        }
+    ],
+        "enabled": true
+    },
+                                                                                                    {
+        "id": "pokemonesmeralda",
+        "number": 39,
+        "title": "El VAJ de Pokémon Esmeralda",
+        "collection": "chronicles",
+        "image": "images/cards/pokemonesmeralda.webp",
+        "releaseYear": 2016,
+        "articles": [
+        {
+            "title": "Menos impacto que el de Azul, pero igualmente entretenido",
+            "url": "https://www.destinorpg.es/search/label/Pok%C3%A9mon%20Esmeralda?&max-results=8"
+        }
+    ],
+        "enabled": true
+    },
+                                                                                                        {
+        "id": "rpgs2016",
+        "number": 40,
+        "title": "Los RPGs del 2016",
+        "collection": "chronicles",
+        "image": "images/cards/rpgs2016.webp",
+        "releaseYear": 2016,
+        "articles": [
+        {
+            "title": "Fue un año con un poco de todo",
+            "url": "https://www.destinorpg.es/2016/12/los-favoritos-del-2016-para-destino-rpg.html"
+        }
+    ],
+        "enabled": true
     },
                 {
         "id": "gacha_launch",
