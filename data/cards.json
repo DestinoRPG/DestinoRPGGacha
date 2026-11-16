@@ -3411,6 +3411,156 @@
     ],
         "enabled": true
     },
+                                                                                                            {
+        "id": "yugiohDL",
+        "number": 41,
+        "title": "Yugioh Duel Links",
+        "collection": "chronicles",
+        "image": "images/cards/yugiohDL.webp",
+        "releaseYear": 2017,
+        "articles": [
+        {
+            "title": "La época de Yugioh Duel Links",
+            "url": "https://www.destinorpg.es/search/label/Yugioh%20Duel%20Links?&max-results=8"
+        }
+    ],
+        "enabled": true
+    },
+                                                                                                                {
+        "id": "rpgmuerto",
+        "number": 42,
+        "title": "El RPG ha muerto, larga vida al RPG",
+        "collection": "chronicles",
+        "image": "images/cards/rpgmuerto.webp",
+        "releaseYear": 2017,
+        "articles": [
+        {
+            "title": "Uno de neustros artículos más icónicos",
+            "url": "https://www.destinorpg.es/2017/01/el-rpg-ha-muerto-larga-vida-al-rpg.html"
+        }
+    ],
+        "enabled": true
+    },
+                                                                                                                    {
+        "id": "FFTCGorg",
+        "number": 44,
+        "title": "Colaborando en un torneo",
+        "collection": "chronicles",
+        "image": "images/cards/FFTCGorg.webp",
+        "releaseYear": 2017,
+        "articles": [
+        {
+            "title": "De las pocas veces que hemos traspasado la pantalla",
+            "url": "https://www.destinorpg.es/2017/03/final-fantasy-tcg-asi-fue-nuestro.html"
+        }
+    ],
+        "enabled": true
+    },
+                                                                                                                        {
+        "id": "FEH",
+        "number": 45,
+        "title": "La era Fire Emblem Heroes",
+        "collection": "chronicles",
+        "image": "images/cards/FEH.webp",
+        "releaseYear": 2017,
+        "articles": [
+        {
+            "title": "Le perdimos el interés rápido, eso sí",
+            "url": "https://www.destinorpg.es/2017/02/fire-emblem-heroes-explicacion-de.html"
+        }
+    ],
+        "enabled": true
+    },
+                                                                                                                            {
+        "id": "teslegends",
+        "number": 46,
+        "title": "La era The Elder Scrolls Legends",
+        "collection": "chronicles",
+        "image": "images/cards/teslegends.webp",
+        "releaseYear": 2017,
+        "articles": [
+        {
+            "title": "Hasta Bethesda citaba nuestros artículos",
+            "url": "https://www.destinorpg.es/search/label/TESLegends?&max-results=8"
+        }
+    ],
+        "enabled": true
+    },
+                                                                                                                                {
+        "id": "fftrey",
+        "number": 46,
+        "title": "Nuestro artículo de homenaje a Final Fantasy Tactics",
+        "collection": "chronicles",
+        "image": "images/cards/fftrey.webp",
+        "releaseYear": 2017,
+        "articles": [
+        {
+            "title": "Con muchas citas de otros grandes del estilo",
+            "url": "https://www.destinorpg.es/2017/07/final-fantasy-tactics-20-anos-de-reinado.html"
+        }
+    ],
+        "enabled": true
+    },
+                                                                                                                                    {
+        "id": "vns",
+        "number": 47,
+        "title": "Nuestro artículo sobre Novelas Visuales",
+        "collection": "chronicles",
+        "image": "images/cards/vns.webp",
+        "releaseYear": 2017,
+        "articles": [
+        {
+            "title": "Sigue siendo válido para introduciros a estos juegos",
+            "url": "https://www.destinorpg.es/2017/08/novelas-visuales-introduccion-al-genero.html"
+        }
+    ],
+        "enabled": true
+    },
+                                                                                                                                        {
+        "id": "nierlove",
+        "number": 48,
+        "title": "El flechazo de NieR:Automata",
+        "collection": "chronicles",
+        "image": "images/cards/nierlove.webp",
+        "releaseYear": 2017,
+        "articles": [
+        {
+            "title": "Le dedicamos varios artículos",
+            "url": "https://www.destinorpg.es/2017/03/sobre-por-que-nier-automata-es.html"
+        }
+    ],
+        "enabled": true
+    },
+                                                                                                                                            {
+        "id": "frases",
+        "number": 49,
+        "title": "Las frases épicas de los creativos",
+        "collection": "chronicles",
+        "image": "images/cards/frases.webp",
+        "releaseYear": 2017,
+        "articles": [
+        {
+            "title": "Imposible no incluir a Yoko Taro",
+            "url": "https://www.destinorpg.es/search/label/Frases%20%C3%A9picas?&max-results=8"
+        }
+    ],
+        "enabled": true
+    },
+                                                                                                                                                {
+        "id": "premios",
+        "number": 50,
+        "title": "Los Premios Destino RPG",
+        "collection": "chronicles",
+        "image": "images/cards/premios.webp",
+        "releaseYear": 2017,
+        "articles": [
+        {
+            "title": "Nuestra comunidad elige a los mejores de cada año",
+            "url": "https://www.destinorpg.es/2022/01/premios-destino-rpg-todos-los-ganadores.html"
+        }
+    ],
+        "enabled": true
+    },
                 {
         "id": "gacha_launch",
         "number": 1,
