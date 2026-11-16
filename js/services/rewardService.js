@@ -6,6 +6,14 @@ import {
 } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
 
 
+function notifyProfileUpdated(user) {
+
+    window.dispatchEvent(
+        new CustomEvent("profile:updated", { detail: user })
+    );
+
+}
+
 /**
  * =========================================================
  * RECOMPENSAS DE EVENTOS

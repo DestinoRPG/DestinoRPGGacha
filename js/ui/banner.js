@@ -56,3 +56,25 @@ export function renderBanner(user) {
     `;
 
 }
+
+export function updateSummonButton(user) {
+
+    const button = document.getElementById("summonButton");
+
+    if (!button) return;
+
+    button.disabled = !canSummon(user);
+
+}
+
+window.addEventListener("profile:updated", event => {
+
+    updateSummonButton(event.detail);
+
+    const ticketValue = document.querySelector(".ticket-value");
+
+    if (ticketValue) {
+        ticketValue.textContent = event.detail.tickets ?? 0;
+    }
+
+});
